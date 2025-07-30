@@ -1,7 +1,7 @@
 
 # [ 11:18:10 30/07/2025 ]
 
-<details><summary> <p align="center"><h2>Chi tiết công việc:</h2></p> </summary>
+<details><summary align="center"><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
 
