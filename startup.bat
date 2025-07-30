@@ -11,7 +11,8 @@ set "fullstamp=%HH%:%Min%:%Sec% %DD%/%MM%/%YYYY%"
     echo:
     echo # [ %fullstamp% ]
     echo:
-    echo ^<details^>^<summary^> ^<p align="center"^>^<h2^>Chi tiết công việc:^</h2^>^</p^> ^</summary^>
+    echo ^<details^>
+    echo ^<summary^>^<h2^>Chi tiết công việc:^</h2^> ^</summary^>
     echo:
     echo ### Kết quả hôm nay:
     echo:
@@ -32,6 +33,7 @@ start readme.md
 :: Start auto push
 
 echo:
+echo I will do daily push for you.
 echo Is your internet available, my dear?
 set /p input="(Y/n)"
 
