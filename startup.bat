@@ -29,20 +29,3 @@ if exist readme.md (
 move /Y temp.txt readme.md >nul
 
 start readme.md
-
-:: Start auto push
-
-echo:
-echo I will do daily push for you.
-echo Is your internet available, my dear?
-set /p input="(Y/n)"
-
-if /i "%input%"=="y" (
-    git add .
-    git commit -m "auto push %fullstamp%"
-    git push origin master
-) else (
-    goto :exit
-)
-
-:exit

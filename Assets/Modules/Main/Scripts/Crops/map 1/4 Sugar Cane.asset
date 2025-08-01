@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e1aa77e6464544199c65e3810951c2, type: 3}
+  m_Name: 4 Sugar Cane
+  m_EditorClassIdentifier: 
+  id: 4
+  cropName: "M\xEDa \u0111\u01B0\u1EDDng"
+  productId: 4
+  priceSell: 100
+  stages:
+  - sprite: {fileID: 21300000, guid: e06c6ccea23fcda4b855f1d03150d117, type: 3}
+  - sprite: {fileID: 21300000, guid: 74da63ff3f6d3b8438739ac98633bac5, type: 3}
+  - sprite: {fileID: 21300000, guid: 90b7a35912880d04daaa23a1997d5a5d, type: 3}
+  - sprite: {fileID: 21300000, guid: 740566ba0e220ab4d9418c9f922ea772, type: 3}

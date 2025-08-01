@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e1aa77e6464544199c65e3810951c2, type: 3}
+  m_Name: 1 Corn
+  m_EditorClassIdentifier: 
+  id: 1
+  cropName: "B\u1EAFp"
+  productId: 1
+  priceSell: 100
+  stages:
+  - sprite: {fileID: 21300000, guid: 31878860cb1703542ac7e64e4d791c24, type: 3}
+  - sprite: {fileID: 21300000, guid: e7f7fb838c6460e42a9bafd3ca2167dd, type: 3}
+  - sprite: {fileID: 21300000, guid: 86dd11bd737d1b84ba12bc7224cdba4e, type: 3}
