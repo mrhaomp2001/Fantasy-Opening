@@ -16,7 +16,7 @@ set "fullstamp=%HH%:%Min%:%Sec% %DD%/%MM%/%YYYY%"
     echo:
     echo ### Kết quả hôm nay:
     echo:
-    echo ### Công việc: 
+    echo ### Công việc trong kế hoạch: 
     echo:
     echo ^</details^>
     echo:

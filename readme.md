@@ -6,8 +6,11 @@
 
 ### Kết quả hôm nay:
 - kho đồ của người chơi (hỗ trợ lưu vào prefs)
-### Công việc: 
+### Công việc trong kế hoạch: 
 - hệ thống quái xuất hiện
+- AI của quái
+- người chơi tấn công quái
+- hệ thống trang bị
 </details>
 
 
@@ -20,7 +23,7 @@
 
 - hệ thống trồng cây
 
-### Công việc: 
+### Công việc trong kế hoạch: 
 - hệ thống trồng cây
 - hệ thống quái xuất hiện
 - kho đồ của người chơi
@@ -35,7 +38,7 @@
 ### Kết quả hôm nay:
 - nhân vật player di chuyển (hỗ trợ lưu vào prefs)
 - xử lý input từ chuột
-### Công việc: 
+### Công việc trong kế hoạch: 
 - xử lý input từ chuột
 - nhân vật player di chuyển (hỗ trợ lưu vào prefs)
 - hệ thống trồng cây
@@ -50,7 +53,7 @@
 Hôm nay không có làm gì hết
 ### Kết quả hôm nay:
 
-### Công việc: 
+### Công việc trong kế hoạch: 
 
 </details>
 
