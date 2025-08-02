@@ -14,5 +14,8 @@ public class GameController : MonoBehaviour
         {
             item.OnNextDay();
         }
+
+        InventoryController.Instance.OnSavePrefs();
+
     }
 }

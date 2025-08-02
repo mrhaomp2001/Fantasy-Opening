@@ -25,16 +25,19 @@ public class GameInputController : MonoBehaviour
     [SerializeField] private InputKey up = new();
     [JsonProperty]
     [SerializeField] private InputKey down = new();
+    [JsonProperty]
+    [SerializeField] private InputKey inventory = new();
 
     private List<InputKey> keys;
 
-    private const string PrefKey = "GameInputController";
+    private const string prefKey = "GameInputController";
     public static GameInputController Instance { get => instance; set => instance = value; }
     public InputKey Left { get => left; set => left = value; }
     public InputKey Right { get => right; set => right = value; }
     public InputKey Up { get => up; set => up = value; }
     public List<InputKey> Keys { get => keys; set => keys = value; }
     public InputKey Down { get => down; set => down = value; }
+    public InputKey Inventory { get => inventory; set => inventory = value; }
 
     private void Start()
     {
@@ -85,18 +88,25 @@ public class GameInputController : MonoBehaviour
             name = "down",
         };
 
-        if (PlayerPrefs.HasKey(PrefKey))
+        inventory = new InputKey()
+        {
+            name = "inventory",
+        };
+
+        if (PlayerPrefs.HasKey(prefKey))
         {
             Load();
         }
         else
         {
-            left.keyCode = KeyCode.LeftArrow;/*(KeyCode)276*/
-            right.keyCode = KeyCode.RightArrow;/*(KeyCode)276*/
-            up.keyCode = KeyCode.UpArrow;/*(KeyCode)276*/
-            down.keyCode = KeyCode.DownArrow;/*(KeyCode)276*/
+            left.keyCode = KeyCode.A;/*(KeyCode)276*/
+            right.keyCode = KeyCode.D;/*(KeyCode)276*/
+            up.keyCode = KeyCode.W;/*(KeyCode)276*/
+            down.keyCode = KeyCode.S;/*(KeyCode)276*/
 
-            PlayerPrefs.SetString(PrefKey, ToJson());
+            inventory.keyCode = KeyCode.E;
+
+            PlayerPrefs.SetString(prefKey, ToJson());
             PlayerPrefs.Save();
         }
     }
@@ -143,17 +153,18 @@ public class GameInputController : MonoBehaviour
     {
         //FromJson(PlayerPrefs.GetString(PrefKey));
 
-        JSONNode keyValuePairs = JSON.Parse(PlayerPrefs.GetString(PrefKey));
+        JSONNode keyValuePairs = JSON.Parse(PlayerPrefs.GetString(prefKey));
 
         left.keyCode = (KeyCode)keyValuePairs["left"]["keyCode"].AsInt;
         right.keyCode = (KeyCode)keyValuePairs["right"]["keyCode"].AsInt;
         up.keyCode = (KeyCode)keyValuePairs["up"]["keyCode"].AsInt;
         down.keyCode = (KeyCode)keyValuePairs["down"]["keyCode"].AsInt;
+        inventory.keyCode = (KeyCode)keyValuePairs["inventory"]["keyCode"].AsInt;
     }
 
     public void Save()
     {
-        PlayerPrefs.SetString(PrefKey, ToJson());
+        PlayerPrefs.SetString(prefKey, ToJson());
         PlayerPrefs.Save();
     }
 }

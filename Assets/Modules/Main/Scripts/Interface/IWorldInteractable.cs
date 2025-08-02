@@ -5,7 +5,4 @@ using UnityEngine;
 public interface IWorldInteractable
 {
     void OnWorldInteract();
-    string GetClassName();
-    GameObject GetGameObject();
-
 }

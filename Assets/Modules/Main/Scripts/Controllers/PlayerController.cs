@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F7))
         {
-            PlayerPrefs.DeleteKey("GameInputController");
+            PlayerPrefs.DeleteAll();
         }
 
         Movement();
@@ -44,10 +45,8 @@ public class PlayerController : MonoBehaviour
         {
             if (interactable != null)
             {
-                if (interactable.GetClassName().Equals("Farmland"))
+                if (interactable is Farmland farmland)
                 {
-                    var farmland = interactable.GetGameObject().GetComponent<Farmland>();
-
                     farmland.OnSowSeed(crop1);
                 }
             }
@@ -56,10 +55,9 @@ public class PlayerController : MonoBehaviour
         {
             if (interactable != null)
             {
-                if (interactable.GetClassName().Equals("Farmland"))
+                if (interactable is Farmland farmland)
                 {
-                    var farmland = interactable.GetGameObject().GetComponent<Farmland>();
-
+ 
                     farmland.OnSowSeed(crop2);
                 }
             }
@@ -68,10 +66,8 @@ public class PlayerController : MonoBehaviour
         {
             if (interactable != null)
             {
-                if (interactable.GetClassName().Equals("Farmland"))
+                if (interactable is Farmland farmland)
                 {
-                    var farmland = interactable.GetGameObject().GetComponent<Farmland>();
-
                     farmland.OnSowSeed(crop3);
                 }
             }
@@ -80,24 +76,60 @@ public class PlayerController : MonoBehaviour
         {
             if (interactable != null)
             {
-                if (interactable.GetClassName().Equals("Farmland"))
+                if (interactable is Farmland farmland)
                 {
-                    var farmland = interactable.GetGameObject().GetComponent<Farmland>();
-
                     farmland.OnSowSeed(crop4);
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            InventoryController.Instance.Add(3, 1);
+        }
 
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            InventoryController.Instance.Consume(3, 1, new Callback
+            {
+                onSuccess = () =>
+                {
+                    Debug.Log("success");
+
+                },
+                onFail = (message) =>
+                {
+                    Debug.Log(message);
+                },
+                onNext = () =>
+                {
+                    Debug.Log("next");
+
+                }
+            });
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            InventoryController.Instance.Add(403, 1);
+        }
         if (Input.GetMouseButtonDown(0))
         {
             if (interactable != null)
             {
-                if (interactable.GetClassName().Equals("Farmland"))
+                if (interactable is Farmland)
                 {
                     interactable.OnWorldInteract();
                 }
             }
+        }
+
+        if (Input.GetKeyDown(GameInputController.Instance.Inventory.keyCode))
+        {
+            PopUpInventory.Instance.TurnPopUp();
         }
     }
 
@@ -152,8 +184,6 @@ public class PlayerController : MonoBehaviour
     public void OnEnterWorldInteract(Collider2D other)
     {
         interactable = other.GetComponentInParent<IWorldInteractable>();
-
-
     }
 
     public void OnExitWorldInteract(Collider2D other)
