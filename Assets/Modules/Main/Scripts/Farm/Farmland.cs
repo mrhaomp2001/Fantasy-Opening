@@ -48,9 +48,11 @@ public class Farmland : MonoBehaviour, IWorldInteractable
         {
             if (currentDay >= cropCurrent.Stages.Count - 1)
             {
-                ObjectPooler.Instance.SpawnFromPool("harvest_effect", transform.position, transform.rotation);
+                ObjectPooler.Instance.SpawnFromPool("harvest_effect", transform.position, Quaternion.identity);
 
-                InventoryController.Instance.Add(cropCurrent.ProductId, 1);
+                //InventoryController.Instance.Add(cropCurrent.ProductId, 1);
+
+                WorldItemController.Instance.SpawnItem(cropCurrent.ProductId, transform.position);
 
                 cropCurrent = null;
 

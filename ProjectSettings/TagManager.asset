@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Farmland
+  - WorldItem
+  - Enemy
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

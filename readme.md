@@ -1,3 +1,19 @@
+# [ 09:30:11 03/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- hệ thống quái xuất hiện
+- người chơi tấn công quái
+- hệ thống rớt đồ ra thế giới
+### Công việc trong kế hoạch: 
+- hệ thống quái xuất hiện
+- AI của quái
+- người chơi tấn công quái
+- hệ thống trang bị
+- hệ thống rớt đồ ra thế giới
+</details>
 
 # [ 08:15:26 02/08/2025 ]
 

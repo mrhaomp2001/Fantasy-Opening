@@ -1,3 +1,4 @@
+using GameUtil;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,15 +8,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private static PlayerController instance;
+
     [SerializeField] private float speed;
 
     [SerializeField] private Rigidbody2D rbPlayer;
 
-    [Header("Fire Point:")]
+    [Header("Fire Point: ")]
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Transform firepoint;
     [SerializeField] private Transform firepointHitbox;
-
+    [Header("Attack: ")]
+    [SerializeField] private bool isFiring;
+    [SerializeField] private float attackCooldown;
+    private bool canAttack;
+    private Timer timerAttack;
     [Header("Interact: ")]
     [SerializeField] private IWorldInteractable interactable;
     [Header("Test: ")]
@@ -25,6 +32,22 @@ public class PlayerController : MonoBehaviour
 
 
     private Vector2 movementSpeed;
+
+    public static PlayerController Instance { get => instance; set => instance = value; }
+
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        canAttack = true;
+    }
 
     private void Update()
     {
@@ -57,7 +80,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (interactable is Farmland farmland)
                 {
- 
+
                     farmland.OnSowSeed(crop2);
                 }
             }
@@ -116,14 +139,28 @@ public class PlayerController : MonoBehaviour
         {
             InventoryController.Instance.Add(403, 1);
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isFiring = !isFiring;
+        }
         if (Input.GetMouseButtonDown(0))
         {
+
             if (interactable != null)
             {
                 if (interactable is Farmland)
                 {
                     interactable.OnWorldInteract();
                 }
+            }
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            if (isFiring)
+            {
+                Attack();
             }
         }
 
@@ -180,6 +217,23 @@ public class PlayerController : MonoBehaviour
         rbPlayer.velocity = movementSpeed * speed;
     }
 
+    public void Attack()
+    {
+        if (canAttack)
+        {
+            //AudioController.Instance.Play("player_attack");
+
+            canAttack = false;
+            timerAttack = Timer.DelayAction(attackCooldown, () =>
+            {
+                canAttack = true;
+            });
+
+            ObjectPooler.Instance.SpawnFromPool("player_bullet", transform.position, firepointHitbox.rotation);
+        }
+    }
+
+
     // Interact
     public void OnEnterWorldInteract(Collider2D other)
     {
@@ -189,5 +243,13 @@ public class PlayerController : MonoBehaviour
     public void OnExitWorldInteract(Collider2D other)
     {
         interactable = null;
+    }
+
+    // World Item
+
+    public void OnEnterWorldItem(Collider2D other)
+    {
+        var item = other.GetComponentInParent<WorldItem>();
+        item.OnPlayerTouch();
     }
 }
