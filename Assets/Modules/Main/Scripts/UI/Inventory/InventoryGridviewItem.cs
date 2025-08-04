@@ -6,11 +6,22 @@ using UnityEngine.UI;
 
 public class InventoryGridviewItem : MonoBehaviour
 {
+    private InventoryController.InventoryItem item;
     [SerializeField] private TextMeshProUGUI textItemCount;
     [SerializeField] private Image imageItem;
-    public void UpdateViews(string count, Sprite spriteItem)
+    public void UpdateViews(InventoryController.InventoryItem valueItem)
     {
-        textItemCount.text = count;
-        imageItem.sprite = spriteItem;
+        item = valueItem;
+
+        textItemCount.text = valueItem.count.ToString();
+        imageItem.sprite = valueItem.item.Sprite;
+    }
+
+    public void OnClick()
+    {
+        if (item.item is ItemBase weapon)
+        {
+            PopUpInventory.Instance.EquipWeapon(weapon);
+        }
     }
 }

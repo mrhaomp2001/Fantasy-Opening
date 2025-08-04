@@ -9,6 +9,8 @@ public class PopUpInventory : PopUp
     [Header("PopUpInventory: ")]
     [SerializeField] private GameObject prefabInventoryItem;
     [SerializeField] private RectTransform contentInventory;
+    [Header("--: ")]
+    [SerializeField] private InventoryWeaponSlot weaponSlot;
 
     public static PopUpInventory Instance { get => instance; set => instance = value; }
 
@@ -26,20 +28,74 @@ public class PopUpInventory : PopUp
 
     public void TurnPopUp()
     {
+        if (!container.gameObject.activeSelf)
+        {
+            UpdateViews();
+        }
+
+        base.Turn();
+    }
+
+    private void UpdateViews()
+    {
         foreach (Transform item in contentInventory.transform)
         {
             Destroy(item.gameObject);
         }
 
-        foreach (var item in InventoryController.Instance.Items)
+        foreach (var item in InventoryController.Instance.GetPlayerData.Items)
         {
             var targetObject = Instantiate(prefabInventoryItem, contentInventory.transform);
 
             var gridviewItem = targetObject.GetComponent<InventoryGridviewItem>();
 
-            gridviewItem.UpdateViews(item.count.ToString(), item.item.Sprite);
+            gridviewItem.UpdateViews(item);
         }
 
-        base.Turn();
+        weaponSlot.UpdateViews();
+    }
+
+    public void EquipWeapon(ItemBase weapon)
+    {
+        if (InventoryController.Instance.ItemWeapon != null)
+        {
+            UnequipWeapon();
+        }
+
+        InventoryController.Instance.Consume(weapon.Id, 1, new Callback
+        {
+            onSuccess = () =>
+            {
+                InventoryController.Instance.ItemWeapon = weapon;
+
+                weaponSlot.UpdateViews();
+                UpdateViews();
+
+            },
+            onFail = (message) =>
+            {
+
+            },
+            onNext = () =>
+            {
+
+            }
+        });
+    }
+
+    public void UnequipWeapon()
+    {
+        Debug.Log("UnequipWeapon");
+        if (InventoryController.Instance.ItemWeapon == null)
+        {
+            return;
+        }
+
+        InventoryController.Instance.Add(InventoryController.Instance.ItemWeapon.Id, 1);
+
+        InventoryController.Instance.ItemWeapon = null;
+
+        weaponSlot.UpdateViews();
+        UpdateViews();
     }
 }

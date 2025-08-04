@@ -13,15 +13,28 @@ public class InventoryController : MonoBehaviour
         public int count;
         [JsonIgnore] public ItemBase item;
     }
+    [JsonObject(MemberSerialization.OptIn), System.Serializable]
+    public class PlayerData
+    {
+        [JsonProperty][SerializeField] private int weaponId;
+        [JsonProperty][SerializeField] private List<InventoryItem> items = new();
+
+        public int WeaponId { get => weaponId; set => weaponId = value; }
+        public List<InventoryItem> Items { get => items; set => items = value; }
+    }
 
     private static InventoryController instance;
     private const string prefKey = "InventoryController";
 
     [SerializeField] private int money;
-    [SerializeField] private List<InventoryItem> items;
+    [SerializeField] private PlayerData playerData;
+
+
+    [Header("Equipments: ")]
+    [SerializeField] private ItemBase itemWeapon;
+    public ItemBase ItemWeapon { get => itemWeapon; set => itemWeapon = value; }
 
     public static InventoryController Instance { get => instance; set => instance = value; }
-    public List<InventoryItem> Items { get => items; set => items = value; }
     public int Money
     {
         get => money; set
@@ -29,6 +42,8 @@ public class InventoryController : MonoBehaviour
             money = value;
         }
     }
+
+    public PlayerData GetPlayerData { get => playerData; set => playerData = value; }
 
     private void Awake()
     {
@@ -44,13 +59,14 @@ public class InventoryController : MonoBehaviour
 
     private void Start()
     {
+        playerData = new PlayerData();
+
         OnLoadPrefs();
-        OnSavePrefs();
     }
 
     public void Consume(int id, int count, Callback callback)
     {
-        InventoryItem item = items.Where((item) => { return item.item.Id == id; }).FirstOrDefault();
+        InventoryItem item = playerData.Items.Where((item) => { return item.item.Id == id; }).FirstOrDefault();
 
         if (item == null)
         {
@@ -73,7 +89,7 @@ public class InventoryController : MonoBehaviour
 
         if (item.count <= 0)
         {
-            items.Remove(item);
+            playerData.Items.Remove(item);
         }
 
         Debug.Log("Tiêu thụ thành công nha!");
@@ -84,7 +100,7 @@ public class InventoryController : MonoBehaviour
 
     public void Add(int id, int count)
     {
-        InventoryItem item = items.Where((item) => { return item.id == id; }).FirstOrDefault();
+        InventoryItem item = playerData.Items.Where((item) => { return item.id == id; }).FirstOrDefault();
 
         if (item == null)
         {
@@ -95,7 +111,7 @@ public class InventoryController : MonoBehaviour
                 })
                 .FirstOrDefault();
 
-            items
+            playerData.Items
                 .Add(
                 new InventoryItem
                 {
@@ -119,17 +135,45 @@ public class InventoryController : MonoBehaviour
 
             JSONNode keyValuePairs = JSONNode.Parse(value);
 
-            for (int i = 0; i < keyValuePairs.Count; i++)
+            // items
+            for (int i = 0; i < keyValuePairs["items"].Count; i++)
             {
-                var item = keyValuePairs[i];
+                var item = keyValuePairs["items"][i];
                 Add(item["id"].AsInt, item["count"].AsInt);
             }
+
+            // weapon current
+            if (keyValuePairs["weaponId"].AsInt != 0)
+            {
+                Add(keyValuePairs["weaponId"].AsInt, 1);
+
+                PopUpInventory.Instance.EquipWeapon(playerData.Items
+                    .Where(predicate =>
+                    {
+                        return predicate.item.Id == keyValuePairs["weaponId"].AsInt;
+                    })
+                    .FirstOrDefault()
+                    .item);
+            }
+
+
         }
+
+        OnSavePrefs();
     }
 
     public void OnSavePrefs()
     {
-        PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(items));
+        if (itemWeapon != null)
+        {
+            playerData.WeaponId = itemWeapon.Id;
+        }
+        else
+        {
+            playerData.WeaponId = 0;
+        }
+
+        PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(playerData));
         PlayerPrefs.Save();
     }
 }

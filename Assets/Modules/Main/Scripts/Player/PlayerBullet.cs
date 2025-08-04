@@ -8,16 +8,19 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform hitbox;
 
     private Timer timerLifeTime;
 
     public void OnObjectSpawnAfter()
     {
+        hitbox.gameObject.SetActive(true);
         rb.velocity = rb.transform.right * speed;
         timerLifeTime = Timer.DelayAction(lifeTime, () =>
         {
-            OnEndLifeTime();
+            gameObject.SetActive(false);
 
+            OnEndLifeTime();
         });
     }
 
@@ -30,13 +33,14 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
             enemy.TakeDamage();
         }
         OnEndLifeTime();
+        
+        ObjectPooler.Instance.SpawnFromPool("player_bullet_impact", rb.transform.position, rb.transform.rotation);
+
     }
 
     public void OnEndLifeTime()
     {
-        Timer.Cancel(timerLifeTime);
-        ObjectPooler.Instance.SpawnFromPool("player_bullet_impact", rb.transform.position, rb.transform.rotation);
-
-        gameObject.SetActive(false);
+        rb.velocity = Vector2.zero;
+        hitbox.gameObject.SetActive(false);
     }
 }

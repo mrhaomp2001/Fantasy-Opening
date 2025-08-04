@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChicken : Enemy
+public class EnemyChicken : Enemy, IFixedUpdatable
 {
     [Header("EnemyChicken: ")]
     [SerializeField] private bool isMove;
@@ -29,12 +29,22 @@ public class EnemyChicken : Enemy
         }
     }
 
-    private void FixedUpdate()
+    public void OnFixedUpdate()
     {
         if (isMove)
         {
             Move();
         }
+    }
+
+    private void OnEnable()
+    {
+        UpdateController.Instance.FixedUpdateables.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        UpdateController.Instance.FixedUpdateables.Remove(this);
     }
 
     private void Move()

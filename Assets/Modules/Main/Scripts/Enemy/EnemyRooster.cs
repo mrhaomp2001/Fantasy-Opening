@@ -28,14 +28,6 @@ public class EnemyRooster : Enemy
         }
     }
 
-    //private void FixedUpdate()
-    //{
-    //    if (isMove)
-    //    {
-    //        Move();
-    //    }
-    //}
-
     private void Move()
     {
         Vector3 playerPosition = PlayerController.Instance.transform.position;

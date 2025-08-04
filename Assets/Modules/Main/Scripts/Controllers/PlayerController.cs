@@ -6,7 +6,7 @@ using Unity.Mathematics;
 using UnityEditor.VersionControl;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 {
     private static PlayerController instance;
 
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [Header("Attack: ")]
     [SerializeField] private bool isFiring;
     [SerializeField] private float attackCooldown;
+
     private bool canAttack;
     private Timer timerAttack;
     [Header("Interact: ")]
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
         canAttack = true;
     }
 
-    private void Update()
+    public void OnUpdate()
     {
         if (Input.GetKeyDown(KeyCode.F5))
         {
@@ -107,28 +108,9 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            InventoryController.Instance.Add(3, 1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            InventoryController.Instance.Consume(3, 1, new Callback
-            {
-                onSuccess = () =>
-                {
-                    Debug.Log("success");
-
-                },
-                onFail = (message) =>
-                {
-                    Debug.Log(message);
-                },
-                onNext = () =>
-                {
-                    Debug.Log("next");
-
-                }
-            });
+            InventoryController.Instance.Add(601, 1);
+            InventoryController.Instance.Add(602, 1);
+            InventoryController.Instance.Add(603, 1);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha7))
@@ -168,6 +150,23 @@ public class PlayerController : MonoBehaviour
         {
             PopUpInventory.Instance.TurnPopUp();
         }
+    }
+
+    public void OnFixedUpdate()
+    {
+        rbPlayer.velocity = movementSpeed * speed;
+    }
+
+    private void OnEnable()
+    {
+        UpdateController.Instance.Updatables.Add(this);
+        UpdateController.Instance.FixedUpdateables.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        UpdateController.Instance.Updatables.Remove(this);
+        UpdateController.Instance.FixedUpdateables.Remove(this);
     }
 
     private void Movement()
@@ -212,11 +211,6 @@ public class PlayerController : MonoBehaviour
         firepointHitbox.transform.localPosition = Vector3.right * Vector3.Distance(mousePos, new Vector3(firepoint.transform.position.x, firepoint.transform.position.y, 0f));
     }
 
-    private void FixedUpdate()
-    {
-        rbPlayer.velocity = movementSpeed * speed;
-    }
-
     public void Attack()
     {
         if (canAttack)
@@ -228,8 +222,19 @@ public class PlayerController : MonoBehaviour
             {
                 canAttack = true;
             });
+            if (InventoryController.Instance.ItemWeapon != null)
+            {
+                if (InventoryController.Instance.ItemWeapon is ItemWeapon weapon)
+                {
+                    ObjectPooler.Instance.SpawnFromPool(weapon.Projectile, transform.position, firepointHitbox.rotation);
 
-            ObjectPooler.Instance.SpawnFromPool("player_bullet", transform.position, firepointHitbox.rotation);
+                }
+            }
+            else
+            {
+
+                ObjectPooler.Instance.SpawnFromPool("player_bullet", transform.position, firepointHitbox.rotation);
+            }
         }
     }
 
