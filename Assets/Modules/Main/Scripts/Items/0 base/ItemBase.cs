@@ -2,9 +2,13 @@ using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[JsonObject(MemberSerialization.OptIn), System.Serializable]
 public class ItemBase : ScriptableObject
 {
+    [JsonProperty]
     [SerializeField] private int id;
+
     [SerializeField] private string itemName;
     [SerializeField] private Sprite sprite;
     [SerializeField] private int buyPrice;

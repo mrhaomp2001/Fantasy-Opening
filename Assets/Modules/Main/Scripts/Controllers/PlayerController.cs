@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 {
@@ -19,16 +20,13 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     [SerializeField] private Transform firepoint;
     [SerializeField] private Transform firepointHitbox;
     [Header("Attack: ")]
-    [SerializeField] private bool isFiring;
     [SerializeField] private float attackCooldown;
 
     private bool canAttack;
     private Timer timerAttack;
     [Header("Interact: ")]
+    [SerializeField] private bool isHolding;
     [SerializeField] private IWorldInteractable interactable;
-    [Header("Test: ")]
-    [SerializeField] private Crop crop1;
-    [SerializeField] private Crop crop2, crop3, crop4;
 
 
 
@@ -52,103 +50,102 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void OnUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            GameInputController.Instance.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.F7))
-        {
-            PlayerPrefs.DeleteAll();
-        }
-
         Movement();
 
         FirePointCalculation();
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            if (interactable != null)
-            {
-                if (interactable is Farmland farmland)
-                {
-                    farmland.OnSowSeed(crop1);
-                }
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (interactable != null)
-            {
-                if (interactable is Farmland farmland)
-                {
 
-                    farmland.OnSowSeed(crop2);
-                }
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(GameInputController.Instance.Hotkey1.keyCode))
         {
-            if (interactable != null)
-            {
-                if (interactable is Farmland farmland)
-                {
-                    farmland.OnSowSeed(crop3);
-                }
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if (interactable != null)
-            {
-                if (interactable is Farmland farmland)
-                {
-                    farmland.OnSowSeed(crop4);
-                }
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            InventoryController.Instance.Add(601, 1);
-            InventoryController.Instance.Add(602, 1);
-            InventoryController.Instance.Add(603, 1);
+            PopUpInventory.Instance.HotbarItem[0].OnClick();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            InventoryController.Instance.Add(403, 1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            isFiring = !isFiring;
-        }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(GameInputController.Instance.Hotkey2.keyCode))
         {
 
-            if (interactable != null)
-            {
-                if (interactable is Farmland)
-                {
-                    interactable.OnWorldInteract();
-                }
-            }
+            PopUpInventory.Instance.HotbarItem[1].OnClick();
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetKeyDown(GameInputController.Instance.Hotkey3.keyCode))
         {
-            if (isFiring)
-            {
-                Attack();
-            }
+            PopUpInventory.Instance.HotbarItem[2].OnClick();
+
+        }
+
+        if (Input.GetKeyDown(GameInputController.Instance.Hotkey4.keyCode))
+        {
+            PopUpInventory.Instance.HotbarItem[3].OnClick();
+
+        }
+
+        if (Input.GetKeyDown(GameInputController.Instance.Hotkey5.keyCode))
+        {
+            PopUpInventory.Instance.HotbarItem[4].OnClick();
+
+        }
+
+        if (Input.GetKeyDown(GameInputController.Instance.Hotkey6.keyCode))
+        {
+            PopUpInventory.Instance.HotbarItem[5].OnClick();
+
+        }
+
+        if (Input.GetKeyDown(GameInputController.Instance.Hotkey7.keyCode))
+        {
+            PopUpInventory.Instance.HotbarItem[6].OnClick();
+
+        }
+
+        if (Input.GetKeyDown(GameInputController.Instance.Hotkey8.keyCode))
+        {
+            PopUpInventory.Instance.HotbarItem[7].OnClick();
+
+        }
+
+        if (Input.GetKeyDown(GameInputController.Instance.Hotkey9.keyCode))
+        {
+            PopUpInventory.Instance.HotbarItem[8].OnClick();
+
         }
 
         if (Input.GetKeyDown(GameInputController.Instance.Inventory.keyCode))
         {
             PopUpInventory.Instance.TurnPopUp();
+        }
+
+        OnHolding();
+
+        TestFunction();
+    }
+
+    private void OnHolding()
+    {
+        if (isHolding)
+        {
+            if (!PopUpInventory.Instance.IsOpening)
+            {
+                InteractWithItem();
+            }
+        }
+    }
+
+    private void TestFunction()
+    {
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            GameInputController.Instance.Save();
+            InventoryController.Instance.OnSavePrefs();
+        }
+        if (Input.GetKeyDown(KeyCode.F7))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+        if (Input.GetKeyDown(KeyCode.F8))
+        {
+            foreach (var item in ItemDatabase.Instance.Items)
+            {
+                InventoryController.Instance.Add(item.Id, 20);
+            }
         }
     }
 
@@ -211,7 +208,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         firepointHitbox.transform.localPosition = Vector3.right * Vector3.Distance(mousePos, new Vector3(firepoint.transform.position.x, firepoint.transform.position.y, 0f));
     }
 
-    public void Attack()
+    public void InteractWithItem()
     {
         if (canAttack)
         {
@@ -221,20 +218,13 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             timerAttack = Timer.DelayAction(attackCooldown, () =>
             {
                 canAttack = true;
-            });
-            if (InventoryController.Instance.ItemWeapon != null)
-            {
-                if (InventoryController.Instance.ItemWeapon is ItemWeapon weapon)
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemWeapon weapon)
                 {
                     ObjectPooler.Instance.SpawnFromPool(weapon.Projectile, transform.position, firepointHitbox.rotation);
-
                 }
-            }
-            else
-            {
 
-                ObjectPooler.Instance.SpawnFromPool("player_bullet", transform.position, firepointHitbox.rotation);
-            }
+            });
+
         }
     }
 
@@ -257,4 +247,98 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         var item = other.GetComponentInParent<WorldItem>();
         item.OnPlayerTouch();
     }
+
+    public void OnPointerDown(BaseEventData valueEventData)
+    {
+        if (valueEventData is PointerEventData eventData)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                isHolding = true;
+
+                if (interactable != null)
+                {
+                    if (interactable is Farmland farmland)
+                    {
+                        if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemSeed seed)
+                        {
+                            if (farmland.OnSowSeed(seed.CropId))
+                            {
+                                InventoryController.Instance.Consume(seed.Id, 1, new Callback
+                                {
+                                    onSuccess = () =>
+                                    {
+
+                                    },
+                                    onFail = (message) =>
+                                    {
+
+                                    },
+                                    onNext = () =>
+                                    {
+                                        //Debug.Log("Next");
+                                    }
+                                });
+                            }
+                        }
+
+                        interactable.OnWorldInteract();
+
+                    }
+                }
+
+                if (!PopUpInventory.Instance.IsOpening)
+                {
+                    if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemMaterial material)
+                    {
+                        InventoryController.Instance.Consume(material.Id, 1, new Callback
+                        {
+                            onSuccess = () =>
+                            {
+                                AudioController.Instance.Play("burp");
+                                ObjectPooler.Instance.SpawnFromPool("consume_food", transform.position, Quaternion.identity);
+                            },
+                            onFail = (message) =>
+                            {
+
+                            },
+                            onNext = () =>
+                            {
+                                //Debug.Log("Next");
+                            }
+                        });
+                    }
+                }
+            }
+            if (eventData.button == PointerEventData.InputButton.Right)
+            {
+
+            }
+            if (eventData.button == PointerEventData.InputButton.Middle)
+            {
+
+            }
+        }
+    }
+
+    public void OnPointerUp(BaseEventData valueEventData)
+    {
+        if (valueEventData is PointerEventData eventData)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                isHolding = false;
+
+            }
+            if (eventData.button == PointerEventData.InputButton.Right)
+            {
+
+            }
+            if (eventData.button == PointerEventData.InputButton.Middle)
+            {
+
+            }
+        }
+    }
+
 }

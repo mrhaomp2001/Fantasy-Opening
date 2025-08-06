@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Farmland : MonoBehaviour, IWorldInteractable
@@ -34,12 +35,24 @@ public class Farmland : MonoBehaviour, IWorldInteractable
         }
     }
 
-    public void OnSowSeed(Crop value)
+    public bool OnSowSeed(int cropId)
     {
-        ObjectPooler.Instance.SpawnFromPool("harvest_effect", transform.position, transform.rotation);
+        if (cropCurrent == null)
+        {
+            ObjectPooler.Instance.SpawnFromPool("harvest_effect", transform.position, transform.rotation);
 
-        cropCurrent = value;
-        UpdateViews();
+            Crop value = ItemDatabase.Instance.Crop
+                .Where(predicate => { return predicate.Id == cropId; })
+                .FirstOrDefault();
+
+            cropCurrent = value;
+            UpdateViews();
+
+            return true;
+        }
+
+        return false;
+
     }
 
     public void OnHarvest()

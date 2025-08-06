@@ -1,4 +1,40 @@
 
+# [ 09:22:15 06/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+- nâng cấp hotbar một chút, cho nó có thể sử dụng để gieo hạt và tương tác nhiều thứ
+
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- hệ thống trang bị áo giáp
+- chỉ số của người chơi
+- nâng cấp hotbar một chút, cho nó có thể sử dụng để gieo hạt
+</details>
+
+
+# [ 09:27:59 05/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- hotbar
+
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- hệ thống trang bị áo giáp
+- chỉ số của người chơi
+
+- hotbar
+</details>
+
+
 # [ 08:15:00 04/08/2025 ]
 
 <details>
