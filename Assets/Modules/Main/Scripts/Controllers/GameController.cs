@@ -1,28 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static BuildingController;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private List<Farmland> farmlands;
-    [SerializeField] private List<Transform> transformEnemySpawnPositions;
-    
-    public List<Farmland> Farmlands { get => farmlands; set => farmlands = value; }
+    private static GameController instance;
+    [SerializeField] private List<BuildingFarmland> farmlands;
 
+    public static GameController Instance { get => instance; set => instance = value; }
+    public List<BuildingFarmland> Farmlands { get => farmlands; set => farmlands = value; }
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     public void NextDay()
     {
         PopUpTransition.Instance.StartTransition(() =>
         {
             foreach (var item in farmlands)
             {
-                item.OnNextDay();
+                if (item != null)
+                {
+                    item.OnNextDay();
+                }
             }
-            foreach (var item in transformEnemySpawnPositions)
-            {
-                ObjectPooler.Instance.SpawnFromPool("enemy_1", item.position, Quaternion.identity);
-                ObjectPooler.Instance.SpawnFromPool("enemy_2", item.position, Quaternion.identity);
-            }
-            InventoryController.Instance.OnSavePrefs();
         });
 
     }

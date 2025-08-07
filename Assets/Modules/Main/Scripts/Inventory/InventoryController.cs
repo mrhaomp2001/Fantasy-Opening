@@ -72,6 +72,8 @@ public class InventoryController : MonoBehaviour
         playerData = new PlayerData();
 
         OnLoadPrefs();
+
+        BuildingController.Instance.Load();
     }
 
     public void Consume(int id, int count, Callback callback)
@@ -237,10 +239,10 @@ public class InventoryController : MonoBehaviour
                 }
             }
 
-            PopUpInventory.Instance.UpdateViewHotbar();
 
         }
 
+        PopUpInventory.Instance.UpdateViewHotbar();
 
         OnSavePrefs();
     }

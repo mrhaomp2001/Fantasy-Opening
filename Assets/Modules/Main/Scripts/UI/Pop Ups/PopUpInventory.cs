@@ -10,6 +10,10 @@ public class PopUpInventory : PopUp
     [SerializeField] private RectTransform contentInventory;
     [SerializeField] private List<HotbarItem> hotbarItem;
     [SerializeField] private List<InventoryGridviewItem> inventoryGridviewItems;
+    [SerializeField] private SpriteRenderer transformBuildingIndicator;
+    [SerializeField] private SpriteRenderer spriteBuildingReview;
+
+
     public static PopUpInventory Instance { get => instance; set => instance = value; }
 
     private void Start()
@@ -33,6 +37,7 @@ public class PopUpInventory : PopUp
     }
 
     public List<HotbarItem> HotbarItem { get => hotbarItem; set => hotbarItem = value; }
+    public SpriteRenderer TransformBuildingIndicator { get => transformBuildingIndicator; set => transformBuildingIndicator = value; }
 
     public void TurnPopUp()
     {
@@ -70,6 +75,18 @@ public class PopUpInventory : PopUp
 
             hotbarItem[i].UpdateViews(item);
         }
+
+        TransformBuildingIndicator.gameObject.SetActive(false);
+        var itemBuilding = InventoryController.Instance.GetPlayerData.SelectedHotbar.item;
+        if (itemBuilding != null)
+        {
+            if (itemBuilding is ItemBuilding building)
+            {
+                TransformBuildingIndicator.gameObject.SetActive(true);
+                spriteBuildingReview.sprite = building.BuildingSprite;
+            }
+        }
+
     }
 
     public void ChooseHotbarSlot(int slot)

@@ -11,6 +11,7 @@ public class HotbarItem : MonoBehaviour
     [SerializeField] private Image imageItem;
     [SerializeField] private Image imageSelected;
     [SerializeField] private TextMeshProUGUI textCount;
+
     private InventoryController.InventoryItem item;
 
     public void UpdateViews(InventoryController.InventoryItem targetItem)

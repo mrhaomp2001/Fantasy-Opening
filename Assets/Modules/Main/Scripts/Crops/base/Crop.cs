@@ -1,8 +1,10 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Crop", menuName = "Farm/Crop")]
+[System.Serializable, JsonObject(MemberSerialization.OptIn)]
 public class Crop : ScriptableObject
 {
 	[System.Serializable]
@@ -10,7 +12,8 @@ public class Crop : ScriptableObject
 	{
 		public Sprite sprite;
 	}
-	[SerializeField] private int id;
+    [JsonProperty]
+    [SerializeField] private int id;
 	[SerializeField] private string cropName;
 	[SerializeField] private int productId;
 	[SerializeField] private int priceSell;

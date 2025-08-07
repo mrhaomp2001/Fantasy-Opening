@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     private Vector2 movementSpeed;
 
     public static PlayerController Instance { get => instance; set => instance = value; }
+    public Transform FirepointHitbox { get => firepointHitbox; set => firepointHitbox = value; }
 
     private void Start()
     {
@@ -53,7 +54,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         Movement();
 
         FirePointCalculation();
-
 
         if (Input.GetKeyDown(GameInputController.Instance.Hotkey1.keyCode))
         {
@@ -135,6 +135,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         {
             GameInputController.Instance.Save();
             InventoryController.Instance.OnSavePrefs();
+            BuildingController.Instance.Save();
         }
         if (Input.GetKeyDown(KeyCode.F7))
         {
@@ -145,6 +146,21 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             foreach (var item in ItemDatabase.Instance.Items)
             {
                 InventoryController.Instance.Add(item.Id, 20);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            GameController.Instance.NextDay();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            if (interactable != null)
+            {
+                if (interactable is BuildingBase building)
+                {
+                    BuildingController.Instance.DestroyBuilding(building.Id);
+                }
             }
         }
     }
@@ -205,7 +221,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
         firepoint.rotation = Quaternion.Euler(0, 0, targetRotation);
 
-        firepointHitbox.transform.localPosition = Vector3.right * Vector3.Distance(mousePos, new Vector3(firepoint.transform.position.x, firepoint.transform.position.y, 0f));
+        firepointHitbox.transform.localPosition = Vector3.right * Mathf.Clamp(Vector3.Distance(mousePos, new Vector3(firepoint.transform.position.x, firepoint.transform.position.y, 0f)), 0.2f, 3f);
     }
 
     public void InteractWithItem()
@@ -258,7 +274,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
                 if (interactable != null)
                 {
-                    if (interactable is Farmland farmland)
+                    if (interactable is BuildingFarmland farmland)
                     {
                         if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemSeed seed)
                         {
@@ -282,8 +298,31 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                             }
                         }
 
-                        interactable.OnWorldInteract();
 
+                    }
+                    interactable.OnWorldInteract();
+                }
+
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBuilding building)
+                {
+                    if (BuildingController.Instance.IsBuildValid())
+                    {
+                        InventoryController.Instance.Consume(building.Id, 1, new Callback
+                        {
+                            onSuccess = () =>
+                            {
+                                BuildingController.Instance.Build(building.BuildingName);
+
+                            },
+                            onFail = (message) =>
+                            {
+
+                            },
+                            onNext = () =>
+                            {
+                                //Debug.Log("Next");
+                            }
+                        });
                     }
                 }
 
@@ -309,6 +348,8 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                         });
                     }
                 }
+
+
             }
             if (eventData.button == PointerEventData.InputButton.Right)
             {

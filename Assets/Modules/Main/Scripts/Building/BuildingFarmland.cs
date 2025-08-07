@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Farmland : MonoBehaviour, IWorldInteractable
+[System.Serializable, JsonObject(MemberSerialization.OptIn)]
+
+public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
 {
+    [JsonProperty]
     [SerializeField] private int currentDay;
+    [JsonProperty]
     [SerializeField] private Crop cropCurrent;
     [SerializeField] private Sprite emptySprite;
     [Header("UI: ")]
@@ -32,6 +37,23 @@ public class Farmland : MonoBehaviour, IWorldInteractable
         else
         {
             imageCrop.sprite = cropCurrent.Stages[currentDay < cropCurrent.Stages.Count ? currentDay : cropCurrent.Stages.Count - 1].sprite;
+        }
+    }
+
+    public void OnLoadFarmLand(int cropId, int day)
+    {
+        if (cropCurrent == null)
+        {
+
+            Crop value = ItemDatabase.Instance.Crop
+                .Where(predicate => { return predicate.Id == cropId; })
+                .FirstOrDefault();
+
+            cropCurrent = value;
+            currentDay = day;
+
+            UpdateViews();
+
         }
     }
 
@@ -90,5 +112,10 @@ public class Farmland : MonoBehaviour, IWorldInteractable
         {
 
         }
+    }
+
+    public void OnObjectSpawnAfter()
+    {
+
     }
 }

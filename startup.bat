@@ -28,4 +28,4 @@ if exist readme.md (
 
 move /Y temp.txt readme.md >nul
 
-start readme.md
+start "" "readme.md"
