@@ -26,7 +26,10 @@ public class WorldItem : MonoBehaviour, IPoolObject
 
     public void OnPlayerTouch()
     {
-        InventoryController.Instance.Add(itemId, 1);
-        gameObject.SetActive(false);
+        if (InventoryController.Instance.Add(itemId, 1))
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 }

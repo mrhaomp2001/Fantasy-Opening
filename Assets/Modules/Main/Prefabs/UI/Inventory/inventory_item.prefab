@@ -201,6 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f23e7e6d8ac03443816db65a35edb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mask: {fileID: 21300000, guid: 82a47bd9215ada64c8016b4ba5d7f4ef, type: 3}
+  item:
+    count: 0
+    item: {fileID: 0}
   textItemCount: {fileID: 6203706726846547081}
   imageItem: {fileID: 1452529624464659386}
 --- !u!1 &7345029491885430373

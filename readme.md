@@ -1,4 +1,22 @@
 
+# [ 08:58:07 08/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- nâng cấp kho đồ, bây giờ chỉ chứa 27 món đồ, 9 món ở hotbar
+- thêm rương cho hệ thống xây dựng
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- hệ thống trang bị áo giáp
+- chỉ số của người chơi
+- nâng cấp kho đồ
+- thêm rương cho hệ thống xây dựng
+</details>
+
+
 # [ 09:46:30 07/08/2025 ]
 
 <details>
@@ -11,7 +29,6 @@
 
 - hệ thống trang bị áo giáp
 - chỉ số của người chơi
-- nâng cấp hotbar một chút, cho nó có thể sử dụng để gieo hạt
 - hệ thống xây dựng
 </details>
 

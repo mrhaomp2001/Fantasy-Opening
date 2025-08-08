@@ -3,7 +3,7 @@ using SimpleJSON;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.Progress;
+using static InventoryController;
 
 public class InventoryController : MonoBehaviour
 {
@@ -28,6 +28,15 @@ public class InventoryController : MonoBehaviour
         public List<InventoryItem> Items { get => items; set => items = value; }
         public List<InventoryItem> Hotbar { get => hotbar; set => hotbar = value; }
         public int HotbarSelectedSlot { get => hotbarSelectedSlot; set => hotbarSelectedSlot = value; }
+
+        public bool IsInventoryFull
+        {
+            get
+            {
+                return Items.All(i => i.item != null);
+            }
+        }
+
 
         public InventoryItem SelectedHotbar
         {
@@ -71,20 +80,17 @@ public class InventoryController : MonoBehaviour
     {
         playerData = new PlayerData();
 
-        OnLoadPrefs();
+        Load();
 
         BuildingController.Instance.Load();
     }
 
     public void Consume(int id, int count, Callback callback)
     {
-        InventoryItem item = playerData.Items.Where((item) => { return item.item.Id == id; }).FirstOrDefault();
+        InventoryItem item = playerData.Items.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
 
         if (item == null)
         {
-            //callback.onFail?.Invoke("Không sở hữu item này");
-            //callback.onNext?.Invoke();
-
             item = playerData.Hotbar.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
         }
 
@@ -92,6 +98,8 @@ public class InventoryController : MonoBehaviour
         {
             callback.onFail?.Invoke("Không sở hữu item này");
             callback.onNext?.Invoke();
+
+            return;
         }
 
         if (item.count < count)
@@ -100,9 +108,7 @@ public class InventoryController : MonoBehaviour
 
             callback.onNext?.Invoke();
 
-
             PopUpInventory.Instance.UpdateViewHotbar();
-            //PopUpInventory.Instance.UpdateViews();
 
             return;
         }
@@ -111,8 +117,6 @@ public class InventoryController : MonoBehaviour
 
         if (item.count <= 0)
         {
-            playerData.Items.Remove(item);
-
             item.item = null;
             item.count = 0;
         }
@@ -126,9 +130,9 @@ public class InventoryController : MonoBehaviour
         //PopUpInventory.Instance.UpdateViews();
     }
 
-    public void Add(int id, int count, bool isNonCheckHotbar = false)
+    public bool Add(int id, int count, bool isNonCheckHotbar = false)
     {
-        InventoryItem item = playerData.Items.Where((item) => { return item.item.Id == id; }).FirstOrDefault();
+        InventoryItem item = playerData.Items.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
         if (item != null)
         {
             item.count += count;
@@ -137,7 +141,7 @@ public class InventoryController : MonoBehaviour
             PopUpInventory.Instance.UpdateViewHotbar();
             //PopUpInventory.Instance.UpdateViews();
 
-            return;
+            return true;
         }
 
         if (!isNonCheckHotbar)
@@ -152,9 +156,19 @@ public class InventoryController : MonoBehaviour
                 PopUpInventory.Instance.UpdateViewHotbar();
                 //PopUpInventory.Instance.UpdateViews();
 
-                return;
+                return true;
             }
         }
+
+
+        if (playerData.IsInventoryFull)
+        {
+            Debug.Log("Inventory is full, cannot add item with id: " + id);
+            PopUpInventory.Instance.UpdateViewHotbar();
+
+            return false;
+        }
+
 
         var targetItem = ItemDatabase.Instance.Items
             .Where(predicate =>
@@ -165,14 +179,21 @@ public class InventoryController : MonoBehaviour
 
         if (targetItem != null)
         {
-            playerData.Items
-            .Add(
-                new InventoryItem
+            var inventorySlot = playerData.Items
+                .Where(predicate =>
                 {
-                    count = count,
-                    item = targetItem
-                }
-            );
+                    return predicate.item == null;
+                })
+                .FirstOrDefault();
+
+
+            if (inventorySlot != null)
+            {
+                inventorySlot.item = targetItem;
+                inventorySlot.count = count;
+            }
+
+            Debug.Log("Added item with id: " + id + ", count: " + count);
         }
         else
         {
@@ -181,22 +202,24 @@ public class InventoryController : MonoBehaviour
 
         PopUpInventory.Instance.UpdateViewHotbar();
         //PopUpInventory.Instance.UpdateViews();
+
+        return true;
     }
 
-    public void OnLoadPrefs()
+    public void Load()
     {
         playerData.Hotbar = new();
         playerData.Items = new();
 
-        playerData.Hotbar.Add(new());// 1
-        playerData.Hotbar.Add(new());// 2
-        playerData.Hotbar.Add(new());// 3
-        playerData.Hotbar.Add(new());// 4
-        playerData.Hotbar.Add(new());// 5
-        playerData.Hotbar.Add(new());// 6
-        playerData.Hotbar.Add(new());// 7
-        playerData.Hotbar.Add(new());// 8
-        playerData.Hotbar.Add(new());// 9
+        for (int i = 0; i < 27; i++)
+        {
+            playerData.Items.Add(new());// i
+        }
+
+        for (int i = 0; i < 9; i++)
+        {
+            playerData.Hotbar.Add(new());// i
+        }
 
         if (PlayerPrefs.HasKey(prefKey))
         {
@@ -206,13 +229,7 @@ public class InventoryController : MonoBehaviour
 
             Debug.Log($"OnLoadPrefs: {value}");
 
-            // items
-            for (int i = 0; i < keyValuePairs["items"].Count; i++)
-            {
-                var item = keyValuePairs["items"][i];
-                Add(item["item"]["id"].AsInt, item["count"].AsInt);
-            }
-
+            // hotbar
             playerData.HotbarSelectedSlot = keyValuePairs["hotbarSelectedSlot"].AsInt;
 
             for (int i = 0; i < keyValuePairs["hotbar"].Count; i++)
@@ -239,24 +256,41 @@ public class InventoryController : MonoBehaviour
                 }
             }
 
-
+            // items
+            for (int i = 0; i < keyValuePairs["items"].Count; i++)
+            {
+                var item = keyValuePairs["items"][i];
+                if (item["item"] != null)
+                {
+                    Add(item["item"]["id"].AsInt, item["count"].AsInt);
+                }
+            }
         }
 
         PopUpInventory.Instance.UpdateViewHotbar();
 
-        OnSavePrefs();
+        Save();
     }
 
     public void SelectHotbarSlot(int slot, InventoryController.InventoryItem itemTarget)
     {
+        int itemId = 0, itemCount = 0;
+
         if (playerData.Hotbar[slot].item != null)
         {
-            Add(playerData.Hotbar[slot].item.Id, playerData.Hotbar[slot].count, isNonCheckHotbar: true);
+            itemId = playerData.Hotbar[slot].item.Id;
+            itemCount = playerData.Hotbar[slot].count;
         }
 
         playerData.Hotbar[slot] = itemTarget;
 
         playerData.Items.Remove(itemTarget);
+        playerData.Items.Add(new InventoryItem());
+
+        if (itemId != 0)
+        {
+            Add(itemId, itemCount, isNonCheckHotbar: true);
+        }
 
         PopUpInventory.Instance.UpdateViewHotbar();
         PopUpInventory.Instance.UpdateViews();
@@ -268,16 +302,20 @@ public class InventoryController : MonoBehaviour
         {
             return;
         }
-        Add(itemTarget.item.Id, itemTarget.count, isNonCheckHotbar: true);
 
-        GetPlayerData.Hotbar[slot].item = null;
-        GetPlayerData.Hotbar[slot].count = 0;
+        if (Add(itemTarget.item.Id, itemTarget.count, isNonCheckHotbar: true))
+        {
+            GetPlayerData.Hotbar[slot].item = null;
+            GetPlayerData.Hotbar[slot].count = 0;
+        }
+
+
 
         PopUpInventory.Instance.UpdateViews();
         PopUpInventory.Instance.UpdateViewHotbar();
     }
 
-    public void OnSavePrefs()
+    public void Save()
     {
         Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
         PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(playerData));

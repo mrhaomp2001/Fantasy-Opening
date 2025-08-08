@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d219eceb5a2e9614b9712c7f3f862c55, type: 3}
-  m_Name: 802 bed
+  m_Name: 804 crafting table
   m_EditorClassIdentifier: 
-  id: 802
-  itemName: bed
-  sprite: {fileID: 21300000, guid: 759e3c47c1de3674fa2c11ba50fe12f8, type: 3}
+  id: 804
+  itemName: crafting_table
+  sprite: {fileID: 21300000, guid: a724fffc624978c4b9581c2a6ecf5b86, type: 3}
   buyPrice: 0
   sellPrice: 0
-  buildingName: bed
-  buildingSprite: {fileID: 21300000, guid: 759e3c47c1de3674fa2c11ba50fe12f8, type: 3}
+  buildingName: crafting_table
+  buildingSprite: {fileID: 21300000, guid: a724fffc624978c4b9581c2a6ecf5b86, type: 3}

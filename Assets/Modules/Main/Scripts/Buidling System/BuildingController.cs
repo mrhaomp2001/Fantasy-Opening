@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using UnityEngine;
-using static InventoryController;
 
 public class BuildingController : MonoBehaviour, IUpdatable
 {
@@ -197,6 +196,10 @@ public class BuildingController : MonoBehaviour, IUpdatable
             {
                 item.Data = farmland;
             }
+            if (item.WorldInteractable is BuildingChest chest)
+            {
+                item.Data = chest;
+            }
         }
 
         Debug.Log($"{JsonConvert.SerializeObject(buildingData)}");
@@ -226,21 +229,34 @@ public class BuildingController : MonoBehaviour, IUpdatable
             {
                 var item = keyValuePairs["buildings"][i];
 
-                if (float.TryParse(item["x"].Value, System.Globalization.NumberStyles.Float, CultureInfo.InvariantCulture, out float x))
+                if (float.TryParse(item["x"].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out float x))
                 {
-                    if (float.TryParse(item["y"].Value, System.Globalization.NumberStyles.Float, CultureInfo.InvariantCulture, out float y))
+                    if (float.TryParse(item["y"].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out float y))
                     {
-
                         Vector3 buildPosition = new Vector3(x, y, 0f);
 
                         var building = BuildAtPosition(item["name"].Value, buildPosition, item["id"].AsInt);
 
+                        var data = item["data"];
+
                         if (building.WorldInteractable is BuildingFarmland farmland)
                         {
-                            var data = item["data"];
                             if (data["cropCurrent"] != null)
                             {
                                 farmland.OnLoadFarmLand(data["cropCurrent"]["id"].AsInt, data["currentDay"].AsInt);
+                            }
+                        }
+
+                        if (building.WorldInteractable is BuildingChest chest)
+                        {
+                            for (int j = 0; j < data["items"].Count; j++)
+                            {
+                                var chestItem = data["items"][j];
+
+                                if (chestItem["item"] != null)
+                                {
+                                    chest.Add(chestItem["item"]["id"].AsInt, chestItem["count"].AsInt);
+                                }
                             }
                         }
                     }

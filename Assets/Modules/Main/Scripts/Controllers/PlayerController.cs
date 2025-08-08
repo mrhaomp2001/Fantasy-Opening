@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     [SerializeField] private Rigidbody2D rbPlayer;
 
     [Header("Fire Point: ")]
+    [SerializeField] private int cheatItemId;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Transform firepoint;
     [SerializeField] private Transform firepointHitbox;
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         if (Input.GetKeyDown(KeyCode.F5))
         {
             GameInputController.Instance.Save();
-            InventoryController.Instance.OnSavePrefs();
+            InventoryController.Instance.Save();
             BuildingController.Instance.Save();
         }
         if (Input.GetKeyDown(KeyCode.F7))
@@ -153,6 +154,12 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         {
             GameController.Instance.NextDay();
         }
+
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            WorldItemController.Instance.SpawnItem(cheatItemId, firepointHitbox.position);
+        }
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             if (interactable != null)
@@ -292,7 +299,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                                     },
                                     onNext = () =>
                                     {
-                                        //Debug.Log("Next");
                                     }
                                 });
                             }
@@ -320,7 +326,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                             },
                             onNext = () =>
                             {
-                                //Debug.Log("Next");
                             }
                         });
                     }
@@ -343,7 +348,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                             },
                             onNext = () =>
                             {
-                                //Debug.Log("Next");
                             }
                         });
                     }

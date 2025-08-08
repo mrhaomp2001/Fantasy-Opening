@@ -23,8 +23,6 @@ public class WorldItemController : MonoBehaviour
 
     public void SpawnItem(int valueItemId, Vector3 position)
     {
-        var targetObject = ObjectPooler.Instance.SpawnFromPool("world_item", position, Quaternion.identity);
-        var worlditem = targetObject.GetComponent<WorldItem>();
 
         var item = ItemDatabase.Instance.Items
             .Where(predicate =>
@@ -33,6 +31,11 @@ public class WorldItemController : MonoBehaviour
             })
             .FirstOrDefault();
 
-        worlditem.Initialize(valueItemId, item.Sprite);
+        if (item != null)
+        {
+            var targetObject = ObjectPooler.Instance.SpawnFromPool("world_item", position, Quaternion.identity);
+            var worlditem = targetObject.GetComponent<WorldItem>();
+            worlditem.Initialize(valueItemId, item.Sprite);
+        }
     }
 }
