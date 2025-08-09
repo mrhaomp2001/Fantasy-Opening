@@ -17,5 +17,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 1d7790f3b41816a4fba14be329aea575, type: 3}
   buyPrice: 0
   sellPrice: 0
-  buildingName: chest
+  buildingName: 803_chest
   buildingSprite: {fileID: 21300000, guid: 1d7790f3b41816a4fba14be329aea575, type: 3}

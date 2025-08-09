@@ -17,5 +17,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a724fffc624978c4b9581c2a6ecf5b86, type: 3}
   buyPrice: 0
   sellPrice: 0
-  buildingName: crafting_table
+  buildingName: 804_crafting_table
   buildingSprite: {fileID: 21300000, guid: a724fffc624978c4b9581c2a6ecf5b86, type: 3}

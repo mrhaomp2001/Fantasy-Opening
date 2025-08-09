@@ -110,6 +110,8 @@ public class PopUpInventory : PopUp
 
         for (int i = 0; i < sortedItems.Count; i++)
         {
+            Debug.Log($"{i}");
+
             var item = sortedItems[i];
 
             var gridviewItem = chestGridviewItems[i];

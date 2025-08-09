@@ -17,5 +17,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 4c72de8514ce02844995d10eb784a757, type: 3}
   buyPrice: 0
   sellPrice: 0
-  buildingName: farmland
+  buildingName: 801_farmland
   buildingSprite: {fileID: 21300000, guid: 4c72de8514ce02844995d10eb784a757, type: 3}

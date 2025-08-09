@@ -1,3 +1,19 @@
+# [ 08:47:26 09/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thử nghiệm vẽ vài chi tiết, đầu tiên là môi trường và bối cảnh
+
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- hệ thống trang bị áo giáp
+- chỉ số của người chơi
+- thử nghiệm vẽ vài chi tiết, đầu tiên là môi trường và bối cảnh
+</details>
+
 
 # [ 08:58:07 08/08/2025 ]
 

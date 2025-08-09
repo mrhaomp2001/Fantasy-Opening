@@ -11,6 +11,7 @@ public class ItemBase : ScriptableObject
 
     [SerializeField] private string itemName;
     [SerializeField] private Sprite sprite;
+    [SerializeField] private Sprite spriteWorldItem;
     [SerializeField] private int buyPrice;
     [SerializeField] private int sellPrice;
 
@@ -27,4 +28,5 @@ public class ItemBase : ScriptableObject
     /// It's Mean Player will Buy this with this Price
     /// </summary>
     public int BuyPrice { get => buyPrice; set => buyPrice = value; }
+    public Sprite SpriteWorldItem { get => spriteWorldItem; set => spriteWorldItem = value; }
 }

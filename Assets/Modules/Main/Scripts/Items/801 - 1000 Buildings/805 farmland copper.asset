@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d219eceb5a2e9614b9712c7f3f862c55, type: 3}
+  m_Name: 805 farmland copper
+  m_EditorClassIdentifier: 
+  id: 805
+  itemName: farmland_copper
+  sprite: {fileID: 21300000, guid: a9df98905626d6743a2e3c3ad8f88577, type: 3}
+  buyPrice: 0
+  sellPrice: 0
+  buildingName: 805_farmland_copper
+  buildingSprite: {fileID: 21300000, guid: a9df98905626d6743a2e3c3ad8f88577, type: 3}

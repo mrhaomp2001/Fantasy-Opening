@@ -46,3 +46,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tile Background
+    uniqueID: 1662348015
+    locked: 0
+  - name: Same Layer
+    uniqueID: 814634259
+    locked: 0
+  - name: Foreground
+    uniqueID: 1308547419
+    locked: 0
+  - name: Effect
+    uniqueID: 1021047877
+    locked: 0

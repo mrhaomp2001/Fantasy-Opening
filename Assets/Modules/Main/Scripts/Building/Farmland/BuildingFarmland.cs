@@ -16,6 +16,8 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
     [Header("UI: ")]
 
     [SerializeField] private SpriteRenderer imageCrop;
+    [SerializeField] private SpriteRenderer spriteLandBack;
+    [SerializeField] private SpriteRenderer spriteLandFront;
 
     public Crop CropCurrent { get => cropCurrent; set => cropCurrent = value; }
     public int CurrentDay { get => currentDay; set => currentDay = value; }
@@ -116,6 +118,9 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
 
     public void OnObjectSpawnAfter()
     {
+        spriteLandBack.sortingOrder = (int)-transform.position.y - 2;
+        imageCrop.sortingOrder = (int)-transform.position.y - 1;
+        spriteLandFront.sortingOrder = (int)-transform.position.y;
 
     }
 }

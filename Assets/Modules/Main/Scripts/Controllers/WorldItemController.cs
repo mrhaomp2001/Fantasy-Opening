@@ -35,7 +35,14 @@ public class WorldItemController : MonoBehaviour
         {
             var targetObject = ObjectPooler.Instance.SpawnFromPool("world_item", position, Quaternion.identity);
             var worlditem = targetObject.GetComponent<WorldItem>();
-            worlditem.Initialize(valueItemId, item.Sprite);
+            if (item.SpriteWorldItem != null)
+            {
+                worlditem.Initialize(valueItemId, item.SpriteWorldItem);
+            }
+            else
+            {
+                worlditem.Initialize(valueItemId, item.Sprite);
+            }
         }
     }
 }

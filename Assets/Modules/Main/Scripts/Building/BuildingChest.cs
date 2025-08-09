@@ -10,6 +10,7 @@ public class BuildingChest : BuildingBase, IWorldInteractable, IPoolObject
 {
     [JsonProperty]
     [SerializeField] private List<InventoryController.InventoryItem> items = new();
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     public List<InventoryController.InventoryItem> Items { get => items; set => items = value; }
     public bool IsChestFull
@@ -93,6 +94,10 @@ public class BuildingChest : BuildingBase, IWorldInteractable, IPoolObject
     }
     public void OnObjectSpawnAfter()
     {
+
+        spriteRenderer.sortingOrder = (int)-transform.position.y;
+        items = new();
+
         for (int i = 0; i < 9; i++)
         {
             items.Add(new());

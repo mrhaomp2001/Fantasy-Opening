@@ -17,5 +17,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 759e3c47c1de3674fa2c11ba50fe12f8, type: 3}
   buyPrice: 0
   sellPrice: 0
-  buildingName: bed
+  buildingName: 802_bed
   buildingSprite: {fileID: 21300000, guid: 759e3c47c1de3674fa2c11ba50fe12f8, type: 3}

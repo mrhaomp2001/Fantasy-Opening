@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     [SerializeField] private float speed;
 
     [SerializeField] private Rigidbody2D rbPlayer;
+    [SerializeField] private SpriteRenderer spritePlayer;
 
     [Header("Fire Point: ")]
     [SerializeField] private int cheatItemId;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void OnUpdate()
     {
+        spritePlayer.sortingOrder = (int)-transform.position.y;
         Movement();
 
         FirePointCalculation();

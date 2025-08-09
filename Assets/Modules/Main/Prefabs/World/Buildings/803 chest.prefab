@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4815262118341601885}
   - component: {fileID: 941913100294233272}
   m_Layer: 0
-  m_Name: chest
+  m_Name: 803 chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   items: []
+  spriteRenderer: {fileID: 2008191738212335309}
 --- !u!1 &2207502310557252012
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ GameObject:
   - component: {fileID: 9020316172460871136}
   - component: {fileID: 2008191738212335309}
   m_Layer: 0
-  m_Name: farmland_sprite
+  m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,8 +196,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 814634259
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1d7790f3b41816a4fba14be329aea575, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
