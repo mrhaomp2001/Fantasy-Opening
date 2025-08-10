@@ -1,3 +1,24 @@
+
+# [ 07:54:32 10/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- sử dụng hệ thống đảo cho tựa game
+- thử nghiệm vẽ vài chi tiết:
+  + cỏ
+  + cà rốt (4 stages)
+  + item cà rốt
+### Công việc trong kế hoạch: 
+
+- AI của quái
+
+- hệ thống trang bị áo giáp
+- chỉ số của người chơi
+- thử nghiệm vẽ vài chi tiết
+</details>
+
 # [ 08:47:26 09/08/2025 ]
 
 <details>

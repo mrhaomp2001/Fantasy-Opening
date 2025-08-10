@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void OnUpdate()
     {
-        spritePlayer.sortingOrder = (int)-transform.position.y;
+        spritePlayer.sortingOrder = (int)-transform.position.y + 1;
         Movement();
 
         FirePointCalculation();

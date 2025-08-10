@@ -18,9 +18,10 @@ MonoBehaviour:
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 2a414968df2417c4083a34da14247440, type: 3}
+    - {fileID: 21300000, guid: 00bfdd398ac28174c9bb3c2f3ce0f5a5, type: 3}
     - {fileID: 21300000, guid: 6eb1b25a69709cf4682f7b330316f3e3, type: 3}
     - {fileID: 21300000, guid: 9617a2cbb390a424dab495e1dc92a319, type: 3}
+    - {fileID: 21300000, guid: 2a414968df2417c4083a34da14247440, type: 3}
     - {fileID: 21300000, guid: 2a414968df2417c4083a34da14247440, type: 3}
     - {fileID: 21300000, guid: 2a414968df2417c4083a34da14247440, type: 3}
     - {fileID: 21300000, guid: 2a414968df2417c4083a34da14247440, type: 3}
