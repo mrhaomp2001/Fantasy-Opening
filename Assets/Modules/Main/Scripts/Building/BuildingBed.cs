@@ -7,7 +7,7 @@ public class BuildingBed : BuildingBase, IWorldInteractable, IPoolObject
     [SerializeField] private SpriteRenderer spriteRenderer;
     public void OnObjectSpawnAfter()
     {
-        spriteRenderer.sortingOrder = (int)-transform.position.y;
+        spriteRenderer.sortingOrder = (int)-(transform.position.y * 100f);
     }
 
     public void OnWorldInteract()

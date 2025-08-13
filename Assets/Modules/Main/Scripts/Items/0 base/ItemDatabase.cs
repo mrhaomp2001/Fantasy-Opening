@@ -11,7 +11,7 @@ public class ItemDatabase : MonoBehaviour
     public List<ItemBase> Items { get => items; set => items = value; }
     public List<Crop> Crop { get => crop; set => crop = value; }
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {

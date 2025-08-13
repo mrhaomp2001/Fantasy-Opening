@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 807 farmland silver
   m_EditorClassIdentifier: 
   id: 807
-  itemName: farmland_silver
+  itemName: 807_farmland_silver-item_name
+  itemDescription: 807_farmland_silver-item_description
   sprite: {fileID: 21300000, guid: 737b0884910b1df44997b3e134615cc0, type: 3}
   spriteWorldItem: {fileID: 0}
   buyPrice: 0

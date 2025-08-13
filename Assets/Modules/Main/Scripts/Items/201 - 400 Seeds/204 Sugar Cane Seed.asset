@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 204 Sugar Cane Seed
   m_EditorClassIdentifier: 
   id: 204
-  type: 1
-  itemName: "M\xEDa \u0111\u01B0\u1EDDng gi\u1ED1ng"
+  itemName: 204_sugar_cane_seed-item_name
+  itemDescription: 204_sugar_cane_seed-item_description
   sprite: {fileID: 21300000, guid: 5082a338160c32b4ba5fb22ceb62cabd, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 500
   sellPrice: 250
   cropId: 4

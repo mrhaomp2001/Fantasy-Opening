@@ -118,9 +118,11 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
 
     public void OnObjectSpawnAfter()
     {
-        spriteLandBack.sortingOrder = (int)-transform.position.y - 2;
-        imageCrop.sortingOrder = (int)-transform.position.y - 1;
-        spriteLandFront.sortingOrder = (int)-transform.position.y;
-
+        spriteLandBack.sortingOrder = (int)-(transform.position.y * 100f) - 2;
+        imageCrop.sortingOrder = (int)-(transform.position.y * 100f) - 1;
+        spriteLandFront.sortingOrder = (int)-(transform.position.y * 100f);
+        
+        cropCurrent = null;
+        currentDay = 0;
     }
 }

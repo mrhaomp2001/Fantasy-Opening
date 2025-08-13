@@ -95,7 +95,7 @@ public class BuildingChest : BuildingBase, IWorldInteractable, IPoolObject
     public void OnObjectSpawnAfter()
     {
 
-        spriteRenderer.sortingOrder = (int)-transform.position.y;
+        spriteRenderer.sortingOrder = (int)-(transform.position.y * 100f);
         items = new();
 
         for (int i = 0; i < 9; i++)

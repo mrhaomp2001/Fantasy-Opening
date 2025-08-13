@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 808 farmland gold
   m_EditorClassIdentifier: 
   id: 808
-  itemName: farmland_gold
+  itemName: 808_farmland_gold-item_name
+  itemDescription: 808_farmland_gold-item_description
   sprite: {fileID: 21300000, guid: fd1d6afe753413045b68324b5aa0d4de, type: 3}
   spriteWorldItem: {fileID: 0}
   buyPrice: 0

@@ -7,9 +7,11 @@ public class GameController : MonoBehaviour
 {
     private static GameController instance;
     [SerializeField] private List<BuildingFarmland> farmlands;
-
+    [SerializeField] private List<EnemySpawner> enemySpawners;
     public static GameController Instance { get => instance; set => instance = value; }
     public List<BuildingFarmland> Farmlands { get => farmlands; set => farmlands = value; }
+    public List<EnemySpawner> EnemySpawners { get => enemySpawners; set => enemySpawners = value; }
+
     private void Awake()
     {
         if (instance == null)
@@ -32,7 +34,16 @@ public class GameController : MonoBehaviour
                     item.OnNextDay();
                 }
             }
+
+            foreach (var item in enemySpawners)
+            {
+                if (item != null)
+                {
+                    item.SpawnEnemy();
+                }
+            }
         });
+
 
     }
 }

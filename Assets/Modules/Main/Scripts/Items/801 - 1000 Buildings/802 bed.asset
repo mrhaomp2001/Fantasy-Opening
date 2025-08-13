@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: 802 bed
   m_EditorClassIdentifier: 
   id: 802
-  itemName: bed
+  itemName: 802_bed-item_name
+  itemDescription: 802_bed-item_description
   sprite: {fileID: 21300000, guid: 759e3c47c1de3674fa2c11ba50fe12f8, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
   buildingName: 802_bed

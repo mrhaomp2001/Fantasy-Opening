@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static InventoryController;
 using static UnityEditor.Progress;
 
 public class PopUpInventory : PopUp
 {
     private static PopUpInventory instance;
 
-    [Header("PopUpInventory: ")]
+    [Header("Inventory: ")]
     [SerializeField] private RectTransform contentInventory;
     [SerializeField] private List<HotbarItem> hotbarItem;
     [SerializeField] private List<InventoryGridviewItem> inventoryGridviewItems;
@@ -18,13 +19,25 @@ public class PopUpInventory : PopUp
     [Header("Chest: ")]
     [SerializeField] private bool isOpeningChest;
     [SerializeField] private RectTransform containerChest;
-    [SerializeField] private BuildingChest currentChest;
+    private BuildingChest currentChest;
     [SerializeField] private List<InventoryGridviewItem> chestGridviewItems;
 
+    [Header("Inventory Opttion: ")]
+    [SerializeField] private RectTransform containerInventoryOption;
+
+    [Header("Crafting: ")]
+    [SerializeField] private RectTransform containerCrafting;
+    [SerializeField] private RectTransform containerCraftingTooltip;
+    [SerializeField] private List<CraftingGridviewItem> craftingGridviewItems;
+
+    [Header("Selling: ")]
+    [SerializeField] private bool isSelling;
+    [SerializeField] private RectTransform containerSelling;
+    [SerializeField] private List<InventoryGridviewItem> sellingGridviewItems;
 
     public static PopUpInventory Instance { get => instance; set => instance = value; }
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -48,21 +61,33 @@ public class PopUpInventory : PopUp
     public SpriteRenderer TransformBuildingIndicator { get => transformBuildingIndicator; set => transformBuildingIndicator = value; }
     public bool IsOpeningChest { get => isOpeningChest; set => isOpeningChest = value; }
     public BuildingChest CurrentChest { get => currentChest; set => currentChest = value; }
+    public bool IsSelling { get => isSelling; set => isSelling = value; }
+    public List<InventoryGridviewItem> SellingGridviewItems { get => sellingGridviewItems; set => sellingGridviewItems = value; }
 
     public void TurnPopUp(BuildingChest chest = null)
     {
         isOpeningChest = false;
+        isSelling = false;
         currentChest = null;
         containerChest.gameObject.SetActive(false);
+        containerInventoryOption.gameObject.SetActive(true);
+        containerCrafting.gameObject.SetActive(false);
+        containerSelling.gameObject.SetActive(false);
+
+        PopUpInventoryCraftingTooltip.Instance.Hide();
+        PopUpInventoryTooltip.Instance.Hide();
 
         if (chest != null)
         {
             isOpeningChest = true;
             currentChest = chest;
             containerChest.gameObject.SetActive(true);
+            containerInventoryOption.gameObject.SetActive(false);
 
             UpdateViewChest();
         }
+
+
 
         if (!container.gameObject.activeSelf)
         {
@@ -94,8 +119,9 @@ public class PopUpInventory : PopUp
         if (currentChest != null)
         {
             UpdateViewChest();
-
         }
+        
+        PopUpInventoryTooltip.Instance.Hide();
     }
 
     public void UpdateViewChest()
@@ -145,5 +171,55 @@ public class PopUpInventory : PopUp
     public void ChooseHotbarSlot(int slot)
     {
         HotbarItem[slot].OnClick();
+    }
+
+    public void TurnSelling(List<InventoryItem> itemsCanSell)
+    {
+        isSelling = true;
+
+        containerInventoryOption.gameObject.SetActive(false);
+        containerSelling.gameObject.SetActive(true);
+
+        foreach (var item in sellingGridviewItems)
+        {
+            item.RefreshItem();
+            item.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < itemsCanSell.Count; i++)
+        {
+            var itemCanSell = itemsCanSell[i];
+
+            sellingGridviewItems[i].UpdateViews(itemCanSell);
+            sellingGridviewItems[i].gameObject.SetActive(true);
+        }
+    }
+
+    public void TurnCrafting(List<Recipe> valueRecipes, bool isHideInventoryOptions = false)
+    {
+        if (!containerCrafting.gameObject.activeSelf)
+        {
+            foreach (var item in craftingGridviewItems)
+            {
+                if (item.gameObject.activeSelf)
+                {
+                    item.ResetItem();
+                }
+            }
+
+            for (int i = 0; i < valueRecipes.Count; i++)
+            {
+                var gridviewItem = craftingGridviewItems[i];
+
+                gridviewItem.UpdateViews(valueRecipes[i]);
+            }
+
+            if (isHideInventoryOptions)
+            {
+                containerInventoryOption.gameObject.SetActive(false);
+            }
+        }
+
+        containerCrafting.gameObject.SetActive(!containerCrafting.gameObject.activeSelf);
     }
 }

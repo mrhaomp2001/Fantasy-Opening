@@ -9,7 +9,7 @@ public class WorldItemController : MonoBehaviour
 
     public static WorldItemController Instance { get => instance; set => instance = value; }
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {

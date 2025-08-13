@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 401 Wood
   m_EditorClassIdentifier: 
   id: 401
-  type: 2
-  itemName: "C\u1EE7i"
+  itemName: 401_wood-item_name
+  itemDescription: 401_wood-item_description
   sprite: {fileID: 21300000, guid: 2aada5903239107469c946ef5a72c76c, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 60
   sellPrice: 40

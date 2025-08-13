@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 5 carrot
   m_EditorClassIdentifier: 
   id: 5
-  itemName: Carrot
+  itemName: 5_carrot-item_name
+  itemDescription: 5_carrot-item_description
   sprite: {fileID: 21300000, guid: 179b887d7c89e504881a2aa10e521360, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 179b887d7c89e504881a2aa10e521360, type: 3}
   buyPrice: 1100

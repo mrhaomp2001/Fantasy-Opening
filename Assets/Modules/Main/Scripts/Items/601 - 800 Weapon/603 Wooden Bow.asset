@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: 603 Wooden Bow
   m_EditorClassIdentifier: 
   id: 603
-  itemName: Wooden Bow
+  itemName: 603_weapon_3-item_name
+  itemDescription: 603_weapon_3-item_description
   sprite: {fileID: 21300000, guid: 1adac1c54c02020429954cd069109fa0, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
   projectile: player_bullet_603

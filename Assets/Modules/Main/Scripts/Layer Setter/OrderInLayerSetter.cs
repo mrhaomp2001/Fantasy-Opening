@@ -5,9 +5,9 @@ using UnityEngine;
 public class OrderInLayerSetter : MonoBehaviour
 {
 
-    private void Start()
+    private void OnEnable()
     {
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sortingOrder = (int)-transform.position.y;
+        spriteRenderer.sortingOrder = (int)-(transform.position.y * 100f);
     }
 }

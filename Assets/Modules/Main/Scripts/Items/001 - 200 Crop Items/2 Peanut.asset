@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 2 Peanut
   m_EditorClassIdentifier: 
   id: 2
-  type: 0
-  itemName: "\u0110\u1EADu ph\u1ED9ng"
+  itemName: 2_peanut-item_name
+  itemDescription: 2_peanut-item_description
   sprite: {fileID: 21300000, guid: f2c3b62d07341c14a818afa567c13468, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 40
   sellPrice: 20

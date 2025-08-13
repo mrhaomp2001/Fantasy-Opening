@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PopUpTransition : PopUp
 {
     private static PopUpTransition instance;
-    [Header("PopUpTransition: ")]
+    [Header("Transition: ")]
 
     [SerializeField] private Image imageBackground;
 

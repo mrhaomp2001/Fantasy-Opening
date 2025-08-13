@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: 801 farmland
   m_EditorClassIdentifier: 
   id: 801
-  itemName: farmland
+  itemName: 801_farmland-item_name
+  itemDescription: 801_farmland-item_description
   sprite: {fileID: 21300000, guid: 4c72de8514ce02844995d10eb784a757, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
   buildingName: 801_farmland

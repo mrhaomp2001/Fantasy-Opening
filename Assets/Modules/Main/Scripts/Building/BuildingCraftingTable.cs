@@ -5,13 +5,16 @@ using UnityEngine;
 public class BuildingCraftingTable : BuildingBase, IWorldInteractable, IPoolObject
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private List<Recipe> recipes;
     public void OnObjectSpawnAfter()
     {
-        spriteRenderer.sortingOrder = (int)-transform.position.y;
+        spriteRenderer.sortingOrder = (int)-(transform.position.y * 100f);
     }
 
     public void OnWorldInteract()
     {
-        Debug.Log("BuildingCraftingTable OnWorldInteract");
+        PopUpInventory.Instance.TurnPopUp();
+
+        PopUpInventory.Instance.TurnCrafting(recipes);
     }
 }

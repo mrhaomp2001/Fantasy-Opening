@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 201 Corn Seed
   m_EditorClassIdentifier: 
   id: 201
-  type: 1
-  itemName: "H\u1EA1t b\u1EAFp"
+  itemName: 201_corn_seed-item_name
+  itemDescription: 201_corn_seed-item_description
   sprite: {fileID: 21300000, guid: b3a40ebb5effee5419558be907cc8b3c, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 200
   sellPrice: 100
   cropId: 1

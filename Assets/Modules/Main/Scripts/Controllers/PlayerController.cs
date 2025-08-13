@@ -1,9 +1,6 @@
 using GameUtil;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -27,7 +24,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     private bool canAttack;
     private Timer timerAttack;
     [Header("Interact: ")]
-    [SerializeField] private bool isHolding;
+    [SerializeField] private bool isHolding, isAttacking;
     [SerializeField] private IWorldInteractable interactable;
 
 
@@ -49,11 +46,12 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         }
 
         canAttack = true;
+        isAttacking = false;
     }
 
     public void OnUpdate()
     {
-        spritePlayer.sortingOrder = (int)-transform.position.y + 1;
+        spritePlayer.sortingOrder = (int)-(transform.position.y * 100f) + 1;
         Movement();
 
         FirePointCalculation();
@@ -123,6 +121,13 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     private void OnHolding()
     {
+        if (interactable != null && isAttacking == false)
+        {
+            return;
+        }
+
+        isAttacking = true;
+
         if (isHolding)
         {
             if (!PopUpInventory.Instance.IsOpening)
@@ -138,7 +143,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         {
             GameInputController.Instance.Save();
             InventoryController.Instance.Save();
-            BuildingController.Instance.Save();
         }
         if (Input.GetKeyDown(KeyCode.F7))
         {
@@ -169,6 +173,17 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                 if (interactable is BuildingBase building)
                 {
                     BuildingController.Instance.DestroyBuilding(building.Id);
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (interactable != null)
+            {
+                if (interactable is BuildingFarmland farmland)
+                {
+                    farmland.OnNextDay();
                 }
             }
         }
@@ -246,6 +261,12 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                 if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemWeapon weapon)
                 {
                     ObjectPooler.Instance.SpawnFromPool(weapon.Projectile, transform.position, firepointHitbox.rotation);
+                }
+
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item == null)
+                {
+
+                    ObjectPooler.Instance.SpawnFromPool("player_bullet", transform.position, firepointHitbox.rotation);
                 }
 
             });
@@ -375,7 +396,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 isHolding = false;
-
+                isAttacking = false;
             }
             if (eventData.button == PointerEventData.InputButton.Right)
             {

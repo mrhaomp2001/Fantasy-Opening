@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 405 Egg
   m_EditorClassIdentifier: 
   id: 405
-  type: 2
-  itemName: "Tr\u1EE9ng l\u1EDBn"
+  itemName: 405_big_egg-item_name
+  itemDescription: 405_big_egg-item_description
   sprite: {fileID: 21300000, guid: 3e8ee88f5e7bc3740a6bbd5f047c1e7b, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 1000
   sellPrice: 500

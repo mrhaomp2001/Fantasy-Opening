@@ -50,7 +50,7 @@ public class GameInputController : MonoBehaviour
     public InputKey Hotkey8 { get => hotkey8; set => hotkey8 = value; }
     public InputKey Hotkey9 { get => hotkey9; set => hotkey9 = value; }
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -61,6 +61,10 @@ public class GameInputController : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    private void Start()
+    {
         instance.LoadOrInitialize();
     }
 

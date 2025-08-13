@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: 805 farmland copper
   m_EditorClassIdentifier: 
   id: 805
-  itemName: farmland_copper
+  itemName: 805_farmland_copper-item_name
+  itemDescription: 805_farmland_copper-item_description
   sprite: {fileID: 21300000, guid: a9df98905626d6743a2e3c3ad8f88577, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
   buildingName: 805_farmland_copper

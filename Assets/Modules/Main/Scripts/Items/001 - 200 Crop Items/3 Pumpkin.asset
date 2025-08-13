@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 3 Pumpkin
   m_EditorClassIdentifier: 
   id: 3
-  type: 0
-  itemName: "B\xED ng\xF4"
+  itemName: 3_pumpkin-item_name
+  itemDescription: 3_pumpkin-item_description
   sprite: {fileID: 21300000, guid: af26670ad75e5cf40b0933a7855e31e8, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 2400
   sellPrice: 1200

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 806 farmland iron
   m_EditorClassIdentifier: 
   id: 806
-  itemName: farmland_iron
+  itemName: 806_farmland_iron-item_name
+  itemDescription: 806_farmland_iron-item_description
   sprite: {fileID: 21300000, guid: 47560d3a17da7aa46b937d967d0b6533, type: 3}
   spriteWorldItem: {fileID: 0}
   buyPrice: 0

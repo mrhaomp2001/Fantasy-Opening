@@ -28,6 +28,14 @@ public class EnemyRooster : Enemy
         }
     }
 
+    private void OnDisable()
+    {
+        if (timerMoveMent != null)
+        {
+            timerMoveMent.Cancel();
+        }
+    }
+
     private void Move()
     {
         Vector3 playerPosition = PlayerController.Instance.transform.position;

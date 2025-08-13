@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 406 Chicken Leg
   m_EditorClassIdentifier: 
   id: 406
-  type: 2
-  itemName: "\u0110\xF9i g\xE0"
+  itemName: 406_chicken_leg-item_name
+  itemDescription: 406_chicken_leg-item_description
   sprite: {fileID: 21300000, guid: 80775f70beb28974693c302b4b3729e2, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 1000
   sellPrice: 500

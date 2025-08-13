@@ -6,7 +6,7 @@ public class PopUpHotbarSelecter : PopUp
 {
     private static PopUpHotbarSelecter instance;
     private InventoryController.InventoryItem currentSelectItem;
-    [Header("PopUpHotbarSelecter: ")]
+    [Header("Hotbar Selecter: ")]
     [SerializeField] private List<HotbarSelecterItem> hotbarSelecterItems;
 
     public static PopUpHotbarSelecter Instance { get => instance; set => instance = value; }

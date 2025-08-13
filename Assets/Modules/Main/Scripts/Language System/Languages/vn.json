@@ -1,0 +1,129 @@
+{
+    "hello_world": "Xin chào!",
+    "example": "Ví dụ như này nè!",
+
+    "crafting": "Chế tạo",
+    "value": "Giá trị",
+    "value_sell": "Giá bán",
+
+    "event_1_start_1": "Thế giới này thật trống rỗng",
+    "event_1_start_2": "Bạn cảm thấy...",
+    "event_1_start_3": "Thực tại này chẳng là gì...",
+    "event_1_start_4": "Thế giới này chẳng là gì...",
+    "event_1_start_5": "và bạn chẳng là gì...",
+    
+    "event_1_start_6": "Bạn muốn điều gì?",
+    "event_1_start_dialogue_choose_1": "> Tôi muốn chơi với thỏ con trên đồng cỏ, bên tán cây mát mẻ",
+
+    "event_1_start_7": "Chỉ cần bạn muốn...",
+
+
+    "1_corn-item_name": "Bắp",
+    "1_corn-item_description": "Bắp",
+
+    "2_peanut-item_name": "Đậu phộng",
+    "2_peanut-item_description": "Đậu phộng",
+
+    "3_pumpkin-item_name": "Bí ngô",
+    "3_pumpkin-item_description": "Bí ngô",
+
+    "4_sugar_cane-item_name": "Mía đường",
+    "4_sugar_cane-item_description": "Mía đường",
+
+    "5_carrot-item_name": "Cà rốt",
+    "5_carrot-item_description": "Cà rốt",
+
+
+
+    "201_corn_seed-item_name": "Hạt giống bắp",
+    "201_corn_seed-item_description": "Hạt giống bắp",
+
+    "202_peanut_seed-item_name": "Hạt giống đậu phộng",
+    "202_peanut_seed-item_description": "Hạt giống đậu phộng",
+
+    "203_pumpkin_seed-item_name": "Hạt bí ngô",
+    "203_pumpkin_seed-item_description": "Hạt bí ngô",
+
+    "204_sugar_cane_seed-item_name": "Mía đường giống",
+    "204_sugar_cane_seed-item_description": "Mía đường giống",
+
+    "205_carrot_seed-item_name": "Hạt cà rốt",
+    "205_carrot_seed-item_description": "Hạt cà rốt",
+
+
+
+    "401_wood-item_name": "Gỗ",
+    "401_wood-item_description": "Gỗ",
+
+    "402_small_egg-item_name": "Trứng nhỏ",
+    "402_small_egg-item_description": "Trứng nhỏ",
+
+    "403_pumpkin_pie-item_name": "Bánh bí ngô",
+    "403_pumpkin_pie-item_description": "Bánh bí ngô",
+
+    "404_sugar-item_name": "Đường",
+    "404_sugar-item_description": "Đường",
+
+    "405_big_egg-item_name": "Trứng lớn",
+    "405_big_egg-item_description": "Trứng lớn",
+
+    "406_chicken_leg-item_name": "Trứng lớn",
+    "406_chicken_leg-item_description": "Trứng lớn",
+
+    "407_coin-item_name": "Tiền",
+    "407_coin-item_description": "Tiền",
+
+
+
+    "601_weapon_1-item_name": "Vũ khí 1",
+    "601_weapon_1-item_description": "Vũ khí 1",
+
+    "602_weapon_2-item_name": "Vũ khí 2",
+    "602_weapon_2-item_description": "Vũ khí 2",
+
+    "603_weapon_3-item_name": "Vũ khí 3",
+    "603_weapon_3-item_description": "Vũ khí 3",
+
+    "801_farmland-item_name": "Ô đất",
+    "801_farmland-item_description": "Ô đất",
+
+    "802_bed-item_name": "Giường",
+    "802_bed-item_description": "Giường",
+
+    "803_chest-item_name": "Rương",
+    "803_chest-item_description": "Rương",
+
+    "804_crafting_table-item_name": "Bàn chế tạo",
+    "804_crafting_table-item_description": "Bàn chế tạo",
+
+    "805_farmland_copper-item_name": "Ô đất đồng",
+    "805_farmland_copper-item_description": "Ô đất đồng",
+
+    "806_farmland_iron-item_name": "Ô đất sắt",
+    "806_farmland_iron-item_description": "Ô đất sắt",
+
+    "807_farmland_silver-item_name": "Ô đất bạc",
+    "807_farmland_silver-item_description": "Ô đất bạc",
+
+    "808_farmland_gold-item_name": "Ô đất vàng",
+    "808_farmland_gold-item_description": "Ô đất vàng",
+    
+
+    
+    "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",
+    "npc_rabbit_talk_2": "Tui chỉ là con thỏ, tui trồng cà rốt, tui ăn cà rốt",
+
+    "npc_rabbit_choice_1": "> Nói chuyện",
+    "npc_rabbit_choice_2": "> Tôi muốn mua hàng",
+    "npc_rabbit_choice_3": "> Tôi muốn bán hàng",
+
+    "npc_rabbit_talk_3": "Bạn muốn nói gì? Bạn có bị cà rốt không?",
+
+    "merchant_note_1": "Thương nhân chỉ mua những thứ được liệt kê bên dưới",
+
+    "result": "Kết quả",
+    
+
+    "eof": "End of file"
+    
+}

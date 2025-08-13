@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 402 Bird Egg
   m_EditorClassIdentifier: 
   id: 402
-  type: 2
-  itemName: "Tr\u1EE9ng chim nh\u1ECF"
+  itemName: 402_small_egg-item_name
+  itemDescription: 402_small_egg-item_description
   sprite: {fileID: 21300000, guid: c5b8cadcf23fc164d9af458cabdad02e, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 80
   sellPrice: 50

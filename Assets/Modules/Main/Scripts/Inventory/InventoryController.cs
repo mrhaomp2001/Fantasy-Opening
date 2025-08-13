@@ -3,7 +3,6 @@ using SimpleJSON;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static InventoryController;
 
 public class InventoryController : MonoBehaviour
 {
@@ -24,6 +23,8 @@ public class InventoryController : MonoBehaviour
 
         [JsonProperty]
         [SerializeField] private int hotbarSelectedSlot;
+        [JsonProperty]
+        [SerializeField] private BuildingController.BuildingData buildingData;
 
         public List<InventoryItem> Items { get => items; set => items = value; }
         public List<InventoryItem> Hotbar { get => hotbar; set => hotbar = value; }
@@ -37,6 +38,39 @@ public class InventoryController : MonoBehaviour
             }
         }
 
+        public bool IsItemEnough(int id, int count)
+        {
+            InventoryItem item = Items.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
+
+            if (item == null)
+            {
+                item = Hotbar.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
+            }
+
+            if (item == null || item.count < count)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public int CheckItemCount(int id)
+        {
+            InventoryItem item = Items.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
+
+            if (item == null)
+            {
+                item = Hotbar.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
+            }
+
+            if (item == null)
+            {
+                return 0;
+            }
+
+            return item.count;
+        }
 
         public InventoryItem SelectedHotbar
         {
@@ -45,6 +79,8 @@ public class InventoryController : MonoBehaviour
                 return Hotbar[HotbarSelectedSlot];
             }
         }
+
+        public BuildingController.BuildingData BuildingData { get => buildingData; set => buildingData = value; }
     }
 
     private static InventoryController instance;
@@ -82,7 +118,6 @@ public class InventoryController : MonoBehaviour
 
         Load();
 
-        BuildingController.Instance.Load();
     }
 
     public void Consume(int id, int count, Callback callback)
@@ -104,7 +139,7 @@ public class InventoryController : MonoBehaviour
 
         if (item.count < count)
         {
-            callback.onFail?.Invoke("Không đủ số lượng " + item.item.ItemName);
+            callback.onFail?.Invoke("Không đủ số lượng ");
 
             callback.onNext?.Invoke();
 
@@ -193,7 +228,6 @@ public class InventoryController : MonoBehaviour
                 inventorySlot.count = count;
             }
 
-            Debug.Log("Added item with id: " + id + ", count: " + count);
         }
         else
         {
@@ -220,6 +254,13 @@ public class InventoryController : MonoBehaviour
         {
             playerData.Hotbar.Add(new());// i
         }
+
+        playerData.BuildingData = new BuildingController.BuildingData
+        {
+            IdCounter = 0,
+            Buildings = new List<BuildingController.Building>()
+        };
+
 
         if (PlayerPrefs.HasKey(prefKey))
         {
@@ -265,6 +306,9 @@ public class InventoryController : MonoBehaviour
                     Add(item["item"]["id"].AsInt, item["count"].AsInt);
                 }
             }
+
+            BuildingController.Instance.Load(keyValuePairs["buildingData"]);
+
         }
 
         PopUpInventory.Instance.UpdateViewHotbar();
@@ -317,6 +361,8 @@ public class InventoryController : MonoBehaviour
 
     public void Save()
     {
+        BuildingController.Instance.Save();
+
         Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
         PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(playerData));
         PlayerPrefs.Save();

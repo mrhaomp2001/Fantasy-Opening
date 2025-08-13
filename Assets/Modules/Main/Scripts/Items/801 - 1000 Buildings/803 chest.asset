@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: 803 chest
   m_EditorClassIdentifier: 
   id: 803
-  itemName: chest
+  itemName: 803_chest-item_name
+  itemDescription: 803_chest-item_description
   sprite: {fileID: 21300000, guid: 1d7790f3b41816a4fba14be329aea575, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
   buildingName: 803_chest

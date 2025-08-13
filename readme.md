@@ -1,4 +1,82 @@
 
+# [ 08:27:01 13/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- hệ thống mua bán
+
+- nâng cấp hệ thống kho đồ, hover hiển thị thông tin của vật phẩm
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- hệ thống trang bị áo giáp
+- chỉ số của người chơi
+- hệ thống mua bán
+
+- thiết kế chức năng save/load ở menu chính
+
+- nâng cấp hệ thống kho đồ, hover hiển thị thông tin của vật phẩm
+- thả đồ từ túi, drop đồ ra thế giới
+</details>
+
+
+# [ 08:36:13 12/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- hệ thống trò chuyện
+- hệ thống ngôn ngữ
+- hệ thống chế tạo
+
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- hệ thống trang bị áo giáp
+- chỉ số của người chơi
+
+- hệ thống chế tạo
+- hệ thống trò chuyện
+- hệ thống mua bán
+- thiết kế chức năng save/load ở menu chính
+
+- hệ thống ngôn ngữ
+- hệ thống trò chuyện
+
+- nâng cấp hệ thống kho đồ, hover hiển thị thông tin của vật phẩm
+- thả đồ từ túi, drop đồ ra thế giới
+</details>
+
+
+# [ 18:05:30 11/08/2025 ]
+
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- vẽ:
+  + viền của đảo
+  + ô đất viền sắt
+  + cây bắp - 4 stages
+  + item bắp
+### Công việc trong kế hoạch: 
+
+- AI của quái
+
+- hệ thống trang bị áo giáp
+- chỉ số của người chơi
+- vẽ:
+  + viền của đảo
+  + ô đất viền sắt
+  + cây bắp - 4 stages
+  + item bắp
+</details>
+
+
 # [ 07:54:32 10/08/2025 ]
 
 <details>

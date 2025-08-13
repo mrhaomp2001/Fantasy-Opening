@@ -62,7 +62,6 @@ public class BuildingController : MonoBehaviour, IUpdatable
     private static BuildingController instance;
 
     [SerializeField] private Grid gridBuilding;
-    [SerializeField] private BuildingData buildingData;
 
     [SerializeField] private List<BuildingBound> allowedBuildAreas = new List<BuildingBound>();
 
@@ -104,7 +103,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
             return false;
         }
 
-        foreach (var item in buildingData.Buildings)
+        foreach (var item in InventoryController.Instance.GetPlayerData.BuildingData.Buildings)
         {
             Vector3 checkPosition = new Vector3(item.X, item.Y, item.Z);
 
@@ -128,7 +127,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
         var building = new Building
         {
-            Id = buildingData.IdCounter++,
+            Id = InventoryController.Instance.GetPlayerData.BuildingData.IdCounter++,
             Name = buildingName,
             X = buildingPosition.x,
             Y = buildingPosition.y,
@@ -136,7 +135,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
             WorldInteractable = gameObjectResult.GetComponent<IWorldInteractable>(),
         };
 
-        buildingData.Buildings.Add(building);
+        InventoryController.Instance.GetPlayerData.BuildingData.Buildings.Add(building);
 
         var buildingBase = gameObjectResult.GetComponent<BuildingBase>();
 
@@ -172,7 +171,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
             WorldInteractable = gameObjectResult.GetComponent<IWorldInteractable>(),
         };
 
-        buildingData.Buildings.Add(building);
+        InventoryController.Instance.GetPlayerData.BuildingData.Buildings.Add(building);
         var buildingBase = gameObjectResult.GetComponent<BuildingBase>();
 
         if (buildingBase != null)
@@ -190,7 +189,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
     public void Save()
     {
-        foreach (var item in buildingData.Buildings)
+        foreach (var item in InventoryController.Instance.GetPlayerData.BuildingData.Buildings)
         {
             if (item.WorldInteractable is BuildingFarmland farmland)
             {
@@ -201,76 +200,54 @@ public class BuildingController : MonoBehaviour, IUpdatable
                 item.Data = chest;
             }
         }
-
-        Debug.Log($"{JsonConvert.SerializeObject(buildingData)}");
-        PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(buildingData));
-        PlayerPrefs.Save();
     }
 
-    public void Load()
+    public void Load(JSONNode jsonValue)
     {
-        buildingData = new BuildingData
+        InventoryController.Instance.GetPlayerData.BuildingData.IdCounter = jsonValue["idCounter"].AsInt;
+
+        for (int i = 0; i < jsonValue["buildings"].Count; i++)
         {
-            IdCounter = 0,
-            Buildings = new List<Building>()
-        };
+            var item = jsonValue["buildings"][i];
 
-        if (PlayerPrefs.HasKey(prefKey))
-        {
-            string value = PlayerPrefs.GetString(prefKey);
-
-            JSONNode keyValuePairs = JSONNode.Parse(value);
-
-            Debug.Log($"OnLoadPrefs: {value}");
-
-            buildingData.IdCounter = keyValuePairs["idCounter"].AsInt;
-
-            for (int i = 0; i < keyValuePairs["buildings"].Count; i++)
+            if (float.TryParse(item["x"].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out float x))
             {
-                var item = keyValuePairs["buildings"][i];
-
-                if (float.TryParse(item["x"].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out float x))
+                if (float.TryParse(item["y"].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out float y))
                 {
-                    if (float.TryParse(item["y"].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out float y))
+                    Vector3 buildPosition = new Vector3(x, y, 0f);
+
+                    var building = BuildAtPosition(item["name"].Value, buildPosition, item["id"].AsInt);
+
+                    var data = item["data"];
+
+                    if (building.WorldInteractable is BuildingFarmland farmland)
                     {
-                        Vector3 buildPosition = new Vector3(x, y, 0f);
-
-                        var building = BuildAtPosition(item["name"].Value, buildPosition, item["id"].AsInt);
-
-                        var data = item["data"];
-
-                        if (building.WorldInteractable is BuildingFarmland farmland)
+                        if (data["cropCurrent"] != null)
                         {
-                            if (data["cropCurrent"] != null)
-                            {
-                                farmland.OnLoadFarmLand(data["cropCurrent"]["id"].AsInt, data["currentDay"].AsInt);
-                            }
+                            farmland.OnLoadFarmLand(data["cropCurrent"]["id"].AsInt, data["currentDay"].AsInt);
                         }
+                    }
 
-                        if (building.WorldInteractable is BuildingChest chest)
+                    if (building.WorldInteractable is BuildingChest chest)
+                    {
+                        for (int j = 0; j < data["items"].Count; j++)
                         {
-                            for (int j = 0; j < data["items"].Count; j++)
-                            {
-                                var chestItem = data["items"][j];
+                            var chestItem = data["items"][j];
 
-                                if (chestItem["item"] != null)
-                                {
-                                    chest.Add(chestItem["item"]["id"].AsInt, chestItem["count"].AsInt);
-                                }
+                            if (chestItem["item"] != null)
+                            {
+                                chest.Add(chestItem["item"]["id"].AsInt, chestItem["count"].AsInt);
                             }
                         }
                     }
                 }
-
-
-
             }
         }
     }
 
     public void DestroyBuilding(int id)
     {
-        Building targetBuilding = buildingData.Buildings
+        Building targetBuilding = InventoryController.Instance.GetPlayerData.BuildingData.Buildings
             .Where(predicate =>
             {
                 return predicate.Id == id;
@@ -285,7 +262,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
             }
         }
 
-        buildingData.Buildings.Remove(targetBuilding);
+        InventoryController.Instance.GetPlayerData.BuildingData.Buildings.Remove(targetBuilding);
     }
     private void OnEnable()
     {

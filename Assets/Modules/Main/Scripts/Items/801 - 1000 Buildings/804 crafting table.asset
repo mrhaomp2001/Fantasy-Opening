@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 804 crafting table
   m_EditorClassIdentifier: 
   id: 804
-  itemName: crafting_table
-  sprite: {fileID: 21300000, guid: a724fffc624978c4b9581c2a6ecf5b86, type: 3}
+  itemName: 804_crafting_table-item_name
+  itemDescription: 804_crafting_table-item_description
+  sprite: {fileID: 21300000, guid: b7c6df4007514ba429068d535706cd76, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
   buildingName: 804_crafting_table
-  buildingSprite: {fileID: 21300000, guid: a724fffc624978c4b9581c2a6ecf5b86, type: 3}
+  buildingSprite: {fileID: 21300000, guid: b7c6df4007514ba429068d535706cd76, type: 3}

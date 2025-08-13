@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventoryGridviewItem : MonoBehaviour
@@ -10,6 +12,7 @@ public class InventoryGridviewItem : MonoBehaviour
     [SerializeField] private InventoryController.InventoryItem item;
     [SerializeField] private TextMeshProUGUI textItemCount;
     [SerializeField] private Image imageItem;
+    [SerializeField] private RectTransform tooltipPosition;
     public void UpdateViews(InventoryController.InventoryItem valueItem)
     {
         if (valueItem != null)
@@ -65,6 +68,42 @@ public class InventoryGridviewItem : MonoBehaviour
                 });
             }
         }
+        if (PopUpInventory.Instance.IsSelling)
+        {
+            if (item.count > 0)
+            {
+
+                var itemTarget = PopUpInventory.Instance.SellingGridviewItems
+                    .Where(predicate =>
+                    {
+                        return predicate.item != null && predicate.item.item.Id == item.item.Id;
+                    })
+                    .FirstOrDefault();
+
+                if (itemTarget != null && InventoryController.Instance.Add(407, item.item.SellPrice))
+                {
+                    InventoryController.Instance.Consume(item.item.Id, 1, new Callback()
+                    {
+                        onSuccess = () =>
+                        {
+                        },
+                        onFail = (message) =>
+                        {
+                            Debug.LogWarning(message);
+                        },
+                        onNext = () =>
+                        {
+                            PopUpInventory.Instance.UpdateViews();
+                            PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item);
+                        }
+                    });
+                }
+                else
+                {
+                    Debug.Log("Item not found in selling gridview or unable to add gold.");
+                }
+            }
+        }
         else
         {
             PopUpHotbarSelecter.Instance.ShowPopUp(item);
@@ -101,6 +140,22 @@ public class InventoryGridviewItem : MonoBehaviour
 
                 }
             });
+        }
+    }
+
+    public void OnPointerEnter(BaseEventData baseEventData)
+    {
+        if (baseEventData is PointerEventData pointerEventData)
+        {
+            PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item);
+        }
+    }
+
+    public void OnPointerExit(BaseEventData baseEventData)
+    {
+        if (baseEventData is PointerEventData pointerEventData)
+        {
+            PopUpInventoryTooltip.Instance.Hide();
         }
     }
 }

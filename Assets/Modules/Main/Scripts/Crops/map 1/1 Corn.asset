@@ -20,3 +20,4 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 31878860cb1703542ac7e64e4d791c24, type: 3}
   - sprite: {fileID: 21300000, guid: e7f7fb838c6460e42a9bafd3ca2167dd, type: 3}
   - sprite: {fileID: 21300000, guid: 86dd11bd737d1b84ba12bc7224cdba4e, type: 3}
+  - sprite: {fileID: 21300000, guid: 4809b260fefd33644bb4ef283e7f59b3, type: 3}

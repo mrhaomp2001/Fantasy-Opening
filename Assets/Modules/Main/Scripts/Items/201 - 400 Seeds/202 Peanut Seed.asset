@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 202 Peanut Seed
   m_EditorClassIdentifier: 
   id: 202
-  type: 1
-  itemName: "\u0110\u1EADu ph\u1ED9ng gi\u1ED1ng"
+  itemName: 202_peanut_seed-item_name
+  itemDescription: 202_peanut_seed-item_description
   sprite: {fileID: 21300000, guid: c034aebca5ab2b64c9a71b2a0c5cb6df, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 15
   sellPrice: 10
   cropId: 2

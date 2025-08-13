@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: 602 Starfury
   m_EditorClassIdentifier: 
   id: 602
-  itemName: Starfury
+  itemName: 602_weapon_2-item_name
+  itemDescription: 602_weapon_2-item_description
   sprite: {fileID: 21300000, guid: 2cce8210f23012b45911ff30b5ff6966, type: 3}
+  spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
   projectile: player_bullet_602

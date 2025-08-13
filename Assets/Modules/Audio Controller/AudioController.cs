@@ -28,19 +28,20 @@ public class AudioController : MonoBehaviour
 
     [SerializeField] private Sound[] sounds;
     [SerializeField] private AudioMixer audioMixerMaster;
-    [SerializeField] public static AudioController Instance;
+    private static AudioController instance;
+
+    public static AudioController Instance { get => instance; set => instance = value; }
 
     private void Awake()
     {
-        if (Instance != null)
+        if (instance == null)
         {
-            Destroy(this.gameObject);
-            return;
+            instance = this;
         }
-
         else
         {
-            Instance = this;
+            Destroy(gameObject);
+            return;
         }
 
         foreach (var sound in sounds)
@@ -79,22 +80,6 @@ public class AudioController : MonoBehaviour
         sound.audioSource.Enqueue(targetSound);
 
         targetSound.Stop();
-    }
-
-    public void MuteVolume()
-    {
-        audioMixerMaster.SetFloat("volume_effects", -80f);
-    }
-
-    public void SetVolume(float volume)
-    {
-
-        audioMixerMaster.SetFloat("volume_effects", volume);
-        if (volume <= -19f)
-        {
-            audioMixerMaster.SetFloat("volume_effects", -80f);
-
-        }
     }
 
     public void Pause(string name)

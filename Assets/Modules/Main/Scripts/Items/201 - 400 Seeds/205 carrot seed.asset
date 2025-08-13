@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 205 carrot seed
   m_EditorClassIdentifier: 
   id: 205
-  itemName: Carrot Seed
+  itemName: 205_carrot_seed-item_name
+  itemDescription: 205_carrot_seed-item_description
   sprite: {fileID: 21300000, guid: 8bca67901b9f5364ebf667c2a84fcf20, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 8bca67901b9f5364ebf667c2a84fcf20, type: 3}
   buyPrice: 500
