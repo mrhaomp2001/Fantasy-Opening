@@ -6,8 +6,8 @@
 
 ### Kết quả hôm nay:
 - hệ thống mua bán
-
 - nâng cấp hệ thống kho đồ, hover hiển thị thông tin của vật phẩm
+- có NPC nữa
 ### Công việc trong kế hoạch: 
 - AI của quái
 
