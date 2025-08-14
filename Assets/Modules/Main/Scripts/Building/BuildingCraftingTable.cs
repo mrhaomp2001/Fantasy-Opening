@@ -15,6 +15,6 @@ public class BuildingCraftingTable : BuildingBase, IWorldInteractable, IPoolObje
     {
         PopUpInventory.Instance.TurnPopUp();
 
-        PopUpInventory.Instance.TurnCrafting(recipes);
+        PopUpInventory.Instance.TurnCrafting(recipes, isHideInventoryOptions: true);
     }
 }

@@ -37,7 +37,7 @@ public class PopUpInventoryTooltip : PopUp
 
     public void ShowAtPosition(Vector2 position, InventoryController.InventoryItem item)
     {
-        if (item.item != null)
+        if (item != null && item.item != null)
         {
             base.Show();
             container.position = position + new Vector2(5f, 0f);

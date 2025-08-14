@@ -7,6 +7,7 @@ public class PopUpHotbarSelecter : PopUp
     private static PopUpHotbarSelecter instance;
     private InventoryController.InventoryItem currentSelectItem;
     [Header("Hotbar Selecter: ")]
+    [SerializeField] private RectTransform containerEquipEquipment;
     [SerializeField] private List<HotbarSelecterItem> hotbarSelecterItems;
 
     public static PopUpHotbarSelecter Instance { get => instance; set => instance = value; }
@@ -28,6 +29,8 @@ public class PopUpHotbarSelecter : PopUp
         base.Show();
         currentSelectItem = valueItem;
 
+        containerEquipEquipment.gameObject.SetActive(false);
+
         for (int i = 0; i < hotbarSelecterItems.Count; i++)
         {
             HotbarSelecterItem item = hotbarSelecterItems[i];
@@ -41,6 +44,17 @@ public class PopUpHotbarSelecter : PopUp
                 item.UpdateViews(null);
             }
         }
+
+        if (valueItem.item is ItemArmorHead || valueItem.item is ItemArmorBody || valueItem.item is ItemArmorLeg || valueItem.item is ItemArmorFoot)
+        {
+            containerEquipEquipment.gameObject.SetActive(true);
+        }
+    }
+
+    public void OnEquipEquipment()
+    {
+        InventoryController.Instance.EquipEquipment(currentSelectItem.item);
+        Hide();
     }
 
     public void SelectHotbarSlot(int slot)

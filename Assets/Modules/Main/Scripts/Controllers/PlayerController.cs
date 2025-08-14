@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public static PlayerController Instance { get => instance; set => instance = value; }
     public Transform FirepointHitbox { get => firepointHitbox; set => firepointHitbox = value; }
+    public Rigidbody2D RbPlayer { get => rbPlayer; set => rbPlayer = value; }
 
     private void Start()
     {

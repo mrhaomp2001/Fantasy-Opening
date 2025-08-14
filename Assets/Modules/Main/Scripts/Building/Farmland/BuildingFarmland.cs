@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GameUtil;
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,11 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
         else
         {
             imageCrop.sprite = cropCurrent.Stages[currentDay < cropCurrent.Stages.Count ? currentDay : cropCurrent.Stages.Count - 1].sprite;
+
+            Timer.DelayAction(1f, () =>
+            {
+                SpawnEnemy();
+            });
         }
     }
 
@@ -104,6 +110,17 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
         }
     }
 
+    public void SpawnEnemy()
+    {
+        foreach (var item in cropCurrent.EnemyList)
+        {
+            Vector2 randomDirection = Random.insideUnitCircle.normalized;
+            Vector2 spawnPosition = (Vector2)PlayerController.Instance.RbPlayer.position + randomDirection * 7f;
+
+            ObjectPooler.Instance.SpawnFromPool(item, spawnPosition, Quaternion.identity);
+        }
+    }
+
     public void OnWorldInteract()
     {
         if (cropCurrent != null)
@@ -121,7 +138,7 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
         spriteLandBack.sortingOrder = (int)-(transform.position.y * 100f) - 2;
         imageCrop.sortingOrder = (int)-(transform.position.y * 100f) - 1;
         spriteLandFront.sortingOrder = (int)-(transform.position.y * 100f);
-        
+
         cropCurrent = null;
         currentDay = 0;
     }

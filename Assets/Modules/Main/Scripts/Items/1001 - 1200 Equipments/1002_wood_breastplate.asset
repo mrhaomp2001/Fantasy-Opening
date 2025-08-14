@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d61e8e1f097b014f8b95998cae8f2a4, type: 3}
+  m_Name: 1002_wood_breastplate
+  m_EditorClassIdentifier: 
+  id: 1002
+  itemName: 1002_wood_breastplate-item_name
+  itemDescription: 1002_wood_breastplate-item_description
+  sprite: {fileID: 21300000, guid: f7131bac1af8d4446ab9f2976bfea86e, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: f7131bac1af8d4446ab9f2976bfea86e, type: 3}
+  buyPrice: 0
+  sellPrice: 0
+  isNonStack: 1

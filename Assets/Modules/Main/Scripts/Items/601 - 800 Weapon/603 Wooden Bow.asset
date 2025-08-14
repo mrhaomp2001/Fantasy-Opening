@@ -19,4 +19,5 @@ MonoBehaviour:
   spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
+  isNonStack: 1
   projectile: player_bullet_603

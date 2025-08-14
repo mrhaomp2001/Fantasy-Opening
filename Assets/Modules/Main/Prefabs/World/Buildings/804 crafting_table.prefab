@@ -59,6 +59,31 @@ MonoBehaviour:
     ingredients:
     - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
       count: 10
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: bd0be36e13b8fb04b96af91fe441806d, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 10
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: dc2dd88ace646a942b0d59ecc3e8cba3, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 15
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 40731e8da8e187946a201e6285f4ca8a, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 12
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: fba0b73e563ee7a4ea24e78aba47d679, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 8
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 1b568686ff6ab184eaa41b5ebb69a39d, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 15
 --- !u!1 &4202027970124843457
 GameObject:
   m_ObjectHideFlags: 0

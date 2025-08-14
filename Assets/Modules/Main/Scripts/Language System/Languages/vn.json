@@ -5,6 +5,7 @@
     "crafting": "Chế tạo",
     "value": "Giá trị",
     "value_sell": "Giá bán",
+    "equipment": "Trang bị",
 
     "event_1_start_1": "Thế giới này thật trống rỗng",
     "event_1_start_2": "Bạn cảm thấy...",
@@ -75,8 +76,8 @@
 
 
 
-    "601_weapon_1-item_name": "Vũ khí 1",
-    "601_weapon_1-item_description": "Vũ khí 1",
+    "601_weapon_1-item_name": "Kiếm gỗ",
+    "601_weapon_1-item_description": "Kiếm gỗ",
 
     "602_weapon_2-item_name": "Vũ khí 2",
     "602_weapon_2-item_description": "Vũ khí 2",
@@ -107,7 +108,22 @@
 
     "808_farmland_gold-item_name": "Ô đất vàng",
     "808_farmland_gold-item_description": "Ô đất vàng",
+
+
     
+    "1001_wood_helmet-item_name": "Nón gỗ",
+    "1001_wood_helmet-item_description": "Nón gỗ",
+    
+    "1002_wood_breastplate-item_name": "Áo giáp gỗ",
+    "1002_wood_breastplate-item_description": "Áo giáp gỗ",
+    
+    "1003_wood_leggings-item_name": "Quần gỗ",
+    "1003_wood_leggings-item_description": "Quần gỗ",
+    
+    "1004_wood_boots-item_name": "Giày gỗ",
+    "1004_wood_boots-item_description": "Giày gỗ",
+
+
 
     
     "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",

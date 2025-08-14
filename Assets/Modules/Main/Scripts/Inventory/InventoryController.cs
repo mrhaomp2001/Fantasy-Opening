@@ -22,6 +22,15 @@ public class InventoryController : MonoBehaviour
         [SerializeField] private List<InventoryItem> hotbar = new();
 
         [JsonProperty]
+        [SerializeField] private InventoryItem armorHead = new();
+        [JsonProperty]
+        [SerializeField] private InventoryItem armorBody = new();
+        [JsonProperty]
+        [SerializeField] private InventoryItem armorLeg = new();
+        [JsonProperty]
+        [SerializeField] private InventoryItem armorFoot = new();
+
+        [JsonProperty]
         [SerializeField] private int hotbarSelectedSlot;
         [JsonProperty]
         [SerializeField] private BuildingController.BuildingData buildingData;
@@ -81,6 +90,10 @@ public class InventoryController : MonoBehaviour
         }
 
         public BuildingController.BuildingData BuildingData { get => buildingData; set => buildingData = value; }
+        public InventoryItem ArmorHead { get => armorHead; set => armorHead = value; }
+        public InventoryItem ArmorBody { get => armorBody; set => armorBody = value; }
+        public InventoryItem ArmorLeg { get => armorLeg; set => armorLeg = value; }
+        public InventoryItem ArmorFoot { get => armorFoot; set => armorFoot = value; }
     }
 
     private static InventoryController instance;
@@ -167,22 +180,16 @@ public class InventoryController : MonoBehaviour
 
     public bool Add(int id, int count, bool isNonCheckHotbar = false)
     {
-        InventoryItem item = playerData.Items.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
-        if (item != null)
+        var targetItem = ItemDatabase.Instance.Items
+            .Where(predicate =>
+            {
+                return predicate.Id == id;
+            })
+            .FirstOrDefault();
+
+        if (!targetItem.IsNonStack)
         {
-            item.count += count;
-
-
-            PopUpInventory.Instance.UpdateViewHotbar();
-            //PopUpInventory.Instance.UpdateViews();
-
-            return true;
-        }
-
-        if (!isNonCheckHotbar)
-        {
-            item = playerData.Hotbar.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
-
+            InventoryItem item = playerData.Items.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
             if (item != null)
             {
                 item.count += count;
@@ -193,8 +200,23 @@ public class InventoryController : MonoBehaviour
 
                 return true;
             }
-        }
 
+            if (!isNonCheckHotbar)
+            {
+                item = playerData.Hotbar.Where((item) => { return (item.item != null && item.item.Id == id); }).FirstOrDefault();
+
+                if (item != null)
+                {
+                    item.count += count;
+
+
+                    PopUpInventory.Instance.UpdateViewHotbar();
+                    //PopUpInventory.Instance.UpdateViews();
+
+                    return true;
+                }
+            }
+        }
 
         if (playerData.IsInventoryFull)
         {
@@ -205,12 +227,6 @@ public class InventoryController : MonoBehaviour
         }
 
 
-        var targetItem = ItemDatabase.Instance.Items
-            .Where(predicate =>
-            {
-                return predicate.Id == id;
-            })
-            .FirstOrDefault();
 
         if (targetItem != null)
         {
@@ -244,6 +260,11 @@ public class InventoryController : MonoBehaviour
     {
         playerData.Hotbar = new();
         playerData.Items = new();
+
+        playerData.ArmorHead = new InventoryItem();
+        playerData.ArmorBody = new InventoryItem();
+        playerData.ArmorLeg = new InventoryItem();
+        playerData.ArmorFoot = new InventoryItem();
 
         for (int i = 0; i < 27; i++)
         {
@@ -357,6 +378,136 @@ public class InventoryController : MonoBehaviour
 
         PopUpInventory.Instance.UpdateViews();
         PopUpInventory.Instance.UpdateViewHotbar();
+    }
+
+    public void EquipEquipment(ItemBase itemTarget)
+    {
+        if (itemTarget != null)
+        {
+            var itemHolder = ItemDatabase.Instance.Items
+                .Where(predicate =>
+                {
+                    return predicate != null && predicate.Id == itemTarget.Id;
+                })
+                .FirstOrDefault();
+
+
+            if (itemTarget is ItemArmorHead head)
+            {
+                int currentArmorId = 0;
+                if (playerData.ArmorHead.item != null)
+                {
+                    currentArmorId = playerData.ArmorHead.item.Id;
+                }
+
+                Consume(itemTarget.Id, 1, new Callback
+                {
+                    onSuccess = () =>
+                    {
+                        playerData.ArmorHead.item = itemHolder;
+                        playerData.ArmorHead.count = 1;
+                    },
+                    onFail = (message) =>
+                    {
+                    },
+                    onNext = () =>
+                    {
+                        if (currentArmorId != 0)
+                        {
+                            Add(currentArmorId, 1, isNonCheckHotbar: true);
+                        }
+                    }
+                });
+            }
+
+            if (itemTarget is ItemArmorBody body)
+            {
+                int currentArmorId = 0;
+                if (playerData.ArmorBody.item != null)
+                {
+                    currentArmorId = playerData.ArmorBody.item.Id;
+                }
+
+                Consume(itemTarget.Id, 1, new Callback
+                {
+                    onSuccess = () =>
+                    {
+                        playerData.ArmorBody.item = itemHolder;
+                        playerData.ArmorBody.count = 1;
+                    },
+                    onFail = (message) =>
+                    {
+                    },
+                    onNext = () =>
+                    {
+                        if (currentArmorId != 0)
+                        {
+                            Add(currentArmorId, 1, isNonCheckHotbar: true);
+                        }
+                    }
+                });
+            }
+
+            if (itemTarget is ItemArmorLeg leg)
+            {
+                int currentArmorId = 0;
+                if (playerData.ArmorLeg.item != null)
+                {
+                    currentArmorId = playerData.ArmorLeg.item.Id;
+                }
+
+                Consume(itemTarget.Id, 1, new Callback
+                {
+                    onSuccess = () =>
+                    {
+                        playerData.ArmorLeg.item = itemHolder;
+                        playerData.ArmorLeg.count = 1;
+                    },
+                    onFail = (message) =>
+                    {
+                    },
+                    onNext = () =>
+                    {
+                        if (currentArmorId != 0)
+                        {
+                            Add(currentArmorId, 1, isNonCheckHotbar: true);
+                        }
+                    }
+                });
+            }
+
+            if (itemTarget is ItemArmorFoot foot)
+            {
+                int currentArmorId = 0;
+                if (playerData.ArmorFoot.item != null)
+                {
+                    currentArmorId = playerData.ArmorFoot.item.Id;
+                }
+
+                Consume(itemTarget.Id, 1, new Callback
+                {
+                    onSuccess = () =>
+                    {
+                        playerData.ArmorFoot.item = itemHolder;
+                        playerData.ArmorFoot.count = 1;
+                    },
+                    onFail = (message) =>
+                    {
+                    },
+                    onNext = () =>
+                    {
+                        if (currentArmorId != 0)
+                        {
+                            Add(currentArmorId, 1, isNonCheckHotbar: true);
+                        }
+                    }
+                });
+            }
+
+
+            PopUpInventory.Instance.UpdateViews();
+            PopUpInventory.Instance.UpdateViewHotbar();
+        }
     }
 
     public void Save()

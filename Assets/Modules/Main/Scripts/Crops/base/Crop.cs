@@ -18,10 +18,12 @@ public class Crop : ScriptableObject
 	[SerializeField] private int productId;
 	[SerializeField] private int priceSell;
     [SerializeField] private List<CropStage> stages;
+    [SerializeField] private List<string> enemyList;
 
     public int Id { get => id; set => id = value; }
     public string CropName { get => cropName; set => cropName = value; }
     public int PriceSell { get => priceSell; set => priceSell = value; }
     public List<CropStage> Stages { get => stages; set => stages = value; }
     public int ProductId { get => productId; set => productId = value; }
+    public List<string> EnemyList { get => enemyList; set => enemyList = value; }
 }

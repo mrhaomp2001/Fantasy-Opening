@@ -35,6 +35,8 @@ public class InventoryGridviewItem : MonoBehaviour
     {
         item = null;
         textItemCount.text = "";
+        imageItem.sprite = mask;
+
     }
 
     public void OnClick()
@@ -68,7 +70,7 @@ public class InventoryGridviewItem : MonoBehaviour
                 });
             }
         }
-        if (PopUpInventory.Instance.IsSelling)
+        else if (PopUpInventory.Instance.IsSelling)
         {
             if (item.count > 0)
             {
@@ -140,6 +142,40 @@ public class InventoryGridviewItem : MonoBehaviour
 
                 }
             });
+        }
+    }
+
+    public void OnClickUnequip() 
+    {
+        if (item != null)
+        {
+            if (item != null)
+            {
+                if(InventoryController.Instance.Add(item.item.Id, 1))
+                {
+                    if (item.item is ItemArmorHead)
+                    {
+                        InventoryController.Instance.GetPlayerData.ArmorHead.item = null;
+                    }
+                    if (item.item is ItemArmorBody)
+                    {
+                        InventoryController.Instance.GetPlayerData.ArmorBody.item = null;
+
+                    }
+                    if (item.item is ItemArmorLeg)
+                    {
+                        InventoryController.Instance.GetPlayerData.ArmorLeg.item = null;
+
+                    }
+                    if (item.item is ItemArmorFoot)
+                    {
+                        InventoryController.Instance.GetPlayerData.ArmorFoot.item = null;
+                    }
+
+                    PopUpInventory.Instance.UpdateViews();
+                    PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item);
+                }
+            }
         }
     }
 

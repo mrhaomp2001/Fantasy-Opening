@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,10 @@ public class PopUpInventory : PopUp
     [SerializeField] private bool isSelling;
     [SerializeField] private RectTransform containerSelling;
     [SerializeField] private List<InventoryGridviewItem> sellingGridviewItems;
+
+    [Header("Equipment: ")]
+    [SerializeField] private RectTransform containerEquipment;
+    [SerializeField] private List<InventoryGridviewItem> equipmentGridviewItems;
 
     public static PopUpInventory Instance { get => instance; set => instance = value; }
 
@@ -74,6 +79,8 @@ public class PopUpInventory : PopUp
         containerCrafting.gameObject.SetActive(false);
         containerSelling.gameObject.SetActive(false);
 
+        containerEquipment.gameObject.SetActive(true);
+
         PopUpInventoryCraftingTooltip.Instance.Hide();
         PopUpInventoryTooltip.Instance.Hide();
 
@@ -83,17 +90,26 @@ public class PopUpInventory : PopUp
             currentChest = chest;
             containerChest.gameObject.SetActive(true);
             containerInventoryOption.gameObject.SetActive(false);
+            containerEquipment.gameObject.SetActive(false);
 
             UpdateViewChest();
         }
-
-
 
         if (!container.gameObject.activeSelf)
         {
             UpdateViews();
         }
+
+
         base.Turn();
+    }
+
+    public void UpdateViewEquipment()
+    {
+        equipmentGridviewItems[0].UpdateViews(InventoryController.Instance.GetPlayerData.ArmorHead);
+        equipmentGridviewItems[1].UpdateViews(InventoryController.Instance.GetPlayerData.ArmorBody);
+        equipmentGridviewItems[2].UpdateViews(InventoryController.Instance.GetPlayerData.ArmorLeg);
+        equipmentGridviewItems[3].UpdateViews(InventoryController.Instance.GetPlayerData.ArmorFoot);
     }
 
     public void UpdateViews()
@@ -120,8 +136,11 @@ public class PopUpInventory : PopUp
         {
             UpdateViewChest();
         }
-        
+
         PopUpInventoryTooltip.Instance.Hide();
+
+
+        UpdateViewEquipment();
     }
 
     public void UpdateViewChest()
@@ -179,6 +198,7 @@ public class PopUpInventory : PopUp
 
         containerInventoryOption.gameObject.SetActive(false);
         containerSelling.gameObject.SetActive(true);
+        containerEquipment.gameObject.SetActive(false);
 
         foreach (var item in sellingGridviewItems)
         {
@@ -197,8 +217,11 @@ public class PopUpInventory : PopUp
 
     public void TurnCrafting(List<Recipe> valueRecipes, bool isHideInventoryOptions = false)
     {
+
         if (!containerCrafting.gameObject.activeSelf)
         {
+            containerEquipment.gameObject.SetActive(false);
+
             foreach (var item in craftingGridviewItems)
             {
                 if (item.gameObject.activeSelf)
@@ -218,6 +241,11 @@ public class PopUpInventory : PopUp
             {
                 containerInventoryOption.gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            containerEquipment.gameObject.SetActive(true);
+
         }
 
         containerCrafting.gameObject.SetActive(!containerCrafting.gameObject.activeSelf);
