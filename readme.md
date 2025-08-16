@@ -1,13 +1,20 @@
-
 # [ 09:51:15 16/08/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
-
+- thêm campfire, popcorn
 ### Công việc trong kế hoạch: 
+- AI của quái
 
+- chỉ số của người chơi
+
+- thiết kế chức năng save/load ở menu chính
+- hệ thống progresstion
+- vẽ:
+  + cây bí ngô
+  + cây củ cải trắng
 </details>
 
 
@@ -21,11 +28,7 @@
 - thả đồ từ túi, drop đồ ra thế giới
 ### Công việc trong kế hoạch: 
 - AI của quái
-
-- hệ thống trang bị áo giáp
 - chỉ số của người chơi
-- hệ thống mua bán
-
 - thiết kế chức năng save/load ở menu chính
 
 - thả đồ từ túi, drop đồ ra thế giới
