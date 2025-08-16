@@ -9,4 +9,9 @@ public class EnemyTree : Enemy
         base.Initialize();
 
     }
+
+    public override void Despawn()
+    {
+        
+    }
 }

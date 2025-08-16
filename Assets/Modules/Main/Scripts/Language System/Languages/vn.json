@@ -7,6 +7,11 @@
     "value_sell": "Giá bán",
     "equipment": "Trang bị",
 
+    "dead": "Bạn đã kiệt sức",
+    "revive": "Hồi sinh",
+    "throw_item": "Ném vật phẩm",
+    "delete_item": "Xóa vật phẩm",
+
     "event_1_start_1": "Thế giới này thật trống rỗng",
     "event_1_start_2": "Bạn cảm thấy...",
     "event_1_start_3": "Thực tại này chẳng là gì...",

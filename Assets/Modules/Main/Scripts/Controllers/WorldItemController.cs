@@ -21,7 +21,7 @@ public class WorldItemController : MonoBehaviour
         }
     }
 
-    public void SpawnItem(int valueItemId, Vector3 position)
+    public void SpawnItem(int valueItemId, Vector3 position, int countValue = 1)
     {
 
         var item = ItemDatabase.Instance.Items
@@ -35,13 +35,14 @@ public class WorldItemController : MonoBehaviour
         {
             var targetObject = ObjectPooler.Instance.SpawnFromPool("world_item", position, Quaternion.identity);
             var worlditem = targetObject.GetComponent<WorldItem>();
+
             if (item.SpriteWorldItem != null)
             {
-                worlditem.Initialize(valueItemId, item.SpriteWorldItem);
+                worlditem.Initialize(valueItemId, item.SpriteWorldItem, countValue);
             }
             else
             {
-                worlditem.Initialize(valueItemId, item.Sprite);
+                worlditem.Initialize(valueItemId, item.Sprite, countValue);
             }
         }
     }

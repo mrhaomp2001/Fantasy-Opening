@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PopUpHotbarSelecter : PopUp
 {
@@ -61,5 +62,47 @@ public class PopUpHotbarSelecter : PopUp
     {
         InventoryController.Instance.SelectHotbarSlot(slot, currentSelectItem);
         Hide();
+    }
+
+    public void OnThrowItem()
+    {
+        int itemId = currentSelectItem.item.Id;
+        int itemCount = currentSelectItem.count;
+        InventoryController.Instance.Consume(currentSelectItem.item.Id, currentSelectItem.count, new Callback
+        {
+            onSuccess = () =>
+            {
+                WorldItemController.Instance.SpawnItem(itemId, PlayerController.Instance.RbPlayer.position, itemCount);
+            },
+            onFail = (message) =>
+            {
+
+            },
+            onNext = () =>
+            {
+                Hide();
+                PopUpInventory.Instance.UpdateViews();
+            }
+        });
+    }
+
+    public void OnDeleteItem()
+    {
+        InventoryController.Instance.Consume(currentSelectItem.item.Id, currentSelectItem.count, new Callback
+        {
+            onSuccess = () =>
+            {
+
+            },
+            onFail = (message) =>
+            {
+
+            },
+            onNext = () =>
+            {
+                Hide();
+                PopUpInventory.Instance.UpdateViews();
+            }
+        });
     }
 }

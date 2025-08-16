@@ -49,6 +49,9 @@ TagManager:
   - name: Tile Background
     uniqueID: 1662348015
     locked: 0
+  - name: Background
+    uniqueID: 2799541507
+    locked: 0
   - name: Same Layer
     uniqueID: 814634259
     locked: 0

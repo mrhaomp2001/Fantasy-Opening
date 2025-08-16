@@ -149,7 +149,7 @@ public class InventoryGridviewItem : MonoBehaviour
     {
         if (item != null)
         {
-            if (item != null)
+            if (item.item != null)
             {
                 if(InventoryController.Instance.Add(item.item.Id, 1))
                 {

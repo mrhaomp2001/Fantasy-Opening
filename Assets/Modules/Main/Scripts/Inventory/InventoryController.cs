@@ -14,7 +14,13 @@ public class InventoryController : MonoBehaviour
     }
     [JsonObject(MemberSerialization.OptIn), System.Serializable]
     public class PlayerData
-    {
+    {        
+        [JsonProperty]
+        [SerializeField] private int hp;
+        [JsonProperty]
+        [SerializeField] private int hpMax;
+        [JsonProperty]
+        [SerializeField] private int hotbarSelectedSlot;
         [JsonProperty]
         [SerializeField] private List<InventoryItem> items = new();
 
@@ -30,8 +36,7 @@ public class InventoryController : MonoBehaviour
         [JsonProperty]
         [SerializeField] private InventoryItem armorFoot = new();
 
-        [JsonProperty]
-        [SerializeField] private int hotbarSelectedSlot;
+
         [JsonProperty]
         [SerializeField] private BuildingController.BuildingData buildingData;
 
@@ -81,6 +86,10 @@ public class InventoryController : MonoBehaviour
             return item.count;
         }
 
+
+        public int Hp { get => Mathf.Clamp(hp, 0, hpMax); set => hp = value; }
+        public int HpMax { get => hpMax; set => hpMax = value; }
+
         public InventoryItem SelectedHotbar
         {
             get
@@ -88,7 +97,6 @@ public class InventoryController : MonoBehaviour
                 return Hotbar[HotbarSelectedSlot];
             }
         }
-
         public BuildingController.BuildingData BuildingData { get => buildingData; set => buildingData = value; }
         public InventoryItem ArmorHead { get => armorHead; set => armorHead = value; }
         public InventoryItem ArmorBody { get => armorBody; set => armorBody = value; }
@@ -328,13 +336,87 @@ public class InventoryController : MonoBehaviour
                 }
             }
 
+            LoadEquipment(keyValuePairs);
+
             BuildingController.Instance.Load(keyValuePairs["buildingData"]);
 
+            playerData.Hp = keyValuePairs["hp"].AsInt;
+            playerData.HpMax = keyValuePairs["hpMax"].AsInt;
         }
 
         PopUpInventory.Instance.UpdateViewHotbar();
 
+        StatController.Instance.UpdateViews();
+
+
         Save();
+    }
+
+    private void LoadEquipment(JSONNode keyValuePairs)
+    {
+        if (keyValuePairs["armorHead"] != null && keyValuePairs["armorHead"]["item"] != null && keyValuePairs["armorHead"]["item"]["id"] != null && keyValuePairs["armorHead"]["item"]["id"] != "")
+        {
+            var jsonValue = keyValuePairs["armorHead"]["item"];
+
+            var item = ItemDatabase.Instance.Items
+                .Where(predicate =>
+                {
+                    return predicate.Id == jsonValue["id"].AsInt;
+                })
+                .FirstOrDefault();
+
+            Add(item.Id, 1);
+
+            EquipEquipment(item);
+        }
+
+        if (keyValuePairs["armorBody"] != null && keyValuePairs["armorBody"]["item"] != null && keyValuePairs["armorBody"]["item"]["id"] != null && keyValuePairs["armorBody"]["item"]["id"] != "")
+        {
+            var jsonValue = keyValuePairs["armorBody"]["item"];
+
+            var item = ItemDatabase.Instance.Items
+                .Where(predicate =>
+                {
+                    return predicate.Id == jsonValue["id"].AsInt;
+                })
+                .FirstOrDefault();
+
+            Add(item.Id, 1);
+
+            EquipEquipment(item);
+        }
+
+        if (keyValuePairs["armorLeg"] != null && keyValuePairs["armorLeg"]["item"] != null && keyValuePairs["armorLeg"]["item"]["id"] != null && keyValuePairs["armorLeg"]["item"]["id"] != "")
+        {
+            var jsonValue = keyValuePairs["armorLeg"]["item"];
+
+            var item = ItemDatabase.Instance.Items
+                .Where(predicate =>
+                {
+                    return predicate.Id == jsonValue["id"].AsInt;
+                })
+                .FirstOrDefault();
+
+            Add(item.Id, 1);
+
+            EquipEquipment(item);
+        }
+
+        if (keyValuePairs["armorFoot"] != null && keyValuePairs["armorFoot"]["item"] != null && keyValuePairs["armorFoot"]["item"]["id"] != null && keyValuePairs["armorFoot"]["item"]["id"] != "")
+        {
+            var jsonValue = keyValuePairs["armorFoot"]["item"];
+
+            var item = ItemDatabase.Instance.Items
+                .Where(predicate =>
+                {
+                    return predicate.Id == jsonValue["id"].AsInt;
+                })
+                .FirstOrDefault();
+
+            Add(item.Id, 1);
+
+            EquipEquipment(item);
+        }
     }
 
     public void SelectHotbarSlot(int slot, InventoryController.InventoryItem itemTarget)

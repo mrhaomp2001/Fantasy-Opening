@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour, IPoolObject
     [SerializeField] protected Transform hitbox;
     [SerializeField] protected Transform sprite;
     [SerializeField] private Animator animator;
+    [SerializeField] private int touchDamage;
     [Header("Drop: ")]
     [SerializeField] private int dropId;
     public int Hp { get => hp; set => hp = value; }
     public Transform Hitbox { get => hitbox; set => hitbox = value; }
+    public int TouchDamage { get => touchDamage; set => touchDamage = value; }
 
     private void Start()
     {
@@ -27,6 +29,11 @@ public class Enemy : MonoBehaviour, IPoolObject
         gameObject.SetActive(true);
 
         Initialize();
+    }
+
+    public virtual void Despawn()
+    {
+        gameObject.SetActive(false);
     }
 
     public virtual void Initialize(){}

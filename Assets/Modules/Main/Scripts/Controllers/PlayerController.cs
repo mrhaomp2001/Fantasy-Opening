@@ -1,6 +1,7 @@
 using GameUtil;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     [SerializeField] private Rigidbody2D rbPlayer;
     [SerializeField] private SpriteRenderer spritePlayer;
+    [SerializeField] private Animator animator;
 
     [Header("Fire Point: ")]
     [SerializeField] private int cheatItemId;
@@ -23,9 +25,16 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     private bool canAttack;
     private Timer timerAttack;
+
+    [Header("Hurt: ")]
+    [SerializeField] private bool canHurt, isHurt;
+    [SerializeField] private float hurtCooldown, hurtTime;
+    [SerializeField] private RectTransform deadScreen;
+
+
     [Header("Interact: ")]
-    [SerializeField] private bool isHolding, isAttacking;
-    [SerializeField] private IWorldInteractable interactable;
+    [SerializeField] private bool isHolding;
+    [SerializeField] private LinkedList<IWorldInteractable> interactable = new();
 
 
 
@@ -35,7 +44,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     public Transform FirepointHitbox { get => firepointHitbox; set => firepointHitbox = value; }
     public Rigidbody2D RbPlayer { get => rbPlayer; set => rbPlayer = value; }
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -45,9 +54,13 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         {
             Destroy(gameObject);
         }
-
+    }
+    private void Start()
+    {
         canAttack = true;
-        isAttacking = false;
+
+        canHurt = true;
+        isHurt = false;
     }
 
     public void OnUpdate()
@@ -122,13 +135,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     private void OnHolding()
     {
-        if (interactable != null && isAttacking == false)
-        {
-            return;
-        }
-
-        isAttacking = true;
-
         if (isHolding)
         {
             if (!PopUpInventory.Instance.IsOpening)
@@ -169,9 +175,9 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            if (interactable != null)
+            if (interactable.First != null)
             {
-                if (interactable is BuildingBase building)
+                if (interactable.First.Value is BuildingBase building)
                 {
                     BuildingController.Instance.DestroyBuilding(building.Id);
                 }
@@ -180,9 +186,9 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (interactable != null)
+            if (interactable.First != null)
             {
-                if (interactable is BuildingFarmland farmland)
+                if (interactable.First.Value is BuildingFarmland farmland)
                 {
                     farmland.OnNextDay();
                 }
@@ -276,15 +282,73 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     }
 
 
+    public void Hurt(int dmg)
+    {
+        if (canHurt)
+        {
+            canHurt = false;
+            Timer.DelayAction(hurtCooldown, () =>
+            {
+                canHurt = true;
+            });
+
+            isHurt = true;
+            Timer.DelayAction(hurtTime, () =>
+            {
+                isHurt = false;
+            });
+
+            animator.Play("hurt");
+
+
+            InventoryController.Instance.GetPlayerData.Hp -= dmg;
+
+            StatController.Instance.UpdateHp();
+
+            if (InventoryController.Instance.GetPlayerData.Hp <= 0)
+            {
+                deadScreen.gameObject.SetActive(true);
+
+                var enemy = FindObjectsOfType<Enemy>();
+
+                for (int i = 0; i < enemy.Length; i++)
+                {
+                    enemy[i].Despawn();
+                }
+            }
+        }
+    }
+
+    public void OnRevive()
+    {
+        InventoryController.Instance.GetPlayerData.Hp = 100;
+        deadScreen.gameObject.SetActive(false);
+
+        StatController.Instance.UpdateViews();
+    }
+
+    public void OnTouchEnemy(Collider2D other)
+    {
+        var enemy = other.GetComponentInParent<Enemy>();
+        if (enemy != null)
+        {
+            Hurt(enemy.TouchDamage);
+        }
+
+    }
+
     // Interact
     public void OnEnterWorldInteract(Collider2D other)
     {
-        interactable = other.GetComponentInParent<IWorldInteractable>();
+        interactable.AddFirst(other.GetComponentInParent<IWorldInteractable>());
     }
 
     public void OnExitWorldInteract(Collider2D other)
     {
-        interactable = null;
+        if (interactable.Count > 0)
+        {
+            interactable.RemoveLast();
+        }
     }
 
     // World Item
@@ -303,9 +367,9 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             {
                 isHolding = true;
 
-                if (interactable != null)
+                if (interactable.First != null)
                 {
-                    if (interactable is BuildingFarmland farmland)
+                    if (interactable.First.Value is BuildingFarmland farmland)
                     {
                         if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemSeed seed)
                         {
@@ -330,7 +394,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
 
                     }
-                    interactable.OnWorldInteract();
+                    interactable.First.Value.OnWorldInteract();
                 }
 
                 if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBuilding building)
@@ -397,7 +461,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 isHolding = false;
-                isAttacking = false;
             }
             if (eventData.button == PointerEventData.InputButton.Right)
             {

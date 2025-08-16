@@ -60,20 +60,24 @@ public class EnemyChicken : Enemy, IFixedUpdatable
         //directionToPlayer.y = Mathf.Abs(directionToPlayer.y);
         directionToPlayer.z = Mathf.Abs(directionToPlayer.z);
 
-        Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
-
-        hitbox.rotation = Quaternion.Euler(0f, 0f, DesiredHeadingToPlayer);
-
-        rb.velocity = hitbox.right * speed;
-
-        if (transform.position.x > playerPosition.x)
+        if (directionToPlayer != Vector3.zero)
         {
-            sprite.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }
-        else
-        {
-            sprite.rotation = Quaternion.Euler(0f, 0f, 0f);
+            Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
 
+            hitbox.rotation = Quaternion.Euler(0f, 0f, DesiredHeadingToPlayer);
+
+            rb.velocity = hitbox.right * speed;
+
+            if (transform.position.x > playerPosition.x)
+            {
+                sprite.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+            else
+            {
+                sprite.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+            }
         }
+
     }
 }
