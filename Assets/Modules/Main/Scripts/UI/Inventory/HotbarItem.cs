@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class HotbarItem : MonoBehaviour
@@ -11,6 +12,7 @@ public class HotbarItem : MonoBehaviour
     [SerializeField] private Image imageItem;
     [SerializeField] private Image imageSelected;
     [SerializeField] private TextMeshProUGUI textCount;
+    [SerializeField] private RectTransform tooltipPosition;
 
     private InventoryController.InventoryItem item;
 
@@ -54,6 +56,22 @@ public class HotbarItem : MonoBehaviour
         {
             InventoryController.Instance.GetPlayerData.HotbarSelectedSlot = slot;
             PopUpInventory.Instance.UpdateViewHotbar();
+        }
+    }
+
+    public void OnPointerEnter(BaseEventData baseEventData)
+    {
+        if (baseEventData is PointerEventData pointerEventData)
+        {
+            PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item, new Vector2(0f, 0f));
+        }
+    }
+
+    public void OnPointerExit(BaseEventData baseEventData)
+    {
+        if (baseEventData is PointerEventData pointerEventData)
+        {
+            PopUpInventoryTooltip.Instance.Hide();
         }
     }
 }

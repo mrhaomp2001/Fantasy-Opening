@@ -1,3 +1,79 @@
+
+# [ 10:13:18 20/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 08:52:48 19/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm:
+  + rìu
+  + cuốc chim
+- các tài nguyên khác nhau chỉ nhận sát thương khi đúng công cụ
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- chỉ số của người chơi
+
+- thiết kế chức năng save/load ở menu chính
+
+- thêm đảo mới
+</details>
+
+
+# [ 08:36:03 18/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm:
+  + cây củ cải trằng
+  + cây đậu phộng
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- chỉ số của người chơi
+
+- thiết kế chức năng save/load ở menu chính
+
+- vẽ:
+  +  [x] cây bí ngô 
+  + cây củ cải trắng
+</details>
+
+
+# [ 09:33:18 17/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- hệ thống progresstions
+- thê cây đậu thần
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- chỉ số của người chơi
+
+- thiết kế chức năng save/load ở menu chính
+- hệ thống progresstions
+- vẽ:
+  + cây bí ngô
+  + cây củ cải trắng
+</details>
+
 # [ 09:51:15 16/08/2025 ]
 
 <details>
@@ -11,7 +87,7 @@
 - chỉ số của người chơi
 
 - thiết kế chức năng save/load ở menu chính
-- hệ thống progresstion
+- hệ thống progresstions
 - vẽ:
   + cây bí ngô
   + cây củ cải trắng

@@ -96,7 +96,7 @@ public class InventoryGridviewItem : MonoBehaviour
                         onNext = () =>
                         {
                             PopUpInventory.Instance.UpdateViews();
-                            PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item);
+                            PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item, new Vector2(0f, 0.5f));
                         }
                     });
                 }
@@ -173,7 +173,7 @@ public class InventoryGridviewItem : MonoBehaviour
                     }
 
                     PopUpInventory.Instance.UpdateViews();
-                    PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item);
+                    PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item, new Vector2(0f, 0.5f));
                 }
             }
         }
@@ -183,7 +183,7 @@ public class InventoryGridviewItem : MonoBehaviour
     {
         if (baseEventData is PointerEventData pointerEventData)
         {
-            PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item);
+            PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item, new Vector2(0f, 0.5f));
         }
     }
 

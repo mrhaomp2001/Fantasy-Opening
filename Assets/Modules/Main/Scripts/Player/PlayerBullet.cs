@@ -9,17 +9,21 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
     [SerializeField] private float lifeTime;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform hitbox;
+    [SerializeField] private bool isAxe, isPickaxe;
 
     private Timer timerLifeTime;
+
+    public bool IsAxe { get => isAxe; set => isAxe = value; }
+    public bool IsPickaxe { get => isPickaxe; set => isPickaxe = value; }
 
     public void OnObjectSpawnAfter()
     {
         hitbox.gameObject.SetActive(true);
         rb.velocity = rb.transform.right * speed;
+
         timerLifeTime = Timer.DelayAction(lifeTime, () =>
         {
             gameObject.SetActive(false);
-
             OnEndLifeTime();
         });
     }
@@ -30,7 +34,7 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
 
         if (enemy != null)
         {
-            enemy.TakeDamage();
+            enemy.TakeDamage(this);
         }
         OnEndLifeTime();
         

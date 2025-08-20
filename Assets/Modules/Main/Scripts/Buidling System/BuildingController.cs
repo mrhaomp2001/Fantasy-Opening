@@ -43,29 +43,9 @@ public class BuildingController : MonoBehaviour, IUpdatable
         public List<Building> Buildings { get => buildings; set => buildings = value; }
     }
 
-    [System.Serializable]
-    public class BuildingBound
-    {
-        public Transform downLeft;
-        public Transform upRight;
-
-        public bool Contains(Vector3 target)
-        {
-            Vector3 pos = target;
-
-            return pos.x >= downLeft.position.x && pos.x <= upRight.position.x &&
-                   pos.y >= downLeft.position.y && pos.y <= upRight.position.y &&
-                   pos.z >= downLeft.position.z && pos.z <= upRight.position.z;
-        }
-    }
-
     private static BuildingController instance;
 
     [SerializeField] private Grid gridBuilding;
-
-    [SerializeField] private List<BuildingBound> allowedBuildAreas = new List<BuildingBound>();
-
-    private const string prefKey = "BuildingController";
 
     public static BuildingController Instance { get => instance; set => instance = value; }
 
@@ -87,21 +67,6 @@ public class BuildingController : MonoBehaviour, IUpdatable
         Vector3Int cellPosition = gridBuilding.WorldToCell(PlayerController.Instance.FirepointHitbox.transform.position);
 
         var buildingPosition = gridBuilding.GetCellCenterWorld(cellPosition);
-
-        bool isInsideAllowedArea = false;
-        foreach (var bound in allowedBuildAreas)
-        {
-            if (bound.Contains(buildingPosition))
-            {
-                isInsideAllowedArea = true;
-                break;
-            }
-        }
-
-        if (!isInsideAllowedArea)
-        {
-            return false;
-        }
 
         foreach (var item in InventoryController.Instance.GetPlayerData.BuildingData.Buildings)
         {

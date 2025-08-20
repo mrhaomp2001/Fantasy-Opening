@@ -15,13 +15,12 @@
     "event_1_start_1": "Thế giới này thật trống rỗng",
     "event_1_start_2": "Bạn cảm thấy...",
     "event_1_start_3": "Thực tại này chẳng là gì...",
-    "event_1_start_4": "Thế giới này chẳng là gì...",
-    "event_1_start_5": "và bạn chẳng là gì...",
+    "event_1_start_4": "và bạn chẳng là gì...",
     
-    "event_1_start_6": "Bạn muốn điều gì?",
+    "event_1_start_5": "Bạn muốn điều gì?",
     "event_1_start_dialogue_choose_1": "> Tôi muốn chơi với thỏ con trên đồng cỏ, bên tán cây mát mẻ",
 
-    "event_1_start_7": "Chỉ cần bạn muốn...",
+    "event_1_start_6": "Chỉ cần bạn muốn...",
 
 
     "1_corn-item_name": "Bắp",
@@ -39,6 +38,9 @@
     "5_carrot-item_name": "Cà rốt",
     "5_carrot-item_description": "Cà rốt",
 
+    "6_radish-item_name": "Củ cải trắng",
+    "6_radish-item_description": "Củ cải trắng",
+
 
 
     "201_corn_seed-item_name": "Hạt giống bắp",
@@ -55,6 +57,9 @@
 
     "205_carrot_seed-item_name": "Hạt cà rốt",
     "205_carrot_seed-item_description": "Hạt cà rốt",
+
+    "206_radish_seed-item_name": "Hạt củ cải trắng",
+    "206_radish_seed-item_description": "Hạt củ cải trắng",
 
 
 
@@ -82,16 +87,30 @@
     "408_popcorn-item_name": "Bắp rang",
     "408_popcorn-item_description": "Bắp rang",
 
+    "409_enchanted_pea-item_name": "Hạt đậu thần",
+    "409_enchanted_pea-item_description": "Hạt đậu thần \n<color=red>[Không trồng trong ô đất được]</color>",
 
+    "410_carrot_fries-item_name": "Cà rốt chiên",
+    "410_carrot_fries-item_description": "Cà rốt chiên",
+
+    "411_coal-item_name": "Than đá",
+    "411_coal-item_description": "Than đá",
+
+    "412_copper_ore-item_name": "Quặng đồng",
+    "412_copper_ore-item_description": "Quặng đồng",
+
+    
 
     "601_weapon_1-item_name": "Kiếm gỗ",
     "601_weapon_1-item_description": "Kiếm gỗ",
 
-    "602_weapon_2-item_name": "Vũ khí 2",
-    "602_weapon_2-item_description": "Vũ khí 2",
+    "602_weapon_2-item_name": "Rìu gỗ",
+    "602_weapon_2-item_description": "Rìu gỗ",
 
-    "603_weapon_3-item_name": "Vũ khí 3",
-    "603_weapon_3-item_description": "Vũ khí 3",
+    "603_weapon_3-item_name": "Cuốc chim gỗ",
+    "603_weapon_3-item_description": "Cuốc chim gỗ",
+
+
 
     "801_farmland-item_name": "Ô đất",
     "801_farmland-item_description": "Ô đất",
@@ -143,8 +162,35 @@
     "npc_rabbit_choice_1": "> Nói chuyện",
     "npc_rabbit_choice_2": "> Tôi muốn mua hàng",
     "npc_rabbit_choice_3": "> Tôi muốn bán hàng",
+    "npc_rabbit_choice_4_1": "> Tại sao cô lại có nhiều tiền vậy",
+    "npc_rabbit_choice_4_2": "> Cho cô ấy 1 [{0}]",
 
     "npc_rabbit_talk_3": "Bạn muốn nói gì? Bạn có bị cà rốt không?",
+
+    "npc_rabbit_talk_event_2_1": "Tui không phải thỏ hoang, tui là thỏ nhà mà.\nTiền là của chủ tui cho tui ăn vặt đó nha",
+
+    "npc_rabbit_choice_event_2_1": "> Nhưng ở đây có ai bán gì đâu?",
+
+    "npc_rabbit_talk_event_2_2": "Sẽ vui lắm nếu có ai làm cho tui ăn á.\nTui có cà rốt nhưng lại không biết nấu, toàn ăn sống á",
+
+    "npc_rabbit_choice_event_2_2": "> Được rồi, để tôi làm [{0}] cho cô ăn",
+
+    "npc_rabbit_talk_event_2_3": "He he, cám ơn, đây là cà rốt của tui nè",
+
+    "npc_rabbit_talk_event_2_4": "Măm măm, quá ngon luôn, đây là quà của tui nè",
+
+
+    "event_3_1": "Cần có 1 thứ đặc biệt trồng xuống",
+    "event_option_3_1": "Tôi có {0}",
+    "event_option_3_2": "Tôi không có {0}",
+    "event_3_2": "Đi ngủ để chờ đi để có giấc mơ lớn",
+    
+    "event_3_result_1": "Bạn như là đang mơ...",
+    "event_3_result_2": "Trong màn đêm tâm tối bạn chẳng thấy gì...",
+    "event_3_result_3": "Bạn nghe thấy những tiếng ồn lớn đến mức kinh thiên động địa...",
+    "event_3_result_4": "Bạn nghe thấy những tiếng ồn như xé toạc không gian...",
+    "event_3_result_5": "Bạn nghe thấy những như những người khổng lồ đang đi bên cạnh bạn...",
+
 
     "merchant_note_1": "Thương nhân chỉ mua những thứ được liệt kê bên dưới",
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static BuildingController;
 
@@ -39,9 +40,26 @@ public class GameController : MonoBehaviour
             {
                 if (item != null)
                 {
+                    item.ResetEnemy();
+                }
+            }
+
+            foreach (var item in enemySpawners)
+            {
+                if (item != null)
+                {
                     item.SpawnEnemy();
                 }
             }
+
+            var progresstion = ProgressionController.Instance.Progressions
+            .Where(predicate =>
+            {
+                return predicate.ProgressionName.Equals("event_3");
+            })
+            .FirstOrDefault();
+
+            progresstion.OnSave();
         });
 
 

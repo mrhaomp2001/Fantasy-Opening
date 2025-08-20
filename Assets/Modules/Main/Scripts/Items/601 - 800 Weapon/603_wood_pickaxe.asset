@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5183cf878b4bc614ab055cb0e47be6e4, type: 3}
-  m_Name: 601_weapon_1
+  m_Name: 603_wood_pickaxe
   m_EditorClassIdentifier: 
-  id: 601
-  itemName: 601_weapon_1-item_name
-  itemDescription: 601_weapon_1-item_description
-  sprite: {fileID: 21300000, guid: 710535923eab45840ac8e06a0c55d13b, type: 3}
-  spriteWorldItem: {fileID: 21300000, guid: 710535923eab45840ac8e06a0c55d13b, type: 3}
+  id: 603
+  itemName: 603_weapon_3-item_name
+  itemDescription: 603_weapon_3-item_description
+  sprite: {fileID: 21300000, guid: 1aa658c5a4940194b832ba0cb9bef932, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: 1aa658c5a4940194b832ba0cb9bef932, type: 3}
   buyPrice: 0
   sellPrice: 0
   isNonStack: 1
-  projectile: player_bullet_601
+  projectile: player_bullet_603

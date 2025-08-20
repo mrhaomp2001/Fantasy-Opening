@@ -35,7 +35,7 @@ public class PopUpInventoryTooltip : PopUp
         Hide();
     }
 
-    public void ShowAtPosition(Vector2 position, InventoryController.InventoryItem item)
+    public void ShowAtPosition(Vector2 position, InventoryController.InventoryItem item, Vector2 pivot)
     {
         if (item != null && item.item != null)
         {
@@ -47,6 +47,8 @@ public class PopUpInventoryTooltip : PopUp
             textItemDescription.text = targetItem.item.ItemDescription;
             textItemPrice.text = $"{LanguageController.Instance.GetString("value_sell")}: {targetItem.item.SellPrice}";
             imageItemSprite.sprite = item.item.Sprite;
+
+            container.pivot = pivot;
         }
 
     }

@@ -1,11 +1,12 @@
+using GameUtil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartDialogue : MonoBehaviour
+public class ProgressionStartDialogue : ProgressionBase
 {
-    [SerializeField] private bool isActivated;
+    [Header("Start Dialogue: ")]
     [SerializeField] private List<Dialogue> dialogues1;
     [SerializeField] private Dialogue choose1;
     [SerializeField] private List<Dialogue> dialogues2;
@@ -14,11 +15,38 @@ public class StartDialogue : MonoBehaviour
 
     private void Start()
     {
-        if (!isActivated)
+        Timer.DelayFrameAction(2, () =>
+        {
+            OnActived();
+        });
+    }
+
+    public override void OnActived()
+    {
+        if (!(IsSaved || IsCompleted) && IsActivated)
         {
             PopUpDialogue.Instance.ShowDialogue(dialogues1);
             image.gameObject.SetActive(true);
         }
+
+        base.OnActived();
+    }
+
+    public override void OnCompleted()
+    {
+        if (!IsSaved && IsActivated)
+        {
+
+            FadeOutImage();
+        }
+
+        base.OnCompleted();
+    }
+
+    public override void OnSave()
+    {
+
+        base.OnSave();
     }
 
     public void ChooseOption1()

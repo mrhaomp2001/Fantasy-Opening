@@ -26,4 +26,17 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogWarning($"Enemy already spawned: {enemyName}");
         }
     }
+
+    public void ResetEnemy()
+    {
+        if (enemy != null)
+        {
+            if (enemy.activeSelf)
+            {
+                enemy.gameObject.SetActive(false);
+            }
+
+            enemy = null;
+        }
+    }
 }

@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public virtual void Initialize(){}
 
-    public void TakeDamage()
+    public virtual void TakeDamage(PlayerBullet playerBulletInput)
     {
         hp--;
 

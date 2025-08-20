@@ -14,4 +14,15 @@ public class EnemyTree : Enemy
     {
         
     }
+
+    public override void TakeDamage(PlayerBullet playerBulletInput)
+    {
+        if (playerBulletInput != null)
+        {
+            if (playerBulletInput.IsAxe)
+            {
+                base.TakeDamage(playerBulletInput);
+            }
+        }
+    }
 }

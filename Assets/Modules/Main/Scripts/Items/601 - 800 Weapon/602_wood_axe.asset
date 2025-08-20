@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5183cf878b4bc614ab055cb0e47be6e4, type: 3}
-  m_Name: 602 Starfury
+  m_Name: 602_wood_axe
   m_EditorClassIdentifier: 
   id: 602
   itemName: 602_weapon_2-item_name
   itemDescription: 602_weapon_2-item_description
-  sprite: {fileID: 21300000, guid: 2cce8210f23012b45911ff30b5ff6966, type: 3}
-  spriteWorldItem: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b2f53755cb5660048b0bc054e547d3a9, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: b2f53755cb5660048b0bc054e547d3a9, type: 3}
   buyPrice: 0
   sellPrice: 0
   isNonStack: 1

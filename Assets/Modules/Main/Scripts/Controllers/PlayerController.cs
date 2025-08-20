@@ -284,7 +284,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void Hurt(int dmg)
     {
-        if (canHurt)
+        if (canHurt && dmg > 0)
         {
             canHurt = false;
             Timer.DelayAction(hurtCooldown, () =>
@@ -418,30 +418,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                         });
                     }
                 }
-
-                if (!PopUpInventory.Instance.IsOpening)
-                {
-                    if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemMaterial material)
-                    {
-                        InventoryController.Instance.Consume(material.Id, 1, new Callback
-                        {
-                            onSuccess = () =>
-                            {
-                                AudioController.Instance.Play("burp");
-                                ObjectPooler.Instance.SpawnFromPool("consume_food", transform.position, Quaternion.identity);
-                            },
-                            onFail = (message) =>
-                            {
-
-                            },
-                            onNext = () =>
-                            {
-                            }
-                        });
-                    }
-                }
-
-
             }
             if (eventData.button == PointerEventData.InputButton.Right)
             {

@@ -89,6 +89,16 @@ MonoBehaviour:
     ingredients:
     - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
       count: 17
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 1f6ba824548694d4da5cc38c9fe28486, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 20
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: e2f0c88b1e02e4a4d8bbfda4a99ba7ec, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 20
 --- !u!1 &4202027970124843457
 GameObject:
   m_ObjectHideFlags: 0
