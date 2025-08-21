@@ -14,7 +14,7 @@ public class InventoryController : MonoBehaviour
     }
     [JsonObject(MemberSerialization.OptIn), System.Serializable]
     public class PlayerData
-    {        
+    {
         [JsonProperty]
         [SerializeField] private int hp;
         [JsonProperty]
@@ -35,6 +35,9 @@ public class InventoryController : MonoBehaviour
         [SerializeField] private InventoryItem armorLeg = new();
         [JsonProperty]
         [SerializeField] private InventoryItem armorFoot = new();
+
+        [JsonProperty]
+        [SerializeField] private List<ProgressionBase> progressions;
 
 
         [JsonProperty]
@@ -94,7 +97,11 @@ public class InventoryController : MonoBehaviour
         {
             get
             {
-                return Hotbar[HotbarSelectedSlot];
+                if (Hotbar.Count > 0)
+                {
+                    return Hotbar[HotbarSelectedSlot];
+                }
+                return null;
             }
         }
         public BuildingController.BuildingData BuildingData { get => buildingData; set => buildingData = value; }
@@ -102,6 +109,7 @@ public class InventoryController : MonoBehaviour
         public InventoryItem ArmorBody { get => armorBody; set => armorBody = value; }
         public InventoryItem ArmorLeg { get => armorLeg; set => armorLeg = value; }
         public InventoryItem ArmorFoot { get => armorFoot; set => armorFoot = value; }
+        public List<ProgressionBase> Progressions { get => progressions; set => progressions = value; }
     }
 
     private static InventoryController instance;
@@ -137,8 +145,8 @@ public class InventoryController : MonoBehaviour
     {
         playerData = new PlayerData();
 
-        Load();
-
+        playerData.Hp = 100;
+        playerData.HpMax = 100;
     }
 
     public void Consume(int id, int count, Callback callback)
@@ -274,6 +282,7 @@ public class InventoryController : MonoBehaviour
         playerData.ArmorLeg = new InventoryItem();
         playerData.ArmorFoot = new InventoryItem();
 
+
         for (int i = 0; i < 27; i++)
         {
             playerData.Items.Add(new());// i
@@ -284,6 +293,20 @@ public class InventoryController : MonoBehaviour
             playerData.Hotbar.Add(new());// i
         }
 
+        if (playerData.BuildingData != null)
+        {
+            if (playerData.BuildingData.Buildings != null)
+            {
+                foreach (var item in playerData.BuildingData.Buildings)
+                {
+                    if (item != null)
+                    {
+                        BuildingController.Instance.DestroyBuilding(item.Id);
+                    }
+                }
+            }
+
+        }
         playerData.BuildingData = new BuildingController.BuildingData
         {
             IdCounter = 0,
@@ -340,14 +363,17 @@ public class InventoryController : MonoBehaviour
 
             BuildingController.Instance.Load(keyValuePairs["buildingData"]);
 
-            playerData.Hp = keyValuePairs["hp"].AsInt;
+            ProgressionController.Instance.LoadData(keyValuePairs["progressions"]);
+
             playerData.HpMax = keyValuePairs["hpMax"].AsInt;
+            playerData.Hp = keyValuePairs["hp"].AsInt;
         }
 
         PopUpInventory.Instance.UpdateViewHotbar();
 
         StatController.Instance.UpdateViews();
 
+        ProgressionController.Instance.Load();
 
         Save();
     }
@@ -595,6 +621,7 @@ public class InventoryController : MonoBehaviour
     public void Save()
     {
         BuildingController.Instance.Save();
+        ProgressionController.Instance.Save();
 
         Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
         PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(playerData));

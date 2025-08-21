@@ -13,14 +13,6 @@ public class ProgressionStartDialogue : ProgressionBase
 
     [SerializeField] private Image image;
 
-    private void Start()
-    {
-        Timer.DelayFrameAction(2, () =>
-        {
-            OnActived();
-        });
-    }
-
     public override void OnActived()
     {
         if (!(IsSaved || IsCompleted) && IsActivated)
@@ -31,13 +23,22 @@ public class ProgressionStartDialogue : ProgressionBase
 
         base.OnActived();
     }
+    public override void OnReady()
+    {
+        base.OnReady();
+    }
+    public override void OnLoad()
+    {
+        base.OnLoad();
+
+        OnActived();
+    }
 
     public override void OnCompleted()
     {
         if (!IsSaved && IsActivated)
         {
 
-            FadeOutImage();
         }
 
         base.OnCompleted();
@@ -57,6 +58,7 @@ public class ProgressionStartDialogue : ProgressionBase
                 message = LanguageController.Instance.GetString("event_1_start_dialogue_choose_1"),
                 action = () =>
                 {
+                    OnCompleted();
                     PopUpDialogue.Instance.ShowDialogue(dialogues2);
                 }
             });

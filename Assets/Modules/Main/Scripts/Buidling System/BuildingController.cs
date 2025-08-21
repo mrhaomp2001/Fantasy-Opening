@@ -241,19 +241,28 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
     public void OnUpdate()
     {
-        if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBuilding building)
+        if (InventoryController.Instance != null)
         {
-            Vector3Int cellPosition = gridBuilding.WorldToCell(PlayerController.Instance.FirepointHitbox.transform.position);
-
-            PopUpInventory.Instance.TransformBuildingIndicator.transform.position = gridBuilding.GetCellCenterWorld(cellPosition);
-
-            if (IsBuildValid())
+            if (InventoryController.Instance.GetPlayerData != null && InventoryController.Instance.GetPlayerData.SelectedHotbar != null)
             {
-                PopUpInventory.Instance.TransformBuildingIndicator.color = Color.green;
-            }
-            else
-            {
-                PopUpInventory.Instance.TransformBuildingIndicator.color = Color.red;
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null)
+                {
+                    if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBuilding building)
+                    {
+                        Vector3Int cellPosition = gridBuilding.WorldToCell(PlayerController.Instance.FirepointHitbox.transform.position);
+
+                        PopUpInventory.Instance.TransformBuildingIndicator.transform.position = gridBuilding.GetCellCenterWorld(cellPosition);
+
+                        if (IsBuildValid())
+                        {
+                            PopUpInventory.Instance.TransformBuildingIndicator.color = Color.green;
+                        }
+                        else
+                        {
+                            PopUpInventory.Instance.TransformBuildingIndicator.color = Color.red;
+                        }
+                    }
+                }
             }
         }
     }

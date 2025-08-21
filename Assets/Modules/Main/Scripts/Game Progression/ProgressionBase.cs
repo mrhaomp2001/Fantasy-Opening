@@ -9,6 +9,8 @@ public class ProgressionBase : MonoBehaviour
     [JsonProperty]
     [SerializeField] private string progressionName;
     [JsonProperty]
+    [SerializeField] private bool isReady;
+    [JsonProperty]
     [SerializeField] private bool isActivated;
     [JsonProperty]
     [SerializeField] private bool isCompleted;
@@ -16,9 +18,15 @@ public class ProgressionBase : MonoBehaviour
     [SerializeField] private bool isSaved;
 
     public string ProgressionName { get => progressionName; set => progressionName = value; }
+    public bool IsReady { get => isReady; set => isReady = value; }
     public bool IsActivated { get => isActivated; set => isActivated = value; }
     public bool IsCompleted { get => isCompleted; set => isCompleted = value; }
     public bool IsSaved { get => isSaved; set => isSaved = value; }
+
+    public virtual void OnReady()
+    {
+        IsReady = true;
+    }
 
     public virtual void OnActived()
     {
@@ -38,6 +46,14 @@ public class ProgressionBase : MonoBehaviour
 
     public virtual void OnSave()
     {
-        isSaved = true;
+        if (isCompleted)
+        {
+            isSaved = true;
+        }
+    }
+
+    public virtual void OnLoad()
+    {
+
     }
 }

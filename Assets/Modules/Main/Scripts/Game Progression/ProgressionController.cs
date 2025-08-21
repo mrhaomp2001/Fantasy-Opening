@@ -1,7 +1,11 @@
+using Newtonsoft.Json;
+using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+[JsonObject(MemberSerialization.OptIn), System.Serializable]
 public class ProgressionController : MonoBehaviour
 {
     private static ProgressionController instance;
@@ -20,6 +24,49 @@ public class ProgressionController : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void Save()
+    {
+        foreach (var item in progressions)
+        {
+            item.OnSave();
+        }
+        InventoryController.Instance.GetPlayerData.Progressions = progressions;
+    }
+
+    public void LoadData(JSONNode keyValuePairsValue)
+    {
+        for (int i = 0; i < keyValuePairsValue.Count; i++)
+        {
+            var progressionData = keyValuePairsValue[i];
+
+            var targetProgression = progressions
+                .Where(predicate =>
+                {
+                    return predicate.ProgressionName.Equals(progressionData["progressionName"]);
+                })
+                .FirstOrDefault();
+
+            if (targetProgression != null)
+            {
+                targetProgression.IsReady = progressionData["isReady"].AsBool;
+                targetProgression.IsActivated = progressionData["isActivated"].AsBool;
+                targetProgression.IsCompleted = progressionData["isCompleted"].AsBool;
+                targetProgression.IsSaved = progressionData["isSaved"].AsBool;
+            }
+        }
+
+    }
+
+    public void Load()
+    {
+        for (int i = 0; i < progressions.Count; i++)
+        {
+            var progression = progressions[i];
+
+            progression.OnLoad();
         }
     }
 }

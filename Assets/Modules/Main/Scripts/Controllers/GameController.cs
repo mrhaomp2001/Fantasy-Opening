@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static BuildingController;
 
 public class GameController : MonoBehaviour
 {
@@ -28,40 +27,56 @@ public class GameController : MonoBehaviour
     {
         PopUpTransition.Instance.StartTransition(() =>
         {
-            foreach (var item in farmlands)
-            {
-                if (item != null)
-                {
-                    item.OnNextDay();
-                }
-            }
+            FarmlandNextDay();
+            EnemyNextDay();
+            ProgressionNextDay();
 
-            foreach (var item in enemySpawners)
-            {
-                if (item != null)
-                {
-                    item.ResetEnemy();
-                }
-            }
+            InventoryController.Instance.Save();
 
-            foreach (var item in enemySpawners)
-            {
-                if (item != null)
-                {
-                    item.SpawnEnemy();
-                }
-            }
-
-            var progresstion = ProgressionController.Instance.Progressions
-            .Where(predicate =>
-            {
-                return predicate.ProgressionName.Equals("event_3");
-            })
-            .FirstOrDefault();
-
-            progresstion.OnSave();
         });
 
 
+    }
+
+    private void FarmlandNextDay()
+    {
+        foreach (var item in farmlands)
+        {
+            if (item != null)
+            {
+                item.OnNextDay();
+            }
+        }
+    }
+
+    private void ProgressionNextDay()
+    {
+        var progresstion = ProgressionController.Instance.Progressions
+        .Where(predicate =>
+        {
+            return predicate.ProgressionName.Equals("event_3");
+        })
+        .FirstOrDefault();
+
+        progresstion.OnSave();
+    }
+
+    private void EnemyNextDay()
+    {
+        foreach (var item in enemySpawners)
+        {
+            if (item != null)
+            {
+                item.ResetEnemy();
+            }
+        }
+
+        foreach (var item in enemySpawners)
+        {
+            if (item != null)
+            {
+                item.SpawnEnemy();
+            }
+        }
     }
 }

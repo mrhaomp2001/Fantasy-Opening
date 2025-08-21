@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void OnUpdate()
     {
+        TestFunction();
+
         spritePlayer.sortingOrder = (int)-(transform.position.y * 100f) + 1;
         Movement();
 
@@ -130,7 +132,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
         OnHolding();
 
-        TestFunction();
     }
 
     private void OnHolding()
@@ -155,6 +156,13 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         {
             PlayerPrefs.DeleteAll();
         }
+
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            Debug.Log("Loading Player Data");
+            InventoryController.Instance.Load();
+        }
+
         if (Input.GetKeyDown(KeyCode.F8))
         {
             foreach (var item in ItemDatabase.Instance.Items)

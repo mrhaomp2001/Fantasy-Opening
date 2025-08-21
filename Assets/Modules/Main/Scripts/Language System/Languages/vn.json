@@ -20,7 +20,7 @@
     "event_1_start_5": "Bạn muốn điều gì?",
     "event_1_start_dialogue_choose_1": "> Tôi muốn chơi với thỏ con trên đồng cỏ, bên tán cây mát mẻ",
 
-    "event_1_start_6": "Chỉ cần bạn muốn...",
+    "event_1_start_6": "Bạn giật mình tỉnh giấc",
 
 
     "1_corn-item_name": "Bắp",
@@ -190,6 +190,45 @@
     "event_3_result_3": "Bạn nghe thấy những tiếng ồn lớn đến mức kinh thiên động địa...",
     "event_3_result_4": "Bạn nghe thấy những tiếng ồn như xé toạc không gian...",
     "event_3_result_5": "Bạn nghe thấy những như những người khổng lồ đang đi bên cạnh bạn...",
+
+    "event_4_1": "Bạn như là đang mơ...",
+    "event_4_2": "Trong cơn mơ, bạn có thể nhìn thấy, có thể nghe thấy...",
+    "event_4_3": "Chân của bạn đứng ở nơi đất đá nóng bỏng...",
+    "event_4_4": "Ánh nắng chói chang cùng với hơi nóng bốc lên, và mặt bạn có thể cảm nhận được...",
+    "event_4_5": "Bạn phóng tầm mắt ra thật xa, xung quanh chỉ toàn đá cứng, chúng nóng như muốn nướng bàn chân bạn...",
+    "event_4_6": "Trong cơn mờ màng, bỗng bạn thấy, thứ gì đó lấp lánh...",
+    "event_4_7": "Bạn nhìn nó, nó là một thỏi thạch anh tím, ánh sáng chiếu vào khiến nó lấp lánh...",
+    "event_4_8": "Bạn lại thấy một chiếc cuốc chim lớn nằm trên mặt đất, ánh sáng chiếu vào phần kim loại, khiến nó lấp lánh",
+    "event_4_9": "Mọi thứ đều lấp lánh, lấp lánh... Bạn sẽ?",
+
+    "event_4_option_1_1": "Tôi muốn nhặt thỏi thạch anh",
+    "event_4_option_1_2": "Tôi muốn nhặt cây cuốc chim",
+    
+    "event_4_1_1": "Bạn cuối người, nhặt viên thạch anh.",
+    "event_4_1_2": "Khi đúng thẳng lên, mọi thứ xung quanh đã thay đổi",
+    "event_4_1_3": "Xung quanh mọc lên rất nhiều cây tinh thể ngang mắt cá chân",
+    "event_4_1_4": "Chúng nhọn và dễ vỡ, bạn có thể nghe tiếng 'ting ting' nhẹ nhàng bên tai",
+    "event_4_1_5": "'Ting ting'... 'Ting ting'...",
+    "event_4_1_6": "Bỗng, bạn thấy một cô gái, với máy tóc vàng, mặc bộ váy trằng, đi chân trần, như đang đang chơi đùa giữa đám tinh thể sắt nhọn",
+    "event_4_1_7": "Đôi chân trần trắng hồng mềm mại, đi giữa đá cứng và tinh thể sắc nhọn",
+    "event_4_1_8": "Cô gái nhẹ nhàng xoay vòng, quay mặt về phía bạn, ngón tay trỏ chỉ lên môi, rồi mỉm cười, thì thầm thứ gì đó mà bạn không thể nghe rõ",
+    "event_4_1_9": "Sau đó, cô gái ngã người về đằng sau, ngã vào giữa đám tinh thể sắc nhọn.",
+    "event_4_1_10": "Bạn giật mình tỉnh giấc.",
+
+    "event_4_2_1": "Bạn cuối người, nhặt cây cuốc chim",
+    "event_4_2_2": "Nhưng cây cuốc chim đã không còn ở đó, nó đã đi xa một chút từ lúc nào",
+    "event_4_2_3": "Bạn tiến tới, nhưng cây cuốc chim lại xa hơn",
+    "event_4_2_4": "Và cứ thế, bạn càng muốn lấy, nó lại càng xa, bạn bắt đầu chạy, tăng tốc ngày càng nhanh",
+    "event_4_2_5": "Không gian như bị kéo dãn",
+    "event_4_2_6": "Bạn nghe thấy tiếng 'leng keng', như tiếng cuốc chim đào vào đá cứng",
+    "event_4_2_7": "'Leng keng'... 'Leng keng'... ",
+    "event_4_2_8": "Bạn không ghét tiếng 'Leng keng' đó, nó ấp áp và gần gũi, thân thuộc. Nhưng nó cũng rất chói tai và đáng sợ",
+    "event_4_2_9": "Bạn đang tiến gần đền cây cuốc chim",
+    "event_4_2_10": "Nhưng bây giờ, cây cuốc chim còn cao hơn cả ngọn núi, chạm vào cả mây",
+    "event_4_2_11": "Dù sao thì bạn cũng muốn chạm vào nó, bạn đã chạm vào nó",
+    "event_4_2_12": "Cây cuốc chim bắt đầu ngã, nghiên về phía bạn",
+    "event_4_2_13": "Bạn giật mình tỉnh giấc.",
+
 
 
     "merchant_note_1": "Thương nhân chỉ mua những thứ được liệt kê bên dưới",
