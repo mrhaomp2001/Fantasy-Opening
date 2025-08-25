@@ -22,6 +22,11 @@ public class ProgressPlantEnchantedPea : ProgressionBase
             enchantedPea.gameObject.SetActive(true);
         }
 
+        RunNextEvent();
+    }
+
+    public void RunNextEvent()
+    {
         if (IsSaved)
         {
             var progression = ProgressionController.Instance.Progressions

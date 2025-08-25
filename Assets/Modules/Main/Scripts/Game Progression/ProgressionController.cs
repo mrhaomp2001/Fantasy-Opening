@@ -29,8 +29,9 @@ public class ProgressionController : MonoBehaviour
 
     public void Save()
     {
-        foreach (var item in progressions)
+        for (int i = 0; i < progressions.Count; i++)
         {
+            ProgressionBase item = progressions[i];
             item.OnSave();
         }
         InventoryController.Instance.GetPlayerData.Progressions = progressions;

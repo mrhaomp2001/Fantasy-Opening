@@ -30,10 +30,7 @@ public class ProgressionBase : MonoBehaviour
 
     public virtual void OnActived()
     {
-        if (!isSaved)
-        {
-            IsActivated = true;
-        }
+        IsActivated = true;
     }
 
     public virtual void OnCompleted()
@@ -43,7 +40,9 @@ public class ProgressionBase : MonoBehaviour
             isCompleted = true;
         }
     }
-
+    /// <summary>
+    /// Call once when load game and call when save game
+    /// </summary>
     public virtual void OnSave()
     {
         if (isCompleted)
@@ -51,7 +50,9 @@ public class ProgressionBase : MonoBehaviour
             isSaved = true;
         }
     }
-
+    /// <summary>
+    /// Call once when load game
+    /// </summary>
     public virtual void OnLoad()
     {
 

@@ -63,6 +63,21 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
+    public void DeactivateAllObjects()
+    {
+        foreach (var pool in PoolDictionary)
+        {
+            foreach (var obj in pool.Value)
+            {
+                if (obj != null && obj.activeSelf)
+                {
+                    obj.SetActive(false);
+                }
+            }
+        }
+    }
+
+
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))

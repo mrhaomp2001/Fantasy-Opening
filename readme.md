@@ -1,5 +1,5 @@
 
-# [ 09:29:33 21/08/2025 ]
+# [ 09:05:14 25/08/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
@@ -11,6 +11,70 @@
 </details>
 
 
+# [ 09:37:46 24/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- hiển thị buffs đã nhận
+
+### Công việc trong kế hoạch: 
+- hiển thị buffs đã nhận
+- AI của quái
+- thiết kế chức năng save/load ở menu chính
+
+</details>
+
+# [ 08:22:46 23/08/2025 ]
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- Buffs
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- Buffs
+- thiết kế chức năng save/load ở menu chính
+
+</details>
+
+
+# [ 08:48:32 22/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- chỉ số của người chơi
+
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- chỉ số của người chơi
+
+- thiết kế chức năng save/load ở menu chính
+</details>
+
+
+# [ 09:29:33 21/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm hang động
+### Công việc trong kế hoạch: 
+- AI của quái
+
+- chỉ số của người chơi
+
+- thiết kế chức năng save/load ở menu chính
+
+</details>
+
+
 # [ 10:13:18 20/08/2025 ]
 
 <details>
@@ -18,8 +82,15 @@
 
 ### Kết quả hôm nay:
 
+- thêm đảo mới
 ### Công việc trong kế hoạch: 
+- AI của quái
 
+- chỉ số của người chơi
+
+- thiết kế chức năng save/load ở menu chính
+
+- thêm đảo mới
 </details>
 
 

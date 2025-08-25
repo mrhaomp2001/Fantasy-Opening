@@ -10,11 +10,12 @@ public class EnemyChicken : Enemy, IFixedUpdatable
     [SerializeField] private float delayMove;
     [SerializeField] private float speed;
     private Timer timerMoveMent;
-    [SerializeField] private Rigidbody2D rb;
     public override void Initialize()
     {
         base.Initialize();
         isMove = false;
+
+        CanMove = true;
 
         if (timerMoveMent == null)
         {
@@ -31,7 +32,7 @@ public class EnemyChicken : Enemy, IFixedUpdatable
 
     public void OnFixedUpdate()
     {
-        if (isMove)
+        if (CanMove && isMove)
         {
             Move();
         }
@@ -80,4 +81,6 @@ public class EnemyChicken : Enemy, IFixedUpdatable
         }
 
     }
+
+
 }

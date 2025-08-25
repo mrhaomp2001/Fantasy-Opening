@@ -11,8 +11,6 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         SpawnEnemy();
-
-        GameController.Instance.EnemySpawners.Add(this);
     }
 
     public void SpawnEnemy()
@@ -37,6 +35,22 @@ public class EnemySpawner : MonoBehaviour
             }
 
             enemy = null;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (GameController.Instance != null)
+        {
+            GameController.Instance.EnemySpawners.Add(this);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (GameController.Instance != null)
+        {
+            GameController.Instance.EnemySpawners.Remove(this);
         }
     }
 }

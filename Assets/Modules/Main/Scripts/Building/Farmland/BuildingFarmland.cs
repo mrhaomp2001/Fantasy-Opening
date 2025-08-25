@@ -28,25 +28,26 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
         currentDay++;
 
         UpdateViews();
+
+        SpawnEnemy();
     }
 
     public void UpdateViews()
     {
-        if (cropCurrent == null)
-        {
-            imageCrop.sprite = emptySprite;
-            currentDay = 0;
-        }
-        else
+        imageCrop.sprite = emptySprite;
+
+        if (cropCurrent != null)
         {
             imageCrop.sprite = cropCurrent.Stages[currentDay < cropCurrent.Stages.Count ? currentDay : cropCurrent.Stages.Count - 1].sprite;
 
-            Timer.DelayAction(1f, () =>
-            {
-                SpawnEnemy();
-            });
+        }
+        else
+        {
+            currentDay = 0;
         }
     }
+
+
 
     public void OnLoadFarmLand(int cropId, int day)
     {
@@ -60,9 +61,9 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
             cropCurrent = value;
             currentDay = day;
 
-            UpdateViews();
 
         }
+        UpdateViews();
     }
 
     public bool OnSowSeed(int cropId)
@@ -112,12 +113,20 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
 
     public void SpawnEnemy()
     {
-        foreach (var item in cropCurrent.EnemyList)
+        if (cropCurrent != null)
         {
-            Vector2 randomDirection = Random.insideUnitCircle.normalized;
-            Vector2 spawnPosition = (Vector2)PlayerController.Instance.RbPlayer.position + randomDirection * 7f;
 
-            ObjectPooler.Instance.SpawnFromPool(item, spawnPosition, Quaternion.identity);
+            foreach (var item in cropCurrent.EnemyList)
+            {
+                Vector2 randomDirection = Random.insideUnitCircle.normalized;
+                Vector2 spawnPosition = (Vector2)PlayerController.Instance.RbPlayer.position + randomDirection * 7f;
+
+                GameObject enemyGameObject = ObjectPooler.Instance.SpawnFromPool(item, spawnPosition, Quaternion.identity);
+
+                var enemy = enemyGameObject.GetComponent<Enemy>();
+
+                GameController.Instance.MoringWaveEnemy.Add(enemy);
+            }
         }
     }
 
@@ -141,5 +150,8 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
 
         cropCurrent = null;
         currentDay = 0;
+
+        UpdateViews();
+
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 {
@@ -181,6 +182,14 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             WorldItemController.Instance.SpawnItem(cheatItemId, firepointHitbox.position);
         }
 
+
+
+        if (Input.GetKeyDown(KeyCode.F11))
+        {
+            ObjectPooler.Instance.DeactivateAllObjects();
+            SceneManager.LoadScene((int)SceneIndex.MainMenu);
+        }
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             if (interactable.First != null)
@@ -289,7 +298,10 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         }
     }
 
-
+    public void SleepNextDay()
+    {
+        GameController.Instance.NextDay();
+    }
     public void Hurt(int dmg)
     {
         if (canHurt && dmg > 0)

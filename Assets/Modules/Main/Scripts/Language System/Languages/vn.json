@@ -1,8 +1,16 @@
 {
     "hello_world": "Xin chào!",
     "example": "Ví dụ như này nè!",
+    
+    
+    "loading": "Đang tải",
+    "start": "Bắt đầu",
+    "continue": "Tiếp tục",
+    "upgrade": "Nâng cấp",
+
 
     "crafting": "Chế tạo",
+    "stats": "Chỉ số",
     "value": "Giá trị",
     "value_sell": "Giá bán",
     "equipment": "Trang bị",
@@ -98,6 +106,12 @@
 
     "412_copper_ore-item_name": "Quặng đồng",
     "412_copper_ore-item_description": "Quặng đồng",
+
+    "413_crystal_purple-item_name": "Tinh thể tím",
+    "413_crystal_purple-item_description": "Tinh thể tím",
+
+    "414_crystal_pink-item_name": "Tinh thể hồng",
+    "414_crystal_pink-item_description": "Tinh thể hồng",
 
     
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2240950664597362248}
   - component: {fileID: 8709119649973932562}
   - component: {fileID: 1727633815308599148}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemy_coal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,12 +122,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 20
   hpMax: 20
+  canMove: 0
   enemyDieParticle: enemy_die_effect_1
   hitbox: {fileID: 3244917476998273298}
   sprite: {fileID: 7212002742619942995}
   animator: {fileID: 3277525899174080609}
   touchDamage: 0
+  rb: {fileID: 2240950664597362248}
   dropId: 411
+  expDrop: 0
 --- !u!1 &2825832599315172272
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +142,7 @@ GameObject:
   - component: {fileID: 3244917476998273298}
   - component: {fileID: 6351455383669279866}
   - component: {fileID: 8188914881619767645}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hitbox
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -243,7 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5500750893607818949}
   - component: {fileID: 3277525899174080609}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +301,7 @@ GameObject:
   - component: {fileID: 7212002742619942995}
   - component: {fileID: 2158863430499277104}
   - component: {fileID: 4669267138788172379}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

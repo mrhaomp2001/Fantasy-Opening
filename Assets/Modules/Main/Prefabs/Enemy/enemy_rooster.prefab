@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3990617117434848547}
   - component: {fileID: 5153763306990093614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3875667108784614929}
   - component: {fileID: 1185535428875262538}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 6196728d5cc38f94e9eda688ac07e277, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3235279540745680355}
   - component: {fileID: 2671436325042299348}
   - component: {fileID: 1616413792244272068}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hitbox
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 5484088645752719336}
   - component: {fileID: 1410032859715187789}
   - component: {fileID: 6580717482461027434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemy_rooster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,11 +365,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   hpMax: 7
+  canMove: 0
   enemyDieParticle: enemy_die_effect_1
   hitbox: {fileID: 3235279540745680355}
   sprite: {fileID: 3875667108784614929}
   animator: {fileID: 5153763306990093614}
+  touchDamage: 0
+  rb: {fileID: 5484088645752719336}
   dropId: 406
+  expDrop: 0
   delayMove: 1
   speed: 4
-  rb: {fileID: 5484088645752719336}

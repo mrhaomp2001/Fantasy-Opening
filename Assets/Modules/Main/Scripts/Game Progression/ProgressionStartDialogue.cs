@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ProgressionStartDialogue : ProgressionBase
 {
     [Header("Start Dialogue: ")]
+    [SerializeField] private Transform npcRabbit;
     [SerializeField] private List<Dialogue> dialogues1;
     [SerializeField] private Dialogue choose1;
     [SerializeField] private List<Dialogue> dialogues2;
@@ -46,8 +47,12 @@ public class ProgressionStartDialogue : ProgressionBase
 
     public override void OnSave()
     {
-
         base.OnSave();
+
+        if (IsSaved)
+        {
+            npcRabbit.gameObject.SetActive(true);
+        }
     }
 
     public void ChooseOption1()

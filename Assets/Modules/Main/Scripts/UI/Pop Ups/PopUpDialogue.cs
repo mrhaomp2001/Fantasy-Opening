@@ -67,6 +67,7 @@ public class PopUpDialogue : PopUp
         }
         textName.text = dialogues.Peek().Name;
         textContent.text = LanguageController.Instance.GetString(dialogues.Peek().Content);
+        dialogues.Peek().UnityEventStart?.Invoke();
 
         DelayButton();
     }

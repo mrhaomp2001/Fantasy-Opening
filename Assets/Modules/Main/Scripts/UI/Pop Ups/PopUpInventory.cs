@@ -39,6 +39,12 @@ public class PopUpInventory : PopUp
     [Header("Equipment: ")]
     [SerializeField] private RectTransform containerEquipment;
     [SerializeField] private List<InventoryGridviewItem> equipmentGridviewItems;
+    [Header("Stats: ")]
+    [SerializeField] private RectTransform containerPlayerStats;
+
+    [Header("Buffs: ")]
+    [SerializeField] private RectTransform containerBuff;
+    [SerializeField] private List<InventoryBuffGridviewItem> buffGridviewItems;
 
     public static PopUpInventory Instance { get => instance; set => instance = value; }
 
@@ -74,10 +80,11 @@ public class PopUpInventory : PopUp
         isOpeningChest = false;
         isSelling = false;
         currentChest = null;
-        containerChest.gameObject.SetActive(false);
+
+        ResetSubPopUps();
+
+
         containerInventoryOption.gameObject.SetActive(true);
-        containerCrafting.gameObject.SetActive(false);
-        containerSelling.gameObject.SetActive(false);
 
         containerEquipment.gameObject.SetActive(true);
 
@@ -192,13 +199,27 @@ public class PopUpInventory : PopUp
         HotbarItem[slot].OnClick();
     }
 
+    public void ResetSubPopUps()
+    {
+        containerEquipment.gameObject.SetActive(false);
+        containerCrafting.gameObject.SetActive(false);
+        containerSelling.gameObject.SetActive(false);
+        containerPlayerStats.gameObject.SetActive(false);
+        containerBuff.gameObject.SetActive(false);
+
+        containerInventoryOption.gameObject.SetActive(true);
+    }
+
     public void TurnSelling(List<InventoryItem> itemsCanSell)
     {
         isSelling = true;
 
+        ResetSubPopUps();
+
         containerInventoryOption.gameObject.SetActive(false);
+
         containerSelling.gameObject.SetActive(true);
-        containerEquipment.gameObject.SetActive(false);
+
 
         foreach (var item in sellingGridviewItems)
         {
@@ -220,7 +241,9 @@ public class PopUpInventory : PopUp
 
         if (!containerCrafting.gameObject.activeSelf)
         {
-            containerEquipment.gameObject.SetActive(false);
+            ResetSubPopUps();
+
+            containerCrafting.gameObject.SetActive(true);
 
             foreach (var item in craftingGridviewItems)
             {
@@ -244,10 +267,55 @@ public class PopUpInventory : PopUp
         }
         else
         {
+            ResetSubPopUps();
+
             containerEquipment.gameObject.SetActive(true);
 
         }
 
-        containerCrafting.gameObject.SetActive(!containerCrafting.gameObject.activeSelf);
+    }
+
+    public void TurnStats()
+    {
+        if (!containerPlayerStats.gameObject.activeSelf)
+        {
+            ResetSubPopUps();
+            containerPlayerStats.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            ResetSubPopUps();
+            containerEquipment.gameObject.SetActive(true);
+        }
+
+    }
+
+    public void TurnBuff()
+    {
+        if (!containerBuff.gameObject.activeSelf)
+        {
+            ResetSubPopUps();
+            containerBuff.gameObject.SetActive(true);
+
+            foreach (var item in buffGridviewItems)
+            {
+                item.ResetViews();
+            }
+
+            for (int i = 0; i < InventoryController.Instance.GetPlayerData.Buffs.Count; i++)
+            {
+                var buff = InventoryController.Instance.GetPlayerData.Buffs[i];
+
+                var gridview = buffGridviewItems[i];
+
+                gridview.UpdateViews(buff);
+            }
+        }
+        else
+        {
+            ResetSubPopUps();
+            containerEquipment.gameObject.SetActive(true);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SimpleJSON;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -18,9 +19,13 @@ public class InventoryController : MonoBehaviour
         [JsonProperty]
         [SerializeField] private int hp;
         [JsonProperty]
-        [SerializeField] private int hpMax;
-        [JsonProperty]
         [SerializeField] private int hotbarSelectedSlot;
+
+        [JsonProperty]
+        [SerializeField] private int level;
+        [JsonProperty]
+        [SerializeField] private int exp;
+
         [JsonProperty]
         [SerializeField] private List<InventoryItem> items = new();
 
@@ -38,11 +43,13 @@ public class InventoryController : MonoBehaviour
 
         [JsonProperty]
         [SerializeField] private List<ProgressionBase> progressions;
-
+        [JsonProperty]
+        [SerializeField] private List<BuffBase> buffs;
 
         [JsonProperty]
         [SerializeField] private BuildingController.BuildingData buildingData;
-
+        [JsonProperty]
+        [SerializeField] private GameStatCollection playerStats;
         public List<InventoryItem> Items { get => items; set => items = value; }
         public List<InventoryItem> Hotbar { get => hotbar; set => hotbar = value; }
         public int HotbarSelectedSlot { get => hotbarSelectedSlot; set => hotbarSelectedSlot = value; }
@@ -90,8 +97,22 @@ public class InventoryController : MonoBehaviour
         }
 
 
-        public int Hp { get => Mathf.Clamp(hp, 0, hpMax); set => hp = value; }
-        public int HpMax { get => hpMax; set => hpMax = value; }
+        public ExpPerLevel ExpNeededCurrent
+        { 
+            get 
+            {
+                var expNeeded = ItemDatabase.Instance.ExpPerLevels
+                    .Where(predicate =>
+                    {
+                        return predicate.Level == level;
+                    })
+                    .FirstOrDefault();
+
+                return expNeeded; 
+            } 
+        }
+
+        public int Hp { get => hp/*Mathf.Clamp(hp, 0, hpMax)*/; set => hp = value; }
 
         public InventoryItem SelectedHotbar
         {
@@ -110,6 +131,10 @@ public class InventoryController : MonoBehaviour
         public InventoryItem ArmorLeg { get => armorLeg; set => armorLeg = value; }
         public InventoryItem ArmorFoot { get => armorFoot; set => armorFoot = value; }
         public List<ProgressionBase> Progressions { get => progressions; set => progressions = value; }
+        public GameStatCollection PlayerStats { get => playerStats; set => playerStats = value; }
+        public int Level { get => level; set => level = value; }
+        public int Exp { get => exp; set => exp = value; }
+        public List<BuffBase> Buffs { get => buffs; set => buffs = value; }
     }
 
     private static InventoryController instance;
@@ -129,6 +154,8 @@ public class InventoryController : MonoBehaviour
 
     public PlayerData GetPlayerData { get => playerData; set => playerData = value; }
 
+
+
     private void Awake()
     {
         if (instance == null)
@@ -143,10 +170,7 @@ public class InventoryController : MonoBehaviour
 
     private void Start()
     {
-        playerData = new PlayerData();
 
-        playerData.Hp = 100;
-        playerData.HpMax = 100;
     }
 
     public void Consume(int id, int count, Callback callback)
@@ -274,6 +298,28 @@ public class InventoryController : MonoBehaviour
 
     public void Load()
     {
+        playerData = new PlayerData();
+
+        playerData.PlayerStats = new GameStatCollection();
+
+        playerData.PlayerStats.HpMax = 100;
+        playerData.PlayerStats.HpRegeneration = 0;
+        playerData.PlayerStats.DamageGlobalBonus = 0;
+        playerData.PlayerStats.MeleeDamageBonus = 0;
+        playerData.PlayerStats.RangeDamageBonus = 0;
+        playerData.PlayerStats.MagicDamageBonus = 0;
+        playerData.PlayerStats.AttackSpeedBonus = 1;
+        playerData.PlayerStats.CritChance = 20;
+        playerData.PlayerStats.Range = 0;
+        playerData.PlayerStats.Dodge = 20;
+        playerData.PlayerStats.Speed = 5;
+        playerData.PlayerStats.Curse = 0;
+
+        playerData.Level = 1;
+        playerData.Exp = 0;
+
+        playerData.Hp = 100;
+
         playerData.Hotbar = new();
         playerData.Items = new();
 
@@ -281,6 +327,9 @@ public class InventoryController : MonoBehaviour
         playerData.ArmorBody = new InventoryItem();
         playerData.ArmorLeg = new InventoryItem();
         playerData.ArmorFoot = new InventoryItem();
+
+        playerData.Buffs = new();
+
 
 
         for (int i = 0; i < 27; i++)
@@ -365,8 +414,22 @@ public class InventoryController : MonoBehaviour
 
             ProgressionController.Instance.LoadData(keyValuePairs["progressions"]);
 
-            playerData.HpMax = keyValuePairs["hpMax"].AsInt;
+            playerData.PlayerStats.HpMax = keyValuePairs["playerStats"]["hpMax"].AsInt;
+            playerData.PlayerStats.HpRegeneration = keyValuePairs["playerStats"]["hpRegeneration"].AsInt;
+            playerData.PlayerStats.DamageGlobalBonus = keyValuePairs["playerStats"]["damageGlobalBonus"].AsInt;
+            playerData.PlayerStats.MeleeDamageBonus = keyValuePairs["playerStats"]["meleeDamageBonus"].AsInt;
+            playerData.PlayerStats.RangeDamageBonus = keyValuePairs["playerStats"]["rangeDamageBonus"].AsInt;
+            playerData.PlayerStats.MagicDamageBonus = keyValuePairs["playerStats"]["magicGlobalBonus"].AsInt;
+            playerData.PlayerStats.AttackSpeedBonus = keyValuePairs["playerStats"]["attackSpeedBonus"].AsInt;
+            playerData.PlayerStats.CritChance = keyValuePairs["playerStats"]["critChance"].AsInt;
+            playerData.PlayerStats.Range = keyValuePairs["playerStats"]["range"].AsInt;
+            playerData.PlayerStats.Dodge = keyValuePairs["playerStats"]["dodge"].AsInt;
+            playerData.PlayerStats.Speed = keyValuePairs["playerStats"]["speed"].AsInt;
+            playerData.PlayerStats.Curse = keyValuePairs["playerStats"]["curse"].AsInt;
+
             playerData.Hp = keyValuePairs["hp"].AsInt;
+            playerData.Exp = keyValuePairs["exp"].AsInt;
+            playerData.Level = keyValuePairs["level"].AsInt;
         }
 
         PopUpInventory.Instance.UpdateViewHotbar();
@@ -376,6 +439,29 @@ public class InventoryController : MonoBehaviour
         ProgressionController.Instance.Load();
 
         Save();
+    }
+
+    public void AddExp(int value)
+    {
+        playerData.Exp += value;
+
+        UpdateExp();
+        StatController.Instance.UpdateExp();
+    }
+
+    private void UpdateExp()
+    {
+        if (playerData.ExpNeededCurrent != null)
+        {
+            if (playerData.Exp >= playerData.ExpNeededCurrent.ExpNeeded)
+            {
+                playerData.Exp -= playerData.ExpNeededCurrent.ExpNeeded;
+                playerData.Level++;
+                UpdateExp();
+
+                GameController.Instance.OnLevelUp();
+            }
+        }
     }
 
     private void LoadEquipment(JSONNode keyValuePairs)

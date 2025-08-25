@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 891149285401046967}
   - component: {fileID: 8003632478626754579}
   - component: {fileID: 8219513675750792257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 193067259015174613}
   - component: {fileID: 7880021652268598859}
   - component: {fileID: 2330180217306404449}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemy_crystal_terraria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,12 +219,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 20
   hpMax: 20
+  canMove: 0
   enemyDieParticle: enemy_die_effect_1
   hitbox: {fileID: 7024995501182000544}
   sprite: {fileID: 891149285401046967}
   animator: {fileID: 3704908523841143467}
   touchDamage: 0
+  rb: {fileID: 193067259015174613}
   dropId: 414
+  expDrop: 0
 --- !u!1 &7310121800271937264
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +239,7 @@ GameObject:
   - component: {fileID: 7024995501182000544}
   - component: {fileID: 5116753983211962637}
   - component: {fileID: 6627429467559533502}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hitbox
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -340,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8337491723696592687}
   - component: {fileID: 3704908523841143467}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

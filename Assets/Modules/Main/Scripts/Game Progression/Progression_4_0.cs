@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class Progression_4_0 : ProgressionBase
     {
         base.OnSave();
 
-        if (IsReady && !IsActivated)
+        if (IsReady && !IsCompleted)
         {
             raycastBlocker.gameObject.SetActive(true);
 
@@ -25,9 +26,14 @@ public class Progression_4_0 : ProgressionBase
 
             PopUpDialogue.Instance.ShowDialogue(dialogues1);
 
+            OnActived();
         }
     }
+    public override void OnLoad()
+    {
+        base.OnLoad();
 
+    }
     public void StartOption1()
     {
         PopUpDialogueOption.Instance
@@ -39,6 +45,17 @@ public class Progression_4_0 : ProgressionBase
                 {
                     PopUpDialogue.Instance.ShowDialogue(dialogues1_1);
 
+                    var progresstion = ProgressionController.Instance.Progressions
+                        .Where(predicate =>
+                        {
+                            return predicate.ProgressionName.Equals("event_4_1");
+                        })
+                        .FirstOrDefault();
+
+                    progresstion?.OnActived();
+                    progresstion?.OnCompleted();
+                    OnCompleted();
+
                 }
             },
             new ActionWithMessage
@@ -48,9 +65,21 @@ public class Progression_4_0 : ProgressionBase
                 {
                     PopUpDialogue.Instance.ShowDialogue(dialogues1_2);
 
+                    var progresstion = ProgressionController.Instance.Progressions
+                        .Where(predicate =>
+                        {
+                            return predicate.ProgressionName.Equals("event_4_2");
+                        })
+                        .FirstOrDefault();
+
+                    progresstion?.OnActived();
+                    progresstion?.OnCompleted();
+                    OnCompleted();
+
                 }
             }
             );
+
     }
     public void FadeOutImage()
     {
