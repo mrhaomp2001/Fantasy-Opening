@@ -19,7 +19,15 @@ public class HotbarSelecterItem : MonoBehaviour
         if (valueItemBase != null)
         {
             imageItem.sprite = valueItemBase.item.Sprite;
-            textCount.text = valueItemBase.count.ToString();
+            if (valueItemBase.item.IsNonStack)
+            {
+                textCount.text = "";
+
+            }
+            else
+            {
+                textCount.text = valueItemBase.count.ToString();
+            }
         }
     }
     public void OnClick()

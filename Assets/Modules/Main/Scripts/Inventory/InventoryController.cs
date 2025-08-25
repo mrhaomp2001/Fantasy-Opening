@@ -98,8 +98,8 @@ public class InventoryController : MonoBehaviour
 
 
         public ExpPerLevel ExpNeededCurrent
-        { 
-            get 
+        {
+            get
             {
                 var expNeeded = ItemDatabase.Instance.ExpPerLevels
                     .Where(predicate =>
@@ -108,8 +108,8 @@ public class InventoryController : MonoBehaviour
                     })
                     .FirstOrDefault();
 
-                return expNeeded; 
-            } 
+                return expNeeded;
+            }
         }
 
         public int Hp { get => hp/*Mathf.Clamp(hp, 0, hpMax)*/; set => hp = value; }
@@ -430,6 +430,22 @@ public class InventoryController : MonoBehaviour
             playerData.Hp = keyValuePairs["hp"].AsInt;
             playerData.Exp = keyValuePairs["exp"].AsInt;
             playerData.Level = keyValuePairs["level"].AsInt;
+
+            for (int i = 0; i < keyValuePairs["buffs"].Count; i++)
+            {
+                var buffItem = keyValuePairs["buffs"][i];
+                var buff = ItemDatabase.Instance.Buffs
+                    .Where(predicate =>
+                    {
+                        return predicate.Id == buffItem["id"].AsInt;
+                    })
+                    .FirstOrDefault();
+
+                if (buff != null)
+                {
+                    playerData.Buffs.Add(buff);
+                }
+            }
         }
 
         PopUpInventory.Instance.UpdateViewHotbar();

@@ -14,7 +14,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - hitbox_collide_island
+  - 
   - Water
   - UI
   - island

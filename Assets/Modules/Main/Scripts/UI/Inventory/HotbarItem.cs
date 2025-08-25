@@ -26,7 +26,14 @@ public class HotbarItem : MonoBehaviour
             if (item.item != null)
             {
                 imageItem.sprite = item.item.Sprite;
-                textCount.text = item.count.ToString();
+                if (!item.item.IsNonStack)
+                {
+                    textCount.text = item.count.ToString();
+                }
+                else
+                {
+                    textCount.text = string.Empty;
+                }
             }
         }
 

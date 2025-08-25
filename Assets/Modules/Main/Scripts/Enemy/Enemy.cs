@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour, IPoolObject
         hp = HpMax;
         hitbox.position = transform.position;
         gameObject.SetActive(true);
-
+        canMove = true;
         Initialize();
     }
 

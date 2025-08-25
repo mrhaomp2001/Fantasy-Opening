@@ -99,6 +99,11 @@ MonoBehaviour:
     ingredients:
     - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
       count: 20
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: b0590facdcde3914bbc6ff8b28c27d3c, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 30
 --- !u!1 &4202027970124843457
 GameObject:
   m_ObjectHideFlags: 0

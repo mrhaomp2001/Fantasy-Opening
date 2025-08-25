@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class PopUpHotbarSelecter : PopUp
@@ -8,6 +10,8 @@ public class PopUpHotbarSelecter : PopUp
     private static PopUpHotbarSelecter instance;
     private InventoryController.InventoryItem currentSelectItem;
     [Header("Hotbar Selecter: ")]
+    [SerializeField] private Image itemImage;
+    [SerializeField] private TextMeshProUGUI textName, textDescription;
     [SerializeField] private RectTransform containerEquipEquipment;
     [SerializeField] private List<HotbarSelecterItem> hotbarSelecterItems;
 
@@ -31,6 +35,10 @@ public class PopUpHotbarSelecter : PopUp
         currentSelectItem = valueItem;
 
         containerEquipEquipment.gameObject.SetActive(false);
+
+        itemImage.sprite = currentSelectItem.item.Sprite;
+        textName.text = currentSelectItem.item.ItemName;
+        textDescription.text = currentSelectItem.item.ItemDescription;
 
         for (int i = 0; i < hotbarSelecterItems.Count; i++)
         {

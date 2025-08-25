@@ -1,10 +1,11 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BuildingController : MonoBehaviour, IUpdatable
 {
@@ -46,6 +47,9 @@ public class BuildingController : MonoBehaviour, IUpdatable
     private static BuildingController instance;
 
     [SerializeField] private Grid gridBuilding;
+    [SerializeField] private Tilemap[] tilemaps;
+
+    private LinkedList<IWorldInteractable> interactable;
 
     public static BuildingController Instance { get => instance; set => instance = value; }
 
@@ -59,15 +63,61 @@ public class BuildingController : MonoBehaviour, IUpdatable
         {
             Destroy(gameObject);
         }
+
+        interactable = new();
+    }
+    // Interact
+    public void OnEnterWorldInteract(Collider2D other)
+    {
+        interactable.AddFirst(other.GetComponentInParent<IWorldInteractable>());
+    }
+
+    public void OnExitWorldInteract(Collider2D other)
+    {
+        if (interactable.Count > 0)
+        {
+            interactable.RemoveLast();
+        }
+    }
+
+    public void OnIndicatorExitBuildng(Collider2D other)
+    {
+        interactable.RemoveLast();
+    }
+
+    public bool IsCellEmpty(Vector3 worldPos)
+    {
+        Vector3Int cellPosition = gridBuilding.WorldToCell(worldPos);
+
+        foreach (var tilemap in tilemaps)
+        {
+            if (!tilemap.gameObject.activeInHierarchy) continue;
+            if (tilemap.GetTile(cellPosition) != null)
+            {
+                return false; // đã có tile ở ít nhất 1 tilemap
+            }
+        }
+
+        return true; // không có tile nào trong tất cả tilemap
     }
     public bool IsBuildValid()
     {
         bool result = true;
 
         Vector3Int cellPosition = gridBuilding.WorldToCell(PlayerController.Instance.FirepointHitbox.transform.position);
-
+        
         var buildingPosition = gridBuilding.GetCellCenterWorld(cellPosition);
 
+        if (interactable.Count > 0)
+        {
+            return false;
+        }
+
+        if (IsCellEmpty(cellPosition))
+        {
+            return false;
+        }
+        
         foreach (var item in InventoryController.Instance.GetPlayerData.BuildingData.Buildings)
         {
             Vector3 checkPosition = new Vector3(item.X, item.Y, item.Z);

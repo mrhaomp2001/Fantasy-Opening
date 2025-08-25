@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickFromChest
       objectReference: {fileID: 0}
+    - target: {fileID: 2945762460458043701, guid: 9adf3e59bf348934a96892751786ea8b, type: 3}
+      propertyPath: isChest
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3250903190028191837, guid: 9adf3e59bf348934a96892751786ea8b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -94,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7210127534875915894, guid: 9adf3e59bf348934a96892751786ea8b, type: 3}
       propertyPath: m_Name
-      value: chest_item_1 Variant
+      value: chest_item_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

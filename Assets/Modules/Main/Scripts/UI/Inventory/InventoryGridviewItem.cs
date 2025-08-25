@@ -9,25 +9,28 @@ using UnityEngine.UI;
 public class InventoryGridviewItem : MonoBehaviour
 {
     [SerializeField] private Sprite mask;
+    [SerializeField] private bool isChest;
     [SerializeField] private InventoryController.InventoryItem item;
     [SerializeField] private TextMeshProUGUI textItemCount;
     [SerializeField] private Image imageItem;
     [SerializeField] private RectTransform tooltipPosition;
     public void UpdateViews(InventoryController.InventoryItem valueItem)
     {
+        textItemCount.text = "";
+        imageItem.sprite = mask;
+
         if (valueItem != null)
         {
             item = valueItem;
+
             if (item.item != null)
             {
-                textItemCount.text = valueItem.count.ToString();
+                if (!item.item.IsNonStack)
+                {
+                    textItemCount.text = valueItem.count.ToString();
+                }
                 imageItem.sprite = valueItem.item.Sprite;
             }
-            else
-            {
-                imageItem.sprite = mask;
-            }
-
         }
     }
 
@@ -145,13 +148,13 @@ public class InventoryGridviewItem : MonoBehaviour
         }
     }
 
-    public void OnClickUnequip() 
+    public void OnClickUnequip()
     {
         if (item != null)
         {
             if (item.item != null)
             {
-                if(InventoryController.Instance.Add(item.item.Id, 1))
+                if (InventoryController.Instance.Add(item.item.Id, 1))
                 {
                     if (item.item is ItemArmorHead)
                     {
@@ -183,7 +186,15 @@ public class InventoryGridviewItem : MonoBehaviour
     {
         if (baseEventData is PointerEventData pointerEventData)
         {
-            PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item, new Vector2(0f, 0.5f));
+            if (isChest)
+            {
+                PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item, new Vector2(0f, 1f));
+            }
+            else
+            {
+
+                PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item, new Vector2(0f, 0.5f));
+            }
         }
     }
 

@@ -90,6 +90,7 @@ public class PopUpInventory : PopUp
 
         PopUpInventoryCraftingTooltip.Instance.Hide();
         PopUpInventoryTooltip.Instance.Hide();
+        PopUpBuffTooltip.Instance.Hide();
 
         if (chest != null)
         {
@@ -162,7 +163,7 @@ public class PopUpInventory : PopUp
 
         for (int i = 0; i < sortedItems.Count; i++)
         {
-            Debug.Log($"{i}");
+            //Debug.Log($"{i}");
 
             var item = sortedItems[i];
 
@@ -206,6 +207,7 @@ public class PopUpInventory : PopUp
         containerSelling.gameObject.SetActive(false);
         containerPlayerStats.gameObject.SetActive(false);
         containerBuff.gameObject.SetActive(false);
+        containerChest.gameObject.SetActive(false);
 
         containerInventoryOption.gameObject.SetActive(true);
     }

@@ -5,9 +5,11 @@
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
-
+- vẽ UI
 ### Công việc trong kế hoạch: 
-
+- vẽ UI
+- AI của quái
+- thiết kế chức năng save/load ở menu chính
 </details>
 
 
