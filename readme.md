@@ -1,5 +1,5 @@
 
-# [ 09:59:48 26/08/2025 ]
+# [ 11:19:22 28/08/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
@@ -8,6 +8,34 @@
 
 ### Công việc trong kế hoạch: 
 
+</details>
+
+
+# [ 11:19:19 27/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- vẽ lại các chi tiết còn thiếu
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- vẽ lại các chi tiết còn thiếu
+</details>
+
+
+# [ 09:59:48 26/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- vẽ lại các chi tiết còn thiếu
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- vẽ lại các chi tiết còn thiếu
 </details>
 
 

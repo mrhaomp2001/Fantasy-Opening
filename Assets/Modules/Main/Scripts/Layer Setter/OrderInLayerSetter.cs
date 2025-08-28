@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class OrderInLayerSetter : MonoBehaviour
 {
-
+    [SerializeField] private int offset;
     private void OnEnable()
     {
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sortingOrder = (int)-(transform.position.y * 100f);
+        spriteRenderer.sortingOrder = (int)-(transform.position.y * 100f) + offset;
     }
 }
