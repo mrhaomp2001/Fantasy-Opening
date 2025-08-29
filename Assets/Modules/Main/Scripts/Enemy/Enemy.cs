@@ -60,11 +60,11 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public virtual void Despawn()
     {
+        gameObject.SetActive(false);
         if (GameController.Instance.MoringWaveEnemy.Contains(this))
         {
             GameController.Instance.MoringWaveEnemy.Remove(this);
         }
-        gameObject.SetActive(false);
 
         if (GameController.Instance.MoringWaveEnemy != null)
         {
@@ -113,11 +113,7 @@ public class Enemy : MonoBehaviour, IPoolObject
             expDropItem.Initialize(expDrop);
         }
 
-        if (GameController.Instance.MoringWaveEnemy.Contains(this))
-        {
-            GameController.Instance.MoringWaveEnemy.Remove(this);
-        }
-
         gameObject.SetActive(false);
+        Despawn();
     }
 }

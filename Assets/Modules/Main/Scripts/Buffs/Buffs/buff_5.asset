@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: buff_5
   m_EditorClassIdentifier: 
   id: 5
-  buffName: 5
-  buffDescription: 5
+  buffName: "Khi\xEAn n\u1EB7ng"
+  buffDescription: "Khi\xEAn n\u1EB7ng"
   stats:
-    hpMax: 0
-    hpRegeneration: 50
+    hpMax: 50
+    hpRegeneration: 0
     damageGlobalBonus: 0
     meleeDamageBonus: 0
     rangeDamageBonus: 0

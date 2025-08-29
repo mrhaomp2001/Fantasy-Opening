@@ -104,7 +104,7 @@ public class StatController : MonoBehaviour
 
     public void UpdateViews()
     {
-        UpdateHp(); 
+        UpdateHp();
         UpdateExp();
     }
 
@@ -118,7 +118,11 @@ public class StatController : MonoBehaviour
 
     public void UpdateExp()
     {
-        sliderExp.maxValue = InventoryController.Instance.GetPlayerData.ExpNeededCurrent.ExpNeeded;
+        if (InventoryController.Instance.GetPlayerData.ExpNeededCurrent != null)
+        {
+            sliderExp.maxValue = InventoryController.Instance.GetPlayerData.ExpNeededCurrent.ExpNeeded;
+        }
+
         sliderExp.value = InventoryController.Instance.GetPlayerData.Exp;
 
         textExHp.text = $"{InventoryController.Instance.GetPlayerData.Level}";

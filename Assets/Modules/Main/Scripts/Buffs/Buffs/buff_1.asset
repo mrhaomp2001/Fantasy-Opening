@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: buff_1
   m_EditorClassIdentifier: 
   id: 1
-  buffName: 1
-  buffDescription: 1
+  buffName: "A-x\xEDt"
+  buffDescription: "A-x\xEDt"
   stats:
-    hpMax: 10
-    hpRegeneration: 10
-    damageGlobalBonus: 0
-    meleeDamageBonus: 0
+    hpMax: 0
+    hpRegeneration: 0
+    damageGlobalBonus: 10
+    meleeDamageBonus: 10
     rangeDamageBonus: 0
     magicDamageBonus: 0
     attackSpeedBonus: 0
-    critChance: 0
+    critChance: 5
     range: 0
     dodge: 0
     speed: 0

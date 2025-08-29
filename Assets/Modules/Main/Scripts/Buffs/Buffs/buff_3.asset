@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: buff_3
   m_EditorClassIdentifier: 
   id: 3
-  buffName: 3
-  buffDescription: 3
+  buffName: "c\u1ECF ba l\xE1"
+  buffDescription: "c\u1ECF ba l\xE1"
   stats:
     hpMax: 0
     hpRegeneration: 0
@@ -23,8 +23,8 @@ MonoBehaviour:
     rangeDamageBonus: 0
     magicDamageBonus: 0
     attackSpeedBonus: 0
-    critChance: 0
-    range: 5
+    critChance: 20
+    range: 0
     dodge: 0
     speed: 0
     curse: 0

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: buff_2
   m_EditorClassIdentifier: 
   id: 2
-  buffName: 2
-  buffDescription: 2
+  buffName: Adrenaline
+  buffDescription: Adrenaline
   stats:
     hpMax: 0
     hpRegeneration: 0
-    damageGlobalBonus: 10
-    meleeDamageBonus: 10
-    rangeDamageBonus: 0
-    magicDamageBonus: 0
-    attackSpeedBonus: 0
+    damageGlobalBonus: 20
+    meleeDamageBonus: 20
+    rangeDamageBonus: -10
+    magicDamageBonus: -10
+    attackSpeedBonus: 5
     critChance: 10
     range: 0
     dodge: 0

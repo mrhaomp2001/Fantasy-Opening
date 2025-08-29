@@ -5252,6 +5252,9 @@ MonoBehaviour:
   - tag: enemy_2
     prefab: {fileID: 5478480424384649760, guid: ddf3c1c4c382e8a42a65649545ea8fa4, type: 3}
     size: 1
+  - tag: boss_1
+    prefab: {fileID: 3533317768086776438, guid: 6fb8a0cd36f935443a3c5900a06abfe0, type: 3}
+    size: 1
   - tag: enemy_tree
     prefab: {fileID: 5478480424384649760, guid: f5a50606301218a48856b9d32283661f, type: 3}
     size: 1
@@ -16111,6 +16114,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dc2dd88ace646a942b0d59ecc3e8cba3, type: 2}
   - {fileID: 11400000, guid: 40731e8da8e187946a201e6285f4ca8a, type: 2}
   - {fileID: 11400000, guid: fba0b73e563ee7a4ea24e78aba47d679, type: 2}
+  - {fileID: 11400000, guid: ba655a8a2aef8d84faf1467e0e58c069, type: 2}
   crop:
   - {fileID: 11400000, guid: 465a41d31cb873c42ad802f0bcf9b89a, type: 2}
   - {fileID: 11400000, guid: 6a456ce8550305147bd1eaacc6ea2b76, type: 2}

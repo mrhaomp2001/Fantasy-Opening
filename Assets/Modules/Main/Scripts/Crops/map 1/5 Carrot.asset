@@ -21,3 +21,5 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 12c378ba115d946409c45bc9ebc4c24e, type: 3}
   - sprite: {fileID: 21300000, guid: 14836e28be1cc1d49b41c55f9435f8d5, type: 3}
   - sprite: {fileID: 21300000, guid: 284213d95620b374fa8e5f49165b945c, type: 3}
+  enemyList:
+  - boss_1

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: buff_4
   m_EditorClassIdentifier: 
   id: 4
-  buffName: 4
-  buffDescription: 4
+  buffName: "Con m\u1EAFt"
+  buffDescription: "Con m\u1EAFt"
   stats:
-    hpMax: 10
+    hpMax: 0
     hpRegeneration: 0
     damageGlobalBonus: 0
     meleeDamageBonus: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
     magicDamageBonus: 0
     attackSpeedBonus: 0
     critChance: 0
-    range: 0
+    range: 50
     dodge: 0
     speed: 0
     curse: 0

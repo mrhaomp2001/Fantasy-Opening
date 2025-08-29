@@ -438,6 +438,12 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                         });
                     }
                 }
+
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBossSummon bossSummon)
+                {
+                    bossSummon.OnSummonBoss();
+                }
+
             }
             if (eventData.button == PointerEventData.InputButton.Right)
             {

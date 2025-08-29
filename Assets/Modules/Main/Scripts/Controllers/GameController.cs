@@ -55,7 +55,10 @@ public class GameController : MonoBehaviour
         {
             if (item != null)
             {
-                item.OnNextDay();
+                if (item.gameObject.activeInHierarchy)
+                {
+                    item.OnNextDay();
+                }
             }
         }
     }
@@ -75,6 +78,19 @@ public class GameController : MonoBehaviour
 
     }
 
+    public void UpdateEnemyMaxHp()
+    {
+        totalEnemyHealth = 0;
+
+        for (int i = 0; i < MoringWaveEnemy.Count; i++)
+        {
+            var enemy = MoringWaveEnemy[i];
+            totalEnemyHealth += enemy.HpMax;
+        }
+
+        sliderTotalEnemyHealth.maxValue = totalEnemyHealth;
+    }
+
     public void UpdateEnemyHealth()
     {
         int remainHp = 0;
@@ -84,7 +100,7 @@ public class GameController : MonoBehaviour
             remainHp += enemy.Hp;
         }
         sliderTotalEnemyHealth.value = remainHp;
-        
+
         if (remainHp <= 0)
         {
             enemyHealthContainer.gameObject.SetActive(false);
