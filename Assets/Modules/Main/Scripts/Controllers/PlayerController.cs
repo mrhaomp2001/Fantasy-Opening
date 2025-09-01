@@ -274,14 +274,32 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void InteractWithItem()
     {
-        if (canAttack)
+        if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null)
         {
-            //AudioController.Instance.Play("player_attack");
 
-            canAttack = false;
-            timerAttack = Timer.DelayAction(attackCooldown, () =>
+            if (canAttack)
             {
-                canAttack = true;
+                //AudioController.Instance.Play("player_attack");tt
+
+                float cooldownTime = 0f;
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item.UseTime <= 0)
+                {
+                    cooldownTime = attackCooldown;
+                }
+                else
+                {
+                    float percent = Mathf.Min(InventoryController.Instance.GetPlayerData.AttackSpeed, 75f);
+                    float offset = InventoryController.Instance.GetPlayerData.SelectedHotbar.item.UseTime * (percent / 100f);
+
+                    cooldownTime = InventoryController.Instance.GetPlayerData.SelectedHotbar.item.UseTime - offset;
+                }
+
+                canAttack = false;
+                timerAttack = Timer.DelayAction(cooldownTime, () =>
+                {
+                    canAttack = true;
+                });
+
                 if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemWeapon weapon)
                 {
                     ObjectPooler.Instance.SpawnFromPool(weapon.Projectile, transform.position, firepointHitbox.rotation);
@@ -292,9 +310,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
                     ObjectPooler.Instance.SpawnFromPool("player_bullet", transform.position, firepointHitbox.rotation);
                 }
-
-            });
-
+            }
         }
     }
 

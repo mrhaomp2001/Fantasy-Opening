@@ -15,11 +15,12 @@ public class ItemBase : ScriptableObject
     [SerializeField] private Sprite spriteWorldItem;
     [SerializeField] private int buyPrice;
     [SerializeField] private int sellPrice;
+    [SerializeField] private float useTime;
     [SerializeField] private bool isNonStack;
 
     public int Id { get => id; set => id = value; }
     public string ItemName { get => LanguageController.Instance.GetString(itemName); set => itemName = value; }
-    public string ItemDescription { get => LanguageController.Instance.GetString(itemDescription); set => itemDescription = value; }
+    public virtual string ItemDescription { get => LanguageController.Instance.GetString(itemDescription); set => itemDescription = value; }
     public Sprite Sprite { get => sprite; set => sprite = value; }
 
     /// <summary>
@@ -33,4 +34,5 @@ public class ItemBase : ScriptableObject
     public int BuyPrice { get => buyPrice; set => buyPrice = value; }
     public Sprite SpriteWorldItem { get => spriteWorldItem; set => spriteWorldItem = value; }
     public bool IsNonStack { get => isNonStack; set => isNonStack = value; }
+    public float UseTime { get => useTime; set => useTime = value; }
 }

@@ -49,28 +49,41 @@ public class GameStatCollection
 
     public string GetString()
     {
-        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        string result = "";
 
-        void AppendIfPositive(string name, int value)
+        if (hpMax != 0) result += $"HP: {hpMax}\n";
+        if (hpRegeneration != 0) result += $"HP Regen: {hpRegeneration}\n";
+        if (damageGlobalBonus != 0) result += $"DMG: {damageGlobalBonus}\n";
+        if (meleeDamageBonus != 0) result += $"Melee DMG: {meleeDamageBonus}\n";
+        if (rangeDamageBonus != 0) result += $"Range DMG: {rangeDamageBonus}\n";
+        if (magicDamageBonus != 0) result += $"Magic DMG: {magicDamageBonus}\n";
+        if (attackSpeedBonus != 0) result += $"Attack SPD: {attackSpeedBonus}\n";
+        if (critChance != 0) result += $"critChance: {critChance}\n";
+        if (range != 0) result += $"Range: {range}\n";
+        if (dodge != 0) result += $"Dodge: {dodge}\n";
+        if (speed != 0) result += $"SPD: {speed}\n";
+        if (curse != 0) result += $"Curse: {curse}\n";
+
+        return result.TrimEnd();
+    }
+
+    public static GameStatCollection Add(GameStatCollection a, GameStatCollection b)
+    {
+        return new GameStatCollection
         {
-            if (value != 0)
-                sb.AppendLine($"{name}+ {value}");
-        }
-
-        AppendIfPositive(nameof(hpMax), hpMax);
-        AppendIfPositive(nameof(hpRegeneration), hpRegeneration);
-        AppendIfPositive(nameof(damageGlobalBonus), damageGlobalBonus);
-        AppendIfPositive(nameof(meleeDamageBonus), meleeDamageBonus);
-        AppendIfPositive(nameof(rangeDamageBonus), rangeDamageBonus);
-        AppendIfPositive(nameof(magicDamageBonus), magicDamageBonus);
-        AppendIfPositive(nameof(attackSpeedBonus), attackSpeedBonus);
-        AppendIfPositive(nameof(critChance), critChance);
-        AppendIfPositive(nameof(range), range);
-        AppendIfPositive(nameof(dodge), dodge);
-        AppendIfPositive(nameof(speed), speed);
-        AppendIfPositive(nameof(curse), curse);
-
-        return sb.ToString().TrimEnd();
+            hpMax = a.hpMax + b.hpMax,
+            hpRegeneration = a.hpRegeneration + b.hpRegeneration,
+            damageGlobalBonus = a.damageGlobalBonus + b.damageGlobalBonus,
+            meleeDamageBonus = a.meleeDamageBonus + b.meleeDamageBonus,
+            rangeDamageBonus = a.rangeDamageBonus + b.rangeDamageBonus,
+            magicDamageBonus = a.magicDamageBonus + b.magicDamageBonus,
+            attackSpeedBonus = a.attackSpeedBonus + b.attackSpeedBonus,
+            critChance = a.critChance + b.critChance,
+            range = a.range + b.range,
+            dodge = a.dodge + b.dodge,
+            speed = a.speed + b.speed,
+            curse = a.curse + b.curse
+        };
     }
 }
 public class StatController : MonoBehaviour
@@ -110,7 +123,7 @@ public class StatController : MonoBehaviour
 
     public void UpdateHp()
     {
-        sliderHp.maxValue = InventoryController.Instance.GetPlayerData.PlayerStats.HpMax;
+        sliderHp.maxValue = InventoryController.Instance.GetPlayerData.Stats.HpMax;
         sliderHp.value = InventoryController.Instance.GetPlayerData.Hp;
 
         textHp.text = $"{sliderHp.value}/{sliderHp.maxValue}";

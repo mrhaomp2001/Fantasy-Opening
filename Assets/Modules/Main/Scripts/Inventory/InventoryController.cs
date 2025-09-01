@@ -49,7 +49,7 @@ public class InventoryController : MonoBehaviour
         [JsonProperty]
         [SerializeField] private BuildingController.BuildingData buildingData;
         [JsonProperty]
-        [SerializeField] private GameStatCollection playerStats;
+        [SerializeField] private GameStatCollection stats;
         public List<InventoryItem> Items { get => items; set => items = value; }
         public List<InventoryItem> Hotbar { get => hotbar; set => hotbar = value; }
         public int HotbarSelectedSlot { get => hotbarSelectedSlot; set => hotbarSelectedSlot = value; }
@@ -114,6 +114,46 @@ public class InventoryController : MonoBehaviour
 
         public int Hp { get => hp/*Mathf.Clamp(hp, 0, hpMax)*/; set => hp = value; }
 
+        public int Attack
+        {
+            get
+            {
+                int result = 0;
+                result += stats.DamageGlobalBonus;
+                
+                if (SelectedHotbar.item is ItemWeapon weapon)
+                {
+                    result += weapon.Stats.DamageGlobalBonus;
+                }
+
+                return result;
+            }
+        }
+
+        public int AttackSpeed
+        {
+            get
+            {
+                int result = 0;
+                result += stats.AttackSpeedBonus;
+
+                if (SelectedHotbar.item is ItemWeapon weapon)
+                {
+                    result += weapon.Stats.AttackSpeedBonus;
+                }
+
+                return result;
+            }
+        }
+
+        public int AttackRange
+        {
+            get
+            {
+                return stats.Range;
+            }
+        }
+
         public InventoryItem SelectedHotbar
         {
             get
@@ -131,7 +171,7 @@ public class InventoryController : MonoBehaviour
         public InventoryItem ArmorLeg { get => armorLeg; set => armorLeg = value; }
         public InventoryItem ArmorFoot { get => armorFoot; set => armorFoot = value; }
         public List<ProgressionBase> Progressions { get => progressions; set => progressions = value; }
-        public GameStatCollection PlayerStats { get => playerStats; set => playerStats = value; }
+        public GameStatCollection Stats { get => stats; set => stats = value; }
         public int Level { get => level; set => level = value; }
         public int Exp { get => exp; set => exp = value; }
         public List<BuffBase> Buffs { get => buffs; set => buffs = value; }
@@ -300,20 +340,20 @@ public class InventoryController : MonoBehaviour
     {
         playerData = new PlayerData();
 
-        playerData.PlayerStats = new GameStatCollection();
+        playerData.Stats = new GameStatCollection();
 
-        playerData.PlayerStats.HpMax = 100;
-        playerData.PlayerStats.HpRegeneration = 0;
-        playerData.PlayerStats.DamageGlobalBonus = 0;
-        playerData.PlayerStats.MeleeDamageBonus = 0;
-        playerData.PlayerStats.RangeDamageBonus = 0;
-        playerData.PlayerStats.MagicDamageBonus = 0;
-        playerData.PlayerStats.AttackSpeedBonus = 1;
-        playerData.PlayerStats.CritChance = 20;
-        playerData.PlayerStats.Range = 0;
-        playerData.PlayerStats.Dodge = 20;
-        playerData.PlayerStats.Speed = 5;
-        playerData.PlayerStats.Curse = 0;
+        playerData.Stats.HpMax = 100;
+        playerData.Stats.HpRegeneration = 1;
+        playerData.Stats.DamageGlobalBonus = 1;
+        playerData.Stats.MeleeDamageBonus = 1;
+        playerData.Stats.RangeDamageBonus = 1;
+        playerData.Stats.MagicDamageBonus = 1;
+        playerData.Stats.AttackSpeedBonus = 1;
+        playerData.Stats.CritChance = 20;
+        playerData.Stats.Range = 1;
+        playerData.Stats.Dodge = 20;
+        playerData.Stats.Speed = 5;
+        playerData.Stats.Curse = 1;
 
         playerData.Level = 1;
         playerData.Exp = 0;
@@ -414,18 +454,18 @@ public class InventoryController : MonoBehaviour
 
             ProgressionController.Instance.LoadData(keyValuePairs["progressions"]);
 
-            playerData.PlayerStats.HpMax = keyValuePairs["playerStats"]["hpMax"].AsInt;
-            playerData.PlayerStats.HpRegeneration = keyValuePairs["playerStats"]["hpRegeneration"].AsInt;
-            playerData.PlayerStats.DamageGlobalBonus = keyValuePairs["playerStats"]["damageGlobalBonus"].AsInt;
-            playerData.PlayerStats.MeleeDamageBonus = keyValuePairs["playerStats"]["meleeDamageBonus"].AsInt;
-            playerData.PlayerStats.RangeDamageBonus = keyValuePairs["playerStats"]["rangeDamageBonus"].AsInt;
-            playerData.PlayerStats.MagicDamageBonus = keyValuePairs["playerStats"]["magicGlobalBonus"].AsInt;
-            playerData.PlayerStats.AttackSpeedBonus = keyValuePairs["playerStats"]["attackSpeedBonus"].AsInt;
-            playerData.PlayerStats.CritChance = keyValuePairs["playerStats"]["critChance"].AsInt;
-            playerData.PlayerStats.Range = keyValuePairs["playerStats"]["range"].AsInt;
-            playerData.PlayerStats.Dodge = keyValuePairs["playerStats"]["dodge"].AsInt;
-            playerData.PlayerStats.Speed = keyValuePairs["playerStats"]["speed"].AsInt;
-            playerData.PlayerStats.Curse = keyValuePairs["playerStats"]["curse"].AsInt;
+            playerData.Stats.HpMax = keyValuePairs["stats"]["hpMax"].AsInt;
+            playerData.Stats.HpRegeneration = keyValuePairs["stats"]["hpRegeneration"].AsInt;
+            playerData.Stats.DamageGlobalBonus = keyValuePairs["stats"]["damageGlobalBonus"].AsInt;
+            playerData.Stats.MeleeDamageBonus = keyValuePairs["stats"]["meleeDamageBonus"].AsInt;
+            playerData.Stats.RangeDamageBonus = keyValuePairs["stats"]["rangeDamageBonus"].AsInt;
+            playerData.Stats.MagicDamageBonus = keyValuePairs["stats"]["magicGlobalBonus"].AsInt;
+            playerData.Stats.AttackSpeedBonus = keyValuePairs["stats"]["attackSpeedBonus"].AsInt;
+            playerData.Stats.CritChance = keyValuePairs["plastatsyerStats"]["critChance"].AsInt;
+            playerData.Stats.Range = keyValuePairs["stats"]["range"].AsInt;
+            playerData.Stats.Dodge = keyValuePairs["stats"]["dodge"].AsInt;
+            playerData.Stats.Speed = keyValuePairs["stats"]["speed"].AsInt;
+            playerData.Stats.Curse = keyValuePairs["stats"]["curse"].AsInt;
 
             playerData.Hp = keyValuePairs["hp"].AsInt;
             playerData.Exp = keyValuePairs["exp"].AsInt;

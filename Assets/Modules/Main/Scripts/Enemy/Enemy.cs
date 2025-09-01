@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public virtual void TakeDamage(PlayerBullet playerBulletInput)
     {
-        hp--;
+        hp -= playerBulletInput.Damage;
 
         if (animator != null)
         {

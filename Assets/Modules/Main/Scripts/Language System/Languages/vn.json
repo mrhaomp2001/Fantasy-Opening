@@ -113,6 +113,9 @@
     "414_crystal_pink-item_name": "Tinh thể hồng",
     "414_crystal_pink-item_description": "Tinh thể hồng",
 
+    "415_copper_ingot-item_name": "Thỏi đồng",
+    "415_copper_ingot-item_description": "Thỏi đồng",
+
     
 
     "601_weapon_1-item_name": "Kiếm gỗ",
@@ -123,6 +126,10 @@
 
     "603_weapon_3-item_name": "Cuốc chim gỗ",
     "603_weapon_3-item_description": "Cuốc chim gỗ",
+
+    "604_weapon_2-item_name": "Kiếm đồng",
+    "604_weapon_2-item_description": "Kiếm đồng",
+
 
 
 
@@ -152,6 +159,10 @@
 
     "809_campfire-item_name": "Lửa trại",
     "809_campfire-item_description": "Lửa trại",
+        
+    "810_furnace-item_name": "Lò nung",
+    "810_furnace-item_description": "Lò nung",
+
 
 
     
@@ -170,7 +181,19 @@
     "1201_boss_1_summon-item_name": "Bộ phát tính hiệu lỗi",
     "1201_boss_1_summon-item_description": "Bộ phát tính hiệu lỗi",
 
+    "1005_helmet_copper-item_name": "Nón đồng",
+    "1005_helmet_copper-item_description": "Nón đồng",
 
+    "1006_breastplate_copper-item_name": "Áo giáp đồng",
+    "1006_breastplate_copper-item_description": "Áo giáp đồng",
+
+    "1007_leggings_copper-item_name": "Giáp chân đồng",
+    "1007_leggings_copper-item_description": "Giáp chân đồng",
+
+    "1008_boots_copper-item_name": "Giày đồng",
+    "1008_boots_copper-item_description": "Giày đồng",
+
+    
 
     
     "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",

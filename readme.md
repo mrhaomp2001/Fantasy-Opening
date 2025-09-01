@@ -1,4 +1,43 @@
 
+# [ 13:52:01 01/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 10:35:44 31/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:52:21 30/08/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
 # [ 09:37:37 29/08/2025 ]
 
 <details>
