@@ -274,44 +274,48 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void InteractWithItem()
     {
-        if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null)
+        if (canAttack)
         {
+            //AudioController.Instance.Play("player_attack");tt
+            CooldownAction();
 
-            if (canAttack)
+            if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null)
             {
-                //AudioController.Instance.Play("player_attack");tt
-
-                float cooldownTime = 0f;
-                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item.UseTime <= 0)
-                {
-                    cooldownTime = attackCooldown;
-                }
-                else
-                {
-                    float percent = Mathf.Min(InventoryController.Instance.GetPlayerData.AttackSpeed, 75f);
-                    float offset = InventoryController.Instance.GetPlayerData.SelectedHotbar.item.UseTime * (percent / 100f);
-
-                    cooldownTime = InventoryController.Instance.GetPlayerData.SelectedHotbar.item.UseTime - offset;
-                }
-
-                canAttack = false;
-                timerAttack = Timer.DelayAction(cooldownTime, () =>
-                {
-                    canAttack = true;
-                });
-
                 if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemWeapon weapon)
                 {
                     ObjectPooler.Instance.SpawnFromPool(weapon.Projectile, transform.position, firepointHitbox.rotation);
                 }
+            }
 
-                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item == null)
-                {
-
-                    ObjectPooler.Instance.SpawnFromPool("player_bullet", transform.position, firepointHitbox.rotation);
-                }
+            if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item == null)
+            {
+                ObjectPooler.Instance.SpawnFromPool("player_bullet", transform.position, firepointHitbox.rotation);
             }
         }
+    }
+
+    private void CooldownAction()
+    {
+        float cooldownTime = 0f;
+        if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item == null || InventoryController.Instance.GetPlayerData.SelectedHotbar.item.UseTime <= 0)
+        {
+            cooldownTime = attackCooldown;
+        }
+        else
+        {
+            float percent = Mathf.Min(InventoryController.Instance.GetPlayerData.AttackSpeed, 75f);
+            float offset = InventoryController.Instance.GetPlayerData.SelectedHotbar.item.UseTime * (percent / 100f);
+
+            cooldownTime = InventoryController.Instance.GetPlayerData.SelectedHotbar.item.UseTime - offset;
+        }
+
+        canAttack = false;
+        timerAttack = Timer
+            .DelayAction(cooldownTime, () =>
+            {
+                canAttack = true;
+            });
+
     }
 
     public void SleepNextDay()
@@ -336,8 +340,9 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
             animator.Play("hurt");
 
+            Debug.Log($"Defend: {InventoryController.Instance.GetPlayerData.Defend}");
 
-            InventoryController.Instance.GetPlayerData.Hp -= dmg;
+            InventoryController.Instance.GetPlayerData.Hp -= Mathf.Max(1, dmg - InventoryController.Instance.GetPlayerData.Defend);
 
             StatController.Instance.UpdateHp();
 
@@ -397,6 +402,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void OnPointerDown(BaseEventData valueEventData)
     {
+
         if (valueEventData is PointerEventData eventData)
         {
             if (eventData.button == PointerEventData.InputButton.Left)

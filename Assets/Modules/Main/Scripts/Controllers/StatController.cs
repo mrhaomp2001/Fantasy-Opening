@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 [JsonObject(MemberSerialization.OptIn), System.Serializable]
 
-public class GameStatCollection
+public class StatCollection
 {
     [JsonProperty]
     [SerializeField] private int hpMax;
@@ -33,6 +33,8 @@ public class GameStatCollection
     [SerializeField] private int speed;
     [JsonProperty]
     [SerializeField] private int curse;
+    [JsonProperty]
+    [SerializeField] private int defend;
 
     public int HpMax { get => hpMax; set => hpMax = value; }
     public int HpRegeneration { get => hpRegeneration; set => hpRegeneration = value; }
@@ -46,6 +48,7 @@ public class GameStatCollection
     public int Dodge { get => dodge; set => dodge = value; }
     public int Speed { get => speed; set => speed = value; }
     public int Curse { get => curse; set => curse = value; }
+    public int Defend { get => defend; set => defend = value; }
 
     public string GetString()
     {
@@ -63,13 +66,18 @@ public class GameStatCollection
         if (dodge != 0) result += $"Dodge: {dodge}\n";
         if (speed != 0) result += $"SPD: {speed}\n";
         if (curse != 0) result += $"Curse: {curse}\n";
+        if (defend != 0) result += $"DEF: {defend}\n";
 
         return result.TrimEnd();
     }
 
-    public static GameStatCollection Add(GameStatCollection a, GameStatCollection b)
+    public static StatCollection operator +(StatCollection a, StatCollection b)
     {
-        return new GameStatCollection
+        if (a == null && b == null) return new StatCollection();
+        if (a == null) return b;
+        if (b == null) return a;
+
+        return new StatCollection
         {
             hpMax = a.hpMax + b.hpMax,
             hpRegeneration = a.hpRegeneration + b.hpRegeneration,
@@ -82,7 +90,29 @@ public class GameStatCollection
             range = a.range + b.range,
             dodge = a.dodge + b.dodge,
             speed = a.speed + b.speed,
-            curse = a.curse + b.curse
+            curse = a.curse + b.curse,
+            defend = a.defend + b.defend,
+        };
+    }
+
+
+    public static StatCollection Add(StatCollection a, StatCollection b)
+    {
+        return new StatCollection
+        {
+            hpMax = a.hpMax + b.hpMax,
+            hpRegeneration = a.hpRegeneration + b.hpRegeneration,
+            damageGlobalBonus = a.damageGlobalBonus + b.damageGlobalBonus,
+            meleeDamageBonus = a.meleeDamageBonus + b.meleeDamageBonus,
+            rangeDamageBonus = a.rangeDamageBonus + b.rangeDamageBonus,
+            magicDamageBonus = a.magicDamageBonus + b.magicDamageBonus,
+            attackSpeedBonus = a.attackSpeedBonus + b.attackSpeedBonus,
+            critChance = a.critChance + b.critChance,
+            range = a.range + b.range,
+            dodge = a.dodge + b.dodge,
+            speed = a.speed + b.speed,
+            curse = a.curse + b.curse,
+            defend = a.defend + b.defend,
         };
     }
 }

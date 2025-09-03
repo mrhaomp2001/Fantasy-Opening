@@ -21,11 +21,12 @@ MonoBehaviour:
   sellPrice: 0
   useTime: 0.6
   isNonStack: 1
+  weaponType: 0
   projectile: player_bullet_601
   stats:
     hpMax: 0
     hpRegeneration: 0
-    damageGlobalBonus: 1
+    damageGlobalBonus: 2
     meleeDamageBonus: 0
     rangeDamageBonus: 0
     magicDamageBonus: 0
@@ -35,3 +36,4 @@ MonoBehaviour:
     dodge: 0
     speed: 0
     curse: 0
+    defend: 0

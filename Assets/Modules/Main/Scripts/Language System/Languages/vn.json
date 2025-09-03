@@ -130,7 +130,15 @@
     "604_weapon_2-item_name": "Kiếm đồng",
     "604_weapon_2-item_description": "Kiếm đồng",
 
+    "605_weapon_3_staff_crystal-item_name": "Gậy phép tinh thể",
+    "605_weapon_3_staff_crystal-item_description": "Gậy phép tinh thể",
 
+    "606_axe_copper-item_name": "Rìu đồng",
+    "606_axe_copper-item_description": "Rìu đồng",
+
+    "607_pickaxe_copper-item_name": "Cuốc chim đồng",
+    "607_pickaxe_copper-item_description": "Cuốc chim đồng",
+    
 
 
     "801_farmland-item_name": "Ô đất",
@@ -163,7 +171,12 @@
     "810_furnace-item_name": "Lò nung",
     "810_furnace-item_description": "Lò nung",
 
+    "811_anvil_copper-item_name": "Đe đồng",
+    "811_anvil_copper-item_description": "Đe đồng",
 
+    "812_crystal_table-item_name": "Bàn tinh thể",
+    "812_crystal_table-item_description": "Bàn tinh thể",
+    
 
     
     "1001_wood_helmet-item_name": "Nón gỗ",
@@ -193,7 +206,18 @@
     "1008_boots_copper-item_name": "Giày đồng",
     "1008_boots_copper-item_description": "Giày đồng",
 
-    
+    "1009_helmet_crystal-item_name": "Nón tinh thể",
+    "1009_helmet_crystal-item_description": "Nón tinh thể",
+
+    "1010_breastplate_crystal-item_name": "Áo giáp tinh thể",
+    "1010_breastplate_crystal-item_description": "Áo giáp tinh thể",
+
+    "1011_leggings_crystal-item_name": "Giáp chân tinh thể",
+    "1011_leggings_crystal-item_description": "Giáp chân tinh thể",
+
+    "1012_boots_crystal-item_name": "Giày tinh thể",
+    "1012_boots_crystal-item_description": "Giày tinh thể",
+
 
     
     "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",

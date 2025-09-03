@@ -49,7 +49,7 @@ public class InventoryController : MonoBehaviour
         [JsonProperty]
         [SerializeField] private BuildingController.BuildingData buildingData;
         [JsonProperty]
-        [SerializeField] private GameStatCollection stats;
+        [SerializeField] private StatCollection stats;
         public List<InventoryItem> Items { get => items; set => items = value; }
         public List<InventoryItem> Hotbar { get => hotbar; set => hotbar = value; }
         public int HotbarSelectedSlot { get => hotbarSelectedSlot; set => hotbarSelectedSlot = value; }
@@ -112,6 +112,18 @@ public class InventoryController : MonoBehaviour
             }
         }
 
+        public StatCollection statCollectionFinal
+        {
+            get
+            {
+                return stats 
+                    + (armorHead?.item as ItemArmorHead)?.Stats 
+                    + (armorBody?.item as ItemArmorBody)?.Stats 
+                    + (armorLeg?.item as ItemArmorLeg)?.Stats 
+                    + (armorFoot?.item as ItemArmorFoot)?.Stats;
+            }
+        }
+
         public int Hp { get => hp/*Mathf.Clamp(hp, 0, hpMax)*/; set => hp = value; }
 
         public int Attack
@@ -119,11 +131,32 @@ public class InventoryController : MonoBehaviour
             get
             {
                 int result = 0;
-                result += stats.DamageGlobalBonus;
+
+                result += statCollectionFinal.DamageGlobalBonus;
                 
                 if (SelectedHotbar.item is ItemWeapon weapon)
                 {
                     result += weapon.Stats.DamageGlobalBonus;
+
+                    if (weapon.WeaponType==WeaponType.Melee)
+                    {
+                        result += statCollectionFinal.MeleeDamageBonus;
+                        result+= weapon.Stats.MeleeDamageBonus;
+                    }
+
+                    if (weapon.WeaponType==WeaponType.Range)
+                    {
+                        result += statCollectionFinal.RangeDamageBonus;
+                        result += weapon.Stats.RangeDamageBonus;
+
+                    }
+
+                    if (weapon.WeaponType==WeaponType.Magic)
+                    {
+                        result += statCollectionFinal.MagicDamageBonus;
+                        result += weapon.Stats.MagicDamageBonus;
+
+                    }
                 }
 
                 return result;
@@ -135,7 +168,7 @@ public class InventoryController : MonoBehaviour
             get
             {
                 int result = 0;
-                result += stats.AttackSpeedBonus;
+                result += statCollectionFinal.AttackSpeedBonus;
 
                 if (SelectedHotbar.item is ItemWeapon weapon)
                 {
@@ -150,7 +183,15 @@ public class InventoryController : MonoBehaviour
         {
             get
             {
-                return stats.Range;
+                return statCollectionFinal.Range;
+            }
+        }
+
+        public int Defend
+        {
+            get
+            {
+                return statCollectionFinal.Defend;
             }
         }
 
@@ -171,7 +212,7 @@ public class InventoryController : MonoBehaviour
         public InventoryItem ArmorLeg { get => armorLeg; set => armorLeg = value; }
         public InventoryItem ArmorFoot { get => armorFoot; set => armorFoot = value; }
         public List<ProgressionBase> Progressions { get => progressions; set => progressions = value; }
-        public GameStatCollection Stats { get => stats; set => stats = value; }
+        public StatCollection Stats { get => stats; set => stats = value; }
         public int Level { get => level; set => level = value; }
         public int Exp { get => exp; set => exp = value; }
         public List<BuffBase> Buffs { get => buffs; set => buffs = value; }
@@ -340,20 +381,21 @@ public class InventoryController : MonoBehaviour
     {
         playerData = new PlayerData();
 
-        playerData.Stats = new GameStatCollection();
+        playerData.Stats = new StatCollection();
 
         playerData.Stats.HpMax = 100;
-        playerData.Stats.HpRegeneration = 1;
+        playerData.Stats.HpRegeneration = 0;
         playerData.Stats.DamageGlobalBonus = 1;
-        playerData.Stats.MeleeDamageBonus = 1;
-        playerData.Stats.RangeDamageBonus = 1;
-        playerData.Stats.MagicDamageBonus = 1;
-        playerData.Stats.AttackSpeedBonus = 1;
+        playerData.Stats.MeleeDamageBonus = 0;
+        playerData.Stats.RangeDamageBonus = 0;
+        playerData.Stats.MagicDamageBonus = 0;
+        playerData.Stats.AttackSpeedBonus = 0;
         playerData.Stats.CritChance = 20;
         playerData.Stats.Range = 1;
         playerData.Stats.Dodge = 20;
         playerData.Stats.Speed = 5;
-        playerData.Stats.Curse = 1;
+        playerData.Stats.Curse = 0;
+        playerData.Stats.Defend = 0;
 
         playerData.Level = 1;
         playerData.Exp = 0;

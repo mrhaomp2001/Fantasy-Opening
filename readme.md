@@ -1,5 +1,5 @@
 
-# [ 13:52:01 01/09/2025 ]
+# [ 10:59:44 03/09/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
@@ -8,6 +8,33 @@
 
 ### Công việc trong kế hoạch: 
 
+</details>
+
+
+# [ 08:57:37 02/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 13:52:01 01/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
 </details>
 
 
@@ -17,9 +44,16 @@
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
-
+- thêm:
+  + áo giáp tinh thể
+  + gậy phép tinh thể
+  + bàn chế tạo tinh thể
+  + thêm đe đồng
 ### Công việc trong kế hoạch: 
-
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
 </details>
 
 
@@ -29,7 +63,10 @@
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
-
+- thêm:
+  + lò nung
+  + giáp đồng
+  + kiếm đồng
 ### Công việc trong kế hoạch: 
 - AI của quái
 - chỉ số nhân vật

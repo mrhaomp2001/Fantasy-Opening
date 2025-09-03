@@ -19,4 +19,19 @@ MonoBehaviour:
   spriteWorldItem: {fileID: 21300000, guid: f7131bac1af8d4446ab9f2976bfea86e, type: 3}
   buyPrice: 0
   sellPrice: 0
+  useTime: 0
   isNonStack: 1
+  stats:
+    hpMax: 0
+    hpRegeneration: 0
+    damageGlobalBonus: 0
+    meleeDamageBonus: 0
+    rangeDamageBonus: 0
+    magicDamageBonus: 0
+    attackSpeedBonus: 0
+    critChance: 0
+    range: 0
+    dodge: 0
+    speed: 0
+    curse: 0
+    defend: 2

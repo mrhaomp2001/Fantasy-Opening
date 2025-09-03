@@ -11,12 +11,12 @@ public class BuffBase : ScriptableObject
     [SerializeField] private int id;
     [SerializeField] private string buffName;
     [SerializeField] private string buffDescription;
-    [SerializeField] private GameStatCollection stats;
+    [SerializeField] private StatCollection stats;
     [SerializeField] private Sprite spriteBuff;
 
     public int Id { get => id; set => id = value; }
     public string BuffName { get => buffName; set => buffName = value; }
     public string BuffDescription { get => buffDescription; set => buffDescription = value; }
     public Sprite SpriteBuff { get => spriteBuff; set => spriteBuff = value; }
-    public GameStatCollection Stats { get => stats; set => stats = value; }
+    public StatCollection Stats { get => stats; set => stats = value; }
 }

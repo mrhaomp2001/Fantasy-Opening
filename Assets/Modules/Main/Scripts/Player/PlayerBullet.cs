@@ -22,7 +22,16 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
     {
         hitbox.gameObject.SetActive(true);
         rb.velocity = rb.transform.right * speed;
-        damage = InventoryController.Instance.GetPlayerData.Attack;
+        if (isAxe || isPickaxe)
+        {
+
+        }
+        else
+        {
+            damage = InventoryController.Instance.GetPlayerData.Attack;
+        }
+
+        Debug.Log("Bullet Damage: " + damage);
         timerLifeTime = Timer.DelayAction(lifeTime + (InventoryController.Instance.GetPlayerData.AttackRange / 100f), () =>
         {
             gameObject.SetActive(false);
@@ -39,7 +48,7 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
             enemy.TakeDamage(this);
         }
         OnEndLifeTime();
-        
+
         ObjectPooler.Instance.SpawnFromPool("player_bullet_impact", rb.transform.position, rb.transform.rotation);
 
     }

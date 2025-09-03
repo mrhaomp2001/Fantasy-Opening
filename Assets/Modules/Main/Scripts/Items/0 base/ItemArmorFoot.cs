@@ -5,7 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Farm/Items/ItemArmorFoot")]
 public class ItemArmorFoot : ItemBase
 {
-    [SerializeField] private GameStatCollection stats;
+    [SerializeField] private StatCollection stats;
 
-    public GameStatCollection Stats { get => stats; set => stats = value; }
+    public StatCollection Stats { get => stats; set => stats = value; }
+
+    public override string ItemDescription { get => base.ItemDescription + "\n" + stats.GetString(); set => base.ItemDescription = value; }
+
 }

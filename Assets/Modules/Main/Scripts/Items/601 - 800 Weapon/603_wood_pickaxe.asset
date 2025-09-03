@@ -19,5 +19,21 @@ MonoBehaviour:
   spriteWorldItem: {fileID: 21300000, guid: 1aa658c5a4940194b832ba0cb9bef932, type: 3}
   buyPrice: 0
   sellPrice: 0
+  useTime: 0
   isNonStack: 1
+  weaponType: 0
   projectile: player_bullet_603
+  stats:
+    hpMax: 0
+    hpRegeneration: 0
+    damageGlobalBonus: 2
+    meleeDamageBonus: 0
+    rangeDamageBonus: 0
+    magicDamageBonus: 0
+    attackSpeedBonus: 0
+    critChance: 0
+    range: 0
+    dodge: 0
+    speed: 0
+    curse: 0
+    defend: 0

@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour, IPoolObject
     [SerializeField] protected Transform sprite;
     [SerializeField] private Animator animator;
     [SerializeField] private int touchDamage;
+    [SerializeField] private int def;
 
     [SerializeField] protected Rigidbody2D rb;
     [Header("Drop: ")]
@@ -43,6 +44,7 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public Rigidbody2D Rb { get => rb; set => rb = value; }
     public int HpMax { get => hpMax; set => hpMax = value; }
+    public int Def { get => def; set => def = value; }
 
     private void Start()
     {
@@ -76,7 +78,7 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public virtual void TakeDamage(PlayerBullet playerBulletInput)
     {
-        hp -= playerBulletInput.Damage;
+        hp -= Mathf.Max(0, playerBulletInput.Damage - def);
 
         if (animator != null)
         {

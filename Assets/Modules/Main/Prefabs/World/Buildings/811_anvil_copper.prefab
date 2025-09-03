@@ -86,6 +86,16 @@ MonoBehaviour:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
       count: 10
   - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 7f13840419853bd49b1bce8d3d5460d4, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
+      count: 10
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 0164954a3b7a3ed48aa5a21d578d3f0d, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
+      count: 10
+  - resultCount: 1
     itemResult: {fileID: 11400000, guid: 034a467b55618f846919f38e81464e35, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
