@@ -432,6 +432,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  idItem: 805
+  hp: 0
+  hpMax: 3
+  def: 0
   currentDay: 0
   cropCurrent: {fileID: 0}
   emptySprite: {fileID: 21300000, guid: 82a47bd9215ada64c8016b4ba5d7f4ef, type: 3}

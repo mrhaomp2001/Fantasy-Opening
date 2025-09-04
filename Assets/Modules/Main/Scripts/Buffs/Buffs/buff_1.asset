@@ -13,19 +13,20 @@ MonoBehaviour:
   m_Name: buff_1
   m_EditorClassIdentifier: 
   id: 1
-  buffName: "A-x\xEDt"
-  buffDescription: "A-x\xEDt"
+  buffName: buff_1
+  buffDescription: buff_1
   stats:
-    hpMax: 0
+    hpMax: 80
     hpRegeneration: 0
-    damageGlobalBonus: 10
-    meleeDamageBonus: 10
+    damageGlobalBonus: 0
+    meleeDamageBonus: 0
     rangeDamageBonus: 0
     magicDamageBonus: 0
     attackSpeedBonus: 0
-    critChance: 5
+    critChance: 0
     range: 0
     dodge: 0
     speed: 0
     curse: 0
+    defend: 0
   spriteBuff: {fileID: 21300000, guid: e92b75754c1f6f64697de8b76b783846, type: 3}

@@ -112,19 +112,45 @@ public class InventoryController : MonoBehaviour
             }
         }
 
-        public StatCollection statCollectionFinal
+        public StatCollection StatCollectionFinal
         {
             get
             {
-                return stats 
-                    + (armorHead?.item as ItemArmorHead)?.Stats 
-                    + (armorBody?.item as ItemArmorBody)?.Stats 
-                    + (armorLeg?.item as ItemArmorLeg)?.Stats 
-                    + (armorFoot?.item as ItemArmorFoot)?.Stats;
+                StatCollection result = stats
+                     + (armorHead.item as ItemArmorHead)?.Stats
+                     + (armorBody.item as ItemArmorBody)?.Stats
+                     + (armorLeg.item as ItemArmorLeg)?.Stats
+                     + (armorFoot.item as ItemArmorFoot)?.Stats;
+
+                if (Buffs != null)
+                {
+                    for (int i = 0; i < Buffs.Count; i++)
+                    {
+                        var buff = Buffs[i];
+                        if (buff != null && buff.Stats != null)
+                        {
+                            result += buff.Stats;
+                        }
+                    }
+                }
+
+                if (SelectedHotbar.item != null && SelectedHotbar.item is ItemWeapon weapon)
+                {
+                    result += weapon.Stats;
+                }
+                return result;
             }
         }
 
         public int Hp { get => hp/*Mathf.Clamp(hp, 0, hpMax)*/; set => hp = value; }
+
+        public int HpMax
+        {
+            get
+            {
+                return StatCollectionFinal.HpMax;
+            }
+        }
 
         public int Attack
         {
@@ -132,30 +158,24 @@ public class InventoryController : MonoBehaviour
             {
                 int result = 0;
 
-                result += statCollectionFinal.DamageGlobalBonus;
+                result += StatCollectionFinal.DamageGlobalBonus;
                 
                 if (SelectedHotbar.item is ItemWeapon weapon)
                 {
-                    result += weapon.Stats.DamageGlobalBonus;
 
                     if (weapon.WeaponType==WeaponType.Melee)
                     {
-                        result += statCollectionFinal.MeleeDamageBonus;
-                        result+= weapon.Stats.MeleeDamageBonus;
+                        result += StatCollectionFinal.MeleeDamageBonus;
                     }
 
                     if (weapon.WeaponType==WeaponType.Range)
                     {
-                        result += statCollectionFinal.RangeDamageBonus;
-                        result += weapon.Stats.RangeDamageBonus;
-
+                        result += StatCollectionFinal.RangeDamageBonus;
                     }
 
                     if (weapon.WeaponType==WeaponType.Magic)
                     {
-                        result += statCollectionFinal.MagicDamageBonus;
-                        result += weapon.Stats.MagicDamageBonus;
-
+                        result += StatCollectionFinal.MagicDamageBonus;
                     }
                 }
 
@@ -167,15 +187,7 @@ public class InventoryController : MonoBehaviour
         {
             get
             {
-                int result = 0;
-                result += statCollectionFinal.AttackSpeedBonus;
-
-                if (SelectedHotbar.item is ItemWeapon weapon)
-                {
-                    result += weapon.Stats.AttackSpeedBonus;
-                }
-
-                return result;
+                return StatCollectionFinal.AttackSpeedBonus;
             }
         }
 
@@ -183,7 +195,7 @@ public class InventoryController : MonoBehaviour
         {
             get
             {
-                return statCollectionFinal.Range;
+                return StatCollectionFinal.Range;
             }
         }
 
@@ -191,7 +203,15 @@ public class InventoryController : MonoBehaviour
         {
             get
             {
-                return statCollectionFinal.Defend;
+                return StatCollectionFinal.Defend;
+            }
+        }
+
+        public int Speed
+        {
+            get
+            {
+                return StatCollectionFinal.Speed;
             }
         }
 
@@ -215,6 +235,23 @@ public class InventoryController : MonoBehaviour
         public StatCollection Stats { get => stats; set => stats = value; }
         public int Level { get => level; set => level = value; }
         public int Exp { get => exp; set => exp = value; }
+        public List<BuffBase> ReversedBuffs
+        {
+            get
+            {
+                if (Buffs == null) return null;
+
+                var reversed = new List<BuffBase>(Buffs.Count);
+                for (int i = Buffs.Count - 1; i >= 0; i--)
+                {
+                    reversed.Add(Buffs[i]);
+                }
+
+                return reversed;
+            }
+            set => Buffs = value; 
+        }
+
         public List<BuffBase> Buffs { get => buffs; set => buffs = value; }
     }
 

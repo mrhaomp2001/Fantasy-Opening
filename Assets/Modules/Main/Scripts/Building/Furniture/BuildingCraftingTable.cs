@@ -11,7 +11,7 @@ public class BuildingCraftingTable : BuildingBase, IWorldInteractable, IPoolObje
         spriteRenderer.sortingOrder = (int)-(transform.position.y * 100f);
     }
 
-    public void OnWorldInteract()
+    public override void OnWorldInteract()
     {
         PopUpInventory.Instance.TurnPopUp();
 

@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using static InventoryController;
 using static UnityEditor.Progress;
@@ -41,9 +42,14 @@ public class PopUpInventory : PopUp
     [SerializeField] private List<InventoryGridviewItem> equipmentGridviewItems;
     [Header("Stats: ")]
     [SerializeField] private RectTransform containerPlayerStats;
+    [SerializeField] private TextMeshProUGUI textStats;
 
     [Header("Buffs: ")]
     [SerializeField] private RectTransform containerBuff;
+    [SerializeField] private TextMeshProUGUI textBuffPage;
+
+    private const int BuffsPerPage = 27;
+    [SerializeField] private int buffPage;
     [SerializeField] private List<InventoryBuffGridviewItem> buffGridviewItems;
 
     public static PopUpInventory Instance { get => instance; set => instance = value; }
@@ -193,6 +199,8 @@ public class PopUpInventory : PopUp
             }
         }
 
+        StatController.Instance.UpdateViews();
+
     }
 
     public void ChooseHotbarSlot(int slot)
@@ -284,6 +292,8 @@ public class PopUpInventory : PopUp
             ResetSubPopUps();
             containerPlayerStats.gameObject.SetActive(true);
 
+            textStats.text = InventoryController.Instance.GetPlayerData.StatCollectionFinal.GetStringFullAll();
+
         }
         else
         {
@@ -293,31 +303,146 @@ public class PopUpInventory : PopUp
 
     }
 
+    // Lưu trang hiện tại (0-based: 0 = trang 1)
+    // (Tuỳ chọn) Để hiển thị UI: trang hiện tại (1-based) và tổng số trang
+    public int CurrentBuffPageOneBased => buffPage + 1;
+    public int TotalBuffPageCount => GetTotalBuffPages();
+
     public void TurnBuff()
     {
+        if (containerBuff == null)
+        {
+            Debug.LogWarning("containerBuff is null.");
+            return;
+        }
+
         if (!containerBuff.gameObject.activeSelf)
         {
             ResetSubPopUps();
             containerBuff.gameObject.SetActive(true);
+            
+            StatController.Instance.UpdateViews();
 
-            foreach (var item in buffGridviewItems)
-            {
-                item.ResetViews();
-            }
-
-            for (int i = 0; i < InventoryController.Instance.GetPlayerData.Buffs.Count; i++)
-            {
-                var buff = InventoryController.Instance.GetPlayerData.Buffs[i];
-
-                var gridview = buffGridviewItems[i];
-
-                gridview.UpdateViews(buff);
-            }
+            // Bắt đầu từ trang 1 (0-based = 0 => hiển thị index 0..26)
+            buffPage = 0;
+            RenderBuffPage();
         }
         else
         {
             ResetSubPopUps();
-            containerEquipment.gameObject.SetActive(true);
+            if (containerEquipment != null)
+                containerEquipment.gameObject.SetActive(true);
+            else
+                Debug.LogWarning("containerEquipment is null.");
+        }
+
+
+    }
+
+    // Chuyển sang trang kế tiếp
+    public void NextBuffPage()
+    {
+        int totalPages = GetTotalBuffPages();
+        if (buffPage < totalPages - 1)
+        {
+            buffPage++;
+            RenderBuffPage();
+        }
+        else
+        {
+            Debug.Log("Already at last buff page.");
         }
     }
+
+    // Chuyển về trang trước
+    public void PrevBuffPage()
+    {
+        if (buffPage > 0)
+        {
+            buffPage--;
+            RenderBuffPage();
+        }
+        else
+        {
+            Debug.Log("Already at first buff page.");
+        }
+    }
+
+    // (Tuỳ chọn) Nhảy đến trang n (1-based)
+    public void GoToBuffPage(int oneBasedPage)
+    {
+        int totalPages = GetTotalBuffPages();
+        int clamped = Mathf.Clamp(oneBasedPage, 1, totalPages);
+        buffPage = clamped - 1; // đổi về 0-based
+        RenderBuffPage();
+    }
+
+    // Vẽ lại trang hiện tại
+    private void RenderBuffPage()
+    {
+        // Kiểm tra danh sách slot hiển thị
+        if (buffGridviewItems == null)
+        {
+            Debug.LogWarning("buffGridviewItems is null.");
+            return;
+        }
+
+        int slotCount = buffGridviewItems.Count;
+        if (slotCount == 0)
+        {
+            Debug.LogWarning("buffGridviewItems is empty.");
+            return;
+        }
+        if (slotCount < BuffsPerPage)
+        {
+            Debug.LogWarning($"Only {slotCount} buffGridviewItems configured; expected {BuffsPerPage}. Will show {slotCount} per page.");
+        }
+
+        // Reset toàn bộ slot trước khi fill
+        foreach (var item in buffGridviewItems)
+        {
+            if (item != null)
+            {
+                item.ResetViews();
+            }
+        }
+
+        // Lấy danh sách buff an toàn null
+        var buffs = InventoryController.Instance?.GetPlayerData?.ReversedBuffs;
+        int totalBuffs = buffs?.Count ?? 0;
+
+        // Tính tổng số trang (ít nhất 1 để UI ổn định)
+        int totalPages = GetTotalBuffPages();
+
+        // Đảm bảo buffPage hợp lệ (trường hợp xoá buff khi đang ở trang cuối)
+        buffPage = Mathf.Clamp(buffPage, 0, Mathf.Max(0, totalPages - 1));
+
+        int startIndex = buffPage * BuffsPerPage;
+
+        // Điền dữ liệu vào từng slot của trang
+        for (int slot = 0; slot < slotCount; slot++)
+        {
+            int srcIndex = startIndex + slot;
+
+            if (buffs != null && srcIndex < totalBuffs)
+            {
+                var buff = buffs[srcIndex];
+                var gridview = buffGridviewItems[slot];
+                gridview?.UpdateViews(buff);
+            }
+            // else: giữ slot trống (đã ResetViews ở trên)
+        }
+
+        // (Tuỳ chọn) cập nhật label trang ở UI tại đây nếu có:
+        textBuffPage.text = $"{CurrentBuffPageOneBased}/{TotalBuffPageCount}";
+    }
+
+    // Tính tổng số trang dựa trên số buff hiện có
+    private int GetTotalBuffPages()
+    {
+        int count = InventoryController.Instance?.GetPlayerData?.ReversedBuffs?.Count ?? 0;
+        // Ít nhất là 1 trang để tránh chia cho 0 và giúp UI ổn định
+        return Mathf.Max(1, Mathf.CeilToInt(count / (float)BuffsPerPage));
+    }
+
 }

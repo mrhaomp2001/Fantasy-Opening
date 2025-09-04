@@ -15,8 +15,8 @@ public class BuffBase : ScriptableObject
     [SerializeField] private Sprite spriteBuff;
 
     public int Id { get => id; set => id = value; }
-    public string BuffName { get => buffName; set => buffName = value; }
-    public string BuffDescription { get => buffDescription; set => buffDescription = value; }
+    public string BuffName { get => LanguageController.Instance.GetString(buffName); set => buffName = value; }
+    public string BuffDescription { get => LanguageController.Instance.GetString(buffDescription); set => buffDescription = value; }
     public Sprite SpriteBuff { get => spriteBuff; set => spriteBuff = value; }
     public StatCollection Stats { get => stats; set => stats = value; }
 }

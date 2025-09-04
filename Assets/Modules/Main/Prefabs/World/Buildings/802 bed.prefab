@@ -258,6 +258,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  idItem: 802
+  hp: 0
+  hpMax: 3
+  def: 0
   spriteRenderer: {fileID: 1033471616700729660}
 --- !u!1 &7798409098870520433
 GameObject:

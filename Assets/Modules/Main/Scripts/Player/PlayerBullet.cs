@@ -10,7 +10,7 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
     [SerializeField] private int damage;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform hitbox;
-    [SerializeField] private bool isAxe, isPickaxe;
+    [SerializeField] private bool isAxe, isPickaxe, isHammer;
 
     private Timer timerLifeTime;
 
@@ -22,7 +22,7 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
     {
         hitbox.gameObject.SetActive(true);
         rb.velocity = rb.transform.right * speed;
-        if (isAxe || isPickaxe)
+        if (isAxe || isPickaxe || isHammer)
         {
 
         }
@@ -51,6 +51,19 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
 
         ObjectPooler.Instance.SpawnFromPool("player_bullet_impact", rb.transform.position, rb.transform.rotation);
 
+    }
+
+    public void OnHitBuilding(Collider2D other)
+    {
+        var building = other.GetComponentInParent<BuildingBase>();
+        if (building != null)
+        {
+            building.OnTakeDamage(this);
+        }
+
+        OnEndLifeTime();
+
+        ObjectPooler.Instance.SpawnFromPool("player_bullet_impact", rb.transform.position, rb.transform.rotation);
     }
 
     public void OnEndLifeTime()

@@ -226,13 +226,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
-  hpMax: 3
+  hpMax: 10
   canMove: 0
   enemyDieParticle: enemy_die_effect_1
   hitbox: {fileID: 9211850742125784913}
   sprite: {fileID: 7718622324409703099}
   animator: {fileID: 6938862437233842833}
   touchDamage: 5
+  def: 0
   rb: {fileID: 9004111578794144812}
   dropId: 405
   expDrop: 2

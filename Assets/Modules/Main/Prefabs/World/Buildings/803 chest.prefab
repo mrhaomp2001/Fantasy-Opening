@@ -47,6 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  idItem: 803
+  hp: 0
+  hpMax: 3
+  def: 0
   items: []
   spriteRenderer: {fileID: 2008191738212335309}
 --- !u!1 &2207502310557252012
@@ -197,7 +201,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 814634259
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1d7790f3b41816a4fba14be329aea575, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

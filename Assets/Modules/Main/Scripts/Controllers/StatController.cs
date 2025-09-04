@@ -54,22 +54,64 @@ public class StatCollection
     {
         string result = "";
 
-        if (hpMax != 0) result += $"HP: {hpMax}\n";
-        if (hpRegeneration != 0) result += $"HP Regen: {hpRegeneration}\n";
-        if (damageGlobalBonus != 0) result += $"DMG: {damageGlobalBonus}\n";
-        if (meleeDamageBonus != 0) result += $"Melee DMG: {meleeDamageBonus}\n";
-        if (rangeDamageBonus != 0) result += $"Range DMG: {rangeDamageBonus}\n";
-        if (magicDamageBonus != 0) result += $"Magic DMG: {magicDamageBonus}\n";
-        if (attackSpeedBonus != 0) result += $"Attack SPD: {attackSpeedBonus}\n";
-        if (critChance != 0) result += $"critChance: {critChance}\n";
-        if (range != 0) result += $"Range: {range}\n";
-        if (dodge != 0) result += $"Dodge: {dodge}\n";
-        if (speed != 0) result += $"SPD: {speed}\n";
-        if (curse != 0) result += $"Curse: {curse}\n";
-        if (defend != 0) result += $"DEF: {defend}\n";
+        if (hpMax != 0)
+            result += $"{LanguageController.Instance.GetString("0_hpMax")}: {hpMax}\n";
+        if (hpRegeneration != 0)
+            result += $"{LanguageController.Instance.GetString("1_hpRegeneration")}: {hpRegeneration}\n";
+        if (damageGlobalBonus != 0)
+            result += $"{LanguageController.Instance.GetString("2_damageGlobalBonus")}: {damageGlobalBonus}\n";
+        if (meleeDamageBonus != 0)
+            result += $"{LanguageController.Instance.GetString("3_meleeDamageBonus")}: {meleeDamageBonus}\n";
+        if (rangeDamageBonus != 0)
+            result += $"{LanguageController.Instance.GetString("4_rangeDamageBonus")}: {rangeDamageBonus}\n";
+        if (magicDamageBonus != 0)
+            result += $"{LanguageController.Instance.GetString("5_magicDamageBonus")}: {magicDamageBonus}\n";
+        if (attackSpeedBonus != 0)
+            result += $"{LanguageController.Instance.GetString("6_attackSpeedBonus")}: {attackSpeedBonus}\n";
+        if (critChance != 0)
+            result += $"{LanguageController.Instance.GetString("7_critChance")}: {critChance}\n";
+        if (range != 0)
+            result += $"{LanguageController.Instance.GetString("8_range")}: {range}\n";
+        if (dodge != 0)
+            result += $"{LanguageController.Instance.GetString("9_dodge")}: {dodge}\n";
+        if (speed != 0)
+            result += $"{LanguageController.Instance.GetString("10_speed")}: {speed}\n";
+        if (curse != 0)
+            result += $"{LanguageController.Instance.GetString("11_curse")}: {curse}\n";
+        if (defend != 0)
+            result += $"{LanguageController.Instance.GetString("12_defend")}: {defend}\n";
 
         return result.TrimEnd();
     }
+    public string GetStringFullAll()
+    {
+        string result = "";
+        var map = new Dictionary<string, int>
+    {
+        { "0_hpMax", hpMax },
+        { "1_hpRegeneration", hpRegeneration },
+        { "2_damageGlobalBonus", damageGlobalBonus },
+        { "3_meleeDamageBonus", meleeDamageBonus },
+        { "4_rangeDamageBonus", rangeDamageBonus },
+        { "5_magicDamageBonus", magicDamageBonus },
+        { "6_attackSpeedBonus", attackSpeedBonus },
+        { "7_critChance", critChance },
+        { "8_range", range },
+        { "9_dodge", dodge },
+        { "10_speed", speed },
+        { "11_curse", curse },
+        { "12_defend", defend }
+    };
+
+        foreach (var kv in map)
+        {
+            result += $"{LanguageController.Instance.GetString(kv.Key)}: {kv.Value}\n";
+        }
+
+        return result.TrimEnd();
+    }
+
+
 
     public static StatCollection operator +(StatCollection a, StatCollection b)
     {
@@ -149,11 +191,13 @@ public class StatController : MonoBehaviour
     {
         UpdateHp();
         UpdateExp();
+
+        UpdateStats();
     }
 
     public void UpdateHp()
     {
-        sliderHp.maxValue = InventoryController.Instance.GetPlayerData.Stats.HpMax;
+        sliderHp.maxValue = InventoryController.Instance.GetPlayerData.HpMax;
         sliderHp.value = InventoryController.Instance.GetPlayerData.Hp;
 
         textHp.text = $"{sliderHp.value}/{sliderHp.maxValue}";
@@ -169,5 +213,10 @@ public class StatController : MonoBehaviour
         sliderExp.value = InventoryController.Instance.GetPlayerData.Exp;
 
         textExHp.text = $"{InventoryController.Instance.GetPlayerData.Level}";
+    }
+
+    public void UpdateStats()
+    {
+        PlayerController.Instance.Speed = InventoryController.Instance.GetPlayerData.Speed;
     }
 }

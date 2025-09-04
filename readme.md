@@ -1,5 +1,5 @@
 
-# [ 10:59:44 03/09/2025 ]
+# [ 09:19:34 04/09/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
@@ -7,7 +7,27 @@
 ### Kết quả hôm nay:
 
 ### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
 
+
+# [ 10:59:44 03/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm:
+  + buff 1 - 5
+- xử lý các chỉ số
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
 </details>
 
 
@@ -17,9 +37,13 @@
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
-
+- thêm:
+  + búa gỗ: dùng để gở công trình
 ### Công việc trong kế hoạch: 
-
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
 </details>
 
 

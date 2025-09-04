@@ -20,6 +20,26 @@
     "throw_item": "Ném vật phẩm",
     "delete_item": "Xóa vật phẩm",
 
+    "0_hpMax": "Máu tối đa",
+    "1_hpRegeneration": "Khả năng hồi máu",
+    "2_damageGlobalBonus": "Sát thương chung",
+    "3_meleeDamageBonus": "Sát thương cận chiến",
+    "4_rangeDamageBonus": "Sát thương tầm xa",
+    "5_magicDamageBonus": "Sát thương phép",
+    "6_attackSpeedBonus": "Tốc độ tấn công",
+    "7_critChance": "Tỉ lệ chí mạng",
+    "8_range": "Tầm đánh",
+    "9_dodge": "Tỉ lệ né",
+    "10_speed": "Tốc độ",
+    "11_curse": "Nguyền rủa",
+    "12_defend": "Phòng thủ",
+
+    "buff_1": "A xít",
+    "buff_2": "Adrenaline",
+    "buff_3": "Cỏ ba lá",
+    "buff_4": "Con mắt",
+    "buff_5": "Khiên nặng",
+
     "event_1_start_1": "Thế giới này thật trống rỗng",
     "event_1_start_2": "Bạn cảm thấy...",
     "event_1_start_3": "Thực tại này chẳng là gì...",
@@ -139,6 +159,9 @@
     "607_pickaxe_copper-item_name": "Cuốc chim đồng",
     "607_pickaxe_copper-item_description": "Cuốc chim đồng",
     
+    "608_hammer_wood-item_name": "Búa gỗ",
+    "608_hammer_wood-item_description": "Búa gỗ",
+
 
 
     "801_farmland-item_name": "Ô đất",

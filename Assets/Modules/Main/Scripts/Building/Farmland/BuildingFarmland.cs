@@ -130,7 +130,7 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
         }
     }
 
-    public void OnWorldInteract()
+    public override void OnWorldInteract()
     {
         if (cropCurrent != null)
         {

@@ -129,6 +129,8 @@ public class GameController : MonoBehaviour
         }
 
         InventoryController.Instance.GetPlayerData.Buffs.Add(buff);
+
+        StatController.Instance.UpdateViews();
     }
 
     private void EnemyNextDay()

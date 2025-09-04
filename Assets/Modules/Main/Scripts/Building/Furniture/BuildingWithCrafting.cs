@@ -11,7 +11,7 @@ public class BuildingWithCrafting : BuildingBase, IWorldInteractable, IPoolObjec
 
     }
 
-    public void OnWorldInteract()
+    public override void OnWorldInteract()
     {
         PopUpInventory.Instance.TurnPopUp();
 

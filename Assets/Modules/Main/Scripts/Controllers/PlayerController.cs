@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     public static PlayerController Instance { get => instance; set => instance = value; }
     public Transform FirepointHitbox { get => firepointHitbox; set => firepointHitbox = value; }
     public Rigidbody2D RbPlayer { get => rbPlayer; set => rbPlayer = value; }
+    public float Speed { get => speed; set => speed = value; }
 
     private void Awake()
     {
@@ -408,7 +409,13 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 isHolding = true;
-
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null && InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemWeapon weaponHammer)
+                {
+                    if (weaponHammer.WeaponType == WeaponType.Hammer)
+                    {
+                        return;
+                    }
+                }
                 if (interactable.First != null)
                 {
                     if (interactable.First.Value is BuildingFarmland farmland)

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: buff_5
   m_EditorClassIdentifier: 
   id: 5
-  buffName: "Khi\xEAn n\u1EB7ng"
-  buffDescription: "Khi\xEAn n\u1EB7ng"
+  buffName: buff_5
+  buffDescription: buff_5
   stats:
-    hpMax: 50
+    hpMax: 0
     hpRegeneration: 0
     damageGlobalBonus: 0
     meleeDamageBonus: 0
@@ -28,4 +28,5 @@ MonoBehaviour:
     dodge: 0
     speed: 0
     curse: 0
+    defend: 10
   spriteBuff: {fileID: 21300000, guid: b7fe2ead671c92b439cd6c9e9a5528e5, type: 3}

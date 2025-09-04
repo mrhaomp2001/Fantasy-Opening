@@ -5121,6 +5121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  idItem: 810
+  hp: 0
+  hpMax: 3
+  def: 0
   recipes:
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}

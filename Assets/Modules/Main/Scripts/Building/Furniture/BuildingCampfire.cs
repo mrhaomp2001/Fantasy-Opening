@@ -11,7 +11,7 @@ public class BuildingCampfire : BuildingBase, IWorldInteractable, IPoolObject
         spriteRenderer.sortingOrder = (int)-(transform.position.y * 100f);
     }
 
-    public void OnWorldInteract()
+    public override void OnWorldInteract()
     {
         PopUpInventory.Instance.TurnPopUp();
         PopUpInventory.Instance.TurnCrafting(recipes, isHideInventoryOptions: true);

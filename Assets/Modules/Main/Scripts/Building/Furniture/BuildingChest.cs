@@ -6,7 +6,7 @@ using UnityEngine;
 using static InventoryController;
 
 [System.Serializable, JsonObject(MemberSerialization.OptIn)]
-public class BuildingChest : BuildingBase, IWorldInteractable, IPoolObject
+public class BuildingChest : BuildingBase, IPoolObject
 {
     [JsonProperty]
     [SerializeField] private List<InventoryController.InventoryItem> items = new();
@@ -104,7 +104,7 @@ public class BuildingChest : BuildingBase, IWorldInteractable, IPoolObject
         }
     }
 
-    public void OnWorldInteract()
+    public override void OnWorldInteract()
     {
         PopUpInventory.Instance.TurnPopUp(this);
 

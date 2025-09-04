@@ -4982,6 +4982,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  idItem: 809
+  hp: 0
+  hpMax: 3
+  def: 0
   spriteRenderer: {fileID: 2689588762727205915}
   recipes:
   - resultCount: 1

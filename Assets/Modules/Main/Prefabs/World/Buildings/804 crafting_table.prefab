@@ -47,6 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  idItem: 804
+  hp: 0
+  hpMax: 3
+  def: 0
   spriteRenderer: {fileID: 5292379866618031487}
   recipes:
   - resultCount: 1
@@ -96,6 +100,11 @@ MonoBehaviour:
       count: 20
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: e2f0c88b1e02e4a4d8bbfda4a99ba7ec, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 20
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 941acd09cef788249a2ec243edc9db33, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
       count: 20

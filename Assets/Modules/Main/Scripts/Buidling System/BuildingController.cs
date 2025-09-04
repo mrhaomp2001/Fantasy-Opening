@@ -105,7 +105,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
         bool result = true;
 
         Vector3Int cellPosition = gridBuilding.WorldToCell(PlayerController.Instance.FirepointHitbox.transform.position);
-        
+
         var buildingPosition = gridBuilding.GetCellCenterWorld(cellPosition);
 
         if (interactable.Count > 0)
@@ -117,7 +117,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
         {
             return false;
         }
-        
+
         foreach (var item in InventoryController.Instance.GetPlayerData.BuildingData.Buildings)
         {
             Vector3 checkPosition = new Vector3(item.X, item.Y, item.Z);
@@ -152,12 +152,16 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
         InventoryController.Instance.GetPlayerData.BuildingData.Buildings.Add(building);
 
-        var buildingBase = gameObjectResult.GetComponent<BuildingBase>();
-
-        if (buildingBase != null)
+        if (building.WorldInteractable is BuildingBase buildingBase)
         {
-            buildingBase.Id = building.Id;
+            if (buildingBase != null)
+            {
+                buildingBase.Id = building.Id;
+            }
+
+            buildingBase.Initialize();
         }
+
 
         if (building.WorldInteractable is BuildingFarmland farmland)
         {
@@ -187,12 +191,17 @@ public class BuildingController : MonoBehaviour, IUpdatable
         };
 
         InventoryController.Instance.GetPlayerData.BuildingData.Buildings.Add(building);
-        var buildingBase = gameObjectResult.GetComponent<BuildingBase>();
 
-        if (buildingBase != null)
+        if (building.WorldInteractable is BuildingBase buildingBase)
         {
-            buildingBase.Id = building.Id;
+            if (buildingBase != null)
+            {
+                buildingBase.Id = building.Id;
+            }
+
+            buildingBase.Initialize();
         }
+
 
         if (building.WorldInteractable is BuildingFarmland farmland)
         {
@@ -213,6 +222,10 @@ public class BuildingController : MonoBehaviour, IUpdatable
             if (item.WorldInteractable is BuildingChest chest)
             {
                 item.Data = chest;
+            }
+            if (item.WorldInteractable is BuildingBase buildingBase)
+            {
+                buildingBase.NextDay();
             }
         }
     }
@@ -274,6 +287,8 @@ public class BuildingController : MonoBehaviour, IUpdatable
             if (targetBuilding.WorldInteractable is BuildingBase building)
             {
                 building.gameObject.SetActive(false);
+                building.OnDestroyBuilding();
+
             }
         }
 

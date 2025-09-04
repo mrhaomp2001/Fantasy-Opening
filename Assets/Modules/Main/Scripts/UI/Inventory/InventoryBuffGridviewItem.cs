@@ -7,6 +7,7 @@ using static UnityEditor.Progress;
 
 public class InventoryBuffGridviewItem : MonoBehaviour
 {
+    [SerializeField] private Sprite mask;
     [SerializeField] private RectTransform tooltipPosition;
 
     [SerializeField] private Image imageBuff;
@@ -15,20 +16,35 @@ public class InventoryBuffGridviewItem : MonoBehaviour
 
     public void ResetViews()
     {
-        gameObject.SetActive(false);
+        buff = null;
+        Render();
     }
 
     public void UpdateViews(BuffBase buffValue)
     {
-        gameObject.SetActive(true);
-
         buff = buffValue;
+        Render();
+    }
 
-        imageBuff.sprite = buffValue.SpriteBuff; 
+    public void Render()
+    {
+        if (buff != null)
+        {
+            imageBuff.sprite = buff.SpriteBuff;
+        }
+        else
+        {
+            imageBuff.sprite = mask;
+        }
     }
 
     public void OnPointerEnter(BaseEventData baseEventData)
     {
+        if (buff == null)
+        {
+            return;
+        }
+
         if (baseEventData is PointerEventData pointerEventData)
         {
             PopUpBuffTooltip.Instance.ShowAtPosition(tooltipPosition.position, buff, new Vector2(0f, 1f));
@@ -37,6 +53,11 @@ public class InventoryBuffGridviewItem : MonoBehaviour
 
     public void OnPointerExit(BaseEventData baseEventData)
     {
+        if (buff == null)
+        {
+            return;
+        }
+
         if (baseEventData is PointerEventData pointerEventData)
         {
             PopUpBuffTooltip.Instance.Hide();

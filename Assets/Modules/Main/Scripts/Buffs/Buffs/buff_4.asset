@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: buff_4
   m_EditorClassIdentifier: 
   id: 4
-  buffName: "Con m\u1EAFt"
-  buffDescription: "Con m\u1EAFt"
+  buffName: buff_4
+  buffDescription: buff_4
   stats:
     hpMax: 0
     hpRegeneration: 0
@@ -28,4 +28,5 @@ MonoBehaviour:
     dodge: 0
     speed: 0
     curse: 0
+    defend: 0
   spriteBuff: {fileID: 21300000, guid: 422308a7691310b4cb14d46fcd69175e, type: 3}
