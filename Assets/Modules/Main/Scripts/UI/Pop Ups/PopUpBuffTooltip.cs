@@ -44,9 +44,9 @@ public class PopUpBuffTooltip : PopUp
             container.position = position + new Vector2(5f, 0f);
             buff = buffValue;
 
-            textItemName.text = buff.BuffName;
-            textItemDescription.text = buff.BuffDescription;
-            textItemPrice.text = buff.Stats.GetString();
+            textItemName.SetText(buff.BuffName);
+            textItemDescription.SetText(buff.BuffDescription);
+            textItemPrice.SetText(buff.Stats.GetString());
             imageItemSprite.sprite = buff.SpriteBuff;
 
             container.pivot = pivot;

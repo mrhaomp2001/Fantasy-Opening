@@ -4,6 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
+
+public static class StringExtensions
+{
+    public static string ToCamel(this string s)
+    {
+        if (string.IsNullOrEmpty(s)) return s;
+        if (s.Length == 1) return s.ToLowerInvariant();
+        return char.ToLowerInvariant(s[0]) + s.Substring(1);
+    }
+}
+
 
 public class InventoryController : MonoBehaviour
 {
@@ -14,6 +26,8 @@ public class InventoryController : MonoBehaviour
         public ItemBase item;
     }
     [JsonObject(MemberSerialization.OptIn), System.Serializable]
+
+
     public class PlayerData
     {
         [JsonProperty]
@@ -50,6 +64,10 @@ public class InventoryController : MonoBehaviour
         [SerializeField] private BuildingController.BuildingData buildingData;
         [JsonProperty]
         [SerializeField] private StatCollection stats;
+        [JsonProperty]
+        [SerializeField] private List<RecipeWithCondition> recipes;
+
+
         public List<InventoryItem> Items { get => items; set => items = value; }
         public List<InventoryItem> Hotbar { get => hotbar; set => hotbar = value; }
         public int HotbarSelectedSlot { get => hotbarSelectedSlot; set => hotbarSelectedSlot = value; }
@@ -253,12 +271,17 @@ public class InventoryController : MonoBehaviour
         }
 
         public List<BuffBase> Buffs { get => buffs; set => buffs = value; }
+        public List<RecipeWithCondition> Recipes { get => recipes; set => recipes = value; }
     }
 
     private static InventoryController instance;
     private const string prefKey = "InventoryController";
 
     [SerializeField] private int money;
+
+    [SerializeField] private List<RecipeWithCondition> recipes;
+
+
     [SerializeField] private PlayerData playerData;
 
     public static InventoryController Instance { get => instance; set => instance = value; }
@@ -413,30 +436,29 @@ public class InventoryController : MonoBehaviour
 
         return true;
     }
-
     public void Load()
     {
         playerData = new PlayerData();
 
-        playerData.Stats = new StatCollection();
-
-        playerData.Stats.HpMax = 100;
-        playerData.Stats.HpRegeneration = 0;
-        playerData.Stats.DamageGlobalBonus = 1;
-        playerData.Stats.MeleeDamageBonus = 0;
-        playerData.Stats.RangeDamageBonus = 0;
-        playerData.Stats.MagicDamageBonus = 0;
-        playerData.Stats.AttackSpeedBonus = 0;
-        playerData.Stats.CritChance = 20;
-        playerData.Stats.Range = 1;
-        playerData.Stats.Dodge = 20;
-        playerData.Stats.Speed = 5;
-        playerData.Stats.Curse = 0;
-        playerData.Stats.Defend = 0;
+        playerData.Stats = new StatCollection
+        {
+            HpMax = 100,
+            HpRegeneration = 0,
+            DamageGlobalBonus = 1,
+            MeleeDamageBonus = 0,
+            RangeDamageBonus = 0,
+            MagicDamageBonus = 0,
+            AttackSpeedBonus = 0,
+            CritChance = 20,
+            Range = 1,
+            Dodge = 20,
+            Speed = 5,
+            Curse = 0,
+            Defend = 0
+        };
 
         playerData.Level = 1;
         playerData.Exp = 0;
-
         playerData.Hp = 100;
 
         playerData.Hotbar = new();
@@ -449,16 +471,16 @@ public class InventoryController : MonoBehaviour
 
         playerData.Buffs = new();
 
-
+        playerData.Recipes = recipes;
 
         for (int i = 0; i < 27; i++)
         {
-            playerData.Items.Add(new());// i
+            playerData.Items.Add(new());
         }
 
         for (int i = 0; i < 9; i++)
         {
-            playerData.Hotbar.Add(new());// i
+            playerData.Hotbar.Add(new());
         }
 
         if (playerData.BuildingData != null)
@@ -473,107 +495,153 @@ public class InventoryController : MonoBehaviour
                     }
                 }
             }
-
         }
+
         playerData.BuildingData = new BuildingController.BuildingData
         {
             IdCounter = 0,
             Buildings = new List<BuildingController.Building>()
         };
 
-
         if (PlayerPrefs.HasKey(prefKey))
         {
             string value = PlayerPrefs.GetString(prefKey);
-
             JSONNode keyValuePairs = JSONNode.Parse(value);
 
             Debug.Log($"OnLoadPrefs: {value}");
 
+            var hotbarSelectedKey = nameof(playerData.HotbarSelectedSlot).ToCamel();
+            var hotbarKey = nameof(playerData.Hotbar).ToCamel();
+            var itemsKey = nameof(playerData.Items).ToCamel();
+            var buildingDataKey = nameof(playerData.BuildingData).ToCamel();
+            var progressionsKey = nameof(playerData.Progressions).ToCamel();
+            var statsKey = nameof(playerData.Stats).ToCamel();
+            var hpKey = nameof(playerData.Hp).ToCamel();
+            var expKey = nameof(playerData.Exp).ToCamel();
+            var levelKey = nameof(playerData.Level).ToCamel();
+            var buffsKey = nameof(playerData.Buffs).ToCamel();
+
+            // hotbar selected
+            if (keyValuePairs[hotbarSelectedKey] != null)
+                playerData.HotbarSelectedSlot = keyValuePairs[hotbarSelectedKey].AsInt;
+
             // hotbar
-            playerData.HotbarSelectedSlot = keyValuePairs["hotbarSelectedSlot"].AsInt;
-
-            for (int i = 0; i < keyValuePairs["hotbar"].Count; i++)
+            var hotbarJson = keyValuePairs[hotbarKey];
+            if (hotbarJson != null)
             {
-                var item = keyValuePairs["hotbar"][i];
-
-                if (item != null)
+                for (int i = 0; i < hotbarJson.Count; i++)
                 {
-                    if (item["item"] != null)
+                    var item = hotbarJson[i];
+                    if (item != null && item[nameof(InventoryItem.item)] != null)
                     {
-                        if (item["item"]["id"].AsInt != 0)
+                        var itemJson = item[nameof(InventoryItem.item)];
+                        var itemIdKey = nameof(InventoryItem.item.Id).ToCamel();
+                        if (itemJson[itemIdKey].AsInt != 0)
                         {
-                            Add(item["item"]["id"].AsInt, item["count"].AsInt);
+                            Add(itemJson[itemIdKey].AsInt, item[nameof(InventoryItem.count)].AsInt);
 
                             SelectHotbarSlot(i, playerData.Items
-                                .Where(predicate =>
-                                {
-                                    return predicate.item.Id == item["item"]["id"].AsInt;
-                                })
+                                .Where(predicate => predicate.item != null && predicate.item.Id == itemJson[itemIdKey].AsInt)
                                 .FirstOrDefault());
                         }
                     }
-
                 }
             }
 
             // items
-            for (int i = 0; i < keyValuePairs["items"].Count; i++)
+            var itemsJson = keyValuePairs[itemsKey];
+            if (itemsJson != null)
             {
-                var item = keyValuePairs["items"][i];
-                if (item["item"] != null)
+                var itemIdKey = nameof(InventoryItem.item.Id).ToCamel();
+                var itemCountKey = nameof(InventoryItem.count).ToCamel();
+                for (int i = 0; i < itemsJson.Count; i++)
                 {
-                    Add(item["item"]["id"].AsInt, item["count"].AsInt);
+                    var item = itemsJson[i];
+                    if (item[nameof(InventoryItem.item)] != null)
+                    {
+                        Add(item[nameof(InventoryItem.item)][itemIdKey].AsInt,
+                            item[itemCountKey].AsInt);
+                    }
                 }
             }
 
+            // equipment
             LoadEquipment(keyValuePairs);
+            LoadRecipe(keyValuePairs);
 
-            BuildingController.Instance.Load(keyValuePairs["buildingData"]);
+            // building & progression
+            BuildingController.Instance.Load(keyValuePairs[buildingDataKey]);
+            ProgressionController.Instance.Load(keyValuePairs[progressionsKey]);
 
-            ProgressionController.Instance.LoadData(keyValuePairs["progressions"]);
-
-            playerData.Stats.HpMax = keyValuePairs["stats"]["hpMax"].AsInt;
-            playerData.Stats.HpRegeneration = keyValuePairs["stats"]["hpRegeneration"].AsInt;
-            playerData.Stats.DamageGlobalBonus = keyValuePairs["stats"]["damageGlobalBonus"].AsInt;
-            playerData.Stats.MeleeDamageBonus = keyValuePairs["stats"]["meleeDamageBonus"].AsInt;
-            playerData.Stats.RangeDamageBonus = keyValuePairs["stats"]["rangeDamageBonus"].AsInt;
-            playerData.Stats.MagicDamageBonus = keyValuePairs["stats"]["magicGlobalBonus"].AsInt;
-            playerData.Stats.AttackSpeedBonus = keyValuePairs["stats"]["attackSpeedBonus"].AsInt;
-            playerData.Stats.CritChance = keyValuePairs["plastatsyerStats"]["critChance"].AsInt;
-            playerData.Stats.Range = keyValuePairs["stats"]["range"].AsInt;
-            playerData.Stats.Dodge = keyValuePairs["stats"]["dodge"].AsInt;
-            playerData.Stats.Speed = keyValuePairs["stats"]["speed"].AsInt;
-            playerData.Stats.Curse = keyValuePairs["stats"]["curse"].AsInt;
-
-            playerData.Hp = keyValuePairs["hp"].AsInt;
-            playerData.Exp = keyValuePairs["exp"].AsInt;
-            playerData.Level = keyValuePairs["level"].AsInt;
-
-            for (int i = 0; i < keyValuePairs["buffs"].Count; i++)
+            // stats (use camelCase keys inside stats object)
+            if (keyValuePairs[statsKey] != null)
             {
-                var buffItem = keyValuePairs["buffs"][i];
-                var buff = ItemDatabase.Instance.Buffs
-                    .Where(predicate =>
-                    {
-                        return predicate.Id == buffItem["id"].AsInt;
-                    })
-                    .FirstOrDefault();
+                var s = keyValuePairs[statsKey];
+                playerData.Stats.HpMax = s[nameof(playerData.Stats.HpMax).ToCamel()].AsInt;
+                playerData.Stats.HpRegeneration = s[nameof(playerData.Stats.HpRegeneration).ToCamel()].AsInt;
+                playerData.Stats.DamageGlobalBonus = s[nameof(playerData.Stats.DamageGlobalBonus).ToCamel()].AsInt;
+                playerData.Stats.MeleeDamageBonus = s[nameof(playerData.Stats.MeleeDamageBonus).ToCamel()].AsInt;
+                playerData.Stats.RangeDamageBonus = s[nameof(playerData.Stats.RangeDamageBonus).ToCamel()].AsInt;
+                playerData.Stats.MagicDamageBonus = s[nameof(playerData.Stats.MagicDamageBonus).ToCamel()].AsInt;
+                playerData.Stats.AttackSpeedBonus = s[nameof(playerData.Stats.AttackSpeedBonus).ToCamel()].AsInt;
+                playerData.Stats.CritChance = s[nameof(playerData.Stats.CritChance).ToCamel()].AsInt;
+                playerData.Stats.Range = s[nameof(playerData.Stats.Range).ToCamel()].AsInt;
+                playerData.Stats.Dodge = s[nameof(playerData.Stats.Dodge).ToCamel()].AsInt;
+                playerData.Stats.Speed = s[nameof(playerData.Stats.Speed).ToCamel()].AsInt;
+                playerData.Stats.Curse = s[nameof(playerData.Stats.Curse).ToCamel()].AsInt;
+                playerData.Stats.Defend = s[nameof(playerData.Stats.Defend).ToCamel()].AsInt;
+            }
 
-                if (buff != null)
+            // hp, exp, level
+            if (keyValuePairs[hpKey] != null) playerData.Hp = keyValuePairs[hpKey].AsInt;
+            if (keyValuePairs[expKey] != null) playerData.Exp = keyValuePairs[expKey].AsInt;
+            if (keyValuePairs[levelKey] != null) playerData.Level = keyValuePairs[levelKey].AsInt;
+
+            // buffs
+            var buffsJson = keyValuePairs[buffsKey];
+            if (buffsJson != null)
+            {
+                var buffIdKey = nameof(BuffBase.Id).ToCamel();
+                for (int i = 0; i < buffsJson.Count; i++)
                 {
-                    playerData.Buffs.Add(buff);
+                    var buffItem = buffsJson[i];
+                    var buff = ItemDatabase.Instance.Buffs
+                        .Where(predicate => predicate.Id == buffItem[buffIdKey].AsInt)
+                        .FirstOrDefault();
+
+                    if (buff != null)
+                    {
+                        playerData.Buffs.Add(buff);
+                    }
                 }
             }
         }
 
         PopUpInventory.Instance.UpdateViewHotbar();
-
         StatController.Instance.UpdateViews();
-
         ProgressionController.Instance.Load();
-
         Save();
+    }
+
+    private void LoadRecipe(JSONNode keyValuePairs)
+    {
+        var recipesJson = keyValuePairs[nameof(playerData.Recipes).ToCamel()];
+        if (recipesJson != null)
+        {
+            var recipeIdKey = nameof(RecipeWithCondition.Id).ToCamel();
+            var recipeIsUnlockedKey = nameof(RecipeWithCondition.IsUnlocked).ToCamel();
+            for (int i = 0; i < recipesJson.Count; i++)
+            {
+                var recipeItem = recipesJson[i];
+                var recipe = playerData.Recipes
+                    .Where(predicate => predicate.Id == recipeItem[recipeIdKey].AsInt)
+                    .FirstOrDefault();
+                if (recipe != null)
+                {
+                    recipe.IsUnlocked = recipeItem[recipeIsUnlockedKey].AsBool;
+                }
+            }
+        }
     }
 
     public void AddExp(int value)
@@ -598,73 +666,35 @@ public class InventoryController : MonoBehaviour
             }
         }
     }
-
     private void LoadEquipment(JSONNode keyValuePairs)
     {
-        if (keyValuePairs["armorHead"] != null && keyValuePairs["armorHead"]["item"] != null && keyValuePairs["armorHead"]["item"]["id"] != null && keyValuePairs["armorHead"]["item"]["id"] != "")
+        void LoadArmor(string armorKey)
         {
-            var jsonValue = keyValuePairs["armorHead"]["item"];
+            if (keyValuePairs[armorKey] != null &&
+                keyValuePairs[armorKey][nameof(InventoryItem.item)] != null &&
+                keyValuePairs[armorKey][nameof(InventoryItem.item)][nameof(InventoryItem.item.Id).ToCamel()] != null &&
+                keyValuePairs[armorKey][nameof(InventoryItem.item)][nameof(InventoryItem.item.Id).ToCamel()] != "")
+            {
+                var jsonValue = keyValuePairs[armorKey][nameof(InventoryItem.item)];
 
-            var item = ItemDatabase.Instance.Items
-                .Where(predicate =>
+                var item = ItemDatabase.Instance.Items
+                    .Where(predicate => predicate.Id == jsonValue[nameof(InventoryItem.item.Id).ToCamel()].AsInt)
+                    .FirstOrDefault();
+
+                if (item != null)
                 {
-                    return predicate.Id == jsonValue["id"].AsInt;
-                })
-                .FirstOrDefault();
-
-            Add(item.Id, 1);
-
-            EquipEquipment(item);
+                    Add(item.Id, 1);
+                    EquipEquipment(item);
+                }
+            }
         }
 
-        if (keyValuePairs["armorBody"] != null && keyValuePairs["armorBody"]["item"] != null && keyValuePairs["armorBody"]["item"]["id"] != null && keyValuePairs["armorBody"]["item"]["id"] != "")
-        {
-            var jsonValue = keyValuePairs["armorBody"]["item"];
-
-            var item = ItemDatabase.Instance.Items
-                .Where(predicate =>
-                {
-                    return predicate.Id == jsonValue["id"].AsInt;
-                })
-                .FirstOrDefault();
-
-            Add(item.Id, 1);
-
-            EquipEquipment(item);
-        }
-
-        if (keyValuePairs["armorLeg"] != null && keyValuePairs["armorLeg"]["item"] != null && keyValuePairs["armorLeg"]["item"]["id"] != null && keyValuePairs["armorLeg"]["item"]["id"] != "")
-        {
-            var jsonValue = keyValuePairs["armorLeg"]["item"];
-
-            var item = ItemDatabase.Instance.Items
-                .Where(predicate =>
-                {
-                    return predicate.Id == jsonValue["id"].AsInt;
-                })
-                .FirstOrDefault();
-
-            Add(item.Id, 1);
-
-            EquipEquipment(item);
-        }
-
-        if (keyValuePairs["armorFoot"] != null && keyValuePairs["armorFoot"]["item"] != null && keyValuePairs["armorFoot"]["item"]["id"] != null && keyValuePairs["armorFoot"]["item"]["id"] != "")
-        {
-            var jsonValue = keyValuePairs["armorFoot"]["item"];
-
-            var item = ItemDatabase.Instance.Items
-                .Where(predicate =>
-                {
-                    return predicate.Id == jsonValue["id"].AsInt;
-                })
-                .FirstOrDefault();
-
-            Add(item.Id, 1);
-
-            EquipEquipment(item);
-        }
+        LoadArmor(nameof(playerData.ArmorHead).ToCamel());
+        LoadArmor(nameof(playerData.ArmorBody).ToCamel());
+        LoadArmor(nameof(playerData.ArmorLeg).ToCamel());
+        LoadArmor(nameof(playerData.ArmorFoot).ToCamel());
     }
+
 
     public void SelectHotbarSlot(int slot, InventoryController.InventoryItem itemTarget)
     {

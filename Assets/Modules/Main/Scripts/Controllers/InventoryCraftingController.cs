@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,12 +25,35 @@ public class Recipe
     public int ResultCount { get => resultCount; set => resultCount = value; }
 }
 
+[JsonObject(MemberSerialization.OptIn), System.Serializable]
+public class RecipeWithCondition
+{
+    [JsonProperty]
+    [SerializeField] private int id;
+    [JsonProperty]
+    [SerializeField] private bool isUnlocked;
+    [SerializeField] private Recipe recipe;
+
+    public int Id { get => id; set => id = value; }
+    public bool IsUnlocked { get => isUnlocked; set => isUnlocked = value; }
+    public Recipe Recipe { get => recipe; set => recipe = value; }
+}
+
 public class InventoryCraftingController : MonoBehaviour
 {
-    [SerializeField] private List<Recipe> recipes;
 
     public void OnTurnInventoryCrafting()
     {
-        PopUpInventory.Instance.TurnCrafting(recipes);
+        var unlockedRecipes = new List<Recipe>();
+
+        foreach (var item in InventoryController.Instance.GetPlayerData.Recipes)
+        {
+            if (item.IsUnlocked)
+            {
+                unlockedRecipes.Add(item.Recipe);
+            }
+        }
+
+        PopUpInventory.Instance.TurnCrafting(unlockedRecipes);
     }
 }

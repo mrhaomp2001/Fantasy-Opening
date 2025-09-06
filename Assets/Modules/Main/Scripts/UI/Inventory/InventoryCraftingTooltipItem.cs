@@ -13,7 +13,7 @@ public class InventoryCraftingTooltipItem : MonoBehaviour
     public void UpdateViews(Sprite sprite, string name, string count)
     {
         imageSpriteItem.sprite = sprite;
-        textItemName.text = name;
-        textItemCount.text = count;
+        textItemName.SetText(name);
+        textItemCount.SetText(count);
     }
 }

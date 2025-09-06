@@ -65,8 +65,8 @@ public class PopUpDialogue : PopUp
         {
             imageActor.sprite = dialogues.Peek().Sprite;
         }
-        textName.text = dialogues.Peek().Name;
-        textContent.text = LanguageController.Instance.GetString(dialogues.Peek().Content);
+        textName.SetText(dialogues.Peek().Name);
+        textContent.SetText (LanguageController.Instance.GetString(dialogues.Peek().Content));
         dialogues.Peek().UnityEventStart?.Invoke();
 
         DelayButton();
@@ -95,8 +95,8 @@ public class PopUpDialogue : PopUp
                     imageActor.sprite = dialogues.Peek().Sprite;
                 }
 
-                textName.text = dialogues.Peek().Name;
-                textContent.text = LanguageController.Instance.GetString(dialogues.Peek().Content);
+                textName.SetText(dialogues.Peek().Name);
+                textContent.SetText(LanguageController.Instance.GetString(dialogues.Peek().Content));
 
                 unityEventLastest = dialogues.Peek().UnityEventEnd;
             }
@@ -104,8 +104,8 @@ public class PopUpDialogue : PopUp
             else
             {
 
-                textName.text = "";
-                textContent.text = "";
+                textName.SetText("");
+                textContent.SetText("");
                 imageActor.sprite = spriteMask64;
 
                 Hide();

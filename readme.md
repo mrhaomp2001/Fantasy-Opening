@@ -1,11 +1,40 @@
 
-# [ 09:19:34 04/09/2025 ]
+# [ 09:42:41 06/09/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
 
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 11:39:44 05/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm công thức có thể học được
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+# [ 09:19:34 04/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm hình ảnh cho nhân vật người chơi
 ### Công việc trong kế hoạch: 
 - AI của quái
 - chỉ số nhân vật

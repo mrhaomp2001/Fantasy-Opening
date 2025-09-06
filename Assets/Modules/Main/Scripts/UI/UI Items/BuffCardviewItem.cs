@@ -13,8 +13,8 @@ public class BuffCardviewItem : MonoBehaviour
     {
         buff = buffBaseValue;
 
-        textBuffName.text = buff.BuffName;
-        textBufDescription.text = buff.Stats.GetString();
+        textBuffName.SetText(buff.BuffName);
+        textBufDescription.SetText(buff.Stats.GetString());
         imageBuff.sprite = buff.SpriteBuff;
     }
 

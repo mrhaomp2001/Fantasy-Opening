@@ -187,6 +187,14 @@ public class PopUpInventory : PopUp
 
             hotbarItem[i].UpdateViews(item);
         }
+        if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null)
+        {
+            PlayerController.Instance.SpriteItemHolding.sprite = InventoryController.Instance.GetPlayerData.SelectedHotbar.item.SpriteWorldItem;
+        }
+        else
+        {
+            PlayerController.Instance.SpriteItemHolding.sprite = null;
+        }
 
         TransformBuildingIndicator.gameObject.SetActive(false);
         var itemBuilding = InventoryController.Instance.GetPlayerData.SelectedHotbar.item;
@@ -292,7 +300,7 @@ public class PopUpInventory : PopUp
             ResetSubPopUps();
             containerPlayerStats.gameObject.SetActive(true);
 
-            textStats.text = InventoryController.Instance.GetPlayerData.StatCollectionFinal.GetStringFullAll();
+            textStats.SetText(InventoryController.Instance.GetPlayerData.StatCollectionFinal.GetStringFullAll());
 
         }
         else
@@ -320,7 +328,7 @@ public class PopUpInventory : PopUp
         {
             ResetSubPopUps();
             containerBuff.gameObject.SetActive(true);
-            
+
             StatController.Instance.UpdateViews();
 
             // Bắt đầu từ trang 1 (0-based = 0 => hiển thị index 0..26)
@@ -434,7 +442,7 @@ public class PopUpInventory : PopUp
         }
 
         // (Tuỳ chọn) cập nhật label trang ở UI tại đây nếu có:
-        textBuffPage.text = $"{CurrentBuffPageOneBased}/{TotalBuffPageCount}";
+        textBuffPage.SetText( $"{CurrentBuffPageOneBased}/{TotalBuffPageCount}");
     }
 
     // Tính tổng số trang dựa trên số buff hiện có

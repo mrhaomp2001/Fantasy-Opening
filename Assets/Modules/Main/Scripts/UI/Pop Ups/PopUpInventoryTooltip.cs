@@ -43,9 +43,9 @@ public class PopUpInventoryTooltip : PopUp
             container.position = position + new Vector2(5f, 0f);
             targetItem = item;
 
-            textItemName.text = targetItem.item.ItemName;
-            textItemDescription.text = targetItem.item.ItemDescription;
-            textItemPrice.text = $"{LanguageController.Instance.GetString("value_sell")}: {targetItem.item.SellPrice}";
+            textItemName.SetText(targetItem.item.ItemName);
+            textItemDescription.SetText (targetItem.item.ItemDescription);
+            textItemPrice.SetText($"{LanguageController.Instance.GetString("value_sell")}: {targetItem.item.SellPrice}");
             imageItemSprite.sprite = item.item.Sprite;
 
             container.pivot = pivot;

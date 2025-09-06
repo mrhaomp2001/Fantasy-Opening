@@ -16,7 +16,7 @@ public class InventoryGridviewItem : MonoBehaviour
     [SerializeField] private RectTransform tooltipPosition;
     public void UpdateViews(InventoryController.InventoryItem valueItem)
     {
-        textItemCount.text = "";
+        textItemCount.SetText("");
         imageItem.sprite = mask;
 
         if (valueItem != null)
@@ -27,7 +27,7 @@ public class InventoryGridviewItem : MonoBehaviour
             {
                 if (!item.item.IsNonStack)
                 {
-                    textItemCount.text = valueItem.count.ToString();
+                    textItemCount.SetText(valueItem.count.ToString());
                 }
                 imageItem.sprite = valueItem.item.Sprite;
             }
@@ -37,7 +37,7 @@ public class InventoryGridviewItem : MonoBehaviour
     public void RefreshItem()
     {
         item = null;
-        textItemCount.text = "";
+        textItemCount.SetText("");
         imageItem.sprite = mask;
 
     }

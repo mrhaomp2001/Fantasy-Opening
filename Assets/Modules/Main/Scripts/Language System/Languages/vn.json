@@ -136,7 +136,10 @@
     "415_copper_ingot-item_name": "Thỏi đồng",
     "415_copper_ingot-item_description": "Thỏi đồng",
 
+    "416_stone-item_name": "Đá",
+    "416_stone-item_description": "Đá",
     
+
 
     "601_weapon_1-item_name": "Kiếm gỗ",
     "601_weapon_1-item_description": "Kiếm gỗ",
@@ -213,9 +216,6 @@
     
     "1004_wood_boots-item_name": "Giày gỗ",
     "1004_wood_boots-item_description": "Giày gỗ",
-    
-    "1201_boss_1_summon-item_name": "Bộ phát tính hiệu lỗi",
-    "1201_boss_1_summon-item_description": "Bộ phát tính hiệu lỗi",
 
     "1005_helmet_copper-item_name": "Nón đồng",
     "1005_helmet_copper-item_description": "Nón đồng",
@@ -242,6 +242,15 @@
     "1012_boots_crystal-item_description": "Giày tinh thể",
 
 
+
+    "1201_boss_1_summon-item_name": "Bộ phát tính hiệu lỗi",
+    "1201_boss_1_summon-item_description": "Bộ phát tính hiệu lỗi",
+
+
+
+    "1401_recipe_1-item_name": "Công thức lò nung",
+    "1401_recipe_1-item_description": "Công thức lò nung",
+    
     
     "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",
     "npc_rabbit_talk_2": "Tui chỉ là con thỏ, tui trồng cà rốt, tui ăn cà rốt",

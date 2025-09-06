@@ -15,6 +15,6 @@ public class LanguageSetter : MonoBehaviour
         }
         var targetString = LanguageController.Instance.GetString(text.text);
 
-        text.text = targetString;
+        text.SetText(targetString);
     }
 }

@@ -37,8 +37,8 @@ public class PopUpHotbarSelecter : PopUp
         containerEquipEquipment.gameObject.SetActive(false);
 
         itemImage.sprite = currentSelectItem.item.Sprite;
-        textName.text = currentSelectItem.item.ItemName;
-        textDescription.text = currentSelectItem.item.ItemDescription;
+        textName.SetText(currentSelectItem.item.ItemName);
+        textDescription.SetText(currentSelectItem.item.ItemDescription);
 
         for (int i = 0; i < hotbarSelecterItems.Count; i++)
         {

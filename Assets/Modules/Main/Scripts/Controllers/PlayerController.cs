@@ -1,4 +1,4 @@
-using GameUtil;
+﻿using GameUtil;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     [SerializeField] private Rigidbody2D rbPlayer;
     [SerializeField] private SpriteRenderer spritePlayer;
+    [SerializeField] private SpriteRenderer spriteItemHolding;
     [SerializeField] private Animator animator;
 
     [Header("Fire Point: ")]
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     public Transform FirepointHitbox { get => firepointHitbox; set => firepointHitbox = value; }
     public Rigidbody2D RbPlayer { get => rbPlayer; set => rbPlayer = value; }
     public float Speed { get => speed; set => speed = value; }
+    public SpriteRenderer SpriteItemHolding { get => spriteItemHolding; set => spriteItemHolding = value; }
 
     private void Awake()
     {
@@ -243,20 +245,32 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         }
         else
         {
+
             movementSpeed.y = 0;
         }
 
         if (Input.GetKey(GameInputController.Instance.Left.keyCode))
         {
             movementSpeed.x = -1;
+            spritePlayer.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
         else if (Input.GetKey(GameInputController.Instance.Right.keyCode))
         {
             movementSpeed.x = 1;
+            spritePlayer.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         else
         {
             movementSpeed.x = 0;
+        }
+
+        if (movementSpeed != Vector2.zero)
+        {
+            animator.SetInteger("state", 1);
+        }
+        else
+        {
+            animator.SetInteger("state", 0);
         }
     }
 
@@ -471,6 +485,11 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                 if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBossSummon bossSummon)
                 {
                     bossSummon.OnSummonBoss();
+                }
+
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemRecipe recipe)
+                {
+                    recipe.UnlockRecipe();
                 }
 
             }

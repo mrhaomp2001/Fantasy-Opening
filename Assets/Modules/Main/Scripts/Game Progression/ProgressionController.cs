@@ -37,7 +37,7 @@ public class ProgressionController : MonoBehaviour
         InventoryController.Instance.GetPlayerData.Progressions = progressions;
     }
 
-    public void LoadData(JSONNode keyValuePairsValue)
+    public void Load(JSONNode keyValuePairsValue)
     {
         for (int i = 0; i < keyValuePairsValue.Count; i++)
         {

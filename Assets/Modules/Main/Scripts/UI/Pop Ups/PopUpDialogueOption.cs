@@ -66,8 +66,8 @@ public class PopUpDialogueOption : PopUp
     {
         ResetDialogue();
         base.Show();
-        textName.text = dialogue.Name;
-        textContent.text = LanguageController.Instance.GetString(dialogue.Content);
+        textName.SetText(dialogue.Name);
+        textContent.SetText(LanguageController.Instance.GetString(dialogue.Content));
 
         if (dialogue.Sprite == null)
         {
@@ -120,37 +120,37 @@ public class PopUpDialogueOption : PopUp
     {
         if (action1 != null)
         {
-            textOption1.text = action1.message;
+            textOption1.SetText(action1.message);
             buttonOption1.gameObject.SetActive(true);
         }
 
         if (action2 != null)
         {
-            textOption2.text = action2.message;
+            textOption2.SetText(action2.message);
             buttonOption2.gameObject.SetActive(true);
         }
 
         if (action3 != null)
         {
-            textOption3.text = action3.message;
+            textOption3.SetText(action3.message);
             buttonOption3.gameObject.SetActive(true);
         }
 
         if (action4 != null)
         {
-            textOption4.text = action4.message;
+            textOption4.SetText(action4.message);
             buttonOption4.gameObject.SetActive(true);
         }
 
         if (action5 != null)
         {
-            textOption5.text = action5.message;
+            textOption5.SetText(action5.message);
             buttonOption5.gameObject.SetActive(true);
         }
 
         if (action6 != null)
         {
-            textOption6.text = action6.message;
+            textOption6.SetText(action6.message);
             buttonOption6.gameObject.SetActive(true);
         }
     }
@@ -164,8 +164,8 @@ public class PopUpDialogueOption : PopUp
         action5 = null;
         action6 = null;
 
-        textName.text = string.Empty;
-        textContent.text = string.Empty;
+        textName.SetText(string.Empty);
+        textContent.SetText(string.Empty);
 
         buttonOption1.gameObject.SetActive(false);
         buttonOption2.gameObject.SetActive(false);

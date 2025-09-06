@@ -14,19 +14,19 @@ public class HotbarSelecterItem : MonoBehaviour
     public void UpdateViews(InventoryController.InventoryItem valueItemBase)
     {
         imageItem.sprite = spriteMask;
-        textCount.text = "";
+        textCount.SetText("");
 
         if (valueItemBase != null)
         {
             imageItem.sprite = valueItemBase.item.Sprite;
             if (valueItemBase.item.IsNonStack)
             {
-                textCount.text = "";
+                textCount.SetText("");
 
             }
             else
             {
-                textCount.text = valueItemBase.count.ToString();
+                textCount.SetText(valueItemBase.count.ToString());
             }
         }
     }

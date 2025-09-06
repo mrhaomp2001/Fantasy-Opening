@@ -189,10 +189,10 @@ public class StatController : MonoBehaviour
 
     public void UpdateViews()
     {
+        UpdateStats();
+
         UpdateHp();
         UpdateExp();
-
-        UpdateStats();
     }
 
     public void UpdateHp()
@@ -200,7 +200,7 @@ public class StatController : MonoBehaviour
         sliderHp.maxValue = InventoryController.Instance.GetPlayerData.HpMax;
         sliderHp.value = InventoryController.Instance.GetPlayerData.Hp;
 
-        textHp.text = $"{sliderHp.value}/{sliderHp.maxValue}";
+        textHp.SetText($"{sliderHp.value}/{sliderHp.maxValue}");
     }
 
     public void UpdateExp()
@@ -212,7 +212,7 @@ public class StatController : MonoBehaviour
 
         sliderExp.value = InventoryController.Instance.GetPlayerData.Exp;
 
-        textExHp.text = $"{InventoryController.Instance.GetPlayerData.Level}";
+        textExHp.SetText($"{InventoryController.Instance.GetPlayerData.Level}");
     }
 
     public void UpdateStats()

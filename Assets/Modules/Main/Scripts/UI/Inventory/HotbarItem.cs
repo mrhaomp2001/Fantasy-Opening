@@ -19,7 +19,7 @@ public class HotbarItem : MonoBehaviour
     public void UpdateViews(InventoryController.InventoryItem targetItem)
     {
         imageItem.sprite = spriteMask;
-        textCount.text = "";
+        textCount.SetText("");
         item = targetItem;
         if (item != null)
         {
@@ -28,11 +28,11 @@ public class HotbarItem : MonoBehaviour
                 imageItem.sprite = item.item.Sprite;
                 if (!item.item.IsNonStack)
                 {
-                    textCount.text = item.count.ToString();
+                    textCount.SetText(item.count.ToString());
                 }
                 else
                 {
-                    textCount.text = string.Empty;
+                    textCount.SetText(string.Empty);
                 }
             }
         }
