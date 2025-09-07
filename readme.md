@@ -1,11 +1,24 @@
 
-# [ 09:42:41 06/09/2025 ]
+# [ 11:05:56 07/09/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
 
+### Công việc trong kế hoạch: 
+
+</details>
+
+# [ 09:42:41 06/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm:
+  + cuốc chim tinh thể
+  + rìu tinh thể
 ### Công việc trong kế hoạch: 
 - AI của quái
 - chỉ số nhân vật

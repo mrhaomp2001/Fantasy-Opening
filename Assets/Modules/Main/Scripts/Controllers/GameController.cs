@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 {
     private static GameController instance;
     [SerializeField] private List<BuildingFarmland> farmlands;
-    [SerializeField] private List<EnemySpawner> enemySpawners;
+    [SerializeField] private EnemySpawner[] enemySpawners;
     [SerializeField] private List<Enemy> moringWaveEnemy;
     [SerializeField] private RectTransform enemyHealthContainer;
     [SerializeField] private Slider sliderTotalEnemyHealth;
@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance { get => instance; set => instance = value; }
     public List<BuildingFarmland> Farmlands { get => farmlands; set => farmlands = value; }
-    public List<EnemySpawner> EnemySpawners { get => enemySpawners; set => enemySpawners = value; }
+    public EnemySpawner[] EnemySpawners { get => enemySpawners; set => enemySpawners = value; }
     public List<Enemy> MoringWaveEnemy { get => moringWaveEnemy; set => moringWaveEnemy = value; }
 
     private void Awake()
@@ -37,9 +37,9 @@ public class GameController : MonoBehaviour
         PopUpTransition.Instance.StartTransition(() =>
         {
             FarmlandNextDay();
-            EnemyNextDay();
             ProgressionNextDay();
             UpdateEnemyHealth();
+            EnemyNextDay();
 
             InventoryController.Instance.Save();
         });
@@ -135,6 +135,8 @@ public class GameController : MonoBehaviour
 
     private void EnemyNextDay()
     {
+        enemySpawners = FindObjectsByType<EnemySpawner>(findObjectsInactive: FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
         foreach (var item in enemySpawners)
         {
             if (item != null)
@@ -142,7 +144,6 @@ public class GameController : MonoBehaviour
                 item.ResetEnemy();
             }
         }
-
         foreach (var item in enemySpawners)
         {
             if (item != null)

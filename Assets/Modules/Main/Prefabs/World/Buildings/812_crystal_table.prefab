@@ -92,6 +92,16 @@ MonoBehaviour:
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
       count: 6
   - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 4ed802cb76dd0104db4f1e835d128c29, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
+      count: 10
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 4d171c1f8b361384a8daa8f8a4166773, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
+      count: 10
+  - resultCount: 1
     itemResult: {fileID: 11400000, guid: f19449a5a6cc2c240a19575c73d6ed8e, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: ae09605dcbf643948ab67df730ae1e11, type: 2}

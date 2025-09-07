@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private string enemyName;
     private GameObject enemy;
 
+    public string EnemyName { get => enemyName; set => enemyName = value; }
+
     private void Start()
     {
         SpawnEnemy();
@@ -15,42 +17,16 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        if (enemy == null || enemy.activeSelf == false)
-        {
-            enemy = ObjectPooler.Instance.SpawnFromPool(enemyName, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogWarning($"Enemy already spawned: {enemyName}");
-        }
+        Debug.Log($"Spawn enemy: {gameObject.name}, enemy name: {enemyName}", gameObject);
+        enemy = ObjectPooler.Instance.SpawnFromPool(enemyName, transform.position, Quaternion.identity);
     }
 
     public void ResetEnemy()
     {
         if (enemy != null)
         {
-            if (enemy.activeSelf)
-            {
-                enemy.gameObject.SetActive(false);
-            }
-
-            enemy = null;
+            enemy.SetActive(false);
         }
-    }
-
-    private void OnEnable()
-    {
-        if (GameController.Instance != null)
-        {
-            GameController.Instance.EnemySpawners.Add(this);
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (GameController.Instance != null)
-        {
-            GameController.Instance.EnemySpawners.Remove(this);
-        }
+        enemy = null;
     }
 }
