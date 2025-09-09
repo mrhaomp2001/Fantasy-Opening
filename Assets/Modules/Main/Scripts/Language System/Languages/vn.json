@@ -69,6 +69,12 @@
     "6_radish-item_name": "Củ cải trắng",
     "6_radish-item_description": "Củ cải trắng",
 
+    "7_grape-item_name": "Nho",
+    "7_grape-item_description": "Nho",
+
+    "8_strawberry-item_name": "Dâu",
+    "8_strawberry-item_description": "Dâu",
+    
 
 
     "201_corn_seed-item_name": "Hạt giống bắp",
@@ -89,6 +95,11 @@
     "206_radish_seed-item_name": "Hạt củ cải trắng",
     "206_radish_seed-item_description": "Hạt củ cải trắng",
 
+    "207_grape_seed-item_name": "Hạt giống nho",
+    "207_grape_seed-item_description": "Hạt giống nho",
+    
+    "208_strawberry_seed-item_name": "Hạt giống dâu",
+    "208_strawberry_seed-item_description": "Hạt giống dâu",
 
 
     "401_wood-item_name": "Gỗ",
@@ -280,6 +291,23 @@
     "npc_rabbit_talk_event_2_3": "He he, cám ơn, đây là cà rốt của tui nè",
 
     "npc_rabbit_talk_event_2_4": "Măm măm, quá ngon luôn, đây là quà của tui nè",
+
+
+    "npc_anna_talk_1": "Xin chào! Tui là Anna! Công chúa Anna đó nha! Ê mà, tui quên kịch bản rồi, test game lẹ đi",
+    
+    "npc_anna_choice_1_1": "Banahime? Công chuối? Ủa, ủa? Mà quên kịch bản là sao bà nội",
+    "npc_anna_choice_1_2": "> Tôi muốn mua hàng",
+    "npc_anna_choice_1_3": "> Tôi muốn bán hàng",
+    "npc_anna_choice_1_4": "> Tôi muốn đi sang khu vực khác",
+
+    "npc_anna_talk_2_1": "Muốn đi sang khu vực khác thì phải cúng cho mấy thứ thần linh thần đần gì đó á",
+    "npc_anna_talk_2_2": "Cần cúng nông sản á, chắc người nhận là thần trái cây hay thần nông nghiệp hay gì?",
+
+    "npc_anna_choice_2_1": "> tôi có \n{0}: {1}, {2}: {3}\n{4}: {5}, {6}: {7}\n{8}: {9}, {10}: {11}",
+    "npc_anna_choice_2_2": "> Tôi không cần khu vực mới nữa, yêu cầu nhiều đồ vậy ai chơi hả bà.",
+
+
+    "npc_anna_talk_3": "Được rồi, đi ngủ đi để game còn lưu",
 
 
     "event_3_1": "Cần có 1 thứ đặc biệt trồng xuống",

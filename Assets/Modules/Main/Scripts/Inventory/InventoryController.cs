@@ -436,6 +436,7 @@ public class InventoryController : MonoBehaviour
 
         return true;
     }
+
     public void Load()
     {
         playerData = new PlayerData();
@@ -666,6 +667,7 @@ public class InventoryController : MonoBehaviour
             }
         }
     }
+
     private void LoadEquipment(JSONNode keyValuePairs)
     {
         void LoadArmor(string armorKey)
@@ -694,7 +696,6 @@ public class InventoryController : MonoBehaviour
         LoadArmor(nameof(playerData.ArmorLeg).ToCamel());
         LoadArmor(nameof(playerData.ArmorFoot).ToCamel());
     }
-
 
     public void SelectHotbarSlot(int slot, InventoryController.InventoryItem itemTarget)
     {

@@ -1,5 +1,5 @@
 
-# [ 11:05:56 07/09/2025 ]
+# [ 12:23:24 09/09/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
@@ -8,6 +8,37 @@
 
 ### Công việc trong kế hoạch: 
 
+</details>
+
+
+# [ 10:20:00 08/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm đảo mới
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+# [ 11:05:56 07/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm: 
+  + cây nho 
+  + cây dâu tây
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
 </details>
 
 # [ 09:42:41 06/09/2025 ]

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e1aa77e6464544199c65e3810951c2, type: 3}
+  m_Name: 7_grape
+  m_EditorClassIdentifier: 
+  id: 7
+  cropName: 7_grape
+  productId: 7
+  priceSell: 100
+  stages:
+  - sprite: {fileID: 21300000, guid: a616f6e10052a5a4e971fe009cdba7be, type: 3}
+  - sprite: {fileID: 21300000, guid: 95844184ae86a4e41961f45f5f976d33, type: 3}
+  - sprite: {fileID: 21300000, guid: 37bb140b29c7d6c4abc0f5c282ca6bf0, type: 3}
+  - sprite: {fileID: 21300000, guid: 4b23b91d5581f8d48b6b87815543c099, type: 3}
+  - sprite: {fileID: 21300000, guid: b5ef0f3e5790b0f40a28febddb9a8ff5, type: 3}
+  - sprite: {fileID: 21300000, guid: 149744d101a525043b442d3b77a185b0, type: 3}
+  enemyList: []
