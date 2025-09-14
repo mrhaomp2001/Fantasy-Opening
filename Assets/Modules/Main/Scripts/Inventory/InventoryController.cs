@@ -39,6 +39,10 @@ public class InventoryController : MonoBehaviour
         [SerializeField] private int level;
         [JsonProperty]
         [SerializeField] private int exp;
+        [JsonProperty]
+        [SerializeField] private int hunger;
+        [JsonProperty]
+        [SerializeField] private int hungerMax;
 
         [JsonProperty]
         [SerializeField] private List<InventoryItem> items = new();
@@ -177,21 +181,21 @@ public class InventoryController : MonoBehaviour
                 int result = 0;
 
                 result += StatCollectionFinal.DamageGlobalBonus;
-                
+
                 if (SelectedHotbar.item is ItemWeapon weapon)
                 {
 
-                    if (weapon.WeaponType==WeaponType.Melee)
+                    if (weapon.WeaponType == WeaponType.Melee)
                     {
                         result += StatCollectionFinal.MeleeDamageBonus;
                     }
 
-                    if (weapon.WeaponType==WeaponType.Range)
+                    if (weapon.WeaponType == WeaponType.Range)
                     {
                         result += StatCollectionFinal.RangeDamageBonus;
                     }
 
-                    if (weapon.WeaponType==WeaponType.Magic)
+                    if (weapon.WeaponType == WeaponType.Magic)
                     {
                         result += StatCollectionFinal.MagicDamageBonus;
                     }
@@ -267,11 +271,13 @@ public class InventoryController : MonoBehaviour
 
                 return reversed;
             }
-            set => Buffs = value; 
+            set => Buffs = value;
         }
 
         public List<BuffBase> Buffs { get => buffs; set => buffs = value; }
         public List<RecipeWithCondition> Recipes { get => recipes; set => recipes = value; }
+        public int Hunger { get => hunger; set { hunger = value; } }
+        public int HungerMax { get => hungerMax; set => hungerMax = value; }
     }
 
     private static InventoryController instance;
@@ -462,6 +468,10 @@ public class InventoryController : MonoBehaviour
         playerData.Exp = 0;
         playerData.Hp = 100;
 
+
+        playerData.HungerMax = 100;
+        playerData.Hunger = 100;
+
         playerData.Hotbar = new();
         playerData.Items = new();
 
@@ -518,6 +528,10 @@ public class InventoryController : MonoBehaviour
             var progressionsKey = nameof(playerData.Progressions).ToCamel();
             var statsKey = nameof(playerData.Stats).ToCamel();
             var hpKey = nameof(playerData.Hp).ToCamel();
+
+            var hungerKey = nameof(playerData.Hunger).ToCamel();
+            var hungerMaxKey = nameof(playerData.HungerMax).ToCamel();
+
             var expKey = nameof(playerData.Exp).ToCamel();
             var levelKey = nameof(playerData.Level).ToCamel();
             var buffsKey = nameof(playerData.Buffs).ToCamel();
@@ -598,6 +612,10 @@ public class InventoryController : MonoBehaviour
             if (keyValuePairs[expKey] != null) playerData.Exp = keyValuePairs[expKey].AsInt;
             if (keyValuePairs[levelKey] != null) playerData.Level = keyValuePairs[levelKey].AsInt;
 
+            if (keyValuePairs[hungerKey] != null) playerData.Hunger = keyValuePairs[hungerKey].AsInt;
+            if (keyValuePairs[hungerMaxKey] != null) playerData.HungerMax = keyValuePairs[hungerMaxKey].AsInt;
+
+
             // buffs
             var buffsJson = keyValuePairs[buffsKey];
             if (buffsJson != null)
@@ -666,6 +684,34 @@ public class InventoryController : MonoBehaviour
                 GameController.Instance.OnLevelUp();
             }
         }
+    }
+    
+    public void ConsumeHunger(int value)
+    {
+        playerData.Hunger -= value;
+
+        if (playerData.Hunger < 0)
+        {
+            Debug.Log($"Hunger: {playerData.Hunger}");
+            PlayerController.Instance.Hurt(-playerData.Hunger);
+
+            playerData.Hunger = 0;
+        }
+
+        StatController.Instance.UpdateHunger();
+    }
+
+    public void AddHunger(int value)
+    {
+        playerData.Hunger += value;
+
+        if (playerData.Hunger > playerData.HungerMax)
+        {
+            playerData.Hunger = playerData.HungerMax;
+        }
+
+        StatController.Instance.UpdateHunger();
+
     }
 
     private void LoadEquipment(JSONNode keyValuePairs)

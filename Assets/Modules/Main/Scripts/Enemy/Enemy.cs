@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour, IPoolObject
     [SerializeField] private Animator animator;
     [SerializeField] private int touchDamage;
     [SerializeField] private int def;
+    [SerializeField] private int hungerConsume;
 
     [SerializeField] protected Rigidbody2D rb;
     [Header("Drop: ")]
@@ -45,6 +46,7 @@ public class Enemy : MonoBehaviour, IPoolObject
     public Rigidbody2D Rb { get => rb; set => rb = value; }
     public int HpMax { get => hpMax; set => hpMax = value; }
     public int Def { get => def; set => def = value; }
+    public Animator Animator { get => animator; set => animator = value; }
 
     private void Start()
     {
@@ -104,6 +106,11 @@ public class Enemy : MonoBehaviour, IPoolObject
         if (dropId > 0)
         {
             WorldItemController.Instance.SpawnItem(dropId, hitbox.transform.position);
+        }
+
+        if (hungerConsume > 0)
+        {
+            InventoryController.Instance.ConsumeHunger(hungerConsume);
         }
 
         if (expDrop > 0)

@@ -167,6 +167,9 @@ public class StatController : MonoBehaviour
     [Header("EXP: ")]
     [SerializeField] private Slider sliderExp;
     [SerializeField] private TextMeshProUGUI textExHp;
+    [Header("Hunger: ")]
+    [SerializeField] private Slider sliderHunger;
+    [SerializeField] private TextMeshProUGUI textHunger;
 
     public static StatController Instance { get => instance; set => instance = value; }
 
@@ -185,6 +188,8 @@ public class StatController : MonoBehaviour
     private void Start()
     {
         sliderHp.minValue = 0;
+        sliderExp.minValue = 0;
+        sliderHunger.minValue = 0;
     }
 
     public void UpdateViews()
@@ -193,6 +198,8 @@ public class StatController : MonoBehaviour
 
         UpdateHp();
         UpdateExp();
+
+        UpdateHunger();
     }
 
     public void UpdateHp()
@@ -213,6 +220,19 @@ public class StatController : MonoBehaviour
         sliderExp.value = InventoryController.Instance.GetPlayerData.Exp;
 
         textExHp.SetText($"{InventoryController.Instance.GetPlayerData.Level}");
+    }
+
+    public void UpdateHunger()
+    {
+        if (sliderExp != null)
+        {
+            sliderHunger.maxValue = InventoryController.Instance.GetPlayerData.HungerMax;
+            sliderHunger.value = InventoryController.Instance.GetPlayerData.Hunger;
+        }
+        if (textHunger != null)
+        {
+            textHunger.SetText($"{sliderHunger.value}/{sliderHunger.maxValue}");
+        }
     }
 
     public void UpdateStats()

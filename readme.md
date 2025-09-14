@@ -1,5 +1,5 @@
 
-# [ 12:23:24 09/09/2025 ]
+# [ 12:11:54 14/09/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
@@ -8,6 +8,85 @@
 
 ### Công việc trong kế hoạch: 
 
+</details>
+
+
+# [ 11:39:01 13/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:23:27 12/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm quái mới:
+  + thỏ -> cây cà rốt
+  + bọ cánh cam -> dâu tây
+  + dơi -> cây nho
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 11:45:34 11/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm quái mới:
+  + sâu -> cây củ cái trắng 
+  + bọ cánh cứng -> trên cây cà rốt
+  + gà trống -> đậu phộng
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 10:13:37 10/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm
+  + thanh độ đói
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+# [ 12:23:24 09/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm:
+  + quả việt quốc
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
 </details>
 
 

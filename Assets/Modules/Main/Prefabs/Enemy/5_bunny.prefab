@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8349616502004731986}
   - component: {fileID: 4081564410662208216}
   m_Layer: 7
-  m_Name: enemy_chicken
+  m_Name: 5_bunny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,8 +234,9 @@ MonoBehaviour:
   animator: {fileID: 6938862437233842833}
   touchDamage: 5
   def: 0
+  hungerConsume: 0
   rb: {fileID: 9004111578794144812}
-  dropId: 405
+  dropId: 0
   expDrop: 2
   isMove: 0
   delayMove: 1
@@ -367,7 +368,7 @@ SpriteRenderer:
   m_SortingLayerID: 1308547419
   m_SortingLayer: 4
   m_SortingOrder: 200
-  m_Sprite: {fileID: 21300000, guid: b98a1c38d5af3624c80cbd9b77dec0e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 92500d1600ebb2740974cf51b392df65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

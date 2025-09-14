@@ -22,6 +22,6 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 86dd11bd737d1b84ba12bc7224cdba4e, type: 3}
   - sprite: {fileID: 21300000, guid: 4809b260fefd33644bb4ef283e7f59b3, type: 3}
   enemyList:
-  - enemy_1
-  - enemy_1
-  - enemy_1
+  - 1_enemy_chicken
+  - 1_enemy_chicken
+  - 1_enemy_chicken

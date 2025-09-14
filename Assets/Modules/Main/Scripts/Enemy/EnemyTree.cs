@@ -21,7 +21,22 @@ public class EnemyTree : Enemy
         {
             if (playerBulletInput.IsAxe)
             {
-                base.TakeDamage(playerBulletInput);
+                Hp -= Mathf.Max(0, playerBulletInput.Damage - Def);
+
+                if (Animator != null && Mathf.Max(0, playerBulletInput.Damage - Def) > 0)
+                {
+                    Animator.Play("hurt");
+                }
+
+                if (Hp <= 0)
+                {
+                    OnDie();
+                }
+
+                if (GameController.Instance.MoringWaveEnemy != null)
+                {
+                    GameController.Instance.UpdateEnemyHealth();
+                }
             }
         }
     }

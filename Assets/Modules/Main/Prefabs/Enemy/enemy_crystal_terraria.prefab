@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82c6507fcff68e49ad71b94e841fec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 0
 --- !u!1 &4514686518841295757
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +226,8 @@ MonoBehaviour:
   sprite: {fileID: 891149285401046967}
   animator: {fileID: 3704908523841143467}
   touchDamage: 0
+  def: 0
+  hungerConsume: 10
   rb: {fileID: 193067259015174613}
   dropId: 414
   expDrop: 0

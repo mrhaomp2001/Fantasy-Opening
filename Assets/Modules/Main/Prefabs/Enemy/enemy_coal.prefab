@@ -128,6 +128,8 @@ MonoBehaviour:
   sprite: {fileID: 7212002742619942995}
   animator: {fileID: 3277525899174080609}
   touchDamage: 0
+  def: 0
+  hungerConsume: 10
   rb: {fileID: 2240950664597362248}
   dropId: 411
   expDrop: 0
@@ -387,3 +389,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82c6507fcff68e49ad71b94e841fec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 0

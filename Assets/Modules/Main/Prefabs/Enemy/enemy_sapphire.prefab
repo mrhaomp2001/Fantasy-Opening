@@ -227,6 +227,7 @@ MonoBehaviour:
   animator: {fileID: 3704908523841143467}
   touchDamage: 0
   def: 0
+  hungerConsume: 10
   rb: {fileID: 193067259015174613}
   dropId: 413
   expDrop: 0

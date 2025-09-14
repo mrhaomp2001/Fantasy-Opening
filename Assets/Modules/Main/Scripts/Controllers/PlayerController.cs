@@ -434,24 +434,32 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                 {
                     if (interactable.First.Value is BuildingFarmland farmland)
                     {
-                        if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemSeed seed)
+                        if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null)
                         {
-                            if (farmland.OnSowSeed(seed.CropId))
+                            if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemSeed seed)
                             {
-                                InventoryController.Instance.Consume(seed.Id, 1, new Callback
+                                if (farmland.OnSowSeed(seed.CropId))
                                 {
-                                    onSuccess = () =>
+                                    InventoryController.Instance.Consume(seed.Id, 1, new Callback
                                     {
+                                        onSuccess = () =>
+                                        {
 
-                                    },
-                                    onFail = (message) =>
-                                    {
+                                        },
+                                        onFail = (message) =>
+                                        {
 
-                                    },
-                                    onNext = () =>
-                                    {
-                                    }
-                                });
+                                        },
+                                        onNext = () =>
+                                        {
+                                        }
+                                    });
+                                }
+                            }
+
+                            if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item.IsFood)
+                            {
+                                InventoryController.Instance.AddHunger(InventoryController.Instance.GetPlayerData.SelectedHotbar.item.HungerCount);
                             }
                         }
 
