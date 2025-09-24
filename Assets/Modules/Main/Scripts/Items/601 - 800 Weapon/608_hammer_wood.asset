@@ -21,6 +21,8 @@ MonoBehaviour:
   sellPrice: 0
   useTime: 0
   isNonStack: 1
+  isFood: 0
+  hungerCount: 0
   weaponType: 3
   projectile: player_bullet_608
   stats:
@@ -37,3 +39,4 @@ MonoBehaviour:
     speed: 0
     curse: 0
     defend: 0
+  isPreventInteract: 1

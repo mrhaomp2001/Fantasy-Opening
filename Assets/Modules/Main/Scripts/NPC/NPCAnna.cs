@@ -138,53 +138,43 @@ public class NPCAnna : NPC
             (item8.Id, 10),
         };
 
-                    Debug.Log("🔍 Bắt đầu kiểm tra item...");
 
                     // 1. Kiểm tra trước
                     foreach (var req in requiredItems)
                     {
                         if (!InventoryController.Instance.GetPlayerData.IsItemEnough(req.id, req.count))
                         {
-                            Debug.LogWarning($"❌ Không đủ item Id={req.id}, cần {req.count}");
                             return false;
                         }
-                        Debug.Log($"✅ Đủ item Id={req.id}, cần {req.count}");
                     }
 
                     bool success = true;
 
-                    Debug.Log("🔄 Tiến hành consume item...");
 
                     // 2. Consume từng item
                     foreach (var req in requiredItems)
                     {
-                        Debug.Log($"➡ Consume item Id={req.id}, count={req.count}");
 
                         InventoryController.Instance.Consume(req.id, req.count, new Callback
                         {
                             onSuccess = () =>
                             {
-                                Debug.Log($"✔ Consume thành công Id={req.id}, count={req.count}");
                             },
                             onFail = (message) =>
                             {
-                                Debug.LogError($"❌ Consume thất bại Id={req.id}, count={req.count}, lý do: {message}");
                                 success = false;
                             },
                             onNext = () =>
                             {
-                                Debug.Log($"⏭ onNext được gọi cho Id={req.id}");
                             }
                         });
 
                         if (!success)
                         {
-                            Debug.LogError("⛔ Dừng consume vì gặp lỗi.");
                             return false;
                         }
                     }
 
-                    Debug.Log("🎉 Tất cả item đã được consume thành công!");
                     return success;
                 }
 
@@ -206,7 +196,6 @@ public class NPCAnna : NPC
                 }
                 else
                 {
-                    Debug.LogWarning("👉 Hoàn tất: thiếu item hoặc consume thất bại.");
                 }
             }
 

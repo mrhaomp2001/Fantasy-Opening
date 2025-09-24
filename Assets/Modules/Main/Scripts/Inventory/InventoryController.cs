@@ -356,7 +356,7 @@ public class InventoryController : MonoBehaviour
             item.count = 0;
         }
 
-        Debug.Log("Tiêu thụ thành công nha!");
+        //Debug.Log("Tiêu thụ thành công nha!");
 
         callback.onSuccess?.Invoke();
         callback.onNext?.Invoke();
@@ -407,7 +407,7 @@ public class InventoryController : MonoBehaviour
 
         if (playerData.IsInventoryFull)
         {
-            Debug.Log("Inventory is full, cannot add item with id: " + id);
+            //Debug.Log("Inventory is full, cannot add item with id: " + id);
             PopUpInventory.Instance.UpdateViewHotbar();
 
             return false;
@@ -434,7 +434,7 @@ public class InventoryController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Don't have item with id: " + id);
+            //Debug.Log("Don't have item with id: " + id);
         }
 
         PopUpInventory.Instance.UpdateViewHotbar();
@@ -519,7 +519,7 @@ public class InventoryController : MonoBehaviour
             string value = PlayerPrefs.GetString(prefKey);
             JSONNode keyValuePairs = JSONNode.Parse(value);
 
-            Debug.Log($"OnLoadPrefs: {value}");
+            //Debug.Log($"OnLoadPrefs: {value}");
 
             var hotbarSelectedKey = nameof(playerData.HotbarSelectedSlot).ToCamel();
             var hotbarKey = nameof(playerData.Hotbar).ToCamel();
@@ -692,7 +692,7 @@ public class InventoryController : MonoBehaviour
 
         if (playerData.Hunger < 0)
         {
-            Debug.Log($"Hunger: {playerData.Hunger}");
+            //Debug.Log($"Hunger: {playerData.Hunger}");
             PlayerController.Instance.Hurt(-playerData.Hunger);
 
             playerData.Hunger = 0;
@@ -921,7 +921,7 @@ public class InventoryController : MonoBehaviour
         BuildingController.Instance.Save();
         ProgressionController.Instance.Save();
 
-        Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
+        //Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
         PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(playerData));
         PlayerPrefs.Save();
     }

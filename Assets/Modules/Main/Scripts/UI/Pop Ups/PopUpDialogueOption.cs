@@ -66,7 +66,7 @@ public class PopUpDialogueOption : PopUp
     {
         ResetDialogue();
         base.Show();
-        textName.SetText(dialogue.Name);
+        textName.SetText(LanguageController.Instance.GetString(dialogue.Name));
         textContent.SetText(LanguageController.Instance.GetString(dialogue.Content));
 
         if (dialogue.Sprite == null)
@@ -110,7 +110,7 @@ public class PopUpDialogueOption : PopUp
                 action6?.action?.Invoke();
                 break;
             default:
-                Debug.LogWarning("Invalid choice made in dialogue options.");
+                //Debug.LogWarning("Invalid choice made in dialogue options.");
                 break;
         }
         Hide();

@@ -64,7 +64,7 @@ public class InventoryGridviewItem : MonoBehaviour
                     },
                     onFail = (message) =>
                     {
-                        Debug.LogWarning(message);
+                        //Debug.LogWarning(message);
                     },
                     onNext = () =>
                     {
@@ -94,7 +94,7 @@ public class InventoryGridviewItem : MonoBehaviour
                         },
                         onFail = (message) =>
                         {
-                            Debug.LogWarning(message);
+                            //Debug.LogWarning(message);
                         },
                         onNext = () =>
                         {
@@ -105,7 +105,7 @@ public class InventoryGridviewItem : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Item not found in selling gridview or unable to add gold.");
+                    //Debug.Log("Item not found in selling gridview or unable to add gold.");
                 }
             }
         }
@@ -137,7 +137,7 @@ public class InventoryGridviewItem : MonoBehaviour
                 },
                 onFail = (message) =>
                 {
-                    Debug.LogWarning(message);
+                    //Debug.LogWarning(message);
                 },
                 onNext = () =>
                 {

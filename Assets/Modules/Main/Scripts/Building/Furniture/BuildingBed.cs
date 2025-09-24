@@ -12,6 +12,6 @@ public class BuildingBed : BuildingBase, IPoolObject
 
     public override void OnWorldInteract()
     {
-        Debug.Log("BuildingBed OnWorldInteract");
+        //Debug.Log("BuildingBed OnWorldInteract");
     }
 }

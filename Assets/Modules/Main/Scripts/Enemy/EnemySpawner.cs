@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Debug.Log($"Spawn enemy: {gameObject.name}, enemy name: {enemyName}", gameObject);
+        //Debug.Log($"Spawn enemy: {gameObject.name}, enemy name: {enemyName}", gameObject);
         enemy = ObjectPooler.Instance.SpawnFromPool(enemyName, transform.position, Quaternion.identity);
     }
 

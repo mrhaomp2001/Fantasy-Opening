@@ -75,6 +75,11 @@
     "8_strawberry-item_name": "Dâu",
     "8_strawberry-item_description": "Dâu",
     
+    "12_kiwi-item_name": "Kiwi",
+    "12_kiwi-item_description": "Kiwi",
+
+    "13_wheat-item_name": "Lúa mì",
+    "13_wheat-item_description": "Lúa mì",
 
 
     "201_corn_seed-item_name": "Hạt giống bắp",
@@ -101,6 +106,13 @@
     "208_strawberry_seed-item_name": "Hạt giống dâu",
     "208_strawberry_seed-item_description": "Hạt giống dâu",
 
+    "212_kiwi_seed-item_name": "Hạt giống kiwi",
+    "212_kiwi_seed-item_description": "Hạt giống kiwi",
+    
+    "213_wheat_seed-item_name": "Hạt giống lúa mì",
+    "213_wheat_seed-item_description": "Hạt giống lúa mì",
+    
+
 
     "401_wood-item_name": "Gỗ",
     "401_wood-item_description": "Gỗ",
@@ -117,8 +129,8 @@
     "405_big_egg-item_name": "Trứng lớn",
     "405_big_egg-item_description": "Trứng lớn",
 
-    "406_chicken_leg-item_name": "Trứng lớn",
-    "406_chicken_leg-item_description": "Trứng lớn",
+    "406_chicken_leg-item_name": "Đùi gà",
+    "406_chicken_leg-item_description": "Đùi gà",
 
     "407_coin-item_name": "Tiền",
     "407_coin-item_description": "Tiền",
@@ -149,8 +161,30 @@
 
     "416_stone-item_name": "Đá",
     "416_stone-item_description": "Đá",
-    
 
+    "417_chicken_leg_cooked-item_name": "Đùi gà nướng",
+    "417_chicken_leg_cooked-item_description": "Đùi gà nướng",
+
+    "418_radish_carrot_soup-item_name": "Súp củ cải cà rốt",
+    "418_radish_carrot_soup-item_description": "Súp củ cải cà rốt",
+
+    "419_stone_diorite-item_name": "Đá diorite",
+    "419_stone_diorite-item_description": "Đá diorite",
+
+    "420_wood_dark-item_name": "Gỗ sẫm",
+    "420_wood_dark-item_description": "Gỗ sẫm",
+    
+    "421_sapphire-item_name": "Lam ngọc",
+    "421_sapphire-item_description": "Lam ngọc",
+
+    "422_iron_ore-item_name": "Quặng sắt",
+    "422_iron_ore-item_description": "Quặng sắt",
+
+    "423_clay-item_name": "Đất sét",
+    "423_clay-item_description": "Đất sét",
+
+    
+    
 
     "601_weapon_1-item_name": "Kiếm gỗ",
     "601_weapon_1-item_description": "Kiếm gỗ",
@@ -197,7 +231,8 @@
     "804_crafting_table-item_description": "Bàn chế tạo",
 
     "805_farmland_copper-item_name": "Ô đất đồng",
-    "805_farmland_copper-item_description": "Ô đất đồng",
+    "805_farmland_copper-item_description": "Ô đất đồng\nCó tỷ lệ <color=#00FF00>1/4</color> cây sẽ lớn thêm <color=#00FF00>1</color> ngày khi gieo hạt",
+
 
     "806_farmland_iron-item_name": "Ô đất sắt",
     "806_farmland_iron-item_description": "Ô đất sắt",
@@ -219,6 +254,14 @@
 
     "812_crystal_table-item_name": "Bàn tinh thể",
     "812_crystal_table-item_description": "Bàn tinh thể",
+
+    "813_cauldron_copper-item_name": "Nồi đồng",
+    "813_cauldron_copper-item_description": "Nồi đồng",
+
+    "814_farmland_crystal-item_name": "Ô đất tinh thể",
+    "814_farmland_crystal-item_description": "Đất canh tác tinh thể\nCó tỷ lệ <color=#00FF00>1/10</color> nhận thêm <color=#00FF00>1</color> sản phẩm khi thu hoạch",
+
+
     
 
     
@@ -268,6 +311,9 @@
     "1401_recipe_1-item_name": "Công thức lò nung",
     "1401_recipe_1-item_description": "Công thức lò nung",
     
+    "1402_recipe_crystal_table-item_name": "Công thức bàn tinh thể",
+    "1402_recipe_crystal_table-item_description": "Công thức bàn tinh thể",
+
     
     "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",
     "npc_rabbit_talk_2": "Tui chỉ là con thỏ, tui trồng cà rốt, tui ăn cà rốt",
@@ -308,6 +354,16 @@
 
 
     "npc_anna_talk_3": "Được rồi, đi ngủ đi để game còn lưu",
+
+
+    
+    "npc_miner_talk_1": "Xin chào! Tui là Tôi là một thợ mỏ, tôi thích đập đá!",
+    "npc_miner_talk_2": "Nhìn cái gì, đấm cho một cái bây giờ?!",
+
+    "npc_talk": "> Nói chuyện",
+    "npc_player_buy": "> Tôi muốn mua hàng",
+    "npc_player_sell": "> Tôi muốn bán hàng",
+    "npc_player_cancel": "> Rời đi",
 
 
     "event_3_1": "Cần có 1 thứ đặc biệt trồng xuống",

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded24a0e4875a1a40a842dc266224e74, type: 3}
+  m_Name: 417_chicken_leg_cooked
+  m_EditorClassIdentifier: 
+  id: 417
+  itemName: 417_chicken_leg_cooked-item_name
+  itemDescription: 417_chicken_leg_cooked-item_description
+  sprite: {fileID: 21300000, guid: dd888e551d935e44f82ce4bf478b74a7, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: dd888e551d935e44f82ce4bf478b74a7, type: 3}
+  buyPrice: 1000
+  sellPrice: 500
+  useTime: 0
+  isNonStack: 0
+  isFood: 0
+  hungerCount: 0

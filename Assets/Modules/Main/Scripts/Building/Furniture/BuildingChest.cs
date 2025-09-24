@@ -82,14 +82,14 @@ public class BuildingChest : BuildingBase, IPoolObject
                 callback?.onFail?.Invoke("Not enough items in chest.");
                 callback?.onNext?.Invoke();
 
-                Debug.LogWarning("Not enough items in chest to consume.");
+                //Debug.LogWarning("Not enough items in chest to consume.");
             }
         }
         else
         {
             callback?.onFail?.Invoke("Item not found in chest.");
             callback?.onNext?.Invoke();
-            Debug.LogWarning("Item not found in chest.");
+            //Debug.LogWarning("Item not found in chest.");
         }
     }
     public void OnObjectSpawnAfter()

@@ -5138,3 +5138,8 @@ MonoBehaviour:
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
       count: 10
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 7bd0a26bb9b2b15428e212a344d1e28f, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
+      count: 10

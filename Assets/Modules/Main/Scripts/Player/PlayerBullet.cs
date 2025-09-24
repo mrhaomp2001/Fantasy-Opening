@@ -31,7 +31,7 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
             damage = InventoryController.Instance.GetPlayerData.Attack;
         }
 
-        Debug.Log("Bullet Damage: " + damage);
+        //Debug.Log("Bullet Damage: " + damage);
         timerLifeTime = Timer.DelayAction(lifeTime + (InventoryController.Instance.GetPlayerData.AttackRange / 100f), () =>
         {
             gameObject.SetActive(false);
@@ -55,10 +55,14 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
 
     public void OnHitBuilding(Collider2D other)
     {
-        var building = other.GetComponentInParent<BuildingBase>();
-        if (building != null)
+        if (isHammer)
         {
-            building.OnTakeDamage(this);
+            var building = other.GetComponentInParent<BuildingBase>();
+
+            if (building != null)
+            {
+                building.OnTakeDamage(this);
+            }
         }
 
         OnEndLifeTime();

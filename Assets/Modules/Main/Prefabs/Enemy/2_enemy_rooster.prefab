@@ -374,7 +374,7 @@ MonoBehaviour:
   def: 0
   hungerConsume: 0
   rb: {fileID: 5484088645752719336}
-  dropId: 0
+  dropId: 406
   expDrop: 0
   delayMove: 1
   speed: 4

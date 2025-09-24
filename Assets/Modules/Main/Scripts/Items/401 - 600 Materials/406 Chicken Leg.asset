@@ -15,7 +15,11 @@ MonoBehaviour:
   id: 406
   itemName: 406_chicken_leg-item_name
   itemDescription: 406_chicken_leg-item_description
-  sprite: {fileID: 21300000, guid: 80775f70beb28974693c302b4b3729e2, type: 3}
-  spriteWorldItem: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 5fc43d1c117b35348804cf2459684e5c, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: 5fc43d1c117b35348804cf2459684e5c, type: 3}
   buyPrice: 1000
   sellPrice: 500
+  useTime: 0
+  isNonStack: 0
+  isFood: 0
+  hungerCount: 0

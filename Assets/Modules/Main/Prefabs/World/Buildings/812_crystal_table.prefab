@@ -129,6 +129,13 @@ MonoBehaviour:
       count: 10
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
       count: 12
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: a2839ceacaf0fee469d24a7e9e1b8566, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: ae09605dcbf643948ab67df730ae1e11, type: 2}
+      count: 5
+    - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
+      count: 5
 --- !u!1 &6998290294712461445
 GameObject:
   m_ObjectHideFlags: 0

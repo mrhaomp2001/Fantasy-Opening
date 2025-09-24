@@ -77,12 +77,20 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
                 .FirstOrDefault();
 
             cropCurrent = value;
+
+            OnSowSeedSuccess();
+
             UpdateViews();
 
             return true;
         }
 
         return false;
+
+    }
+
+    public virtual void OnSowSeedSuccess()
+    {
 
     }
 
@@ -96,19 +104,28 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
 
                 //InventoryController.Instance.Add(cropCurrent.ProductId, 1);
 
-                WorldItemController.Instance.SpawnItem(cropCurrent.ProductId, transform.position);
+
+
+                OnHarvestSuccess();
+
 
                 cropCurrent = null;
 
                 currentDay = 0;
-
+                
                 UpdateViews();
             }
             else
             {
-                Debug.Log("Chưa chín!");
+                //Debug.Log("Chưa chín!");
             }
         }
+    }
+
+    public virtual void OnHarvestSuccess()
+    {
+        WorldItemController.Instance.SpawnItem(cropCurrent.ProductId, transform.position);
+
     }
 
     public void SpawnEnemy()

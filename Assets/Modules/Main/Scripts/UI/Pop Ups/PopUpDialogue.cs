@@ -65,7 +65,7 @@ public class PopUpDialogue : PopUp
         {
             imageActor.sprite = dialogues.Peek().Sprite;
         }
-        textName.SetText(dialogues.Peek().Name);
+        textName.SetText(LanguageController.Instance.GetString(dialogues.Peek().Name));
         textContent.SetText (LanguageController.Instance.GetString(dialogues.Peek().Content));
         dialogues.Peek().UnityEventStart?.Invoke();
 

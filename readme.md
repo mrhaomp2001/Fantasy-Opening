@@ -1,5 +1,5 @@
 
-# [ 12:11:54 14/09/2025 ]
+# [ 11:10:46 24/09/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
@@ -11,13 +11,159 @@
 </details>
 
 
-# [ 11:39:01 13/09/2025 ]
+# [ 11:06:03 23/09/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
 
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 08:54:04 22/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:23:27 21/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:07:01 20/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm:
+  + tài ngyên có thể khai thác: đá, đá diorite, 
+  + vật phẩm: gỗ sẫm và lam ngọc
+  + nói mua công thức lò nung và bằng tinh thể
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 11:44:05 19/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- ô đất đồng
+- ô đất tinh thể
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 11:20:40 18/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+- thêm:
+  + nồi đồng
+  + vật phầm: gà nướng, súp củ cải cà rốt
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 11:43:08 17/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm:
+  + cây dừa
+  + cây chuối 
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 10:48:15 16/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+ - lên kế hoạch
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 12:39:53 15/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+nghỉ
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:11:54 14/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+nghỉ
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:39:01 13/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+nghỉ
 ### Công việc trong kế hoạch: 
 
 </details>

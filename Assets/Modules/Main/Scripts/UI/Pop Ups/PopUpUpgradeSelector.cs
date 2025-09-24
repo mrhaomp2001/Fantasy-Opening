@@ -40,7 +40,7 @@ public class PopUpUpgradeSelector : PopUp
 
     public void OnChoiceBuff(BuffBase buffValue)
     {
-        Debug.Log($"{buffValue.BuffName}");
+        //Debug.Log($"{buffValue.BuffName}");
         base.Hide();
         GameController.Instance.OnSelectedBuff(buffValue);
     }

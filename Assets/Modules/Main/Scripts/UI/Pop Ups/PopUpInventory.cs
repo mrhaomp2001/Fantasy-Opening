@@ -320,7 +320,7 @@ public class PopUpInventory : PopUp
     {
         if (containerBuff == null)
         {
-            Debug.LogWarning("containerBuff is null.");
+            //Debug.LogWarning("containerBuff is null.");
             return;
         }
 
@@ -341,7 +341,10 @@ public class PopUpInventory : PopUp
             if (containerEquipment != null)
                 containerEquipment.gameObject.SetActive(true);
             else
-                Debug.LogWarning("containerEquipment is null.");
+            {
+
+            }
+                //Debug.LogWarning("containerEquipment is null.");
         }
 
 
@@ -358,7 +361,7 @@ public class PopUpInventory : PopUp
         }
         else
         {
-            Debug.Log("Already at last buff page.");
+            //Debug.Log("Already at last buff page.");
         }
     }
 
@@ -372,7 +375,7 @@ public class PopUpInventory : PopUp
         }
         else
         {
-            Debug.Log("Already at first buff page.");
+            //Debug.Log("Already at first buff page.");
         }
     }
 
@@ -391,19 +394,19 @@ public class PopUpInventory : PopUp
         // Kiểm tra danh sách slot hiển thị
         if (buffGridviewItems == null)
         {
-            Debug.LogWarning("buffGridviewItems is null.");
+            //Debug.LogWarning("buffGridviewItems is null.");
             return;
         }
 
         int slotCount = buffGridviewItems.Count;
         if (slotCount == 0)
         {
-            Debug.LogWarning("buffGridviewItems is empty.");
+            //Debug.LogWarning("buffGridviewItems is empty.");
             return;
         }
         if (slotCount < BuffsPerPage)
         {
-            Debug.LogWarning($"Only {slotCount} buffGridviewItems configured; expected {BuffsPerPage}. Will show {slotCount} per page.");
+            //Debug.LogWarning($"Only {slotCount} buffGridviewItems configured; expected {BuffsPerPage}. Will show {slotCount} per page.");
         }
 
         // Reset toàn bộ slot trước khi fill
