@@ -182,8 +182,13 @@
 
     "423_clay-item_name": "Đất sét",
     "423_clay-item_description": "Đất sét",
-
     
+    "424_iron_ingot-item_name": "Thỏi sắt",
+    "424_iron_ingot-item_description": "Thỏi sắt",
+    
+    "425_brick-item_name": "Gạch",
+    "425_brick-item_description": "Gạch",
+
     
 
     "601_weapon_1-item_name": "Kiếm gỗ",
@@ -261,8 +266,14 @@
     "814_farmland_crystal-item_name": "Ô đất tinh thể",
     "814_farmland_crystal-item_description": "Đất canh tác tinh thể\nCó tỷ lệ <color=#00FF00>1/10</color> nhận thêm <color=#00FF00>1</color> sản phẩm khi thu hoạch",
 
+    "815_blast_furnace-item_name": "Lò nung sắt",
+    "815_blast_furnace-item_description": "Lò nung sắt",
 
-    
+    "816_anvil_iron-item_name": "Đe sắt",
+    "816_anvil_iron-item_description": "Đe sắt",
+
+    "817_brick_furnace-item_name": "Lò nung gạch",
+    "817_brick_furnace-item_description": "Lò nung gạch",
 
     
     "1001_wood_helmet-item_name": "Nón gỗ",
@@ -302,6 +313,19 @@
     "1012_boots_crystal-item_description": "Giày tinh thể",
 
 
+    "1013_helmet_iron-item_name": "Nón sắt",
+    "1013_helmet_iron-item_description": "Nón sắt",
+    
+    "1014_breastplate_iron-item_name": "Áo giáp sắt",
+    "1014_breastplate_iron-item_description": "Áo giáp sắt",
+    
+    "1015_leggings_iron-item_name": "Giáp chân sắt",
+    "1015_leggings_iron-item_description": "Giáp chân sắt",
+    
+    "1016_boots_iron-item_name": "Giày sắt",
+    "1016_boots_iron-item_description": "Giày sắt",
+
+    
 
     "1201_boss_1_summon-item_name": "Bộ phát tính hiệu lỗi",
     "1201_boss_1_summon-item_description": "Bộ phát tính hiệu lỗi",

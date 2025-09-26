@@ -1,5 +1,5 @@
 
-# [ 11:10:46 24/09/2025 ]
+# [ 14:17:41 26/09/2025 ]
 
 <details>
 <summary><h2>Chi tiết công việc:</h2> </summary>
@@ -7,7 +7,44 @@
 ### Kết quả hôm nay:
 
 ### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
 
+
+# [ 10:51:12 25/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm:
+  + lò đất sét
+  + lò nung sắt
+  + đe sắt
+  + kiếm sắt
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 11:10:46 24/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- thêm áo giáp sắt và thỏi sắt
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
 </details>
 
 
@@ -17,9 +54,13 @@
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
+- thêm đất sét và quặng sắt
 
 ### Công việc trong kế hoạch: 
-
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
 </details>
 
 
@@ -29,9 +70,12 @@
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
-
+- thêm kiwi và lúa mì
 ### Công việc trong kế hoạch: 
-
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
 </details>
 
 
@@ -41,7 +85,7 @@
 <summary><h2>Chi tiết công việc:</h2> </summary>
 
 ### Kết quả hôm nay:
-
+nghỉ
 ### Công việc trong kế hoạch: 
 
 </details>

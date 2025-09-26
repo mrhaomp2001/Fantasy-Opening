@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     [SerializeField] private SpriteRenderer spritePlayer;
     [SerializeField] private SpriteRenderer spriteItemHolding;
     [SerializeField] private Animator animator;
-    [SerializeField] private Joystick joystick; 
+    [SerializeField] private Joystick joystick;
 
     [Header("Fire Point: ")]
     [SerializeField] private int cheatItemId;
@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
         if (Input.GetKeyDown(KeyCode.F10))
         {
-            WorldItemController.Instance.SpawnItem(cheatItemId, firepointHitbox.position);
+            SpawnCheatItem();
         }
 
 
@@ -215,6 +215,11 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                 }
             }
         }
+    }
+
+    public void SpawnCheatItem()
+    {
+        WorldItemController.Instance.SpawnItem(cheatItemId, firepointHitbox.position);
     }
 
     public static void LoadGame()
@@ -277,7 +282,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     float vertical = joystick.Vertical;
 
     // Quy tròn về -1, 0, 1 theo input joystick
-    if (Mathf.Abs(horizontal) > 0.2f)
+    if (Mathf.Abs(horizontal) > 0.5f)
     {
         movementSpeed.x = Mathf.Sign(horizontal);
     }
@@ -286,7 +291,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         movementSpeed.x = 0;
     }
 
-    if (Mathf.Abs(vertical) > 0.2f)
+    if (Mathf.Abs(vertical) > 0.5f)
     {
         movementSpeed.y = Mathf.Sign(vertical);
     }
@@ -485,6 +490,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 isHolding = true;
+
                 if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null && InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemWeapon weaponHammer)
                 {
                     if (weaponHammer.IsPreventInteract)
@@ -492,6 +498,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                         return;
                     }
                 }
+
                 if (interactable.First != null)
                 {
                     if (interactable.First.Value is BuildingFarmland farmland)
@@ -519,15 +526,30 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                                 }
                             }
 
-                            if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null && InventoryController.Instance.GetPlayerData.SelectedHotbar.item.IsFood)
-                            {
-                                InventoryController.Instance.AddHunger(InventoryController.Instance.GetPlayerData.SelectedHotbar.item.HungerCount);
-                            }
                         }
 
 
                     }
                     interactable.First.Value.OnWorldInteract();
+                }
+
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item != null && InventoryController.Instance.GetPlayerData.SelectedHotbar.item.IsFood)
+                {
+                    InventoryController.Instance.AddHunger(InventoryController.Instance.GetPlayerData.SelectedHotbar.item.HungerCount);
+                    InventoryController.Instance.Consume(InventoryController.Instance.GetPlayerData.SelectedHotbar.item.Id, 1, new Callback
+                    {
+                        onSuccess = () =>
+                        {
+                        },
+                        onFail = (message) =>
+                        {
+                        },
+                        onNext = () =>
+                        {
+                        }
+                    });
+
+                    //Debug.Log($"AddHunger()");
                 }
 
                 if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBuilding building)
