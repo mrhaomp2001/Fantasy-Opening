@@ -1,4 +1,133 @@
 
+# [ 12:34:33 05/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+
+# [ 13:08:59 04/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:00:08 03/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 13:37:54 02/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- nghỉ
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 11:02:50 01/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+- nghỉ
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 13:07:11 30/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 13:23:48 29/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
+# [ 12:29:25 28/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+# [ 06:33:11 27/09/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+- AI của quái
+- chỉ số nhân vật
+- chỉ số vũ khí
+- thay font
+</details>
+
+
 # [ 14:17:41 26/09/2025 ]
 
 <details>

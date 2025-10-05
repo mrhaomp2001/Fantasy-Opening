@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using static BuildingController;
 using static InventoryController;
 using static UnityEditor.Progress;
 
@@ -204,7 +205,14 @@ public class PopUpInventory : PopUp
             {
                 TransformBuildingIndicator.gameObject.SetActive(true);
                 spriteBuildingReview.sprite = building.BuildingSprite;
+
             }
+        }
+        if (itemBuilding is ItemBuildingFoundation foundation)
+        {
+            TransformBuildingIndicator.gameObject.SetActive(true);
+            spriteBuildingReview.sprite = foundation.BuildingSprite;
+
         }
 
         StatController.Instance.UpdateViews();

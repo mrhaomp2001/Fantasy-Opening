@@ -4967,6 +4967,11 @@ MonoBehaviour:
   def: 0
   recipes:
   - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 62ea189436d44d74f94de5d1944e1d5f, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: 1814c1172fdd0a645b4c531971c3217c, type: 2}
+      count: 2
+  - resultCount: 1
     itemResult: {fileID: 11400000, guid: 21418aee160c49a4bb944504bec32875, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: f80ddf254172d244c85715591c717c48, type: 2}

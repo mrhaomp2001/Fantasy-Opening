@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e1aa77e6464544199c65e3810951c2, type: 3}
+  m_Name: 15_shiver_thorn
+  m_EditorClassIdentifier: 
+  id: 15
+  cropName: 15_shiver_thorn
+  productId: 15
+  priceSell: 100
+  stages:
+  - sprite: {fileID: 21300000, guid: 849fd25efa95d924c92ab5714c08decd, type: 3}
+  - sprite: {fileID: 21300000, guid: 9621e9f138375ff4fa4c1ef14fb642a9, type: 3}
+  - sprite: {fileID: 21300000, guid: 31e0ec88cd278b348885d1eac4374ff7, type: 3}
+  - sprite: {fileID: 21300000, guid: 83191f1f490eebf4aa9b655fac22bd58, type: 3}
+  enemyList: []

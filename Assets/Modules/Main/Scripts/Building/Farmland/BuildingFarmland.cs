@@ -104,7 +104,11 @@ public class BuildingFarmland : BuildingBase, IWorldInteractable, IPoolObject
 
                 //InventoryController.Instance.Add(cropCurrent.ProductId, 1);
 
-
+                // Watermelon
+                if (cropCurrent.Id == 14)
+                {
+                    ObjectPooler.Instance.SpawnFromPool("explosion_1", transform.position, Quaternion.identity);
+                }
 
                 OnHarvestSuccess();
 

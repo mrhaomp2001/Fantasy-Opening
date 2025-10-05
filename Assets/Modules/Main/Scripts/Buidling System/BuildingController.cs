@@ -6,6 +6,8 @@ using System.Globalization;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
+using UnityEngine.WSA;
 
 public class BuildingController : MonoBehaviour, IUpdatable
 {
@@ -47,7 +49,9 @@ public class BuildingController : MonoBehaviour, IUpdatable
     private static BuildingController instance;
 
     [SerializeField] private Grid gridBuilding;
+    [SerializeField] private Tilemap tilemapPlayerBuild;
     [SerializeField] private Tilemap[] tilemaps;
+
 
     private LinkedList<IWorldInteractable> interactable;
 
@@ -85,9 +89,9 @@ public class BuildingController : MonoBehaviour, IUpdatable
         interactable.RemoveLast();
     }
 
-    public bool IsCellEmpty(Vector3 worldPos)
+    public bool IsCellEmpty()
     {
-        Vector3Int cellPosition = gridBuilding.WorldToCell(worldPos);
+        Vector3Int cellPosition = gridBuilding.WorldToCell(PlayerController.Instance.FirepointHitbox.transform.position);
 
         foreach (var tilemap in tilemaps)
         {
@@ -113,13 +117,18 @@ public class BuildingController : MonoBehaviour, IUpdatable
             return false;
         }
 
-        if (IsCellEmpty(cellPosition))
+        if (IsCellEmpty())
         {
             return false;
         }
 
         foreach (var item in InventoryController.Instance.GetPlayerData.BuildingData.Buildings)
         {
+            if (item.WorldInteractable is BuildingFoundation)
+            {
+                continue;
+            }
+
             Vector3 checkPosition = new Vector3(item.X, item.Y, item.Z);
 
             if (buildingPosition.Equals(checkPosition))
@@ -170,6 +179,13 @@ public class BuildingController : MonoBehaviour, IUpdatable
         }
 
         return building;
+    }
+
+    public void BuildTile(Vector3 position, TileBase tile)
+    {
+        Vector3Int cellPosition = tilemapPlayerBuild.WorldToCell(position);
+
+        tilemapPlayerBuild.SetTile(cellPosition, tile);
     }
 
     public Building BuildAtPosition(string buildingName, Vector3 position, int buildingId)
@@ -325,6 +341,24 @@ public class BuildingController : MonoBehaviour, IUpdatable
                         else
                         {
                             PopUpInventory.Instance.TransformBuildingIndicator.color = Color.red;
+                        }
+                    }
+
+                    if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBuildingFoundation buildingFoundation)
+                    {
+                        Vector3Int cellPosition = gridBuilding.WorldToCell(PlayerController.Instance.FirepointHitbox.transform.position);
+
+                        PopUpInventory.Instance.TransformBuildingIndicator.transform.position = gridBuilding.GetCellCenterWorld(cellPosition);
+
+                        if (IsCellEmpty())
+                        {
+                            PopUpInventory.Instance.TransformBuildingIndicator.color = Color.green;
+
+                        }
+                        else
+                        {
+                            PopUpInventory.Instance.TransformBuildingIndicator.color = Color.red;
+
                         }
                     }
                 }

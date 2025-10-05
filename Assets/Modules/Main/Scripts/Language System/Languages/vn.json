@@ -189,7 +189,12 @@
     "425_brick-item_name": "Gạch",
     "425_brick-item_description": "Gạch",
 
-    
+    "426_bread-item_name": "Bánh mì",
+    "426_bread-item_description": "Bánh mì",
+
+    "427_flour-item_name": "Bột mì",
+    "427_flour-item_description": "Bột mì",
+
 
     "601_weapon_1-item_name": "Kiếm gỗ",
     "601_weapon_1-item_description": "Kiếm gỗ",
@@ -220,8 +225,14 @@
 
     "610_axe_crystal-item_name": "Rìu tinh thể",
     "610_axe_crystal-item_description": "Rìu tinh thể",
+    
+    "611_weapon_3_sword_iron-item_name": "Kiếm sắt",
+    "611_weapon_3_sword_iron-item_description": "Kiếm sắt",
 
+	"612_sapphire_wand-item_name": "Gậy phép lam ngọc",
+	"612_sapphire_wand-item_description": "Gậy phép lam ngọc",
 
+    
 
     "801_farmland-item_name": "Ô đất",
     "801_farmland-item_description": "Ô đất",
@@ -275,6 +286,11 @@
     "817_brick_furnace-item_name": "Lò nung gạch",
     "817_brick_furnace-item_description": "Lò nung gạch",
 
+    "818_rice_grinder-item_name": "Cối xay",
+    "818_rice_grinder-item_description": "Cối xay",
+    
+
+
     
     "1001_wood_helmet-item_name": "Nón gỗ",
     "1001_wood_helmet-item_description": "Nón gỗ",
@@ -325,7 +341,18 @@
     "1016_boots_iron-item_name": "Giày sắt",
     "1016_boots_iron-item_description": "Giày sắt",
 
-    
+    "1017_helmet_sapphire-item_name": "Nón lam ngọc",
+    "1017_helmet_sapphire-item_description": "Nón lam ngọc",
+
+    "1018_breastplate_sapphire-item_name": "Áo giáp lam ngọc",
+    "1018_breastplate_sapphire-item_description": "Áo giáp lam ngọc",
+
+    "1019_leggings_sapphire-item_name": "Giáp chân lam ngọc",
+    "1019_leggings_sapphire-item_description": "Giáp chân lam ngọc",
+
+    "1020_boots_sapphire-item_name": "Giày lam ngọc",
+    "1020_boots_sapphire-item_description": "Giày lam ngọc",
+
 
     "1201_boss_1_summon-item_name": "Bộ phát tính hiệu lỗi",
     "1201_boss_1_summon-item_description": "Bộ phát tính hiệu lỗi",

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 611_weapon_3_sword_iron
   m_EditorClassIdentifier: 
   id: 611
-  itemName: 611_weapon_3-item_name
-  itemDescription: 611_weapon_3-item_description
+  itemName: 611_weapon_3_sword_iron-item_name
+  itemDescription: 611_weapon_3_sword_iron-item_description
   sprite: {fileID: 21300000, guid: 061662161b09e3440a96389c648c0352, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 061662161b09e3440a96389c648c0352, type: 3}
   buyPrice: 0

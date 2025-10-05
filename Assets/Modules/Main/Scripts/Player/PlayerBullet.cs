@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour, IPoolObject
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float lifeTime;
-    [SerializeField] private int damage;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform hitbox;
-    [SerializeField] private bool isAxe, isPickaxe, isHammer;
+    [SerializeField] protected float speed;
+    [SerializeField] protected float lifeTime;
+    [SerializeField] protected int damage;
+    [SerializeField] protected Rigidbody2D rb;
+    [SerializeField] protected Transform hitbox;
+    [SerializeField] protected bool isAxe, isPickaxe, isHammer;
 
-    private Timer timerLifeTime;
+    protected Timer timerLifeTime;
 
     public bool IsAxe { get => isAxe; set => isAxe = value; }
     public bool IsPickaxe { get => isPickaxe; set => isPickaxe = value; }
     public int Damage { get => damage; set => damage = value; }
 
-    public void OnObjectSpawnAfter()
+    public virtual void OnObjectSpawnAfter()
     {
         hitbox.gameObject.SetActive(true);
         rb.velocity = rb.transform.right * speed;

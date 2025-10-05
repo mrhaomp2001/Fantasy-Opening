@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e1aa77e6464544199c65e3810951c2, type: 3}
+  m_Name: 18_waterbloom
+  m_EditorClassIdentifier: 
+  id: 18
+  cropName: 18_waterbloom
+  productId: 18
+  priceSell: 100
+  stages:
+  - sprite: {fileID: 21300000, guid: 1209e3d7faf8ffa4da4aa25de9e4ac6a, type: 3}
+  - sprite: {fileID: 21300000, guid: 7a54f947f16a3734aa364b64df74d0e1, type: 3}
+  - sprite: {fileID: 21300000, guid: ffdcc9cb141f8fc48bd23e3afb4754c5, type: 3}
+  - sprite: {fileID: 21300000, guid: 9e9e6c6b5504743419f3fd066b1a918c, type: 3}
+  enemyList: []

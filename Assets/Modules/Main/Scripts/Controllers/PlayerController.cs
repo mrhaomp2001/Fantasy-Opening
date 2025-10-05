@@ -573,6 +573,28 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                         });
                     }
                 }
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBuildingFoundation buildingFoundation)
+                {
+                    if (BuildingController.Instance.IsCellEmpty())
+                    {
+                        InventoryController.Instance.Consume(buildingFoundation.Id, 1, new Callback
+                        {
+                            onSuccess = () =>
+                            {
+                                BuildingController.Instance.Build(buildingFoundation.BuildingName);
+
+                            },
+                            onFail = (message) =>
+                            {
+
+                            },
+                            onNext = () =>
+                            {
+                            }
+                        });
+                    }
+
+                }
 
                 if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBossSummon bossSummon)
                 {
