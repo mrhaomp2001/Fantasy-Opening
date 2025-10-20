@@ -22,4 +22,6 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: c085d1954fca4674d845d4ae65a1a8bd, type: 3}
   - sprite: {fileID: 21300000, guid: 2d86a79fd81008148983e799e7060f3b, type: 3}
   - sprite: {fileID: 21300000, guid: 7cb4bacd0f7e7694a94faa4cf1cba9bf, type: 3}
-  enemyList: []
+  enemyList:
+  - 7_grasshopper
+  - 7_grasshopper

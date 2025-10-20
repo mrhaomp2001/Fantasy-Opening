@@ -25,12 +25,31 @@ public class EnemyBossFirst : EnemyBoss
                 else
                 {
                     CanMove = false;
+
+                    FireBullets();
                 }
             });
         }
         else
         {
             timerMoveMent.Restart();
+        }
+    }
+
+    private void FireBullets()
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            Vector2 randomDirection = Random.insideUnitCircle.normalized;
+            Vector2 spawnPosition = (Vector2)transform.position + randomDirection * 2f;
+
+            GameObject bulletObject = ObjectPooler.Instance.SpawnFromPool("boss_1_bullet_2", spawnPosition, Quaternion.identity);
+
+            var bullet = bulletObject.GetComponent<EnemyBulletForwardPlayer>();
+
+            //bullet.SetBulletColor(new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f)));
+
+            bullet.StartMove();
         }
     }
 

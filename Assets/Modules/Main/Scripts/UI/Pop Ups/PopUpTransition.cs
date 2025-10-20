@@ -39,11 +39,14 @@ public class PopUpTransition : PopUp
 
                 LeanTween.delayedCall(0.5f, () =>
                 {
-                    LeanTween.alpha(imageBackground.rectTransform, 0f, 1f)
-                    .setOnComplete(() =>
+                    if (imageBackground != null)
                     {
-                        base.Hide();
-                    });
+                        LeanTween.alpha(imageBackground.rectTransform, 0f, 1f)
+                        .setOnComplete(() =>
+                        {
+                            base.Hide();
+                        });
+                    }
                 });
             });
     }

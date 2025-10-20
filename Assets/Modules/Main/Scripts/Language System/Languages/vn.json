@@ -411,10 +411,20 @@
     "npc_miner_talk_1": "Xin chào! Tui là Tôi là một thợ mỏ, tôi thích đập đá!",
     "npc_miner_talk_2": "Nhìn cái gì, đấm cho một cái bây giờ?!",
 
+    "npc_witch_talk_1": "Xin chào!",
+    "npc_witch_talk_2": "Nếu bạn cần hỗ trợ từ chúng tôi, hãy nói trực tiếp với tôi đây.",
+
+    "npc_witch_talk_3": "Nếu nói là nông sản thì cũng không đúng, chúng tôi mua tất cả loại thực vật. hãy cho chúng tôi xem bạn có gì?",
+
+
     "npc_talk": "> Nói chuyện",
     "npc_player_buy": "> Tôi muốn mua hàng",
     "npc_player_sell": "> Tôi muốn bán hàng",
     "npc_player_cancel": "> Rời đi",
+
+    "npc_player_ascension": "> Các bạn có mua nông sản không?",
+    "npc_player_accept": "> tôi muốn bán tất cả",
+    "npc_player_deny": "> để tôi suy nghĩ đã",
 
 
     "event_3_1": "Cần có 1 thứ đặc biệt trồng xuống",

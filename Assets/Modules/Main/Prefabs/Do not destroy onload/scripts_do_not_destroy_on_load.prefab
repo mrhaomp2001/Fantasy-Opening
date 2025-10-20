@@ -6407,6 +6407,36 @@ MonoBehaviour:
   - tag: 6_bat
     prefab: {fileID: 6245564782207121452, guid: 6782887833acaaa4ca02395c29bc2f63, type: 3}
     size: 1
+  - tag: 7_grasshopper
+    prefab: {fileID: 6245564782207121452, guid: 58491e480f4fe504aaa251ae06868be4, type: 3}
+    size: 1
+  - tag: 8_bee
+    prefab: {fileID: 6245564782207121452, guid: 64ec08f3879914047be850d009e730e0, type: 3}
+    size: 1
+  - tag: 9_
+    prefab: {fileID: 6245564782207121452, guid: c0a9ee795a9ccf34fa778376dbada281, type: 3}
+    size: 1
+  - tag: 10_
+    prefab: {fileID: 6245564782207121452, guid: 9796c71c2c2e58f45aa2f4c89402dc99, type: 3}
+    size: 1
+  - tag: 11_
+    prefab: {fileID: 6245564782207121452, guid: b53fc52dff15c214e80638e08bd46abd, type: 3}
+    size: 1
+  - tag: 12_
+    prefab: {fileID: 6245564782207121452, guid: d19333a5064613948b938a777cd49971, type: 3}
+    size: 1
+  - tag: 13_
+    prefab: {fileID: 6245564782207121452, guid: 44af4ca8b121fea4b8d5bd9e089228d8, type: 3}
+    size: 1
+  - tag: 14_
+    prefab: {fileID: 6245564782207121452, guid: 2b8b88ce1f634424cbf34d217711f29a, type: 3}
+    size: 1
+  - tag: 15_
+    prefab: {fileID: 6245564782207121452, guid: cdbfd959e226d3c42ace586b22118cc3, type: 3}
+    size: 1
+  - tag: 16_
+    prefab: {fileID: 6245564782207121452, guid: b34c85453cd8eb94ea6bc8e6e1a01491, type: 3}
+    size: 1
   - tag: boss_1
     prefab: {fileID: 3533317768086776438, guid: 6fb8a0cd36f935443a3c5900a06abfe0, type: 3}
     size: 1
@@ -6442,6 +6472,12 @@ MonoBehaviour:
     size: 1
   - tag: enemy_423_clay
     prefab: {fileID: 4514686518841295757, guid: 7bbdf8c8778f58247bd4545d4f3cf81a, type: 3}
+    size: 1
+  - tag: boss_1_bullet_1
+    prefab: {fileID: 2483701315811762547, guid: 8fdc1ac2ee6b5ca4f8d18a6620d808f0, type: 3}
+    size: 1
+  - tag: boss_1_bullet_2
+    prefab: {fileID: 2483701315811762547, guid: be7037cfddfd0b8409070133448473e3, type: 3}
     size: 1
   - tag: 801_farmland
     prefab: {fileID: 976527826715303351, guid: 08c7622b77bce0147975dc1cad436717, type: 3}
@@ -12674,7 +12710,7 @@ MonoBehaviour:
     unityEventEnter:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 5363481662143115023}
           m_TargetAssemblyTypeName: PlayerBullet, Assembly-CSharp
           m_MethodName: OnHitEnemy
           m_Mode: 0

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.Progress;
 
 public static class StringExtensions
@@ -685,7 +686,19 @@ public class InventoryController : MonoBehaviour
             }
         }
     }
-    
+
+    public void Ascension()
+    {
+        PlayerPrefs.DeleteKey(prefKey);
+
+        PopUpTransition.Instance.StartTransition(() =>
+        {
+            ObjectPooler.Instance.DeactivateAllObjects();
+            SceneManager.LoadScene((int)SceneIndex.MainMenu);
+        });
+    }
+
+
     public void ConsumeHunger(int value)
     {
         playerData.Hunger -= value;

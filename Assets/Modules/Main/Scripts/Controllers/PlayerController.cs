@@ -18,8 +18,12 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     [SerializeField] private Animator animator;
     [SerializeField] private Joystick joystick;
 
-    [Header("Fire Point: ")]
+    [Header("Debug: ")]
     [SerializeField] private int cheatItemId;
+    [SerializeField] private string enemySpawn;
+
+
+    [Header("Fire Point: ")]
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Transform firepoint;
     [SerializeField] private Transform firepointHitbox;
@@ -192,6 +196,18 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         {
             ObjectPooler.Instance.DeactivateAllObjects();
             SceneManager.LoadScene((int)SceneIndex.MainMenu);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            GameObject enemyGO = ObjectPooler.Instance.SpawnFromPool(enemySpawn, firepointHitbox.position, Quaternion.identity);
+
+            var enemy = enemyGO.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                enemy.Initialize();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.X))
