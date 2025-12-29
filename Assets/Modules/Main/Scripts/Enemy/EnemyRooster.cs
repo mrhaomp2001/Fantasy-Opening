@@ -1,4 +1,4 @@
-using GameUtil;
+﻿using GameUtil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +19,7 @@ public class EnemyRooster : Enemy
             timerMoveMent = Timer.LoopAction(delayMove, (int count) =>
             {
                 Move();
+                SeparateFromOtherEnemies();
             });
         }
         else
@@ -35,6 +36,35 @@ public class EnemyRooster : Enemy
         }
     }
 
+    [SerializeField] private float separationRadius = 0.5f;
+    [SerializeField] private float separationForce = 2f;
+    [SerializeField] private LayerMask enemyLayer;
+
+    private void SeparateFromOtherEnemies()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            transform.position,
+            separationRadius,
+            enemyLayer
+        );
+
+        Vector2 force = Vector2.zero;
+
+        foreach (var hit in hits)
+        {
+            if (hit.transform == transform) continue;
+
+            Vector2 dir = (Vector2)(transform.position - hit.transform.position);
+            float distance = dir.magnitude;
+
+            if (distance > 0)
+            {
+                force += dir.normalized / distance;
+            }
+        }
+
+        rb.AddForce(force * separationForce, ForceMode2D.Force);
+    }
     private void Move()
     {
         if (CanMove)

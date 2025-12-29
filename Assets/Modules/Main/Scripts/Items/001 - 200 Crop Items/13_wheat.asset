@@ -17,9 +17,9 @@ MonoBehaviour:
   itemDescription: 13_wheat-item_description
   sprite: {fileID: 21300000, guid: ff72f499dbde9f843baf7a29c9065c6d, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: ff72f499dbde9f843baf7a29c9065c6d, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 130
+  sellPrice: 130
   useTime: 0
   isNonStack: 0
-  isFood: 0
-  hungerCount: 0
+  isFood: 1
+  hungerCount: 2

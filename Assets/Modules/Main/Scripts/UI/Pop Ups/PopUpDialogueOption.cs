@@ -85,6 +85,15 @@ public class PopUpDialogueOption : PopUp
         action6 = actionOption6;
 
         UpdateViews();
+
+        //
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+        foreach (var item in enemies)
+        {
+            item.CanMove = false;
+        }
+        //
     }
 
     public void ChooseAction(int choice)
@@ -114,6 +123,15 @@ public class PopUpDialogueOption : PopUp
                 break;
         }
         Hide();
+
+        //
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+        foreach (var item in enemies)
+        {
+            item.CanMove = true;
+        }
+        //
     }
 
     public void UpdateViews()

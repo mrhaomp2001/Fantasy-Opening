@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,6 +34,17 @@ public class NPCWitch : NPC
                 action = () =>
                 {
                     InventoryController.Instance.Ascension();
+
+                    PopUpDialogue.Instance.ShowDialogue(new List<Dialogue>()
+                    {
+                        new Dialogue
+                        {
+                            Name = LanguageController.Instance.GetString("[ Phù thủy trưởng ]"),
+                            Content = LanguageController.Instance.GetString("npc_witch_talk_4"),
+                            Sprite = null
+                        }
+                    });
+
                 }
             },
             new ActionWithMessage

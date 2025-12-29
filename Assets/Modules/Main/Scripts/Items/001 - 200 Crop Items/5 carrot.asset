@@ -17,5 +17,9 @@ MonoBehaviour:
   itemDescription: 5_carrot-item_description
   sprite: {fileID: 21300000, guid: 179b887d7c89e504881a2aa10e521360, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 179b887d7c89e504881a2aa10e521360, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 50
+  sellPrice: 50
+  useTime: 0
+  isNonStack: 0
+  isFood: 1
+  hungerCount: 1

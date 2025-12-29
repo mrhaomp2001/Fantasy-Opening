@@ -4900,7 +4900,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 250
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4994,14 +4994,21 @@ MonoBehaviour:
     - itemInput: {fileID: 11400000, guid: 075da12d2d8289d4bb0744d2722b6b8b, type: 2}
       count: 1
     - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
-      count: 5
+      count: 1
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 58cf7e7a9011e0443af71a5b5132dceb, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: e18dbe0c146da384cb1d90013d29bad4, type: 2}
       count: 1
     - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
-      count: 5
+      count: 1
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 2e2c2b768dff8c541821197a5b24b84b, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: cf14467e990213c418ab91d12a9136b9, type: 2}
+      count: 1
+    - itemInput: {fileID: 11400000, guid: b796d26d7d03ed54c9dd6a1ff29b613a, type: 2}
+      count: 1
 --- !u!1 &7493711526476692119
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,7 +5157,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1495425789
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: f7cc9698bd470ac45af17db031e44cd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

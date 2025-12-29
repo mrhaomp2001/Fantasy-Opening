@@ -14,7 +14,7 @@ public class LoadingSceneController : MonoBehaviour
 {
     public void Loaded()
     {
-        SceneManager.LoadScene((int)SceneIndex.Gameplay);
+        SceneManager.LoadScene((int)SceneIndex.MainMenu);
     }
 
 }

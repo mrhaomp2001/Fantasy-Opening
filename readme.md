@@ -1,3 +1,962 @@
+
+# [ 19:34:03 29/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:09:09 27/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 00:29:59 27/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:24:05 25/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 21:04:58 24/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 14:37:02 24/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 13:44:50 24/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 10:26:38 24/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:07:41 23/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:04:41 22/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 10:57:53 22/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:44:50 21/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:14:56 20/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 17:49:41 15/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 15:33:11 12/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 18:16:39 11/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 10:46:54 08/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:17:44 06/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 01:13:10 06/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 18:57:36 05/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:14:54 05/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 23:40:46 03/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 08:28:13 01/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 00:09:59 01/12/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:43:58 30/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 13:42:56 29/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:33:04 28/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 14:05:23 27/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 13:40:34 26/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:21:20 25/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 10:03:19 24/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 13:47:55 23/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:01:05 23/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 10:52:53 22/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:43:43 21/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 16:50:04 20/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:50:05 20/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:46:07 19/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 21:08:25 18/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:52:31 18/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:33:26 17/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:39:06 16/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 08:58:26 15/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 07:19:39 14/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+`# [ 08:34:38 13/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 10:09:16 12/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 07:43:01 11/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 18:59:32 10/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 08:56:26 10/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 08:57:13 09/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 15:12:08 08/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 00:11:41 08/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 18:19:30 07/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 17:43:57 06/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 17:46:58 05/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 00:01:24 05/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 17:45:40 04/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 03:56:39 04/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 17:43:32 03/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 02:23:53 03/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:44:48 02/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 09:29:41 02/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 18:27:26 01/11/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:38:55 31/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:33:05 30/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 10:58:10 29/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:34:11 28/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 10:25:51 27/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+# [ 17:25:59 26/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 11:33:50 26/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 18:22:47 25/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 08:48:31 25/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:47:38 24/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 17:06:07 23/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:13:06 23/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 18:46:03 22/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 08:53:17 22/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 22:39:18 21/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 15:33:42 21/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
+
+# [ 12:37:33 21/10/2025 ]
+
+<details>
+<summary><h2>Chi tiết công việc:</h2> </summary>
+
+### Kết quả hôm nay:
+
+### Công việc trong kế hoạch: 
+
+</details>
+
 # [ 12:46:02 20/10/2025 ]
 
 <details>

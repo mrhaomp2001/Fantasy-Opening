@@ -17,7 +17,9 @@ MonoBehaviour:
   itemDescription: 416_stone-item_description
   sprite: {fileID: 21300000, guid: 2474e0ed1a5b6054cbce7a752894d3bf, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 2474e0ed1a5b6054cbce7a752894d3bf, type: 3}
-  buyPrice: 1
-  sellPrice: 1
+  buyPrice: 50
+  sellPrice: 50
   useTime: 0
   isNonStack: 0
+  isFood: 0
+  hungerCount: 0

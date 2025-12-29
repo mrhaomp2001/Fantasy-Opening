@@ -1,488 +1,608 @@
 {
-    "hello_world": "Xin chào!",
-    "example": "Ví dụ như này nè!",
-    
-    
-    "loading": "Đang tải",
-    "start": "Bắt đầu",
-    "continue": "Tiếp tục",
-    "upgrade": "Nâng cấp",
-
-
-    "crafting": "Chế tạo",
-    "stats": "Chỉ số",
-    "value": "Giá trị",
-    "value_sell": "Giá bán",
-    "equipment": "Trang bị",
-
-    "dead": "Bạn đã kiệt sức",
-    "revive": "Hồi sinh",
-    "throw_item": "Ném vật phẩm",
-    "delete_item": "Xóa vật phẩm",
-
-    "0_hpMax": "Máu tối đa",
-    "1_hpRegeneration": "Khả năng hồi máu",
-    "2_damageGlobalBonus": "Sát thương chung",
-    "3_meleeDamageBonus": "Sát thương cận chiến",
-    "4_rangeDamageBonus": "Sát thương tầm xa",
-    "5_magicDamageBonus": "Sát thương phép",
-    "6_attackSpeedBonus": "Tốc độ tấn công",
-    "7_critChance": "Tỉ lệ chí mạng",
-    "8_range": "Tầm đánh",
-    "9_dodge": "Tỉ lệ né",
-    "10_speed": "Tốc độ",
-    "11_curse": "Nguyền rủa",
-    "12_defend": "Phòng thủ",
+  "hello_world": "Xin chào!",
+  "example": "Ví dụ như này nè!",
+
+  "loading": "Đang tải",
+  "start": "Bắt đầu",
+  "settings": "Cài đặt",
+  "continue": "Tiếp tục",
+  "upgrade": "Nâng cấp",
+  "quit": "Thoát",
+  "cancel": "Trở lại",
+  "resume": "Quay lại trò chơi",
+  "sleep": "Ngủ",
+  "quit_to_main_menu": "Màn hình chính",
+
+  "master_volume": "Âm lượng tổng",
+  "background_volume": "Âm lượng nhạc nền",
+  "effect_volume": "Âm lượng hiệu ứng",
+  "input_control": "Các phím tắt",
+  "change": "Thay đổi",
+  "select_a_input": "Chọn một nút",
+
+  "up_arrow": "Mũi tên lên",
+  "down_arrow": "Mũi tên xuống",
+  "left_arrow": "Mũi tên trái",
+  "right_arrow": "Mũi tên phải",
+
+  "backspace": "Nút xóa (Backspace)",
+  "space": "Nút cách (Space)",
+  "left_ctrl": "Ctrl trái",
+  "left_shift": "Shift trái",
+  "tab": "Phím tab",
+
+  "left": "Đi sang trái",
+  "right": "Đi sang phải",
+  "up": "Đi lên",
+  "down": "Đi xuống",
+
+  "inventory": "Túi đồ",
+  
+  "hotkey_1": "Phím tắt 1",
+  "hotkey_2": "Phím tắt 2",
+  "hotkey_3": "Phím tắt 3",
+  "hotkey_4": "Phím tắt 4",
+  "hotkey_5": "Phím tắt 5",
+  "hotkey_6": "Phím tắt 6",
+  "hotkey_7": "Phím tắt 7",
+  "hotkey_8": "Phím tắt 8",
+  "hotkey_9": "Phím tắt 9",
+
+  "crafting": "Chế tạo",
+  "stats": "Chỉ số",
+  "value": "Giá trị",
+  "value_sell": "Giá bán",
+  "equipment": "Trang bị",
+  "edible": "Ăn được",
+  "fullness": "Độ no bụng",
+
+  "dead": "Bạn đã kiệt sức",
+  "revive": "Hồi sinh",
+  "throw_item": "Ném vật phẩm",
+  "delete_item": "Xóa vật phẩm",
+
+  "0_hpMax": "Máu tối đa",
+  "1_hpRegeneration": "Khả năng hồi máu",
+  "2_damageGlobalBonus": "Sát thương chung",
+  "3_meleeDamageBonus": "Sát thương cận chiến",
+  "4_rangeDamageBonus": "Sát thương tầm xa",
+  "5_magicDamageBonus": "Sát thương phép",
+  "6_attackSpeedBonus": "Tốc độ tấn công",
+  "7_critChance": "Tỉ lệ chí mạng",
+  "8_range": "Tầm đánh",
+  "9_dodge": "Tỉ lệ né",
+  "10_speed": "Tốc độ",
+  "11_curse": "Nguyền rủa",
+  "12_defend": "Phòng thủ",
+
+  "buff_1": "A xít",
+  "buff_2": "Adrenaline",
+  "buff_3": "Cỏ ba lá",
+  "buff_4": "Con mắt",
+  "buff_5": "Khiên nặng",
+
+  "buff_6": "Cận chiến cấp 1",
+  "buff_7": "Cận chiến cấp 2",
+  "buff_8": "Cận chiến cấp 3",
+  "buff_9": "Cận chiến cấp 4",
+  "buff_10": "Cận chiến cấp 5",
+
+  "buff_11": "Ma thuật cấp 1",
+  "buff_12": "Ma thuật cấp 2",
+  "buff_13": "Ma thuật cấp 3",
+  "buff_14": "Ma thuật cấp 4",
+  "buff_15": "Ma thuật cấp 5",
+
+  "buff_16": "Phòng thủ cấp 1",
+  "buff_17": "Phòng thủ cấp 2",
+  "buff_18": "Phòng thủ cấp 3",
+  "buff_19": "Phòng thủ cấp 4",
+  "buff_20": "Phòng thủ cấp 5",
+
+  "event_1_start_1": "Thế giới này thật trống rỗng",
+  "event_1_start_2": "Bạn cảm thấy...",
+  "event_1_start_3": "Thực tại này chẳng là gì...",
+  "event_1_start_4": "và bạn chẳng là gì...",
 
-    "buff_1": "A xít",
-    "buff_2": "Adrenaline",
-    "buff_3": "Cỏ ba lá",
-    "buff_4": "Con mắt",
-    "buff_5": "Khiên nặng",
+  "event_1_start_5": "Bạn muốn điều gì?",
+  "event_1_start_dialogue_choose_1": "> Tôi muốn chơi với thỏ con trên đồng cỏ, bên tán cây mát mẻ",
 
-    "event_1_start_1": "Thế giới này thật trống rỗng",
-    "event_1_start_2": "Bạn cảm thấy...",
-    "event_1_start_3": "Thực tại này chẳng là gì...",
-    "event_1_start_4": "và bạn chẳng là gì...",
-    
-    "event_1_start_5": "Bạn muốn điều gì?",
-    "event_1_start_dialogue_choose_1": "> Tôi muốn chơi với thỏ con trên đồng cỏ, bên tán cây mát mẻ",
+  "event_1_start_6": "Bạn giật mình tỉnh giấc",
 
-    "event_1_start_6": "Bạn giật mình tỉnh giấc",
+  "1_corn-item_name": "Bắp",
+  "1_corn-item_description": "Bắp",
 
+  "2_peanut-item_name": "Đậu phộng",
+  "2_peanut-item_description": "Đậu phộng",
 
-    "1_corn-item_name": "Bắp",
-    "1_corn-item_description": "Bắp",
+  "3_pumpkin-item_name": "Bí ngô",
+  "3_pumpkin-item_description": "Bí ngô",
 
-    "2_peanut-item_name": "Đậu phộng",
-    "2_peanut-item_description": "Đậu phộng",
+  "4_sugar_cane-item_name": "Mía đường",
+  "4_sugar_cane-item_description": "Mía đường",
 
-    "3_pumpkin-item_name": "Bí ngô",
-    "3_pumpkin-item_description": "Bí ngô",
+  "5_carrot-item_name": "Cà rốt",
+  "5_carrot-item_description": "Cà rốt",
 
-    "4_sugar_cane-item_name": "Mía đường",
-    "4_sugar_cane-item_description": "Mía đường",
+  "6_radish-item_name": "Củ cải trắng",
+  "6_radish-item_description": "Củ cải trắng",
 
-    "5_carrot-item_name": "Cà rốt",
-    "5_carrot-item_description": "Cà rốt",
+  "7_grape-item_name": "Nho",
+  "7_grape-item_description": "Nho",
+  "8_strawberry-item_name": "Dâu",
+  "8_strawberry-item_description": "Dâu",
+  "9_blueberry-item_name": "Việt quất",
+  "9_blueberry-item_description": "Việt quất",
+  "10_banana-item_name": "Chuối",
+  "10_banana-item_description": "Chuối",
+  "11_coconut-item_name": "Dừa",
+  "11_coconut-item_description": "Dừa",
+  "12_kiwi-item_name": "Kiwi",
+  "12_kiwi-item_description": "Kiwi",
+  "13_wheat-item_name": "Lúa mì",
+  "13_wheat-item_description": "Lúa mì",
+  "14_watermelon-item_name": "Dưa hấu",
+  "14_watermelon-item_description": "Dưa hấu",
+  "15_shiver_thorn-item_name": "Gai lạnh",
+  "15_shiver_thorn-item_description": "Gai lạnh",
+  "16_icefruit-item_name": "Quả băng",
+  "16_icefruit-item_description": "Quả băng",
+  "17_kraken_mushroom-item_name": "Nấm thủy quái",
+  "17_kraken_mushroom-item_description": "Nấm thủy quái",
+  "18_waterbloom-item_name": "Hoa nước",
+  "18_waterbloom-item_description": "Hoa nước",
 
-    "6_radish-item_name": "Củ cải trắng",
-    "6_radish-item_description": "Củ cải trắng",
+  "201_corn_seed-item_name": "Hạt giống bắp",
+  "201_corn_seed-item_description": "Hạt giống bắp",
 
-    "7_grape-item_name": "Nho",
-    "7_grape-item_description": "Nho",
+  "202_peanut_seed-item_name": "Hạt giống đậu phộng",
+  "202_peanut_seed-item_description": "Hạt giống đậu phộng",
 
-    "8_strawberry-item_name": "Dâu",
-    "8_strawberry-item_description": "Dâu",
-    
-    "12_kiwi-item_name": "Kiwi",
-    "12_kiwi-item_description": "Kiwi",
+  "203_pumpkin_seed-item_name": "Hạt bí ngô",
+  "203_pumpkin_seed-item_description": "Hạt bí ngô",
 
-    "13_wheat-item_name": "Lúa mì",
-    "13_wheat-item_description": "Lúa mì",
+  "204_sugar_cane_seed-item_name": "Mía đường giống",
+  "204_sugar_cane_seed-item_description": "Mía đường giống",
 
+  "205_carrot_seed-item_name": "Hạt cà rốt",
+  "205_carrot_seed-item_description": "Hạt cà rốt",
 
-    "201_corn_seed-item_name": "Hạt giống bắp",
-    "201_corn_seed-item_description": "Hạt giống bắp",
+  "206_radish_seed-item_name": "Hạt củ cải trắng",
+  "206_radish_seed-item_description": "Hạt củ cải trắng",
 
-    "202_peanut_seed-item_name": "Hạt giống đậu phộng",
-    "202_peanut_seed-item_description": "Hạt giống đậu phộng",
+  "207_grape_seed-item_name": "Hạt giống nho",
+  "207_grape_seed-item_description": "Hạt giống nho",
 
-    "203_pumpkin_seed-item_name": "Hạt bí ngô",
-    "203_pumpkin_seed-item_description": "Hạt bí ngô",
+  "208_strawberry_seed-item_name": "Hạt giống dâu",
+  "208_strawberry_seed-item_description": "Hạt giống dâu",
 
-    "204_sugar_cane_seed-item_name": "Mía đường giống",
-    "204_sugar_cane_seed-item_description": "Mía đường giống",
+  "209_blueberry_seed-item_name": "Hạt giống việt quất",
+  "209_blueberry_seed-item_description": "Hạt giống việt quất",
 
-    "205_carrot_seed-item_name": "Hạt cà rốt",
-    "205_carrot_seed-item_description": "Hạt cà rốt",
+  "210_banana_seed-item_name": "Hạt giống chuối",
+  "210_banana_seed-item_description": "Hạt giống chuối",
 
-    "206_radish_seed-item_name": "Hạt củ cải trắng",
-    "206_radish_seed-item_description": "Hạt củ cải trắng",
+  "211_coconut_seed-item_name": "Hạt giống dừa",
+  "211_coconut_seed-item_description": "Hạt giống dừa",
 
-    "207_grape_seed-item_name": "Hạt giống nho",
-    "207_grape_seed-item_description": "Hạt giống nho",
-    
-    "208_strawberry_seed-item_name": "Hạt giống dâu",
-    "208_strawberry_seed-item_description": "Hạt giống dâu",
+  "212_kiwi_seed-item_name": "Hạt giống kiwi",
+  "212_kiwi_seed-item_description": "Hạt giống kiwi",
 
-    "212_kiwi_seed-item_name": "Hạt giống kiwi",
-    "212_kiwi_seed-item_description": "Hạt giống kiwi",
-    
-    "213_wheat_seed-item_name": "Hạt giống lúa mì",
-    "213_wheat_seed-item_description": "Hạt giống lúa mì",
-    
+  "213_wheat_seed-item_name": "Hạt giống lúa mì",
+  "213_wheat_seed-item_description": "Hạt giống lúa mì",
 
+  "214_watermelon_seed-item_name": "Hạt giống dưa hấu",
+  "214_watermelon_seed-item_description": "Hạt giống dưa hấu",
 
-    "401_wood-item_name": "Gỗ",
-    "401_wood-item_description": "Gỗ",
+  "215_shiver_thorn_seed-item_name": "Hạt giống cây gai lạnh",
+  "215_shiver_thorn_seed-item_description": "Hạt giống cây gai lạnh",
 
-    "402_small_egg-item_name": "Trứng nhỏ",
-    "402_small_egg-item_description": "Trứng nhỏ",
+  "216_icefruit_seed-item_name": "Hạt giống quả băng",
+  "216_icefruit_seed-item_description": "Hạt giống quả băng",
 
-    "403_pumpkin_pie-item_name": "Bánh bí ngô",
-    "403_pumpkin_pie-item_description": "Bánh bí ngô",
+  "217_kraken_mushroom_seed-item_name": "Hạt giống nấm thủy quái",
+  "217_kraken_mushroom_seed-item_description": "Hạt giống nấm thủy quái",
 
-    "404_sugar-item_name": "Đường",
-    "404_sugar-item_description": "Đường",
+  "218_waterbloom_seed-item_name": "Hạt giống hoa nước",
+  "218_waterbloom_seed-item_description": "Hạt giống hoa nước",
 
-    "405_big_egg-item_name": "Trứng lớn",
-    "405_big_egg-item_description": "Trứng lớn",
+  "401_wood-item_name": "Gỗ",
+  "401_wood-item_description": "Gỗ",
 
-    "406_chicken_leg-item_name": "Đùi gà",
-    "406_chicken_leg-item_description": "Đùi gà",
+  "402_small_egg-item_name": "Trứng nhỏ",
+  "402_small_egg-item_description": "Trứng nhỏ",
 
-    "407_coin-item_name": "Tiền",
-    "407_coin-item_description": "Tiền",
+  "403_pumpkin_pie-item_name": "Bánh bí ngô",
+  "403_pumpkin_pie-item_description": "Bánh bí ngô",
 
-    "408_popcorn-item_name": "Bắp rang",
-    "408_popcorn-item_description": "Bắp rang",
+  "404_sugar-item_name": "Đường",
+  "404_sugar-item_description": "Đường",
 
-    "409_enchanted_pea-item_name": "Hạt đậu thần",
-    "409_enchanted_pea-item_description": "Hạt đậu thần \n<color=red>[Không trồng trong ô đất được]</color>",
+  "405_big_egg-item_name": "Trứng lớn",
+  "405_big_egg-item_description": "Trứng lớn",
 
-    "410_carrot_fries-item_name": "Cà rốt chiên",
-    "410_carrot_fries-item_description": "Cà rốt chiên",
+  "406_chicken_leg-item_name": "Đùi gà",
+  "406_chicken_leg-item_description": "Đùi gà",
 
-    "411_coal-item_name": "Than đá",
-    "411_coal-item_description": "Than đá",
+  "407_coin-item_name": "Tiền",
+  "407_coin-item_description": "Tiền",
 
-    "412_copper_ore-item_name": "Quặng đồng",
-    "412_copper_ore-item_description": "Quặng đồng",
+  "408_popcorn-item_name": "Bắp rang",
+  "408_popcorn-item_description": "Bắp rang",
 
-    "413_crystal_purple-item_name": "Tinh thể tím",
-    "413_crystal_purple-item_description": "Tinh thể tím",
+  "409_enchanted_pea-item_name": "Hạt đậu thần",
+  "409_enchanted_pea-item_description": "Hạt đậu thần \n<color=red>[Không trồng trong ô đất được]</color>",
 
-    "414_crystal_pink-item_name": "Tinh thể hồng",
-    "414_crystal_pink-item_description": "Tinh thể hồng",
+  "410_carrot_fries-item_name": "Cà rốt chiên",
+  "410_carrot_fries-item_description": "Cà rốt chiên",
 
-    "415_copper_ingot-item_name": "Thỏi đồng",
-    "415_copper_ingot-item_description": "Thỏi đồng",
+  "411_coal-item_name": "Than đá",
+  "411_coal-item_description": "Than đá",
 
-    "416_stone-item_name": "Đá",
-    "416_stone-item_description": "Đá",
+  "412_copper_ore-item_name": "Quặng đồng",
+  "412_copper_ore-item_description": "Quặng đồng",
 
-    "417_chicken_leg_cooked-item_name": "Đùi gà nướng",
-    "417_chicken_leg_cooked-item_description": "Đùi gà nướng",
+  "413_crystal_purple-item_name": "Tinh thể tím",
+  "413_crystal_purple-item_description": "Tinh thể tím",
 
-    "418_radish_carrot_soup-item_name": "Súp củ cải cà rốt",
-    "418_radish_carrot_soup-item_description": "Súp củ cải cà rốt",
+  "414_crystal_pink-item_name": "Tinh thể hồng",
+  "414_crystal_pink-item_description": "Tinh thể hồng",
 
-    "419_stone_diorite-item_name": "Đá diorite",
-    "419_stone_diorite-item_description": "Đá diorite",
+  "415_copper_ingot-item_name": "Thỏi đồng",
+  "415_copper_ingot-item_description": "Thỏi đồng",
 
-    "420_wood_dark-item_name": "Gỗ sẫm",
-    "420_wood_dark-item_description": "Gỗ sẫm",
-    
-    "421_sapphire-item_name": "Lam ngọc",
-    "421_sapphire-item_description": "Lam ngọc",
+  "416_stone-item_name": "Đá",
+  "416_stone-item_description": "Đá",
 
-    "422_iron_ore-item_name": "Quặng sắt",
-    "422_iron_ore-item_description": "Quặng sắt",
+  "417_chicken_leg_cooked-item_name": "Đùi gà nướng",
+  "417_chicken_leg_cooked-item_description": "Đùi gà nướng",
 
-    "423_clay-item_name": "Đất sét",
-    "423_clay-item_description": "Đất sét",
-    
-    "424_iron_ingot-item_name": "Thỏi sắt",
-    "424_iron_ingot-item_description": "Thỏi sắt",
-    
-    "425_brick-item_name": "Gạch",
-    "425_brick-item_description": "Gạch",
+  "418_radish_carrot_soup-item_name": "Súp củ cải cà rốt",
+  "418_radish_carrot_soup-item_description": "Súp củ cải cà rốt",
 
-    "426_bread-item_name": "Bánh mì",
-    "426_bread-item_description": "Bánh mì",
+  "419_stone_diorite-item_name": "Đá diorite",
+  "419_stone_diorite-item_description": "Đá diorite",
 
-    "427_flour-item_name": "Bột mì",
-    "427_flour-item_description": "Bột mì",
+  "420_wood_dark-item_name": "Gỗ sẫm",
+  "420_wood_dark-item_description": "Gỗ sẫm",
 
+  "421_sapphire-item_name": "Lam ngọc",
+  "421_sapphire-item_description": "Lam ngọc",
 
-    "601_weapon_1-item_name": "Kiếm gỗ",
-    "601_weapon_1-item_description": "Kiếm gỗ",
+  "422_iron_ore-item_name": "Quặng sắt",
+  "422_iron_ore-item_description": "Quặng sắt",
 
-    "602_weapon_2-item_name": "Rìu gỗ",
-    "602_weapon_2-item_description": "Rìu gỗ",
+  "423_clay-item_name": "Đất sét",
+  "423_clay-item_description": "Đất sét",
 
-    "603_weapon_3-item_name": "Cuốc chim gỗ",
-    "603_weapon_3-item_description": "Cuốc chim gỗ",
+  "424_iron_ingot-item_name": "Thỏi sắt",
+  "424_iron_ingot-item_description": "Thỏi sắt",
 
-    "604_weapon_2-item_name": "Kiếm đồng",
-    "604_weapon_2-item_description": "Kiếm đồng",
+  "425_brick-item_name": "Gạch",
+  "425_brick-item_description": "Gạch",
 
-    "605_weapon_3_staff_crystal-item_name": "Gậy phép tinh thể",
-    "605_weapon_3_staff_crystal-item_description": "Gậy phép tinh thể",
+  "426_bread-item_name": "Bánh mì",
+  "426_bread-item_description": "Bánh mì",
 
-    "606_axe_copper-item_name": "Rìu đồng",
-    "606_axe_copper-item_description": "Rìu đồng",
+  "427_flour-item_name": "Bột mì",
+  "427_flour-item_description": "Bột mì",
 
-    "607_pickaxe_copper-item_name": "Cuốc chim đồng",
-    "607_pickaxe_copper-item_description": "Cuốc chim đồng",
-    
-    "608_hammer_wood-item_name": "Búa gỗ",
-    "608_hammer_wood-item_description": "Búa gỗ",
+  "428_candy_wood-item_name": "Kẹo gậy",
+  "428_candy_wood-item_description": "Kẹo gậy",
 
-    "609_pickaxe_crystal-item_name": "Cuốc chim tinh thể",
-    "609_pickaxe_crystal-item_description": "Cuốc chim tinh thể",
+  "429_snow_ball-item_name": "Bóng tuyết",
+  "429_snow_ball-item_description": "Bóng tuyết",
 
-    "610_axe_crystal-item_name": "Rìu tinh thể",
-    "610_axe_crystal-item_description": "Rìu tinh thể",
-    
-    "611_weapon_3_sword_iron-item_name": "Kiếm sắt",
-    "611_weapon_3_sword_iron-item_description": "Kiếm sắt",
+  "601_weapon_1-item_name": "Kiếm gỗ",
+  "601_weapon_1-item_description": "Kiếm gỗ",
 
-	"612_sapphire_wand-item_name": "Gậy phép lam ngọc",
-	"612_sapphire_wand-item_description": "Gậy phép lam ngọc",
+  "602_weapon_2-item_name": "Rìu gỗ",
+  "602_weapon_2-item_description": "Rìu gỗ",
 
-    
+  "603_weapon_3-item_name": "Cuốc chim gỗ",
+  "603_weapon_3-item_description": "Cuốc chim gỗ",
 
-    "801_farmland-item_name": "Ô đất",
-    "801_farmland-item_description": "Ô đất",
+  "604_weapon_2-item_name": "Kiếm đồng",
+  "604_weapon_2-item_description": "Kiếm đồng",
 
-    "802_bed-item_name": "Giường",
-    "802_bed-item_description": "Giường",
+  "605_weapon_3_staff_crystal-item_name": "Gậy phép tinh thể",
+  "605_weapon_3_staff_crystal-item_description": "Gậy phép tinh thể",
 
-    "803_chest-item_name": "Rương",
-    "803_chest-item_description": "Rương",
+  "606_axe_copper-item_name": "Rìu đồng",
+  "606_axe_copper-item_description": "Rìu đồng",
 
-    "804_crafting_table-item_name": "Bàn chế tạo",
-    "804_crafting_table-item_description": "Bàn chế tạo",
+  "607_pickaxe_copper-item_name": "Cuốc chim đồng",
+  "607_pickaxe_copper-item_description": "Cuốc chim đồng",
 
-    "805_farmland_copper-item_name": "Ô đất đồng",
-    "805_farmland_copper-item_description": "Ô đất đồng\nCó tỷ lệ <color=#00FF00>1/4</color> cây sẽ lớn thêm <color=#00FF00>1</color> ngày khi gieo hạt",
+  "608_hammer_wood-item_name": "Búa gỗ",
+  "608_hammer_wood-item_description": "Búa gỗ",
 
+  "609_pickaxe_crystal-item_name": "Cuốc chim tinh thể",
+  "609_pickaxe_crystal-item_description": "Cuốc chim tinh thể",
 
-    "806_farmland_iron-item_name": "Ô đất sắt",
-    "806_farmland_iron-item_description": "Ô đất sắt",
+  "610_axe_crystal-item_name": "Rìu tinh thể",
+  "610_axe_crystal-item_description": "Rìu tinh thể",
 
-    "807_farmland_silver-item_name": "Ô đất bạc",
-    "807_farmland_silver-item_description": "Ô đất bạc",
+  "611_weapon_3_sword_iron-item_name": "Kiếm sắt",
+  "611_weapon_3_sword_iron-item_description": "Kiếm sắt",
 
-    "808_farmland_gold-item_name": "Ô đất vàng",
-    "808_farmland_gold-item_description": "Ô đất vàng",
+  "612_sapphire_wand-item_name": "Gậy phép lam ngọc",
+  "612_sapphire_wand-item_description": "Gậy phép lam ngọc",
 
-    "809_campfire-item_name": "Lửa trại",
-    "809_campfire-item_description": "Lửa trại",
-        
-    "810_furnace-item_name": "Lò nung",
-    "810_furnace-item_description": "Lò nung",
+  "801_farmland-item_name": "Ô đất",
+  "801_farmland-item_description": "Ô đất",
 
-    "811_anvil_copper-item_name": "Đe đồng",
-    "811_anvil_copper-item_description": "Đe đồng",
+  "802_bed-item_name": "Giường",
+  "802_bed-item_description": "Giường",
 
-    "812_crystal_table-item_name": "Bàn tinh thể",
-    "812_crystal_table-item_description": "Bàn tinh thể",
+  "803_chest-item_name": "Rương",
+  "803_chest-item_description": "Rương",
 
-    "813_cauldron_copper-item_name": "Nồi đồng",
-    "813_cauldron_copper-item_description": "Nồi đồng",
+  "804_crafting_table-item_name": "Bàn chế tạo",
+  "804_crafting_table-item_description": "Bàn chế tạo",
 
-    "814_farmland_crystal-item_name": "Ô đất tinh thể",
-    "814_farmland_crystal-item_description": "Đất canh tác tinh thể\nCó tỷ lệ <color=#00FF00>1/10</color> nhận thêm <color=#00FF00>1</color> sản phẩm khi thu hoạch",
+  "805_farmland_copper-item_name": "Ô đất đồng",
+  "805_farmland_copper-item_description": "Ô đất đồng\nCó tỷ lệ <color=#00FF00>1/4</color> cây sẽ lớn thêm <color=#00FF00>1</color> ngày khi gieo hạt",
 
-    "815_blast_furnace-item_name": "Lò nung sắt",
-    "815_blast_furnace-item_description": "Lò nung sắt",
+  "806_farmland_iron-item_name": "Ô đất sắt",
+  "806_farmland_iron-item_description": "Ô đất sắt",
 
-    "816_anvil_iron-item_name": "Đe sắt",
-    "816_anvil_iron-item_description": "Đe sắt",
+  "807_farmland_silver-item_name": "Ô đất bạc",
+  "807_farmland_silver-item_description": "Ô đất bạc",
 
-    "817_brick_furnace-item_name": "Lò nung gạch",
-    "817_brick_furnace-item_description": "Lò nung gạch",
+  "808_farmland_gold-item_name": "Ô đất vàng",
+  "808_farmland_gold-item_description": "Ô đất vàng",
 
-    "818_rice_grinder-item_name": "Cối xay",
-    "818_rice_grinder-item_description": "Cối xay",
-    
+  "809_campfire-item_name": "Lửa trại",
+  "809_campfire-item_description": "Lửa trại",
 
+  "810_furnace-item_name": "Lò nung",
+  "810_furnace-item_description": "Lò nung",
 
-    
-    "1001_wood_helmet-item_name": "Nón gỗ",
-    "1001_wood_helmet-item_description": "Nón gỗ",
-    
-    "1002_wood_breastplate-item_name": "Áo giáp gỗ",
-    "1002_wood_breastplate-item_description": "Áo giáp gỗ",
-    
-    "1003_wood_leggings-item_name": "Quần gỗ",
-    "1003_wood_leggings-item_description": "Quần gỗ",
-    
-    "1004_wood_boots-item_name": "Giày gỗ",
-    "1004_wood_boots-item_description": "Giày gỗ",
+  "811_anvil_copper-item_name": "Đe đồng",
+  "811_anvil_copper-item_description": "Đe đồng",
 
-    "1005_helmet_copper-item_name": "Nón đồng",
-    "1005_helmet_copper-item_description": "Nón đồng",
+  "812_crystal_table-item_name": "Bàn tinh thể",
+  "812_crystal_table-item_description": "Bàn tinh thể",
 
-    "1006_breastplate_copper-item_name": "Áo giáp đồng",
-    "1006_breastplate_copper-item_description": "Áo giáp đồng",
+  "813_cauldron_copper-item_name": "Nồi đồng",
+  "813_cauldron_copper-item_description": "Nồi đồng",
 
-    "1007_leggings_copper-item_name": "Giáp chân đồng",
-    "1007_leggings_copper-item_description": "Giáp chân đồng",
+  "814_farmland_crystal-item_name": "Ô đất tinh thể",
+  "814_farmland_crystal-item_description": "Đất canh tác tinh thể\nCó tỷ lệ <color=#00FF00>1/10</color> nhận thêm <color=#00FF00>1</color> sản phẩm khi thu hoạch",
 
-    "1008_boots_copper-item_name": "Giày đồng",
-    "1008_boots_copper-item_description": "Giày đồng",
+  "815_blast_furnace-item_name": "Lò nung sắt",
+  "815_blast_furnace-item_description": "Lò nung sắt",
 
-    "1009_helmet_crystal-item_name": "Nón tinh thể",
-    "1009_helmet_crystal-item_description": "Nón tinh thể",
+  "816_anvil_iron-item_name": "Đe sắt",
+  "816_anvil_iron-item_description": "Đe sắt",
 
-    "1010_breastplate_crystal-item_name": "Áo giáp tinh thể",
-    "1010_breastplate_crystal-item_description": "Áo giáp tinh thể",
+  "817_brick_furnace-item_name": "Lò nung gạch",
+  "817_brick_furnace-item_description": "Lò nung gạch",
 
-    "1011_leggings_crystal-item_name": "Giáp chân tinh thể",
-    "1011_leggings_crystal-item_description": "Giáp chân tinh thể",
+  "818_rice_grinder-item_name": "Cối xay",
+  "818_rice_grinder-item_description": "Cối xay",
 
-    "1012_boots_crystal-item_name": "Giày tinh thể",
-    "1012_boots_crystal-item_description": "Giày tinh thể",
+  "819_sapphire_processing_table-item_name": "Bàn xử lý lam ngọc",
+  "819_sapphire_processing_table-item_description": "Bàn xử lý lam ngọc",
 
+  "820_player_foundation-item_name": "Khối xây dựng",
+  "820_player_foundation-item_description": "Khối xây dựng",
 
-    "1013_helmet_iron-item_name": "Nón sắt",
-    "1013_helmet_iron-item_description": "Nón sắt",
-    
-    "1014_breastplate_iron-item_name": "Áo giáp sắt",
-    "1014_breastplate_iron-item_description": "Áo giáp sắt",
-    
-    "1015_leggings_iron-item_name": "Giáp chân sắt",
-    "1015_leggings_iron-item_description": "Giáp chân sắt",
-    
-    "1016_boots_iron-item_name": "Giày sắt",
-    "1016_boots_iron-item_description": "Giày sắt",
+  "1001_wood_helmet-item_name": "Nón gỗ",
+  "1001_wood_helmet-item_description": "Nón gỗ",
 
-    "1017_helmet_sapphire-item_name": "Nón lam ngọc",
-    "1017_helmet_sapphire-item_description": "Nón lam ngọc",
+  "1002_wood_breastplate-item_name": "Áo giáp gỗ",
+  "1002_wood_breastplate-item_description": "Áo giáp gỗ",
 
-    "1018_breastplate_sapphire-item_name": "Áo giáp lam ngọc",
-    "1018_breastplate_sapphire-item_description": "Áo giáp lam ngọc",
+  "1003_wood_leggings-item_name": "Quần gỗ",
+  "1003_wood_leggings-item_description": "Quần gỗ",
 
-    "1019_leggings_sapphire-item_name": "Giáp chân lam ngọc",
-    "1019_leggings_sapphire-item_description": "Giáp chân lam ngọc",
+  "1004_wood_boots-item_name": "Giày gỗ",
+  "1004_wood_boots-item_description": "Giày gỗ",
 
-    "1020_boots_sapphire-item_name": "Giày lam ngọc",
-    "1020_boots_sapphire-item_description": "Giày lam ngọc",
+  "1005_helmet_copper-item_name": "Nón đồng",
+  "1005_helmet_copper-item_description": "Nón đồng",
 
+  "1006_breastplate_copper-item_name": "Áo giáp đồng",
+  "1006_breastplate_copper-item_description": "Áo giáp đồng",
 
-    "1201_boss_1_summon-item_name": "Bộ phát tính hiệu lỗi",
-    "1201_boss_1_summon-item_description": "Bộ phát tính hiệu lỗi",
+  "1007_leggings_copper-item_name": "Giáp chân đồng",
+  "1007_leggings_copper-item_description": "Giáp chân đồng",
 
+  "1008_boots_copper-item_name": "Giày đồng",
+  "1008_boots_copper-item_description": "Giày đồng",
 
+  "1009_helmet_crystal-item_name": "Nón tinh thể",
+  "1009_helmet_crystal-item_description": "Nón tinh thể",
 
-    "1401_recipe_1-item_name": "Công thức lò nung",
-    "1401_recipe_1-item_description": "Công thức lò nung",
-    
-    "1402_recipe_crystal_table-item_name": "Công thức bàn tinh thể",
-    "1402_recipe_crystal_table-item_description": "Công thức bàn tinh thể",
+  "1010_breastplate_crystal-item_name": "Áo giáp tinh thể",
+  "1010_breastplate_crystal-item_description": "Áo giáp tinh thể",
 
-    
-    "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",
-    "npc_rabbit_talk_2": "Tui chỉ là con thỏ, tui trồng cà rốt, tui ăn cà rốt",
+  "1011_leggings_crystal-item_name": "Giáp chân tinh thể",
+  "1011_leggings_crystal-item_description": "Giáp chân tinh thể",
 
-    "npc_rabbit_choice_1": "> Nói chuyện",
-    "npc_rabbit_choice_2": "> Tôi muốn mua hàng",
-    "npc_rabbit_choice_3": "> Tôi muốn bán hàng",
-    "npc_rabbit_choice_4_1": "> Tại sao cô lại có nhiều tiền vậy",
-    "npc_rabbit_choice_4_2": "> Cho cô ấy 1 [{0}]",
+  "1012_boots_crystal-item_name": "Giày tinh thể",
+  "1012_boots_crystal-item_description": "Giày tinh thể",
 
-    "npc_rabbit_talk_3": "Bạn muốn nói gì? Bạn có bị cà rốt không?",
+  "1013_helmet_iron-item_name": "Nón sắt",
+  "1013_helmet_iron-item_description": "Nón sắt",
 
-    "npc_rabbit_talk_event_2_1": "Tui không phải thỏ hoang, tui là thỏ nhà mà.\nTiền là của chủ tui cho tui ăn vặt đó nha",
+  "1014_breastplate_iron-item_name": "Áo giáp sắt",
+  "1014_breastplate_iron-item_description": "Áo giáp sắt",
 
-    "npc_rabbit_choice_event_2_1": "> Nhưng ở đây có ai bán gì đâu?",
+  "1015_leggings_iron-item_name": "Giáp chân sắt",
+  "1015_leggings_iron-item_description": "Giáp chân sắt",
 
-    "npc_rabbit_talk_event_2_2": "Sẽ vui lắm nếu có ai làm cho tui ăn á.\nTui có cà rốt nhưng lại không biết nấu, toàn ăn sống á",
+  "1016_boots_iron-item_name": "Giày sắt",
+  "1016_boots_iron-item_description": "Giày sắt",
 
-    "npc_rabbit_choice_event_2_2": "> Được rồi, để tôi làm [{0}] cho cô ăn",
+  "1017_helmet_sapphire-item_name": "Nón lam ngọc",
+  "1017_helmet_sapphire-item_description": "Nón lam ngọc",
 
-    "npc_rabbit_talk_event_2_3": "He he, cám ơn, đây là cà rốt của tui nè",
+  "1018_breastplate_sapphire-item_name": "Áo giáp lam ngọc",
+  "1018_breastplate_sapphire-item_description": "Áo giáp lam ngọc",
 
-    "npc_rabbit_talk_event_2_4": "Măm măm, quá ngon luôn, đây là quà của tui nè",
+  "1019_leggings_sapphire-item_name": "Giáp chân lam ngọc",
+  "1019_leggings_sapphire-item_description": "Giáp chân lam ngọc",
 
+  "1020_boots_sapphire-item_name": "Giày lam ngọc",
+  "1020_boots_sapphire-item_description": "Giày lam ngọc",
 
-    "npc_anna_talk_1": "Xin chào! Tui là Anna! Công chúa Anna đó nha! Ê mà, tui quên kịch bản rồi, test game lẹ đi",
-    
-    "npc_anna_choice_1_1": "Banahime? Công chuối? Ủa, ủa? Mà quên kịch bản là sao bà nội",
-    "npc_anna_choice_1_2": "> Tôi muốn mua hàng",
-    "npc_anna_choice_1_3": "> Tôi muốn bán hàng",
-    "npc_anna_choice_1_4": "> Tôi muốn đi sang khu vực khác",
+  "1021_helmet_christmas_2025-item_name": "Nón giáng sinh",
+  "1021_helmet_christmas_2025-item_description": "Nón giáng sinh",
 
-    "npc_anna_talk_2_1": "Muốn đi sang khu vực khác thì phải cúng cho mấy thứ thần linh thần đần gì đó á",
-    "npc_anna_talk_2_2": "Cần cúng nông sản á, chắc người nhận là thần trái cây hay thần nông nghiệp hay gì?",
+  "1022_breastplate_chrismas_2025-item_name": "Áo giáng sinh",
+  "1022_breastplate_chrismas_2025-item_description": "Áo giáng sinh",
 
-    "npc_anna_choice_2_1": "> tôi có \n{0}: {1}, {2}: {3}\n{4}: {5}, {6}: {7}\n{8}: {9}, {10}: {11}",
-    "npc_anna_choice_2_2": "> Tôi không cần khu vực mới nữa, yêu cầu nhiều đồ vậy ai chơi hả bà.",
+  "1023_leggings_chrismas_2025-item_name": "Quần giáng sinh",
+  "1023_leggings_chrismas_2025-item_description": "Quần giáng sinh",
 
+  "1024_boots_chrismas_2025-item_name": "Tất giáng sinh",
+  "1024_boots_chrismas_2025-item_description": "Tất giáng sinh",
 
-    "npc_anna_talk_3": "Được rồi, đi ngủ đi để game còn lưu",
+  "1201_boss_1_summon-item_name": "Bộ phát tính hiệu lỗi",
+  "1201_boss_1_summon-item_description": "Bộ phát tính hiệu lỗi",
 
+  "1401_recipe_1-item_name": "Công thức lò nung",
+  "1401_recipe_1-item_description": "Công thức lò nung",
 
-    
-    "npc_miner_talk_1": "Xin chào! Tui là Tôi là một thợ mỏ, tôi thích đập đá!",
-    "npc_miner_talk_2": "Nhìn cái gì, đấm cho một cái bây giờ?!",
+  "1402_recipe_crystal_table-item_name": "Công thức bàn tinh thể",
+  "1402_recipe_crystal_table-item_description": "Công thức bàn tinh thể",
 
-    "npc_witch_talk_1": "Xin chào!",
-    "npc_witch_talk_2": "Nếu bạn cần hỗ trợ từ chúng tôi, hãy nói trực tiếp với tôi đây.",
+  "1403_recipe_sapphire_processing_table-item_name": "Công thức bàn xử lý lam ngọc",
+  "1403_recipe_sapphire_processing_table-item_description": "Công thức bàn xử lý lam ngọc",
 
-    "npc_witch_talk_3": "Nếu nói là nông sản thì cũng không đúng, chúng tôi mua tất cả loại thực vật. hãy cho chúng tôi xem bạn có gì?",
+  "1404_recipe_brick_furnace-item_name": "Công thức lò nấu gạch",
+  "1404_recipe_brick_furnace-item_description": "Công thức lò nấu gạch",
 
+  "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",
+  "npc_rabbit_talk_2": "Tui chỉ là con thỏ, tui trồng cà rốt, tui ăn cà rốt",
 
-    "npc_talk": "> Nói chuyện",
-    "npc_player_buy": "> Tôi muốn mua hàng",
-    "npc_player_sell": "> Tôi muốn bán hàng",
-    "npc_player_cancel": "> Rời đi",
+  "npc_rabbit_choice_1": "> Nói chuyện",
+  "npc_rabbit_choice_2": "> Tôi muốn mua hàng",
+  "npc_rabbit_choice_3": "> Tôi muốn bán hàng",
+  "npc_rabbit_choice_4_1": "> Tôi muốn đi sang khu vực khác",
+  "npc_rabbit_choice_4_2": "> Cho cô ấy 1 [{0}]",
 
-    "npc_player_ascension": "> Các bạn có mua nông sản không?",
-    "npc_player_accept": "> tôi muốn bán tất cả",
-    "npc_player_deny": "> để tôi suy nghĩ đã",
+  "npc_rabbit_talk_3": "Bạn muốn nói gì? Bạn có bị cà rốt không?",
 
+  "npc_rabbit_talk_event_2_1": "Tui không phải thỏ hoang, tui là thỏ nhà á.",
 
-    "event_3_1": "Cần có 1 thứ đặc biệt trồng xuống",
-    "event_option_3_1": "Tôi có {0}",
-    "event_option_3_2": "Tôi không có {0}",
-    "event_3_2": "Đi ngủ để chờ đi để có giấc mơ lớn",
-    
-    "event_3_result_1": "Bạn như là đang mơ...",
-    "event_3_result_2": "Trong màn đêm tâm tối bạn chẳng thấy gì...",
-    "event_3_result_3": "Bạn nghe thấy những tiếng ồn lớn đến mức kinh thiên động địa...",
-    "event_3_result_4": "Bạn nghe thấy những tiếng ồn như xé toạc không gian...",
-    "event_3_result_5": "Bạn nghe thấy những như những người khổng lồ đang đi bên cạnh bạn...",
+  "npc_rabbit_choice_event_2_1": "> Liên quan quá",
 
-    "event_4_1": "Bạn như là đang mơ...",
-    "event_4_2": "Trong cơn mơ, bạn có thể nhìn thấy, có thể nghe thấy...",
-    "event_4_3": "Chân của bạn đứng ở nơi đất đá nóng bỏng...",
-    "event_4_4": "Ánh nắng chói chang cùng với hơi nóng bốc lên, và mặt bạn có thể cảm nhận được...",
-    "event_4_5": "Bạn phóng tầm mắt ra thật xa, xung quanh chỉ toàn đá cứng, chúng nóng như muốn nướng bàn chân bạn...",
-    "event_4_6": "Trong cơn mờ màng, bỗng bạn thấy, thứ gì đó lấp lánh...",
-    "event_4_7": "Bạn nhìn nó, nó là một thỏi thạch anh tím, ánh sáng chiếu vào khiến nó lấp lánh...",
-    "event_4_8": "Bạn lại thấy một chiếc cuốc chim lớn nằm trên mặt đất, ánh sáng chiếu vào phần kim loại, khiến nó lấp lánh",
-    "event_4_9": "Mọi thứ đều lấp lánh, lấp lánh... Bạn sẽ?",
+  "npc_rabbit_talk_event_2_2": "Để qua khu vực khác, hãy làm cái gì đó cho tui ăn",
 
-    "event_4_option_1_1": "Tôi muốn nhặt thỏi thạch anh",
-    "event_4_option_1_2": "Tôi muốn nhặt cây cuốc chim",
-    
-    "event_4_1_1": "Bạn cuối người, nhặt viên thạch anh.",
-    "event_4_1_2": "Khi đúng thẳng lên, mọi thứ xung quanh đã thay đổi",
-    "event_4_1_3": "Xung quanh mọc lên rất nhiều cây tinh thể ngang mắt cá chân",
-    "event_4_1_4": "Chúng nhọn và dễ vỡ, bạn có thể nghe tiếng 'ting ting' nhẹ nhàng bên tai",
-    "event_4_1_5": "'Ting ting'... 'Ting ting'...",
-    "event_4_1_6": "Bỗng, bạn thấy một cô gái, với máy tóc vàng, mặc bộ váy trằng, đi chân trần, như đang đang chơi đùa giữa đám tinh thể sắt nhọn",
-    "event_4_1_7": "Đôi chân trần trắng hồng mềm mại, đi giữa đá cứng và tinh thể sắc nhọn",
-    "event_4_1_8": "Cô gái nhẹ nhàng xoay vòng, quay mặt về phía bạn, ngón tay trỏ chỉ lên môi, rồi mỉm cười, thì thầm thứ gì đó mà bạn không thể nghe rõ",
-    "event_4_1_9": "Sau đó, cô gái ngã người về đằng sau, ngã vào giữa đám tinh thể sắc nhọn.",
-    "event_4_1_10": "Bạn giật mình tỉnh giấc.",
+  "npc_rabbit_choice_event_2_2": "> Được rồi, để tôi làm [{0}] cho cô ăn",
 
-    "event_4_2_1": "Bạn cuối người, nhặt cây cuốc chim",
-    "event_4_2_2": "Nhưng cây cuốc chim đã không còn ở đó, nó đã đi xa một chút từ lúc nào",
-    "event_4_2_3": "Bạn tiến tới, nhưng cây cuốc chim lại xa hơn",
-    "event_4_2_4": "Và cứ thế, bạn càng muốn lấy, nó lại càng xa, bạn bắt đầu chạy, tăng tốc ngày càng nhanh",
-    "event_4_2_5": "Không gian như bị kéo dãn",
-    "event_4_2_6": "Bạn nghe thấy tiếng 'leng keng', như tiếng cuốc chim đào vào đá cứng",
-    "event_4_2_7": "'Leng keng'... 'Leng keng'... ",
-    "event_4_2_8": "Bạn không ghét tiếng 'Leng keng' đó, nó ấp áp và gần gũi, thân thuộc. Nhưng nó cũng rất chói tai và đáng sợ",
-    "event_4_2_9": "Bạn đang tiến gần đền cây cuốc chim",
-    "event_4_2_10": "Nhưng bây giờ, cây cuốc chim còn cao hơn cả ngọn núi, chạm vào cả mây",
-    "event_4_2_11": "Dù sao thì bạn cũng muốn chạm vào nó, bạn đã chạm vào nó",
-    "event_4_2_12": "Cây cuốc chim bắt đầu ngã, nghiên về phía bạn",
-    "event_4_2_13": "Bạn giật mình tỉnh giấc.",
+  "npc_rabbit_talk_event_2_3": "He he, cám ơn, đây là cà rốt của tui nè",
 
+  "npc_rabbit_talk_event_2_4": "Măm măm, quá ngon luôn, đây là quà của tui nè",
 
+  "npc_anna_talk_1": "Xin chào! Tui là Anna! Công chúa Anna đó nha! Ê mà, tui quên kịch bản rồi, test game lẹ đi",
 
-    "merchant_note_1": "Thương nhân chỉ mua những thứ được liệt kê bên dưới",
+  "npc_anna_choice_1_1": "Banahime? Công chuối? Ủa, ủa? Mà quên kịch bản là sao bà nội",
+  "npc_anna_choice_1_2": "> Tôi muốn mua hàng",
+  "npc_anna_choice_1_3": "> Tôi muốn bán hàng",
+  "npc_anna_choice_1_4": "> Tôi muốn đi sang khu vực khác",
 
-    "result": "Kết quả",
-    
+  "npc_anna_talk_2_1": "Muốn đi sang khu vực khác thì phải cúng cho mấy thứ thần linh thần đần gì đó á",
+  "npc_anna_talk_2_2": "Cần cúng nông sản á, chắc người nhận là thần trái cây hay thần nông nghiệp hay gì?",
 
-    "eof": "End of file"
-    
+  "npc_anna_choice_2_1": "> tôi có \n{0}: {1}, {2}: {3}\n{4}: {5}, {6}: {7}\n{8}: {9}, {10}: {11}",
+  "npc_anna_choice_2_2": "> Tôi không cần khu vực mới nữa, yêu cầu nhiều đồ vậy ai chơi hả bà.",
+
+  "npc_anna_talk_3": "Được rồi, đi ngủ đi để game còn lưu",
+
+  "npc_miner_talk_1": "Xin chào! Tui là Tôi là một thợ mỏ, tôi thích đập đá!",
+  "npc_miner_talk_2": "Nhìn cái gì, đấm cho một cái bây giờ?!",
+
+  "npc_miner_talk_2_1": "Muốn đi sang khu vực khác thì phải cúng cho mấy thứ thần linh thần đần gì đó á",
+  "npc_miner_talk_2_2": "Cần cúng nông sản á, chắc người nhận là thần trái cây hay thần nông nghiệp hay gì?",
+
+  "npc_miner_talk_island": "> tôi có \n{0}: {1}, {2}: {3}\n{4}: {5}, {6}: {7}\n{8}: {9}, {10}: {11}",
+  "npc_miner_choice_unlock_island": "> tôi có \n{0}: {1}, {2}: {3}\n{4}: {5}, {6}: {7}\n{8}: {9}, {10}: {11}",
+  "npc_miner_cancel_unlock_island": "> Tôi sẽ đi tìm",
+
+  "npc_elf_talk_1_1": "Tôi là 1 Elf",
+  "npc_elf_talk_1_2": "Tôi không muốn làm thân với ai cả, nhưng nếu bạn cần gì, tôi có thể giúp",
+
+  "npc_ice_girl_talk_1_1": "Tôi là một pháp sư",
+  "npc_ice_girl_talk_1_2": "Trong quá khứ, tôi đã làm một số điều ngu ngốc, nhớ lại ngượng quá... *ngượng ngượng*",
+
+  "npc_witch_talk_1": "Xin chào!",
+  "npc_witch_talk_2": "Nếu bạn cần hỗ trợ từ chúng tôi, hãy nói trực tiếp với tôi đây.",
+
+  "npc_witch_talk_3": "Nếu nói là nông sản thì cũng không đúng, chúng tôi mua tất cả loại thực vật. hãy cho chúng tôi xem bạn có gì?",
+  "npc_witch_talk_4": "Chức năng này đang được phát triển",
+
+  "npc_talk": "> Nói chuyện",
+  "npc_player_buy": "> Tôi muốn mua hàng",
+  "npc_player_sell": "> Tôi muốn bán hàng",
+  "npc_player_cancel": "> Rời đi",
+
+  "npc_player_ascension": "> [LƯU Ý KHI CHỌN: RESET MÀN MÀN CHƠI, CHƯA HOÀN THIỆN, ĐANG ĐƯỢC PHÁT TRIỂN] \nCác bạn có mua nông sản không?",
+  "npc_player_accept": "> tôi muốn bán tất cả",
+  "npc_player_deny": "> để tôi suy nghĩ đã",
+
+  "event_3_1": "Cần có 1 thứ đặc biệt trồng xuống",
+  "event_option_3_1": "Tôi có {0}",
+  "event_option_3_2": "Tôi không có {0}",
+  "event_3_2": "Đi ngủ để chờ đi để có giấc mơ lớn",
+
+  "event_3_result_1": "Bạn như là đang mơ...",
+  "event_3_result_2": "Trong màn đêm tâm tối bạn chẳng thấy gì...",
+  "event_3_result_3": "Bạn nghe thấy những tiếng ồn lớn đến mức kinh thiên động địa...",
+  "event_3_result_4": "Bạn nghe thấy những tiếng ồn như xé toạc không gian...",
+  "event_3_result_5": "Bạn nghe thấy những như những người khổng lồ đang đi bên cạnh bạn...",
+
+  "event_4_1": "Bạn như là đang mơ...",
+  "event_4_2": "Trong cơn mơ, bạn có thể nhìn thấy, có thể nghe thấy...",
+  "event_4_3": "Chân của bạn đứng ở nơi đất đá nóng bỏng...",
+  "event_4_4": "Ánh nắng chói chang cùng với hơi nóng bốc lên, và mặt bạn có thể cảm nhận được...",
+  "event_4_5": "Bạn phóng tầm mắt ra thật xa, xung quanh chỉ toàn đá cứng, chúng nóng như muốn nướng bàn chân bạn...",
+  "event_4_6": "Trong cơn mờ màng, bỗng bạn thấy, thứ gì đó lấp lánh...",
+  "event_4_7": "Bạn nhìn nó, nó là một thỏi thạch anh tím, ánh sáng chiếu vào khiến nó lấp lánh...",
+  "event_4_8": "Bạn lại thấy một chiếc cuốc chim lớn nằm trên mặt đất, ánh sáng chiếu vào phần kim loại, khiến nó lấp lánh",
+  "event_4_9": "Mọi thứ đều lấp lánh, lấp lánh... Bạn sẽ?",
+
+  "event_4_option_1_1": "Tôi muốn nhặt thỏi thạch anh",
+  "event_4_option_1_2": "Tôi muốn nhặt cây cuốc chim",
+
+  "event_4_1_1": "Bạn cuối người, nhặt viên thạch anh.",
+  "event_4_1_2": "Khi đúng thẳng lên, mọi thứ xung quanh đã thay đổi",
+  "event_4_1_3": "Xung quanh mọc lên rất nhiều cây tinh thể ngang mắt cá chân",
+  "event_4_1_4": "Chúng nhọn và dễ vỡ, bạn có thể nghe tiếng 'ting ting' nhẹ nhàng bên tai",
+  "event_4_1_5": "'Ting ting'... 'Ting ting'...",
+  "event_4_1_6": "Bỗng, bạn thấy một cô gái, với máy tóc vàng, mặc bộ váy trằng, đi chân trần, như đang đang chơi đùa giữa đám tinh thể sắt nhọn",
+  "event_4_1_7": "Đôi chân trần trắng hồng mềm mại, đi giữa đá cứng và tinh thể sắc nhọn",
+  "event_4_1_8": "Cô gái nhẹ nhàng xoay vòng, quay mặt về phía bạn, ngón tay trỏ chỉ lên môi, rồi mỉm cười, thì thầm thứ gì đó mà bạn không thể nghe rõ",
+  "event_4_1_9": "Sau đó, cô gái ngã người về đằng sau, ngã vào giữa đám tinh thể sắc nhọn.",
+  "event_4_1_10": "Bạn giật mình tỉnh giấc.",
+
+  "event_4_2_1": "Bạn cuối người, nhặt cây cuốc chim",
+  "event_4_2_2": "Nhưng cây cuốc chim đã không còn ở đó, nó đã đi xa một chút từ lúc nào",
+  "event_4_2_3": "Bạn tiến tới, nhưng cây cuốc chim lại xa hơn",
+  "event_4_2_4": "Và cứ thế, bạn càng muốn lấy, nó lại càng xa, bạn bắt đầu chạy, tăng tốc ngày càng nhanh",
+  "event_4_2_5": "Không gian như bị kéo dãn",
+  "event_4_2_6": "Bạn nghe thấy tiếng 'leng keng', như tiếng cuốc chim đào vào đá cứng",
+  "event_4_2_7": "'Leng keng'... 'Leng keng'... ",
+  "event_4_2_8": "Bạn không ghét tiếng 'Leng keng' đó, nó ấp áp và gần gũi, thân thuộc. Nhưng nó cũng rất chói tai và đáng sợ",
+  "event_4_2_9": "Bạn đang tiến gần đền cây cuốc chim",
+  "event_4_2_10": "Nhưng bây giờ, cây cuốc chim còn cao hơn cả ngọn núi, chạm vào cả mây",
+  "event_4_2_11": "Dù sao thì bạn cũng muốn chạm vào nó, bạn đã chạm vào nó",
+  "event_4_2_12": "Cây cuốc chim bắt đầu ngã, nghiên về phía bạn",
+  "event_4_2_13": "Bạn giật mình tỉnh giấc.",
+
+  "progression_frozen_island_talk_1": "Bạn như là đang mơ... ",
+  "progression_frozen_island_talk_2": "Bạn cảm thấy lạnh... ",
+
+  "progression_frozen_island_choice_1_1": "Thấy lạnh là do trời lạnh",
+  "progression_frozen_island_choice_1_2": "Sự bất tử, nó thật lạnh lẽo ",
+
+  "merchant_note_1": "Thương nhân chỉ mua những thứ được liệt kê bên dưới",
+
+  "result": "Kết quả",
+
+  "eof": "End of file"
 }

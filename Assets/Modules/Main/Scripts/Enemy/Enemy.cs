@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour, IPoolObject
     [SerializeField] private int hungerConsume;
 
     [SerializeField] protected Rigidbody2D rb;
+
+    [SerializeField] private string[] audioHurtList;
+
     [Header("Drop: ")]
     [SerializeField] private int dropId;
     [SerializeField] private int expDrop;
@@ -85,6 +88,9 @@ public class Enemy : MonoBehaviour, IPoolObject
         if (animator != null)
         {
             animator.Play("hurt");
+
+            PlayHurtAudio();
+
         }
 
         if (hp <= 0)
@@ -95,6 +101,19 @@ public class Enemy : MonoBehaviour, IPoolObject
         if (GameController.Instance.MoringWaveEnemy != null)
         {
             GameController.Instance.UpdateEnemyHealth();
+        }
+    }
+
+    protected void PlayHurtAudio()
+    {
+        if (audioHurtList != null && audioHurtList.Length > 0)
+        {
+            string audioResult = "";
+
+            audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+
+
         }
     }
 

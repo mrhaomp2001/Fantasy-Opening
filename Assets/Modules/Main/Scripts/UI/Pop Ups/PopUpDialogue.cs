@@ -1,3 +1,4 @@
+using GameUtil;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -50,6 +51,8 @@ public class PopUpDialogue : PopUp
 
     public void ShowDialogue(List<Dialogue> dialoguesInput)
     {
+
+        dialogues.Clear();
         foreach (var item in dialoguesInput)
         {
             dialogues.Enqueue(item);
@@ -65,11 +68,26 @@ public class PopUpDialogue : PopUp
         {
             imageActor.sprite = dialogues.Peek().Sprite;
         }
+
         textName.SetText(LanguageController.Instance.GetString(dialogues.Peek().Name));
         textContent.SetText (LanguageController.Instance.GetString(dialogues.Peek().Content));
         dialogues.Peek().UnityEventStart?.Invoke();
 
         DelayButton();
+
+        //
+        Timer.DelayFrameAction(4,
+            onComplete: () =>
+            {
+                var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+                foreach (var item in enemies)
+                {
+                    item.CanMove = false;
+                }
+            });
+
+        //
     }
 
     public void ShowNextDialog()
@@ -107,6 +125,20 @@ public class PopUpDialogue : PopUp
                 textName.SetText("");
                 textContent.SetText("");
                 imageActor.sprite = spriteMask64;
+
+                //
+                Timer.DelayFrameAction(6,
+                    onComplete: () =>
+                    {
+                        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+                        foreach (var item in enemies)
+                        {
+                            item.CanMove = true;
+                        }
+                    });
+
+                //
 
                 Hide();
             }

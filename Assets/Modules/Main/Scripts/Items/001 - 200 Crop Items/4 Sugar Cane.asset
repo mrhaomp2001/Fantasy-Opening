@@ -17,5 +17,9 @@ MonoBehaviour:
   itemDescription: 4_sugar_cane-item_description
   sprite: {fileID: 21300000, guid: 65421b2b09f74e242a71ed77d86ccd14, type: 3}
   spriteWorldItem: {fileID: 0}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 40
+  sellPrice: 40
+  useTime: 0
+  isNonStack: 0
+  isFood: 1
+  hungerCount: 1

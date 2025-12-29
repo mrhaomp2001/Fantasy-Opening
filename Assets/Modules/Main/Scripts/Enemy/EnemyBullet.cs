@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    [SerializeField] private int damage;
     [SerializeField] private float moveTime;
     [SerializeField] private float despawnTime;
     [SerializeField] protected Rigidbody2D rb;
@@ -16,6 +17,7 @@ public class EnemyBullet : MonoBehaviour
 
     public float MoveTime { get => moveTime; set => moveTime = value; }
     public float DespawnTime { get => despawnTime; set => despawnTime = value; }
+    public int Damage { get => damage; set => damage = value; }
 
     public void SetBulletColor(Color color)
     {

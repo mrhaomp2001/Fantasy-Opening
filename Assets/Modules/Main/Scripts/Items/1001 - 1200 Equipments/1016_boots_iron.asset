@@ -36,4 +36,4 @@ MonoBehaviour:
     dodge: 0
     speed: 0
     curse: 0
-    defend: 0
+    defend: 3

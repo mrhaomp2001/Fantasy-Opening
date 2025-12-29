@@ -139,8 +139,39 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             PopUpInventory.Instance.TurnPopUp();
         }
 
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (PopUpInventory.Instance.Container.gameObject.activeSelf)
+            {
+                OnTurnOffPopUps();
+            }
+            else
+            {
+                if (PopUpSetting.Instance.Container.gameObject.activeSelf)
+                {
+                    PopUpSetting.Instance.Hide();
+                }
+                else
+                {
+                    ShowPopUpSetting();
+
+                }
+            }
+        }
+
         OnHolding();
 
+    }
+
+    public void ShowPopUpSetting()
+    {
+        PopUpSetting.Instance.Show();
+    }
+
+    public void OnTurnOffPopUps()
+    {
+        PopUpInventory.Instance.Hide();
     }
 
     private void OnHolding()
@@ -194,8 +225,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
         if (Input.GetKeyDown(KeyCode.F11))
         {
-            ObjectPooler.Instance.DeactivateAllObjects();
-            SceneManager.LoadScene((int)SceneIndex.MainMenu);
+            QuitToMainMenu();
         }
 
         if (Input.GetKeyDown(KeyCode.F12))
@@ -231,6 +261,12 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                 }
             }
         }
+    }
+
+    public void QuitToMainMenu()
+    {
+        ObjectPooler.Instance.DeactivateAllObjects();
+        SceneManager.LoadScene((int)SceneIndex.MainMenu);
     }
 
     public void SpawnCheatItem()
@@ -337,6 +373,20 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         }
     }
 
+    public void PlayAudioWhenWalk()
+    {
+        string audioResult = "";
+
+        string[] audioHurtList =
+        {
+            "walk_1",
+            "walk_2",
+        };
+
+        audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+        AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+    }
 
     public void FirePointCalculation()
     {
@@ -388,6 +438,17 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item == null)
             {
                 ObjectPooler.Instance.SpawnFromPool("player_bullet", transform.position, firepointHitbox.rotation);
+
+                string audioResult = "";
+
+                string[] audioHurtList =
+                {
+                    "19_attack_1",
+                };
+
+                audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+                AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
             }
         }
     }
@@ -416,9 +477,18 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     }
 
-    public void SleepNextDay()
+    public void OnBedEnter(Collider2D other)
     {
-        GameController.Instance.NextDay();
+        if (GameController.Instance.MoringWaveEnemy.Count <= 0)
+        {
+            PopUpSleep.Instance.Show();
+        }
+    }
+
+    public void OnBedExit(Collider2D other)
+    {
+        PopUpSleep.Instance.Hide();
+
     }
     public void Hurt(int dmg)
     {
@@ -529,7 +599,17 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                                     {
                                         onSuccess = () =>
                                         {
+                                            string audioResult = "";
 
+                                            string[] audioHurtList =
+                                            {
+                                                "20_plant_1",
+                                                "18_plant_2",
+                                            };
+
+                                            audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+                                            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
                                         },
                                         onFail = (message) =>
                                         {
@@ -556,6 +636,11 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                     {
                         onSuccess = () =>
                         {
+                            string audioResult = "";
+
+                            audioResult = "burp";
+                            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+
                         },
                         onFail = (message) =>
                         {
@@ -577,7 +662,18 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                             onSuccess = () =>
                             {
                                 BuildingController.Instance.Build(building.BuildingName);
+                                string audioResult = "";
 
+                                string[] audioHurtList =
+                                {
+                                    "17_build_1",
+                                    "18_build_2",
+                                    "19_build_3",
+                                };
+
+                                audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+                                AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
                             },
                             onFail = (message) =>
                             {
@@ -599,6 +695,18 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                             {
                                 BuildingController.Instance.Build(buildingFoundation.BuildingName);
 
+                                string audioResult = "";
+
+                                string[] audioHurtList =
+                                {
+                                    "17_build_1",
+                                    "18_build_2",
+                                    "19_build_3",
+                                };
+
+                                audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+                                AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
                             },
                             onFail = (message) =>
                             {
@@ -653,4 +761,10 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         }
     }
 
+    public void OnTouchEnemyBullet(Collider2D other)
+    {
+        var enemyBullet = other.GetComponentInParent<EnemyBullet>();
+
+        Hurt(enemyBullet.Damage);
+    }
 }

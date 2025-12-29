@@ -17,5 +17,9 @@ MonoBehaviour:
   itemDescription: 2_peanut-item_description
   sprite: {fileID: 21300000, guid: f2c3b62d07341c14a818afa567c13468, type: 3}
   spriteWorldItem: {fileID: 0}
-  buyPrice: 40
+  buyPrice: 20
   sellPrice: 20
+  useTime: 0
+  isNonStack: 0
+  isFood: 1
+  hungerCount: 1

@@ -26,6 +26,25 @@ public class NPCAnna : NPC
 
     public void StartChoice1()
     {
+        var progression = ProgressionController.Instance.Progressions.Where(predicate =>
+        {
+            return predicate.ProgressionName.Equals("progression_frozen_island");
+        }).FirstOrDefault();
+
+        ActionWithMessage actionAvailable = null;
+
+        if (!progression.IsActivated)
+        {
+            actionAvailable = new ActionWithMessage
+            {
+                message = LanguageController.Instance.GetString("npc_anna_choice_1_4"),
+                action = () =>
+                {
+                    PopUpDialogue.Instance.ShowDialogue(dialogues2);
+                }
+            };
+        }
+
         PopUpDialogueOption.Instance
             .ShowDialogue(dialogueOption1,
             new ActionWithMessage
@@ -56,15 +75,8 @@ public class NPCAnna : NPC
 
                     PopUpInventory.Instance.TurnSelling(itemsCanSell);
                 }
-            },
-            new ActionWithMessage
-            {
-                message = LanguageController.Instance.GetString("npc_anna_choice_1_4"),
-                action = () =>
-                {
-                    PopUpDialogue.Instance.ShowDialogue(dialogues2);
-                }
-            });
+            }, 
+            actionAvailable);
     }
 
     public void StartChoice2()
@@ -117,12 +129,12 @@ public class NPCAnna : NPC
         {
             message = string.Format(
                 LanguageController.Instance.GetString("npc_anna_choice_2_1"),
-                item1.ItemName, 10,
-                item2.ItemName, 10,
-                item5.ItemName, 10,
-                item6.ItemName, 10,
-                item7.ItemName, 10,
-                item8.ItemName, 10
+                item1.ItemName, 2,
+                item2.ItemName, 2,
+                item5.ItemName, 2,
+                item6.ItemName, 2,
+                item7.ItemName, 2,
+                item8.ItemName, 2
             ),
             action = () =>
             {
@@ -130,13 +142,13 @@ public class NPCAnna : NPC
                 {
                     (int id, int count)[] requiredItems =
                     {
-            (item1.Id, 10),
-            (item2.Id, 10),
-            (item5.Id, 10),
-            (item6.Id, 10),
-            (item7.Id, 10),
-            (item8.Id, 10),
-        };
+                        (item1.Id, 2),
+                        (item2.Id, 2),
+                        (item5.Id, 2),
+                        (item6.Id, 2),
+                        (item7.Id, 2),
+                        (item8.Id, 2),
+                    };
 
 
                     // 1. Kiểm tra trước
@@ -191,7 +203,6 @@ public class NPCAnna : NPC
 
                     progresstion.OnReady();
                     progresstion.OnActived();
-                    progresstion.OnCompleted();
 
                 }
                 else

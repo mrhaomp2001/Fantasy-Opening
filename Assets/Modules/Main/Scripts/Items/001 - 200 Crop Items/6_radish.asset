@@ -17,8 +17,8 @@ MonoBehaviour:
   itemDescription: 6_radish-item_description
   sprite: {fileID: 21300000, guid: 51f8c6885d774da4993b301a3a8948f1, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 51f8c6885d774da4993b301a3a8948f1, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 60
+  sellPrice: 60
   useTime: 0
   isNonStack: 0
   isFood: 1

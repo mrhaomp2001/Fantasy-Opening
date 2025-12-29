@@ -20,6 +20,7 @@ public class EnemyOre : Enemy
                 if (Animator != null && Mathf.Max(0, playerBulletInput.Damage - Def) > 0)
                 {
                     Animator.Play("hurt");
+                    PlayHurtAudio();
                 }
 
                 if (Hp <= 0)

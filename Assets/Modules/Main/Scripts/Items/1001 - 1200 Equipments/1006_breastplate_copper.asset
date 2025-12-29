@@ -21,6 +21,8 @@ MonoBehaviour:
   sellPrice: 0
   useTime: 0
   isNonStack: 1
+  isFood: 0
+  hungerCount: 0
   stats:
     hpMax: 0
     hpRegeneration: 0
@@ -34,4 +36,4 @@ MonoBehaviour:
     dodge: 0
     speed: 0
     curse: 0
-    defend: 4
+    defend: 3

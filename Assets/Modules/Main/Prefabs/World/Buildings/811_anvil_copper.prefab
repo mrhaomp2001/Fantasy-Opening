@@ -88,42 +88,42 @@ MonoBehaviour:
     itemResult: {fileID: 11400000, guid: 855b07caaa591e24f8da7ba67acbdf9f, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
-      count: 10
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 7f13840419853bd49b1bce8d3d5460d4, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
-      count: 10
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 0164954a3b7a3ed48aa5a21d578d3f0d, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
-      count: 10
+      count: 3
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 034a467b55618f846919f38e81464e35, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
-      count: 10
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: c2391db9b8dec8f4dabac38facda24c4, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
-      count: 10
+      count: 3
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 1a8b1bca000da7145bec5d6a526e766e, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
-      count: 10
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: ae005491396b62847b8cf5e51ff06936, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
-      count: 10
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 1ca18a4512184c04e9317eff6f3f8d4f, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
-      count: 10
+      count: 2
 --- !u!1 &6998290294712461445
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1495425789
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: f1a5ce657702a00448308b6466580655, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

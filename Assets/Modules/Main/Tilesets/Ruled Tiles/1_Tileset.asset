@@ -876,7 +876,7 @@ MonoBehaviour:
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.75
-    m_Output: 1
+    m_Output: 0
     m_ColliderType: 2
     m_RandomTransform: 5
     m_Neighbors: 01000000010000000100000001000000

@@ -17,9 +17,9 @@ MonoBehaviour:
   itemDescription: 10_banana-item_description
   sprite: {fileID: 21300000, guid: a690dadcf71dd7343ab69735a0ca2b31, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: a690dadcf71dd7343ab69735a0ca2b31, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 100
+  sellPrice: 100
   useTime: 0
   isNonStack: 0
-  isFood: 0
-  hungerCount: 0
+  isFood: 1
+  hungerCount: 20

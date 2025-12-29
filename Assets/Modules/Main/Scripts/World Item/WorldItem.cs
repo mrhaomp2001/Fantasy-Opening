@@ -48,6 +48,17 @@ public class WorldItem : MonoBehaviour, IPoolObject
         if (InventoryController.Instance.Add(itemId, count))
         {
             gameObject.SetActive(false);
+
+            string[] audioHurtList = new string[]
+            {
+                "pick_up_1",
+            };
+
+            string audioResult = "";
+
+            audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+
         }
 
     }

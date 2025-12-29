@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,9 @@ public class ProgressionFrozenIsland : ProgressionBase
 {
     [Header("ProgressionFrozenIsland: ")]
 
-    [SerializeField] private Image raycastBlocker;
-    [SerializeField] private Transform tiles3, mapContent3;
+    [SerializeField] private List<Dialogue> dialogue1;
+    [SerializeField] private Dialogue dialogueChoice1;
+
     public override void OnReady()
     {
         base.OnReady();
@@ -23,14 +25,6 @@ public class ProgressionFrozenIsland : ProgressionBase
     {
         base.OnLoad();
 
-        tiles3.gameObject.SetActive(false);
-        mapContent3.gameObject.SetActive(false);
-
-        if (IsCompleted)
-        {
-            tiles3.gameObject.SetActive(true);
-            mapContent3.gameObject.SetActive(true);
-        }
     }
 
     public override void OnCompleted()
@@ -42,25 +36,79 @@ public class ProgressionFrozenIsland : ProgressionBase
     {
         base.OnSave();
 
-        if (IsCompleted)
+        if (IsActivated && !IsCompleted)
         {
-            tiles3.gameObject.SetActive(true);
-            mapContent3.gameObject.SetActive(true);
+            //raycastBlocker.gameObject.SetActive(true);
+
+            //raycastBlocker.color = new Color(0f, 0f, 0f, 1f);
+
+            PopUpRaycastBlocker.Instance.Show();
+
+            PopUpDialogue.Instance.ShowDialogue(dialogue1);
+
+            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+            foreach (var item in enemies)
+            {
+                item.CanMove = false;
+            }
         }
+    }
+
+    public void ShowChoice1()
+    {
+        PopUpDialogueOption.Instance.ShowDialogue(dialogueChoice1,
+            new ActionWithMessage
+            {
+                message = LanguageController.Instance.GetString("progression_frozen_island_choice_1_1"),
+                action = () =>
+                {
+                    var progression = ProgressionController.Instance.Progressions
+                     .Where(predicate =>
+                     {
+                         return predicate.ProgressionName.Equals("progression_frozen_island_1");
+                     })
+                     .FirstOrDefault();
+
+                    progression.OnActived();
+                    progression.OnCompleted();
+
+                    FadeOutImage();
+                    OnCompleted();
+                }
+            },
+            new ActionWithMessage
+            {
+                message = LanguageController.Instance.GetString("progression_frozen_island_choice_1_2"),
+                action = () =>
+                {
+                    var progression = ProgressionController.Instance.Progressions
+                     .Where(predicate =>
+                     {
+                         return predicate.ProgressionName.Equals("progression_frozen_island_2");
+                     })
+                     .FirstOrDefault();
+
+                    progression.OnActived();
+                    progression.OnCompleted();
+
+                    FadeOutImage();
+                    OnCompleted();
+                }
+            }
+            );
     }
 
     public void FadeOutImage()
     {
-        LeanTween.cancel(raycastBlocker.gameObject);
-        LeanTween.value(raycastBlocker.gameObject, 1f, 0f, 2f)
-            .setOnUpdate((float value) =>
-            {
-                raycastBlocker.color = new Color(0f, 0f, 0f, value);
-            })
-            .setOnComplete(() =>
-            {
-                raycastBlocker.gameObject.SetActive(false);
-            });
+        PopUpRaycastBlocker.Instance.Hide();
+
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+        foreach (var item in enemies)
+        {
+            item.CanMove = true;
+        }
     }
 
 }

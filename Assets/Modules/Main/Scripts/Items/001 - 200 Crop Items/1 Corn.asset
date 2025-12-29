@@ -17,5 +17,9 @@ MonoBehaviour:
   itemDescription: 1_corn-item_description
   sprite: {fileID: 21300000, guid: 343f687a137a0c544ba4be1e30ff4921, type: 3}
   spriteWorldItem: {fileID: 0}
-  buyPrice: 120
-  sellPrice: 240
+  buyPrice: 10
+  sellPrice: 10
+  useTime: 0
+  isNonStack: 0
+  isFood: 1
+  hungerCount: 1

@@ -17,7 +17,9 @@ MonoBehaviour:
   itemDescription: 8_strawberry-item_description
   sprite: {fileID: 21300000, guid: 558feec97f2e1444fb6f26eb9905be2e, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 558feec97f2e1444fb6f26eb9905be2e, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 80
+  sellPrice: 80
   useTime: 0
   isNonStack: 0
+  isFood: 1
+  hungerCount: 10

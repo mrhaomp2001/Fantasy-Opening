@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private int totalEnemyHealth;
 
+
+
     public static GameController Instance { get => instance; set => instance = value; }
     public List<BuildingFarmland> Farmlands { get => farmlands; set => farmlands = value; }
     public EnemySpawner[] EnemySpawners { get => enemySpawners; set => enemySpawners = value; }
@@ -32,23 +34,46 @@ public class GameController : MonoBehaviour
         }
         moringWaveEnemy = new List<Enemy>();
     }
+
+    private void Start()
+    {
+        OnStartGame(MainMenuSceneController.IsLoadData);
+    }
+
+    public void OnStartGame(bool isLoad)
+    {
+        InventoryController.Instance.Load(isLoadData: isLoad);
+        MainBackgroundMusicControl.Instance.FadeOutAndStartNew();
+    }
+
+
     public void NextDay()
     {
         PopUpTransition.Instance.StartTransition(() =>
         {
+            InventoryController.Instance.GetPlayerData.Hp = InventoryController.Instance.GetPlayerData.HpMax;
+            StatController.Instance.UpdateHp();
+
             FarmlandNextDay();
-            ProgressionNextDay();
-            UpdateEnemyHealth();
             EnemyNextDay();
 
+
+            ProgressionNextDay();
+            UpdateEnemyHealth();
+
             InventoryController.Instance.Save();
+
         });
 
+        MainBackgroundMusicControl.Instance.FadeOutAndStartNew();
 
     }
 
 
-
+    public void OnExitGame()
+    {
+        Application.Quit();
+    }
     private void FarmlandNextDay()
     {
         foreach (var item in farmlands)
@@ -132,6 +157,8 @@ public class GameController : MonoBehaviour
 
         StatController.Instance.UpdateViews();
     }
+
+
 
     private void EnemyNextDay()
     {

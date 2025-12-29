@@ -17,9 +17,9 @@ MonoBehaviour:
   itemDescription: 18_waterbloom-item_description
   sprite: {fileID: 21300000, guid: e018c8bf3ede9904ea6033d6a232a660, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: e018c8bf3ede9904ea6033d6a232a660, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 180
+  sellPrice: 180
   useTime: 0
   isNonStack: 0
-  isFood: 0
-  hungerCount: 0
+  isFood: 1
+  hungerCount: 1

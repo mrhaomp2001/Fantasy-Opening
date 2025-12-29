@@ -31,6 +31,7 @@ public class AudioController : MonoBehaviour
     private static AudioController instance;
 
     public static AudioController Instance { get => instance; set => instance = value; }
+    public AudioMixer AudioMixerMaster { get => audioMixerMaster; set => audioMixerMaster = value; }
 
     private void Awake()
     {
@@ -60,6 +61,8 @@ public class AudioController : MonoBehaviour
         }
     }
 
+
+
     public void Play(string name)
     {
         Sound sound = Array.Find(sounds, sound => sound.name == name);
@@ -68,6 +71,18 @@ public class AudioController : MonoBehaviour
         var targetSound = sound.audioSource.Dequeue();
         sound.audioSource.Enqueue(targetSound);
 
+        targetSound.Play();
+    }
+
+    public void Play(string name, bool randomPitch = false, float minPithch = 1f, float maxPitch = 1f)
+    {
+        Sound sound = Array.Find(sounds, sound => sound.name == name);
+        if (sound == null) return;
+
+        var targetSound = sound.audioSource.Dequeue();
+        sound.audioSource.Enqueue(targetSound);
+
+        targetSound.pitch = UnityEngine.Random.Range(minPithch, maxPitch);
         targetSound.Play();
     }
 
@@ -125,5 +140,23 @@ public class AudioController : MonoBehaviour
 
         return targetSound;
     }
+
+    /// =====
+
+    public void PlayButton()
+    {
+        string audioResult = "";
+
+        string[] audioHurtList =
+        {
+                "select_1",
+            };
+
+        audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+        AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+    }
+
+    /// =====
 }
 

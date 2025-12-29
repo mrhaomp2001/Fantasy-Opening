@@ -40,7 +40,16 @@ public class CraftingGridviewItem : MonoBehaviour
                 {
                     onSuccess = () =>
                     {
+                        string audioResult = "";
 
+                        string[] audioHurtList =
+                        {
+                            "16_craft_1",
+                        };
+
+                        audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+                        AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
                     },
                     onFail = (message) =>
                     {

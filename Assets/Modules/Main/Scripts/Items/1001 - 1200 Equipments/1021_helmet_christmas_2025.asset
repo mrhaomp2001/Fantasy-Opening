@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82807f7aa6fc6bb478af26a87beb1c3c, type: 3}
+  m_Name: 1021_helmet_christmas_2025
+  m_EditorClassIdentifier: 
+  id: 1021
+  itemName: 1021_helmet_christmas_2025-item_name
+  itemDescription: 1021_helmet_christmas_2025-item_description
+  sprite: {fileID: 21300000, guid: 8fbc092b8ea43c846974381cd9dfac16, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: 8fbc092b8ea43c846974381cd9dfac16, type: 3}
+  buyPrice: 0
+  sellPrice: 0
+  useTime: 0
+  isNonStack: 1
+  isFood: 0
+  hungerCount: 0
+  stats:
+    hpMax: 0
+    hpRegeneration: 0
+    damageGlobalBonus: 1
+    meleeDamageBonus: 0
+    rangeDamageBonus: 0
+    magicDamageBonus: 0
+    attackSpeedBonus: 0
+    critChance: 0
+    range: 0
+    dodge: 0
+    speed: 0
+    curse: 0
+    defend: 1

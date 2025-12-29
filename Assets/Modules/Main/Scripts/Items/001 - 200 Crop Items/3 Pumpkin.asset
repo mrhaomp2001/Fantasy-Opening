@@ -17,5 +17,9 @@ MonoBehaviour:
   itemDescription: 3_pumpkin-item_description
   sprite: {fileID: 21300000, guid: af26670ad75e5cf40b0933a7855e31e8, type: 3}
   spriteWorldItem: {fileID: 0}
-  buyPrice: 2400
-  sellPrice: 1200
+  buyPrice: 30
+  sellPrice: 30
+  useTime: 0
+  isNonStack: 0
+  isFood: 1
+  hungerCount: 1

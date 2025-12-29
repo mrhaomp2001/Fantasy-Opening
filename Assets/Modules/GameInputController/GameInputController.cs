@@ -87,7 +87,6 @@ public class GameInputController : MonoBehaviour
             name = "left",
         };
 
-
         right = new InputKey()
         {
             name = "right",
@@ -112,10 +111,12 @@ public class GameInputController : MonoBehaviour
         {
             name = "hotkey1",
         };
+
         hotkey2 = new InputKey()
         {
             name = "hotkey2",
         };
+
         hotkey3 = new InputKey()
         {
             name = "hotkey3",
@@ -180,17 +181,27 @@ public class GameInputController : MonoBehaviour
         keys = new List<InputKey>();
 
         // Add additional keys
+        AddSpecialKey(LanguageController.Instance.GetString("up_arrow"), KeyCode.UpArrow);
+        AddSpecialKey(LanguageController.Instance.GetString("down_arrow"), KeyCode.DownArrow);
+        AddSpecialKey(LanguageController.Instance.GetString("left_arrow"), KeyCode.LeftArrow);
+        AddSpecialKey(LanguageController.Instance.GetString("right_arrow"), KeyCode.RightArrow);
 
-        // TODO: Language here!
-        AddSpecialKey("Mũi tên lên", KeyCode.UpArrow);
-        AddSpecialKey("Mũi tên xuống", KeyCode.DownArrow);
-        AddSpecialKey("Mũi tên trái", KeyCode.LeftArrow);
-        AddSpecialKey("Mũi tên phải", KeyCode.RightArrow);
-        AddSpecialKey("Nút xóa (Backspace)", KeyCode.Backspace);
-        AddSpecialKey("Nút cách (Space)", KeyCode.Space);
-        AddSpecialKey("Ctrl trái", KeyCode.LeftControl);
-        AddSpecialKey("Shift trái", KeyCode.LeftShift);
-        AddSpecialKey("Phím tab", KeyCode.Tab);
+        AddSpecialKey(LanguageController.Instance.GetString("backspace"), KeyCode.Backspace);
+        AddSpecialKey(LanguageController.Instance.GetString("space"), KeyCode.Space);
+        AddSpecialKey(LanguageController.Instance.GetString("left_ctrl"), KeyCode.LeftControl);
+        AddSpecialKey(LanguageController.Instance.GetString("left_shift"), KeyCode.LeftShift);
+        AddSpecialKey(LanguageController.Instance.GetString("tab"), KeyCode.Tab);
+
+        // Add number keys (Alpha0 - Alpha9)
+        for (int i = 0; i <= 9; i++)
+        {
+            InputKey inputKey = new InputKey
+            {
+                name = i.ToString(),
+                keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha" + i)
+            };
+            keys.Add(inputKey);
+        }
 
         // Add keys from A to Z
         for (char c = 'A'; c <= 'Z'; c++)
@@ -203,7 +214,9 @@ public class GameInputController : MonoBehaviour
             keys.Add(inputKey);
         }
 
+
     }
+
 
     void AddSpecialKey(string name, KeyCode keyCode)
     {

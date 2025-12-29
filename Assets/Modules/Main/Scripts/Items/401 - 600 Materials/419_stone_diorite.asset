@@ -17,8 +17,8 @@ MonoBehaviour:
   itemDescription: 419_stone_diorite-item_description
   sprite: {fileID: 21300000, guid: 4a1ccfe596a20c64d86d97db05a6fda1, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 4a1ccfe596a20c64d86d97db05a6fda1, type: 3}
-  buyPrice: 1
-  sellPrice: 1
+  buyPrice: 50
+  sellPrice: 50
   useTime: 0
   isNonStack: 0
   isFood: 0

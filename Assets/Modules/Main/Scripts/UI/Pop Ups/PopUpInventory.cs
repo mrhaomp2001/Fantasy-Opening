@@ -6,8 +6,6 @@ using TMPro;
 using UnityEngine;
 using static BuildingController;
 using static InventoryController;
-using static UnityEditor.Progress;
-
 public class PopUpInventory : PopUp
 {
     private static PopUpInventory instance;
@@ -79,6 +77,7 @@ public class PopUpInventory : PopUp
     public SpriteRenderer TransformBuildingIndicator { get => transformBuildingIndicator; set => transformBuildingIndicator = value; }
     public bool IsOpeningChest { get => isOpeningChest; set => isOpeningChest = value; }
     public BuildingChest CurrentChest { get => currentChest; set => currentChest = value; }
+    public RectTransform Container { get => container; }
     public bool IsSelling { get => isSelling; set => isSelling = value; }
     public List<InventoryGridviewItem> SellingGridviewItems { get => sellingGridviewItems; set => sellingGridviewItems = value; }
 
@@ -114,7 +113,21 @@ public class PopUpInventory : PopUp
         {
             UpdateViews();
         }
+        else
+        {
+            HideOthers();
+        }
 
+        string audioResult = "";
+
+        string[] audioHurtList =
+        {
+            "open_inventory_1",
+        };
+
+        audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+        AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
 
         base.Turn();
     }
@@ -156,6 +169,52 @@ public class PopUpInventory : PopUp
 
 
         UpdateViewEquipment();
+    }
+
+    public override void Hide()
+    {
+        base.Hide();
+        HideOthers();
+
+    }
+
+    private void HideOthers()
+    {
+        //
+        if (container.gameObject.activeSelf)
+        {
+            string audioResult = "";
+
+            string[] audioHurtList =
+            {
+                "20_close_1",
+            };
+
+            audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+        }
+        //
+
+
+        isOpeningChest = false;
+        isSelling = false;
+        currentChest = null;
+
+        ResetSubPopUps();
+
+        containerInventoryOption.gameObject.SetActive(true);
+
+        containerEquipment.gameObject.SetActive(true);
+
+        PopUpInventoryCraftingTooltip.Instance.Hide();
+        PopUpInventoryTooltip.Instance.Hide();
+        PopUpBuffTooltip.Instance.Hide();
+
+        PopUpHotbarSelecter.Instance.Hide();
+
+        PopUpDialogue.Instance.Hide();
+        PopUpDialogueOption.Instance.Hide();
     }
 
     public void UpdateViewChest()
@@ -222,6 +281,8 @@ public class PopUpInventory : PopUp
     public void ChooseHotbarSlot(int slot)
     {
         HotbarItem[slot].OnClick();
+        AudioController.Instance.PlayButton();
+
     }
 
     public void ResetSubPopUps()
@@ -260,6 +321,7 @@ public class PopUpInventory : PopUp
             sellingGridviewItems[i].UpdateViews(itemCanSell);
             sellingGridviewItems[i].gameObject.SetActive(true);
         }
+
     }
 
     public void TurnCrafting(List<Recipe> valueRecipes, bool isHideInventoryOptions = false)
@@ -290,6 +352,9 @@ public class PopUpInventory : PopUp
             {
                 containerInventoryOption.gameObject.SetActive(false);
             }
+
+            AudioController.Instance.PlayButton();
+
         }
         else
         {
@@ -303,8 +368,11 @@ public class PopUpInventory : PopUp
 
     public void TurnStats()
     {
+
         if (!containerPlayerStats.gameObject.activeSelf)
         {
+            AudioController.Instance.PlayButton();
+
             ResetSubPopUps();
             containerPlayerStats.gameObject.SetActive(true);
 
@@ -332,8 +400,11 @@ public class PopUpInventory : PopUp
             return;
         }
 
+        AudioController.Instance.PlayButton();
+
         if (!containerBuff.gameObject.activeSelf)
         {
+
             ResetSubPopUps();
             containerBuff.gameObject.SetActive(true);
 
@@ -352,7 +423,7 @@ public class PopUpInventory : PopUp
             {
 
             }
-                //Debug.LogWarning("containerEquipment is null.");
+            //Debug.LogWarning("containerEquipment is null.");
         }
 
 
@@ -364,8 +435,12 @@ public class PopUpInventory : PopUp
         int totalPages = GetTotalBuffPages();
         if (buffPage < totalPages - 1)
         {
+            AudioController.Instance.PlayButton();
+
             buffPage++;
             RenderBuffPage();
+            AudioController.Instance.PlayButton();
+
         }
         else
         {
@@ -378,8 +453,13 @@ public class PopUpInventory : PopUp
     {
         if (buffPage > 0)
         {
+            AudioController.Instance.PlayButton();
+
+
             buffPage--;
             RenderBuffPage();
+            AudioController.Instance.PlayButton();
+
         }
         else
         {
@@ -453,7 +533,7 @@ public class PopUpInventory : PopUp
         }
 
         // (Tuỳ chọn) cập nhật label trang ở UI tại đây nếu có:
-        textBuffPage.SetText( $"{CurrentBuffPageOneBased}/{TotalBuffPageCount}");
+        textBuffPage.SetText($"{CurrentBuffPageOneBased}/{TotalBuffPageCount}");
     }
 
     // Tính tổng số trang dựa trên số buff hiện có

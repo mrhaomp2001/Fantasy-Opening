@@ -29,11 +29,11 @@ MonoBehaviour:
     damageGlobalBonus: 0
     meleeDamageBonus: 0
     rangeDamageBonus: 0
-    magicDamageBonus: 0
+    magicDamageBonus: 2
     attackSpeedBonus: 0
     critChance: 0
     range: 0
     dodge: 0
     speed: 0
     curse: 0
-    defend: 0
+    defend: 2

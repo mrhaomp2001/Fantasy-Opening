@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class PopUpHotbarSelecter : PopUp
 {
@@ -29,9 +28,18 @@ public class PopUpHotbarSelecter : PopUp
         }
     }
 
+    public override void Hide()
+    {
+        base.Hide();
+
+        AudioController.Instance.PlayButton();
+    }
+
     public void ShowPopUp(InventoryController.InventoryItem valueItem)
     {
         base.Show();
+        AudioController.Instance.PlayButton();
+
         currentSelectItem = valueItem;
 
         containerEquipEquipment.gameObject.SetActive(false);
@@ -64,16 +72,19 @@ public class PopUpHotbarSelecter : PopUp
     {
         InventoryController.Instance.EquipEquipment(currentSelectItem.item);
         Hide();
+
     }
 
     public void SelectHotbarSlot(int slot)
     {
         InventoryController.Instance.SelectHotbarSlot(slot, currentSelectItem);
         Hide();
+
     }
 
     public void OnThrowItem()
     {
+
         int itemId = currentSelectItem.item.Id;
         int itemCount = currentSelectItem.count;
         InventoryController.Instance.Consume(currentSelectItem.item.Id, currentSelectItem.count, new Callback

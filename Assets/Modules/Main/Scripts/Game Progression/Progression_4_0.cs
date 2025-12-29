@@ -20,13 +20,19 @@ public class Progression_4_0 : ProgressionBase
 
         if (IsReady && !IsCompleted)
         {
-            raycastBlocker.gameObject.SetActive(true);
+            PopUpRaycastBlocker.Instance.Show();
 
-            raycastBlocker.color = new Color(0f, 0f, 0f, 1f);
 
             PopUpDialogue.Instance.ShowDialogue(dialogues1);
 
             OnActived();
+            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+            foreach (var item in enemies)
+            {
+                item.CanMove = false;
+            }
+
         }
     }
     public override void OnLoad()
@@ -34,6 +40,18 @@ public class Progression_4_0 : ProgressionBase
         base.OnLoad();
 
     }
+
+    public override void OnCompleted()
+    {
+        base.OnCompleted();
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+        foreach (var item in enemies)
+        {
+            item.CanMove = true;
+        }
+    }
+
     public void StartOption1()
     {
         PopUpDialogueOption.Instance
@@ -83,16 +101,8 @@ public class Progression_4_0 : ProgressionBase
     }
     public void FadeOutImage()
     {
-        LeanTween.cancel(raycastBlocker.gameObject);
-        LeanTween.value(raycastBlocker.gameObject, 1f, 0f, 2f)
-            .setOnUpdate((float value) =>
-            {
-                raycastBlocker.color = new Color(0f, 0f, 0f, value);
-            })
-            .setOnComplete(() =>
-            {
-                raycastBlocker.gameObject.SetActive(false);
-            });
+        PopUpRaycastBlocker.Instance.Hide();
+
     }
 
 }

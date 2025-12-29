@@ -28,26 +28,34 @@ public class PopUpTransition : PopUp
     public void StartTransition(Action onTransition)
     {
         base.Show();
+        try
+        {
+            imageBackground.color = new Color(0f, 0f, 0f, 0f);
 
-        imageBackground.color = new Color(0f, 0f, 0f, 0f);
-
-        LeanTween.cancel(imageBackground.gameObject);
-        LeanTween.alpha(imageBackground.rectTransform, 1f, 0.5f)
-            .setOnComplete(() =>
-            {
-                onTransition?.Invoke();
-
-                LeanTween.delayedCall(0.5f, () =>
+            LeanTween.cancel(imageBackground.gameObject);
+            LeanTween.alpha(imageBackground.rectTransform, 1f, 0.5f)
+                .setOnComplete(() =>
                 {
-                    if (imageBackground != null)
+                    onTransition?.Invoke();
+
+                    LeanTween.delayedCall(0.5f, () =>
                     {
-                        LeanTween.alpha(imageBackground.rectTransform, 0f, 1f)
-                        .setOnComplete(() =>
+                        if (imageBackground != null)
                         {
-                            base.Hide();
-                        });
-                    }
+                            LeanTween.alpha(imageBackground.rectTransform, 0f, 1f)
+                            .setOnComplete(() =>
+                            {
+                                base.Hide();
+                            });
+                        }
+                    });
                 });
-            });
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"Exception: {e.Message}");
+            throw;
+        }
+
     }
 }

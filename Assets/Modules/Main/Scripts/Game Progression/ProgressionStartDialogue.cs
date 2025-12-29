@@ -12,14 +12,22 @@ public class ProgressionStartDialogue : ProgressionBase
     [SerializeField] private Dialogue choose1;
     [SerializeField] private List<Dialogue> dialogues2;
 
-    [SerializeField] private Image image;
+
 
     public override void OnActived()
     {
         if (!(IsSaved || IsCompleted) && IsActivated)
         {
+            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+            foreach (var item in enemies)
+            {
+                item.CanMove = false;
+            }
+
             PopUpDialogue.Instance.ShowDialogue(dialogues1);
-            image.gameObject.SetActive(true);
+
+            PopUpRaycastBlocker.Instance.Show();
         }
 
         base.OnActived();
@@ -71,15 +79,13 @@ public class ProgressionStartDialogue : ProgressionBase
 
     public void FadeOutImage()
     {
-        LeanTween.cancel(image.gameObject);
-        LeanTween.value(image.gameObject, 1f, 0f, 2f)
-            .setOnUpdate((float value) =>
-            {
-                image.color = new Color(0f, 0f, 0f, value);
-            })
-            .setOnComplete(() =>
-            {
-                image.gameObject.SetActive(false);
-            });
+        PopUpRaycastBlocker.Instance.Hide();
+
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+        foreach (var item in enemies)
+        {
+            item.CanMove = true;
+        }
     }
 }

@@ -17,9 +17,9 @@ MonoBehaviour:
   itemDescription: 17_kraken_mushroom-item_description
   sprite: {fileID: 21300000, guid: fd773ec07aeed3840b0b271a6f59a3fd, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: fd773ec07aeed3840b0b271a6f59a3fd, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 170
+  sellPrice: 170
   useTime: 0
   isNonStack: 0
-  isFood: 0
-  hungerCount: 0
+  isFood: 1
+  hungerCount: 3

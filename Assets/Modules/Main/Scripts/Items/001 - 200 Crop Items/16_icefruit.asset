@@ -17,9 +17,9 @@ MonoBehaviour:
   itemDescription: 16_icefruit-item_description
   sprite: {fileID: 21300000, guid: c86e20100d0e41a43be9398ea5dc7645, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: c86e20100d0e41a43be9398ea5dc7645, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 160
+  sellPrice: 160
   useTime: 0
   isNonStack: 0
-  isFood: 0
-  hungerCount: 0
+  isFood: 1
+  hungerCount: 3

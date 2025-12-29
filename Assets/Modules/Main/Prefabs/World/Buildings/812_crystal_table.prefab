@@ -88,54 +88,54 @@ MonoBehaviour:
     itemResult: {fileID: 11400000, guid: 36c4dee734e4eca449cbb2bdbcdf59db, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: ae09605dcbf643948ab67df730ae1e11, type: 2}
-      count: 4
+      count: 2
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
-      count: 6
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 4ed802cb76dd0104db4f1e835d128c29, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
-      count: 10
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 4d171c1f8b361384a8daa8f8a4166773, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
-      count: 10
+      count: 3
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: f19449a5a6cc2c240a19575c73d6ed8e, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: ae09605dcbf643948ab67df730ae1e11, type: 2}
-      count: 10
+      count: 2
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
-      count: 12
+      count: 3
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 2c876439993ed1941916066af70df063, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: ae09605dcbf643948ab67df730ae1e11, type: 2}
-      count: 10
+      count: 3
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
-      count: 12
+      count: 4
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: e869fc8e9b5529443aaf65191e63a598, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: ae09605dcbf643948ab67df730ae1e11, type: 2}
-      count: 10
+      count: 2
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
-      count: 12
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 5d3b930f651040c4eb8f105cadb992bc, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: ae09605dcbf643948ab67df730ae1e11, type: 2}
-      count: 10
+      count: 2
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
-      count: 12
+      count: 3
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: a2839ceacaf0fee469d24a7e9e1b8566, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: ae09605dcbf643948ab67df730ae1e11, type: 2}
-      count: 5
+      count: 2
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
-      count: 5
+      count: 2
 --- !u!1 &6998290294712461445
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1495425789
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 94a4d14e133c16b4aa4544687d896999, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

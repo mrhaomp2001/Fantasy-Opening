@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3009624daecebd5448592183f62f6698, type: 3}
+  m_Name: buff 8
+  m_EditorClassIdentifier: 
+  id: 8
+  buffName: buff_8
+  buffDescription: buff_8
+  stats:
+    hpMax: 0
+    hpRegeneration: 0
+    damageGlobalBonus: 0
+    meleeDamageBonus: 3
+    rangeDamageBonus: 0
+    magicDamageBonus: 0
+    attackSpeedBonus: 0
+    critChance: 0
+    range: 0
+    dodge: 0
+    speed: 0
+    curse: 0
+    defend: 0
+  spriteBuff: {fileID: 21300000, guid: 52b79cd9959b17940bff1215cdc0441e, type: 3}

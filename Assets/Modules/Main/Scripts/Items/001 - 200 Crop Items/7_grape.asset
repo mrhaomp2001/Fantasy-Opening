@@ -17,7 +17,9 @@ MonoBehaviour:
   itemDescription: 7_grape-item_description
   sprite: {fileID: 21300000, guid: 92bab0b06042d854a8d0152343b78e98, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 92bab0b06042d854a8d0152343b78e98, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 70
+  sellPrice: 70
   useTime: 0
   isNonStack: 0
+  isFood: 1
+  hungerCount: 10

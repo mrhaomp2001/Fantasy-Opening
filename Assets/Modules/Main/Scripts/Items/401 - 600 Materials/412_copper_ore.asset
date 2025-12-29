@@ -17,6 +17,9 @@ MonoBehaviour:
   itemDescription: 412_copper_ore-item_description
   sprite: {fileID: 21300000, guid: 56fb8763009e54747a0591cfcaeee473, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: 56fb8763009e54747a0591cfcaeee473, type: 3}
-  buyPrice: 1
-  sellPrice: 1
+  buyPrice: 50
+  sellPrice: 50
+  useTime: 0
   isNonStack: 0
+  isFood: 0
+  hungerCount: 0

@@ -22,4 +22,7 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 5156eb12b1400354e9a161c1d237b76c, type: 3}
   - sprite: {fileID: 21300000, guid: 8fc69a954f577fb428ae3d003635a516, type: 3}
   - sprite: {fileID: 21300000, guid: 5ecd2a5d4184a0c459fb4c9c90e7bd7f, type: 3}
-  enemyList: []
+  enemyList:
+  - 10_
+  - 10_
+  - 10_

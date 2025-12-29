@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Progress;
-
 public static class StringExtensions
 {
     public static string ToCamel(this string s)
@@ -71,6 +69,7 @@ public class InventoryController : MonoBehaviour
         [SerializeField] private StatCollection stats;
         [JsonProperty]
         [SerializeField] private List<RecipeWithCondition> recipes;
+
 
 
         public List<InventoryItem> Items { get => items; set => items = value; }
@@ -444,7 +443,7 @@ public class InventoryController : MonoBehaviour
         return true;
     }
 
-    public void Load()
+    public void Load(bool isLoadData = false)
     {
         playerData = new PlayerData();
 
@@ -515,123 +514,126 @@ public class InventoryController : MonoBehaviour
             Buildings = new List<BuildingController.Building>()
         };
 
-        if (PlayerPrefs.HasKey(prefKey))
+        if (isLoadData)
         {
-            string value = PlayerPrefs.GetString(prefKey);
-            JSONNode keyValuePairs = JSONNode.Parse(value);
-
-            //Debug.Log($"OnLoadPrefs: {value}");
-
-            var hotbarSelectedKey = nameof(playerData.HotbarSelectedSlot).ToCamel();
-            var hotbarKey = nameof(playerData.Hotbar).ToCamel();
-            var itemsKey = nameof(playerData.Items).ToCamel();
-            var buildingDataKey = nameof(playerData.BuildingData).ToCamel();
-            var progressionsKey = nameof(playerData.Progressions).ToCamel();
-            var statsKey = nameof(playerData.Stats).ToCamel();
-            var hpKey = nameof(playerData.Hp).ToCamel();
-
-            var hungerKey = nameof(playerData.Hunger).ToCamel();
-            var hungerMaxKey = nameof(playerData.HungerMax).ToCamel();
-
-            var expKey = nameof(playerData.Exp).ToCamel();
-            var levelKey = nameof(playerData.Level).ToCamel();
-            var buffsKey = nameof(playerData.Buffs).ToCamel();
-
-            // hotbar selected
-            if (keyValuePairs[hotbarSelectedKey] != null)
-                playerData.HotbarSelectedSlot = keyValuePairs[hotbarSelectedKey].AsInt;
-
-            // hotbar
-            var hotbarJson = keyValuePairs[hotbarKey];
-            if (hotbarJson != null)
+            if (PlayerPrefs.HasKey(prefKey))
             {
-                for (int i = 0; i < hotbarJson.Count; i++)
-                {
-                    var item = hotbarJson[i];
-                    if (item != null && item[nameof(InventoryItem.item)] != null)
-                    {
-                        var itemJson = item[nameof(InventoryItem.item)];
-                        var itemIdKey = nameof(InventoryItem.item.Id).ToCamel();
-                        if (itemJson[itemIdKey].AsInt != 0)
-                        {
-                            Add(itemJson[itemIdKey].AsInt, item[nameof(InventoryItem.count)].AsInt);
+                string value = PlayerPrefs.GetString(prefKey);
+                JSONNode keyValuePairs = JSONNode.Parse(value);
 
-                            SelectHotbarSlot(i, playerData.Items
-                                .Where(predicate => predicate.item != null && predicate.item.Id == itemJson[itemIdKey].AsInt)
-                                .FirstOrDefault());
+                //Debug.Log($"OnLoadPrefs: {value}");
+
+                var hotbarSelectedKey = nameof(playerData.HotbarSelectedSlot).ToCamel();
+                var hotbarKey = nameof(playerData.Hotbar).ToCamel();
+                var itemsKey = nameof(playerData.Items).ToCamel();
+                var buildingDataKey = nameof(playerData.BuildingData).ToCamel();
+                var progressionsKey = nameof(playerData.Progressions).ToCamel();
+                var statsKey = nameof(playerData.Stats).ToCamel();
+                var hpKey = nameof(playerData.Hp).ToCamel();
+
+                var hungerKey = nameof(playerData.Hunger).ToCamel();
+                var hungerMaxKey = nameof(playerData.HungerMax).ToCamel();
+
+                var expKey = nameof(playerData.Exp).ToCamel();
+                var levelKey = nameof(playerData.Level).ToCamel();
+                var buffsKey = nameof(playerData.Buffs).ToCamel();
+
+                // hotbar selected
+                if (keyValuePairs[hotbarSelectedKey] != null)
+                    playerData.HotbarSelectedSlot = keyValuePairs[hotbarSelectedKey].AsInt;
+
+                // hotbar
+                var hotbarJson = keyValuePairs[hotbarKey];
+                if (hotbarJson != null)
+                {
+                    for (int i = 0; i < hotbarJson.Count; i++)
+                    {
+                        var item = hotbarJson[i];
+                        if (item != null && item[nameof(InventoryItem.item)] != null)
+                        {
+                            var itemJson = item[nameof(InventoryItem.item)];
+                            var itemIdKey = nameof(InventoryItem.item.Id).ToCamel();
+                            if (itemJson[itemIdKey].AsInt != 0)
+                            {
+                                Add(itemJson[itemIdKey].AsInt, item[nameof(InventoryItem.count)].AsInt);
+
+                                SelectHotbarSlot(i, playerData.Items
+                                    .Where(predicate => predicate.item != null && predicate.item.Id == itemJson[itemIdKey].AsInt)
+                                    .FirstOrDefault());
+                            }
                         }
                     }
                 }
-            }
 
-            // items
-            var itemsJson = keyValuePairs[itemsKey];
-            if (itemsJson != null)
-            {
-                var itemIdKey = nameof(InventoryItem.item.Id).ToCamel();
-                var itemCountKey = nameof(InventoryItem.count).ToCamel();
-                for (int i = 0; i < itemsJson.Count; i++)
+                // items
+                var itemsJson = keyValuePairs[itemsKey];
+                if (itemsJson != null)
                 {
-                    var item = itemsJson[i];
-                    if (item[nameof(InventoryItem.item)] != null)
+                    var itemIdKey = nameof(InventoryItem.item.Id).ToCamel();
+                    var itemCountKey = nameof(InventoryItem.count).ToCamel();
+                    for (int i = 0; i < itemsJson.Count; i++)
                     {
-                        Add(item[nameof(InventoryItem.item)][itemIdKey].AsInt,
-                            item[itemCountKey].AsInt);
+                        var item = itemsJson[i];
+                        if (item[nameof(InventoryItem.item)] != null)
+                        {
+                            Add(item[nameof(InventoryItem.item)][itemIdKey].AsInt,
+                                item[itemCountKey].AsInt);
+                        }
                     }
                 }
-            }
 
-            // equipment
-            LoadEquipment(keyValuePairs);
-            LoadRecipe(keyValuePairs);
+                // equipment
+                LoadEquipment(keyValuePairs);
+                LoadRecipe(keyValuePairs);
 
-            // building & progression
-            BuildingController.Instance.Load(keyValuePairs[buildingDataKey]);
-            ProgressionController.Instance.Load(keyValuePairs[progressionsKey]);
+                // building & progression
+                BuildingController.Instance.Load(keyValuePairs[buildingDataKey]);
+                ProgressionController.Instance.Load(keyValuePairs[progressionsKey]);
 
-            // stats (use camelCase keys inside stats object)
-            if (keyValuePairs[statsKey] != null)
-            {
-                var s = keyValuePairs[statsKey];
-                playerData.Stats.HpMax = s[nameof(playerData.Stats.HpMax).ToCamel()].AsInt;
-                playerData.Stats.HpRegeneration = s[nameof(playerData.Stats.HpRegeneration).ToCamel()].AsInt;
-                playerData.Stats.DamageGlobalBonus = s[nameof(playerData.Stats.DamageGlobalBonus).ToCamel()].AsInt;
-                playerData.Stats.MeleeDamageBonus = s[nameof(playerData.Stats.MeleeDamageBonus).ToCamel()].AsInt;
-                playerData.Stats.RangeDamageBonus = s[nameof(playerData.Stats.RangeDamageBonus).ToCamel()].AsInt;
-                playerData.Stats.MagicDamageBonus = s[nameof(playerData.Stats.MagicDamageBonus).ToCamel()].AsInt;
-                playerData.Stats.AttackSpeedBonus = s[nameof(playerData.Stats.AttackSpeedBonus).ToCamel()].AsInt;
-                playerData.Stats.CritChance = s[nameof(playerData.Stats.CritChance).ToCamel()].AsInt;
-                playerData.Stats.Range = s[nameof(playerData.Stats.Range).ToCamel()].AsInt;
-                playerData.Stats.Dodge = s[nameof(playerData.Stats.Dodge).ToCamel()].AsInt;
-                playerData.Stats.Speed = s[nameof(playerData.Stats.Speed).ToCamel()].AsInt;
-                playerData.Stats.Curse = s[nameof(playerData.Stats.Curse).ToCamel()].AsInt;
-                playerData.Stats.Defend = s[nameof(playerData.Stats.Defend).ToCamel()].AsInt;
-            }
-
-            // hp, exp, level
-            if (keyValuePairs[hpKey] != null) playerData.Hp = keyValuePairs[hpKey].AsInt;
-            if (keyValuePairs[expKey] != null) playerData.Exp = keyValuePairs[expKey].AsInt;
-            if (keyValuePairs[levelKey] != null) playerData.Level = keyValuePairs[levelKey].AsInt;
-
-            if (keyValuePairs[hungerKey] != null) playerData.Hunger = keyValuePairs[hungerKey].AsInt;
-            if (keyValuePairs[hungerMaxKey] != null) playerData.HungerMax = keyValuePairs[hungerMaxKey].AsInt;
-
-
-            // buffs
-            var buffsJson = keyValuePairs[buffsKey];
-            if (buffsJson != null)
-            {
-                var buffIdKey = nameof(BuffBase.Id).ToCamel();
-                for (int i = 0; i < buffsJson.Count; i++)
+                // stats (use camelCase keys inside stats object)
+                if (keyValuePairs[statsKey] != null)
                 {
-                    var buffItem = buffsJson[i];
-                    var buff = ItemDatabase.Instance.Buffs
-                        .Where(predicate => predicate.Id == buffItem[buffIdKey].AsInt)
-                        .FirstOrDefault();
+                    var s = keyValuePairs[statsKey];
+                    playerData.Stats.HpMax = s[nameof(playerData.Stats.HpMax).ToCamel()].AsInt;
+                    playerData.Stats.HpRegeneration = s[nameof(playerData.Stats.HpRegeneration).ToCamel()].AsInt;
+                    playerData.Stats.DamageGlobalBonus = s[nameof(playerData.Stats.DamageGlobalBonus).ToCamel()].AsInt;
+                    playerData.Stats.MeleeDamageBonus = s[nameof(playerData.Stats.MeleeDamageBonus).ToCamel()].AsInt;
+                    playerData.Stats.RangeDamageBonus = s[nameof(playerData.Stats.RangeDamageBonus).ToCamel()].AsInt;
+                    playerData.Stats.MagicDamageBonus = s[nameof(playerData.Stats.MagicDamageBonus).ToCamel()].AsInt;
+                    playerData.Stats.AttackSpeedBonus = s[nameof(playerData.Stats.AttackSpeedBonus).ToCamel()].AsInt;
+                    playerData.Stats.CritChance = s[nameof(playerData.Stats.CritChance).ToCamel()].AsInt;
+                    playerData.Stats.Range = s[nameof(playerData.Stats.Range).ToCamel()].AsInt;
+                    playerData.Stats.Dodge = s[nameof(playerData.Stats.Dodge).ToCamel()].AsInt;
+                    playerData.Stats.Speed = s[nameof(playerData.Stats.Speed).ToCamel()].AsInt;
+                    playerData.Stats.Curse = s[nameof(playerData.Stats.Curse).ToCamel()].AsInt;
+                    playerData.Stats.Defend = s[nameof(playerData.Stats.Defend).ToCamel()].AsInt;
+                }
 
-                    if (buff != null)
+                // hp, exp, level
+                if (keyValuePairs[hpKey] != null) playerData.Hp = keyValuePairs[hpKey].AsInt;
+                if (keyValuePairs[expKey] != null) playerData.Exp = keyValuePairs[expKey].AsInt;
+                if (keyValuePairs[levelKey] != null) playerData.Level = keyValuePairs[levelKey].AsInt;
+
+                if (keyValuePairs[hungerKey] != null) playerData.Hunger = keyValuePairs[hungerKey].AsInt;
+                if (keyValuePairs[hungerMaxKey] != null) playerData.HungerMax = keyValuePairs[hungerMaxKey].AsInt;
+
+
+                // buffs
+                var buffsJson = keyValuePairs[buffsKey];
+                if (buffsJson != null)
+                {
+                    var buffIdKey = nameof(BuffBase.Id).ToCamel();
+                    for (int i = 0; i < buffsJson.Count; i++)
                     {
-                        playerData.Buffs.Add(buff);
+                        var buffItem = buffsJson[i];
+                        var buff = ItemDatabase.Instance.Buffs
+                            .Where(predicate => predicate.Id == buffItem[buffIdKey].AsInt)
+                            .FirstOrDefault();
+
+                        if (buff != null)
+                        {
+                            playerData.Buffs.Add(buff);
+                        }
                     }
                 }
             }
@@ -694,7 +696,7 @@ public class InventoryController : MonoBehaviour
         PopUpTransition.Instance.StartTransition(() =>
         {
             ObjectPooler.Instance.DeactivateAllObjects();
-            SceneManager.LoadScene((int)SceneIndex.MainMenu);
+            SceneManager.LoadScene((int)SceneIndex.Gameplay);
         });
     }
 

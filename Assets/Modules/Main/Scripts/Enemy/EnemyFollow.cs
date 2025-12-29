@@ -1,4 +1,4 @@
-using GameUtil;
+﻿using GameUtil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +35,7 @@ public class EnemyFollow : Enemy, IFixedUpdatable
         if (CanMove && isMove)
         {
             Move();
+            SeparateFromOtherEnemies();
         }
     }
 
@@ -82,5 +83,58 @@ public class EnemyFollow : Enemy, IFixedUpdatable
 
     }
 
+    [SerializeField] private float separationRadius = 0.5f;
+    [SerializeField] private float separationForce = 2f;
+    [SerializeField] private LayerMask enemyLayer;
+
+    private void SeparateFromOtherEnemies()
+    {
+        Vector2 force = Vector2.zero;
+
+        int count = Physics2D.OverlapCircleNonAlloc(
+            transform.position,
+            enemyCheckRadius,
+            enemyHits,
+            enemyLayer
+        );
+
+        for (int i = 0; i < count; i++)
+        {
+            var hit = enemyHits[i];
+            if (hit == null || hit.transform == transform) continue;
+
+            Vector2 dir = (Vector2)(transform.position - hit.transform.position);
+            float dist = dir.magnitude;
+
+            if (dist > 0.001f)
+            {
+                force += dir.normalized / dist;
+            }
+        }
+
+        rb.velocity = force.normalized * speed;
+    }
+
+    [SerializeField] private float enemyCheckRadius = 0.4f;
+
+    private Collider2D[] enemyHits = new Collider2D[8];
+
+    private bool IsCollidingWithEnemy()
+    {
+        int count = Physics2D.OverlapCircleNonAlloc(
+            transform.position,
+            enemyCheckRadius,
+            enemyHits,
+            enemyLayer
+        );
+
+        for (int i = 0; i < count; i++)
+        {
+            if (enemyHits[i] != null && enemyHits[i].transform != transform)
+                return true;
+        }
+
+        return false;
+    }
 
 }

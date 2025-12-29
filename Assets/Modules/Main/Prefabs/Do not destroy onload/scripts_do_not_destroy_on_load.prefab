@@ -305,6 +305,7 @@ Transform:
   - {fileID: 8851992121630862176}
   - {fileID: 1152291446609033274}
   - {fileID: 5003848178547776395}
+  - {fileID: 2785403285386253684}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &662744829048919711
@@ -1110,7 +1111,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 201
   m_Sprite: {fileID: 21300000, guid: 0fe2eaf4a6a17504a9326dfb9ecb2ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6065,7 +6066,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 100
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -6170,7 +6171,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 201
   m_Sprite: {fileID: 21300000, guid: 1d0467ad3b8c4784a9c911ae6dd14389, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6254,7 +6255,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 201
   m_Sprite: {fileID: 21300000, guid: c93e398bd94abd0499affc5de20b99e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6472,6 +6473,12 @@ MonoBehaviour:
     size: 1
   - tag: enemy_423_clay
     prefab: {fileID: 4514686518841295757, guid: 7bbdf8c8778f58247bd4545d4f3cf81a, type: 3}
+    size: 1
+  - tag: 428_candy_wood
+    prefab: {fileID: 5478480424384649760, guid: 5984a6fece436024589557657bbc34f3, type: 3}
+    size: 1
+  - tag: 429_snow
+    prefab: {fileID: 5478480424384649760, guid: 68b749d0e22755c489bf11ceffaf67d0, type: 3}
     size: 1
   - tag: boss_1_bullet_1
     prefab: {fileID: 2483701315811762547, guid: 8fdc1ac2ee6b5ca4f8d18a6620d808f0, type: 3}
@@ -7155,13 +7162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: burp
-    audioClip: {fileID: 8300000, guid: 8f245bf908d0c2440b4e24f00af7a177, type: 3}
-    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
-    volume: 1
-    pitch: 1
-    isLoop: 0
-    poolSize: 5
   - name: chest_open
     audioClip: {fileID: 8300000, guid: be36b865dfead2b42b1d82ff9652f876, type: 3}
     audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
@@ -7169,6 +7169,174 @@ MonoBehaviour:
     pitch: 1
     isLoop: 0
     poolSize: 5
+  - name: burp
+    audioClip: {fileID: 8300000, guid: f60fded2c780b444d8a08df48bf966ac, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.7
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: chop_tree_1
+    audioClip: {fileID: 8300000, guid: 6d29d768ccde08c4998fbf94c5ca5b1d, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.4
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: crystal_mined_1
+    audioClip: {fileID: 8300000, guid: a513cadd7c76e304eb7d37108246bf54, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: crystal_mined_2
+    audioClip: {fileID: 8300000, guid: 28d6453dcfbe66e45a1daa2caa8b195d, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.4
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: stone_mined_1
+    audioClip: {fileID: 8300000, guid: e0cc149e5ab43ae47bf1f72b7768ed60, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: stone_mined_2
+    audioClip: {fileID: 8300000, guid: 391e5a93de7dd744db79551ec69cc6ef, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.45
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: walk_1
+    audioClip: {fileID: 8300000, guid: 4b71ee75f85f71c449f5a00af8ea2fa6, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.7
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: walk_2
+    audioClip: {fileID: 8300000, guid: 52bb01d2a76c53b489d955613b7fa8b8, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.7
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: pick_up_1
+    audioClip: {fileID: 8300000, guid: a1ea3f143584fdf43994321de4e5ab7e, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: thump_1
+    audioClip: {fileID: 8300000, guid: 2680481ecc2e1374b9737afc03c227e0, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.45
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: thump_2
+    audioClip: {fileID: 8300000, guid: e9fb504ed1b8d8b448d31baa43e88440, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.45
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: thump_3
+    audioClip: {fileID: 8300000, guid: ebca725c7d6dbea478d27040a791cec1, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.45
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: open_inventory_1
+    audioClip: {fileID: 8300000, guid: 65e9a01bcaad7fa40971b8f05bf684df, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: select_1
+    audioClip: {fileID: 8300000, guid: 28040cca0d11bdc4eb606b8fbdb2e05c, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: sell_1
+    audioClip: {fileID: 8300000, guid: ad22829114e16ff40bddea3ea8019115, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: 16_craft_1
+    audioClip: {fileID: 8300000, guid: c8bfc1074465340428af023d67fb1b4d, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: 17_build_1
+    audioClip: {fileID: 8300000, guid: 80546a5c4399b4d48ae3637853b2198c, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: 18_build_2
+    audioClip: {fileID: 8300000, guid: e4e170bcd377bd0489d6f9f61daaf744, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: 19_build_3
+    audioClip: {fileID: 8300000, guid: 119e19a695ca1d641946a6308b33cd9a, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: 20_plant_1
+    audioClip: {fileID: 8300000, guid: cbafb9ba69bb3964884efc6fcc71577e, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: 18_plant_2
+    audioClip: {fileID: 8300000, guid: 75d7a14ca6092944f933ee43b88ae216, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: 19_attack_1
+    audioClip: {fileID: 8300000, guid: b09c3d3f9f396e349b023137d58cfa2f, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: 20_close_1
+    audioClip: {fileID: 8300000, guid: c8b035c6a900f0f4ab0bb3319b566d82, type: 3}
+    audioMixer: {fileID: 7276196618987695645, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 5
+  - name: bgm
+    audioClip: {fileID: 8300000, guid: 21f6dd444f91890408b02feacb838383, type: 3}
+    audioMixer: {fileID: 7795064381672876261, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    poolSize: 1
   audioMixerMaster: {fileID: 24100000, guid: 538fbcc8bc82d1f44a777494711989ad, type: 2}
 --- !u!1 &2045829425083407141
 GameObject:
@@ -12141,7 +12309,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 250
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -12246,7 +12414,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 4de132afd6005064597e8ae3ec0485c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12384,7 +12552,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 90ac7f21ef63d0c439f116fb1c5e3991, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12850,7 +13018,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: dcc1887be69fbb3499abb51872d2fe22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17677,7 +17845,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 250
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -22749,7 +22917,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 250
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -27914,7 +28082,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 250
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -33170,7 +33338,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 250
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -38285,7 +38453,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 250
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -38427,6 +38595,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 21418aee160c49a4bb944504bec32875, type: 2}
   - {fileID: 11400000, guid: 62ea189436d44d74f94de5d1944e1d5f, type: 2}
   - {fileID: 11400000, guid: 1814c1172fdd0a645b4c531971c3217c, type: 2}
+  - {fileID: 11400000, guid: 4fde3dfe8d967d54b8427f258ecef151, type: 2}
+  - {fileID: 11400000, guid: 9ae8d8312d773924baa55390a3e55385, type: 2}
   - {fileID: 11400000, guid: 1b568686ff6ab184eaa41b5ebb69a39d, type: 2}
   - {fileID: 11400000, guid: 1f6ba824548694d4da5cc38c9fe28486, type: 2}
   - {fileID: 11400000, guid: e2f0c88b1e02e4a4d8bbfda4a99ba7ec, type: 2}
@@ -38479,9 +38649,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 64a891acdb1920e43a723a8e0bdf5b95, type: 2}
   - {fileID: 11400000, guid: 15c02e44664a40147823efe623fc2968, type: 2}
   - {fileID: 11400000, guid: c7482801dc7e3f240aa24b94e86aa83e, type: 2}
+  - {fileID: 11400000, guid: b1351422adc5e1e42bd572523f326f5c, type: 2}
+  - {fileID: 11400000, guid: fa6b1b3e34d509e429a7958224879b34, type: 2}
+  - {fileID: 11400000, guid: 15c02e44664a40147823efe623fc2968, type: 2}
+  - {fileID: 11400000, guid: 8817f952ad0874e4f98671bd8cc55b38, type: 2}
   - {fileID: 11400000, guid: ba655a8a2aef8d84faf1467e0e58c069, type: 2}
   - {fileID: 11400000, guid: 952475a36dd78b3408edf66c9bbe252f, type: 2}
   - {fileID: 11400000, guid: b35dfd0504bc3e04c92062e9c393906e, type: 2}
+  - {fileID: 11400000, guid: e3a75ee1a027b1b42bfa1d6d573b49b2, type: 2}
+  - {fileID: 11400000, guid: e3d2abf33a0c8d3418c9286ad131acd4, type: 2}
   crop:
   - {fileID: 11400000, guid: 465a41d31cb873c42ad802f0bcf9b89a, type: 2}
   - {fileID: 11400000, guid: 6a456ce8550305147bd1eaacc6ea2b76, type: 2}
@@ -38518,6 +38694,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 88961e8ba16c76e40af5546e7dd9fb6e, type: 2}
   - {fileID: 11400000, guid: 453f4957643461e4c90d83d425af1f98, type: 2}
   - {fileID: 11400000, guid: 9e2c0feed78066145951a500099eba6a, type: 2}
+  - {fileID: 11400000, guid: 922e3d181a1c1444dbba974e0cbbfe23, type: 2}
+  - {fileID: 11400000, guid: 3994df7129e3cf041b1175d43af42d2c, type: 2}
+  - {fileID: 11400000, guid: 5246b17f93dc06742b8806427ead68c8, type: 2}
+  - {fileID: 11400000, guid: 70586d019b851b945880a2d1e8dc0ca4, type: 2}
+  - {fileID: 11400000, guid: 6b1b42ceb0a52374285b057fff84c6c1, type: 2}
+  - {fileID: 11400000, guid: bbfd2f7a44cd32a489b4be36e0c18eae, type: 2}
+  - {fileID: 11400000, guid: 38e9ac7f7b708f44a9089be2ebd48e99, type: 2}
+  - {fileID: 11400000, guid: 80f24527033803241994725a2f320cb1, type: 2}
+  - {fileID: 11400000, guid: 74cd276f79af17148805300dadc945b4, type: 2}
+  - {fileID: 11400000, guid: 78c131c9f6318da4b99838f391321780, type: 2}
+  - {fileID: 11400000, guid: 21fd5653773ba094c8f77b3c8b5218d7, type: 2}
+  - {fileID: 11400000, guid: 8ac070c4f1036034b927ac6d56f4c93d, type: 2}
+  - {fileID: 11400000, guid: 4268de8bd5a877f44beab5a98336f74f, type: 2}
+  - {fileID: 11400000, guid: ee0df59f9acd20f4eb5811328a6c8e88, type: 2}
+  - {fileID: 11400000, guid: ac134bd0442e70b4f81a5065f9034a04, type: 2}
+  maxLevel: 100
+  baseExp: 10
+  growthCurve: 1.5
 --- !u!1 &5803811717580634641
 GameObject:
   m_ObjectHideFlags: 0
@@ -43489,7 +43683,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 100
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -43795,7 +43989,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 201
   m_Sprite: {fileID: 21300000, guid: c47477e2bff834d4cabf44325ef502b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -43862,6 +44056,57 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6862608720035773875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2785403285386253684}
+  - component: {fileID: 9057206483541754927}
+  m_Layer: 0
+  m_Name: main_bgm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2785403285386253684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862608720035773875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1713662079096333789}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9057206483541754927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862608720035773875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002e1ccc67e6cec41903886c4ece9039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipBGMs:
+  - {fileID: 8300000, guid: 21f6dd444f91890408b02feacb838383, type: 3}
+  - {fileID: 8300000, guid: 2be6905531f3f524cb17e7c20d98df2b, type: 3}
+  - {fileID: 8300000, guid: 4f707f82166a331478f4c449dfbd2e67, type: 3}
+  - {fileID: 8300000, guid: 1ec0633edefd90e4383c1453b6bc9a07, type: 3}
+  - {fileID: 8300000, guid: d9e57c751efa7ab4b8b615777e7d5b6d, type: 3}
+  - {fileID: 8300000, guid: dc935e961c543794486a25e51e167b72, type: 3}
 --- !u!1 &7128677418691487326
 GameObject:
   m_ObjectHideFlags: 0
@@ -44071,7 +44316,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 201
   m_Sprite: {fileID: 21300000, guid: 664c8cc9a920f2349b957b11187f1d7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -44155,7 +44400,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 201
   m_Sprite: {fileID: 21300000, guid: 1aa658c5a4940194b832ba0cb9bef932, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -44421,7 +44666,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 73e03efe29ea6484084d54ba298eed77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -49372,7 +49617,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1021047877
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 250
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -49477,7 +49722,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 201
   m_Sprite: {fileID: 21300000, guid: b2f53755cb5660048b0bc054e547d3a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -49659,7 +49904,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 201
   m_Sprite: {fileID: 21300000, guid: af530f5a2fc6a754aa72119ef295a3ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -49743,7 +49988,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 201
   m_Sprite: {fileID: 21300000, guid: 2e17b5ddd2d9abc488bd99af9dad341b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

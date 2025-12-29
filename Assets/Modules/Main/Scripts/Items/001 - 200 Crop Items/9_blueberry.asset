@@ -17,7 +17,9 @@ MonoBehaviour:
   itemDescription: 9_blueberry-item_description
   sprite: {fileID: 21300000, guid: dd85694c724947b4cb19fbbd957fb609, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: dd85694c724947b4cb19fbbd957fb609, type: 3}
-  buyPrice: 1100
-  sellPrice: 600
+  buyPrice: 90
+  sellPrice: 90
   useTime: 0
   isNonStack: 0
+  isFood: 1
+  hungerCount: 15

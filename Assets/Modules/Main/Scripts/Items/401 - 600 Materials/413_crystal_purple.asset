@@ -17,6 +17,9 @@ MonoBehaviour:
   itemDescription: 413_crystal_purple-item_description
   sprite: {fileID: 21300000, guid: c1394670f92891341aae3cc2d5b95184, type: 3}
   spriteWorldItem: {fileID: 21300000, guid: c1394670f92891341aae3cc2d5b95184, type: 3}
-  buyPrice: 1
-  sellPrice: 1
+  buyPrice: 100
+  sellPrice: 100
+  useTime: 0
   isNonStack: 0
+  isFood: 0
+  hungerCount: 0

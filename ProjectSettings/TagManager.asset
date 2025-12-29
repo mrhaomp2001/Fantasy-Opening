@@ -10,6 +10,7 @@ TagManager:
   - PlayerBullet
   - WorldInteractable
   - Exp
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -50,7 +51,10 @@ TagManager:
   - name: Tile Background
     uniqueID: 1662348015
     locked: 0
-  - name: Background
+  - name: Tile Foreground
+    uniqueID: 1038148479
+    locked: 0
+  - name: Background Building
     uniqueID: 2799541507
     locked: 0
   - name: Same Layer

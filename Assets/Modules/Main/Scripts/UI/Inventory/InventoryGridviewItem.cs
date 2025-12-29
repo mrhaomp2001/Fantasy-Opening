@@ -91,6 +91,17 @@ public class InventoryGridviewItem : MonoBehaviour
                     {
                         onSuccess = () =>
                         {
+                            string audioResult = "";
+
+                            string[] audioHurtList =
+                            {
+                                "sell_1",
+                            };
+
+                            audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+                            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+
                         },
                         onFail = (message) =>
                         {
@@ -133,6 +144,7 @@ public class InventoryGridviewItem : MonoBehaviour
             {
                 onSuccess = () =>
                 {
+                    AudioController.Instance.PlayButton();
 
                 },
                 onFail = (message) =>
@@ -177,6 +189,9 @@ public class InventoryGridviewItem : MonoBehaviour
 
                     PopUpInventory.Instance.UpdateViews();
                     PopUpInventoryTooltip.Instance.ShowAtPosition(tooltipPosition.position, item, new Vector2(0f, 0.5f));
+
+                    AudioController.Instance.PlayButton();
+
                 }
             }
         }

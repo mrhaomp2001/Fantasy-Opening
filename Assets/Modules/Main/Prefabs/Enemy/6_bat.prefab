@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
-  hpMax: 10
+  hpMax: 14
   canMove: 0
   enemyDieParticle: enemy_die_effect_1
   hitbox: {fileID: 9211850742125784913}
@@ -236,11 +236,20 @@ MonoBehaviour:
   def: 0
   hungerConsume: 0
   rb: {fileID: 9004111578794144812}
+  audioHurtList:
+  - thump_1
+  - thump_2
+  - thump_3
   dropId: 0
   expDrop: 2
   isMove: 0
   delayMove: 1
   speed: 2
+  separationRadius: 1
+  separationForce: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &7242334635788229699
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +375,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 823cfe1e0a735f442b491a6e61759f15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

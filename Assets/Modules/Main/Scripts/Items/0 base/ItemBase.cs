@@ -23,7 +23,17 @@ public class ItemBase : ScriptableObject
 
     public int Id { get => id; set => id = value; }
     public string ItemName { get => LanguageController.Instance.GetString(itemName); set => itemName = value; }
-    public virtual string ItemDescription { get => LanguageController.Instance.GetString(itemDescription); set => itemDescription = value; }
+    public virtual string ItemDescription 
+    {
+        get
+        {
+            if (isFood)
+            {
+                return $"[{LanguageController.Instance.GetString("edible")}] +{hungerCount} {LanguageController.Instance.GetString("fullness")} \n{LanguageController.Instance.GetString(itemDescription)}";
+            }
+            return $"{LanguageController.Instance.GetString(itemDescription)}"; 
+        }
+        set => itemDescription = value; }
     public Sprite Sprite { get => sprite; set => sprite = value; }
 
     /// <summary>

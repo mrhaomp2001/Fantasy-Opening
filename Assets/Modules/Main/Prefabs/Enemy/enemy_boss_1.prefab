@@ -182,10 +182,11 @@ MonoBehaviour:
   hitbox: {fileID: 9166901584494740953}
   sprite: {fileID: 946381770087595780}
   animator: {fileID: 6435417223701519038}
-  touchDamage: 20
+  touchDamage: 25
   def: 0
   hungerConsume: 0
   rb: {fileID: 2248483167616032461}
+  audioHurtList: []
   dropId: 0
   expDrop: 0
   delayMove: 2
@@ -347,7 +348,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 300
   m_Sprite: {fileID: 21300000, guid: d4a23975e5e26d7418ee63c72ac5320e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -536,7 +537,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1308547419
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 7c89b626189cb6147ba6b824dedc561d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

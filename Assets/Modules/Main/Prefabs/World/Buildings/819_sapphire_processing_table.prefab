@@ -120,27 +120,27 @@ MonoBehaviour:
     itemResult: {fileID: 11400000, guid: 562b18406682a004ea3bd949c2a7645e, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: e3dcdbc0e01306040a6ca9fe906df035, type: 2}
-      count: 5
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: f711cf541e42e054bb13d31a9783ba95, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: e3dcdbc0e01306040a6ca9fe906df035, type: 2}
-      count: 5
+      count: 3
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 64a891acdb1920e43a723a8e0bdf5b95, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: e3dcdbc0e01306040a6ca9fe906df035, type: 2}
-      count: 9
+      count: 3
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 15c02e44664a40147823efe623fc2968, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: e3dcdbc0e01306040a6ca9fe906df035, type: 2}
-      count: 7
+      count: 2
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: c7482801dc7e3f240aa24b94e86aa83e, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: e3dcdbc0e01306040a6ca9fe906df035, type: 2}
-      count: 4
+      count: 2
 --- !u!1 &6998290294712461445
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +289,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1495425789
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 99ae1e34c67e34f468c2c5458459e032, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
