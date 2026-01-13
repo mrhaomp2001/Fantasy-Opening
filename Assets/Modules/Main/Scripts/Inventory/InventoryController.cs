@@ -936,7 +936,7 @@ public class InventoryController : MonoBehaviour
         BuildingController.Instance.Save();
         ProgressionController.Instance.Save();
 
-        //Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
+       // Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
         PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(playerData));
         PlayerPrefs.Save();
     }

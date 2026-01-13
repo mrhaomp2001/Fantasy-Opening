@@ -131,7 +131,7 @@ public class PopUpSetting : PopUp
         // --- Có dữ liệu, load JSON ---
         string json = PlayerPrefs.GetString(prefKey);
 
-        Debug.Log($"json: {json}");
+       // Debug.Log($"json: {json}");
 
         FromJson(json);
 
@@ -147,7 +147,7 @@ public class PopUpSetting : PopUp
     public void Save()
     {
         PlayerPrefs.SetString(prefKey, ToJson());
-        Debug.Log($"json: {ToJson()}");
+       // Debug.Log($"json: {ToJson()}");
 
         PlayerPrefs.Save();
     }

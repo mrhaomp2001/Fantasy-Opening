@@ -212,9 +212,6 @@ public class PopUpInventory : PopUp
         PopUpBuffTooltip.Instance.Hide();
 
         PopUpHotbarSelecter.Instance.Hide();
-
-        PopUpDialogue.Instance.Hide();
-        PopUpDialogueOption.Instance.Hide();
     }
 
     public void UpdateViewChest()

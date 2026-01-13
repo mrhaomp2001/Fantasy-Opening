@@ -42,7 +42,7 @@ public class ObjectPooler : MonoBehaviour
         {
             if (poolDictionary.ContainsKey(pool.tag))
             {
-                Debug.Log("Pool with tag '" + pool.tag + "' is duplicated");
+               // Debug.Log("Pool with tag '" + pool.tag + "' is duplicated");
 
                 continue;
             }
@@ -82,7 +82,7 @@ public class ObjectPooler : MonoBehaviour
     {
         if (!poolDictionary.ContainsKey(tag))
         {
-            Debug.Log("Pool with tag '" + tag + "' doesn't exist");
+           // Debug.Log("Pool with tag '" + tag + "' doesn't exist");
             return null;
         }
 

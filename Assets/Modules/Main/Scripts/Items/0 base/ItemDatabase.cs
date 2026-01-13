@@ -49,7 +49,7 @@ public class ItemDatabase : MonoBehaviour
             });
         }
 
-        Debug.Log($"Generated EXP curve table (1 → {maxLevel}) using growth {growthCurve}");
+       // Debug.Log($"Generated EXP curve table (1 → {maxLevel}) using growth {growthCurve}");
     }
 
     private void Awake()

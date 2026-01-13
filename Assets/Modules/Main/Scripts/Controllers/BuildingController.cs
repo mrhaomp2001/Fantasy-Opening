@@ -18,16 +18,16 @@ public class BuildingController : MonoBehaviour, IUpdatable
         [JsonProperty]
         [SerializeField] private string name;
         [JsonProperty]
-        [SerializeField] private float x, y, z;
+        [SerializeField] private string x, y, z;
         [JsonProperty]
         [SerializeField] private object data = new();
         [SerializeField] private IWorldInteractable worldInteractable;
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
-        public float X { get => x; set => x = value; }
-        public float Y { get => y; set => y = value; }
-        public float Z { get => z; set => z = value; }
+        public string X { get => x; set => x = value; }
+        public string Y { get => y; set => y = value; }
+        public string Z { get => z; set => z = value; }
         public object Data { get => data; set => data = value; }
         public IWorldInteractable WorldInteractable { get => worldInteractable; set => worldInteractable = value; }
     }
@@ -54,6 +54,24 @@ public class BuildingController : MonoBehaviour, IUpdatable
     private LinkedList<IWorldInteractable> interactable;
 
     public static BuildingController Instance { get => instance; set => instance = value; }
+
+    public static bool TryParseFloatInvariant(string raw, out float value)
+    {
+        value = 0f;
+
+        if (string.IsNullOrEmpty(raw))
+            return false;
+
+        // Cứu dữ liệu có dấu phẩy (5,5 → 5.5)
+        raw = raw.Replace(',', '.');
+
+        return float.TryParse(
+            raw,
+            NumberStyles.Float,
+            CultureInfo.InvariantCulture,
+            out value
+        );
+    }
 
     private void Awake()
     {
@@ -127,7 +145,11 @@ public class BuildingController : MonoBehaviour, IUpdatable
                 continue;
             }
 
-            Vector3 checkPosition = new Vector3(item.X, item.Y, item.Z);
+            TryParseFloatInvariant(item.X, out float x);
+            TryParseFloatInvariant(item.Y, out float y);
+            TryParseFloatInvariant(item.Z, out float z);
+
+            Vector3 checkPosition = new Vector3(x, y, z);
 
             if (buildingPosition.Equals(checkPosition))
             {
@@ -147,13 +169,15 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
         GameObject gameObjectResult = ObjectPooler.Instance.SpawnFromPool(buildingName, buildingPosition, Quaternion.identity);
 
+       // Debug.Log($"x={buildingPosition.x}, y={buildingPosition.y}, z={buildingPosition.z}");
+
         var building = new Building
         {
             Id = InventoryController.Instance.GetPlayerData.BuildingData.IdCounter++,
             Name = buildingName,
-            X = buildingPosition.x,
-            Y = buildingPosition.y,
-            Z = 0,
+            X = buildingPosition.x.ToString(CultureInfo.InvariantCulture),
+            Y = buildingPosition.y.ToString(CultureInfo.InvariantCulture),
+            Z = "0",
             WorldInteractable = gameObjectResult.GetComponent<IWorldInteractable>(),
         };
 
@@ -194,13 +218,15 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
         GameObject gameObjectResult = ObjectPooler.Instance.SpawnFromPool(buildingName, buildingPosition, Quaternion.identity);
 
+       // Debug.Log($"x={buildingPosition.x}, y={buildingPosition.y}, z={buildingPosition.z}");
+
         var building = new Building
         {
             Id = buildingId,
             Name = buildingName,
-            X = buildingPosition.x,
-            Y = buildingPosition.y,
-            Z = buildingPosition.z,
+            X = buildingPosition.x.ToString(CultureInfo.InvariantCulture),
+            Y = buildingPosition.y.ToString(CultureInfo.InvariantCulture),
+            Z = buildingPosition.z.ToString(CultureInfo.InvariantCulture),
             WorldInteractable = gameObjectResult.GetComponent<IWorldInteractable>(),
         };
 
@@ -227,8 +253,11 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
     public void Save()
     {
+       // Debug.Log("Save: 1");
         foreach (var item in InventoryController.Instance.GetPlayerData.BuildingData.Buildings)
         {
+           // Debug.Log("Save: 2");
+
             if (item.WorldInteractable is BuildingFarmland farmland)
             {
                 item.Data = farmland;
@@ -242,20 +271,38 @@ public class BuildingController : MonoBehaviour, IUpdatable
                 buildingBase.NextDay();
             }
         }
+
+       // Debug.Log($"Buildings: {JsonConvert.SerializeObject(InventoryController.Instance.GetPlayerData.BuildingData.Buildings)}");
+
+       // Debug.Log("Save: 3");
+
     }
 
     public void Load(JSONNode jsonValue)
     {
+        //Debug.Log("Load: 1");
+
         InventoryController.Instance.GetPlayerData.BuildingData.IdCounter = jsonValue["idCounter"].AsInt;
+
+        //Debug.Log("Load: 2");
+        //Debug.Log($"Load value: {jsonValue["buildings"].ToString()}");
 
         for (int i = 0; i < jsonValue["buildings"].Count; i++)
         {
             var item = jsonValue["buildings"][i];
 
-            if (float.TryParse(item["x"].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out float x))
+            if (float.TryParse(item["x"].Value.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out float x))
             {
-                if (float.TryParse(item["y"].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out float y))
+                //Debug.Log($"Load: x = {x}");
+                //Debug.Log($"Load: x value = {item["x"].Value.ToString()}");
+
+                if (float.TryParse(item["y"].Value.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out float y))
                 {
+                    //Debug.Log($"Load: y = {y}");
+                    //Debug.Log($"Load: y value = {item["y"].Value.ToString()}");
+
+                    //Debug.Log("--");
+
                     Vector3 buildPosition = new Vector3(x, y, 0f);
 
                     var building = BuildAtPosition(item["name"].Value, buildPosition, item["id"].AsInt);
@@ -285,6 +332,9 @@ public class BuildingController : MonoBehaviour, IUpdatable
                 }
             }
         }
+
+       // Debug.Log("Load: 3");
+
     }
 
     public void DestroyBuilding(int id)

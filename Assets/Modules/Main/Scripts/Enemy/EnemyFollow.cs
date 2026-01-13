@@ -89,52 +89,27 @@ public class EnemyFollow : Enemy, IFixedUpdatable
 
     private void SeparateFromOtherEnemies()
     {
-        Vector2 force = Vector2.zero;
-
-        int count = Physics2D.OverlapCircleNonAlloc(
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
             transform.position,
-            enemyCheckRadius,
-            enemyHits,
+            separationRadius,
             enemyLayer
         );
 
-        for (int i = 0; i < count; i++)
+        Vector2 force = Vector2.zero;
+
+        foreach (var hit in hits)
         {
-            var hit = enemyHits[i];
-            if (hit == null || hit.transform == transform) continue;
+            if (hit.transform == transform) continue;
 
             Vector2 dir = (Vector2)(transform.position - hit.transform.position);
-            float dist = dir.magnitude;
+            float distance = dir.magnitude;
 
-            if (dist > 0.001f)
+            if (distance > 0)
             {
-                force += dir.normalized / dist;
+                force += dir.normalized / distance;
             }
         }
 
-        rb.velocity = force.normalized * speed;
+        rb.AddForce(force * separationForce, ForceMode2D.Force);
     }
-
-    [SerializeField] private float enemyCheckRadius = 0.4f;
-
-    private Collider2D[] enemyHits = new Collider2D[8];
-
-    private bool IsCollidingWithEnemy()
-    {
-        int count = Physics2D.OverlapCircleNonAlloc(
-            transform.position,
-            enemyCheckRadius,
-            enemyHits,
-            enemyLayer
-        );
-
-        for (int i = 0; i < count; i++)
-        {
-            if (enemyHits[i] != null && enemyHits[i].transform != transform)
-                return true;
-        }
-
-        return false;
-    }
-
 }

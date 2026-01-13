@@ -7,7 +7,7 @@ public class EnemyBulletForwardPlayer : EnemyBullet
     [SerializeField] protected float speed;
     protected override void MoveMethod(LeanTweenType leanEasing = LeanTweenType.notUsed)
     {
-        Debug.Log("MoveMethod: " + 1);
+       // Debug.Log("MoveMethod: " + 1);
 
         Vector3 playerPosition = PlayerController.Instance.transform.position;
         Vector3 bulletPos = bullet.position;

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     [SerializeField] private SpriteRenderer spritePlayer;
     [SerializeField] private SpriteRenderer spriteItemHolding;
     [SerializeField] private Animator animator;
+    [SerializeField] private Joystick joystickMovement;
     [SerializeField] private Joystick joystick;
 
     [Header("Debug: ")]
@@ -174,6 +175,13 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         PopUpInventory.Instance.Hide();
     }
 
+    public void ShowInventory()
+    {
+        PopUpInventory.Instance.TurnPopUp();
+        AudioController.Instance.PlayButton();
+
+    }
+
     private void OnHolding()
     {
         if (isHolding)
@@ -216,7 +224,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             GameController.Instance.NextDay();
         }
 
-        if (Input.GetKeyDown(KeyCode.F10))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             SpawnCheatItem();
         }
@@ -329,37 +337,37 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         }
 
 #elif UNITY_ANDROID || UNITY_IOS
-    // --- Mobile: Dùng joystick ---
-    float horizontal = joystick.Horizontal;
-    float vertical = joystick.Vertical;
+        // --- Mobile: Dùng joystick ---
+        float horizontal = joystickMovement.Horizontal;
+        float vertical = joystickMovement.Vertical;
 
-    // Quy tròn về -1, 0, 1 theo input joystick
-    if (Mathf.Abs(horizontal) > 0.5f)
-    {
-        movementSpeed.x = Mathf.Sign(horizontal);
-    }
-    else
-    {
-        movementSpeed.x = 0;
-    }
+        // Quy tròn về -1, 0, 1 theo input joystick
+        if (Mathf.Abs(horizontal) > 0.5f)
+        {
+            movementSpeed.x = Mathf.Sign(horizontal);
+        }
+        else
+        {
+            movementSpeed.x = 0;
+        }
 
-    if (Mathf.Abs(vertical) > 0.5f)
-    {
-        movementSpeed.y = Mathf.Sign(vertical);
-    }
-    else
-    {
-        movementSpeed.y = 0;
-    }
+        if (Mathf.Abs(vertical) > 0.5f)
+        {
+            movementSpeed.y = Mathf.Sign(vertical);
+        }
+        else
+        {
+            movementSpeed.y = 0;
+        }
 
-    if (movementSpeed.x < 0)
-    {
-        spritePlayer.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-    }
-    else if (movementSpeed.x > 0)
-    {
-        spritePlayer.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-    }
+        if (movementSpeed.x < 0)
+        {
+            spritePlayer.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+        else if (movementSpeed.x > 0)
+        {
+            spritePlayer.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
 #endif
 
         // --- Animation ---
@@ -395,18 +403,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 #if UNITY_STANDALONE
         // Dùng chuột trên PC
         mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-#elif UNITY_ANDROID || UNITY_IOS
-    // Dùng cảm ứng trên mobile
-    if (Input.touchCount > 0)
-    {
-        mousePos = mainCamera.ScreenToWorldPoint(Input.GetTouch(0).position);
-    }
-    else
-    {
-        return; // Không có ngón tay chạm, thoát hàm
-    }
-#endif
-
         mousePos.z = 0f;
         Vector3 targetPosition = mousePos - firepoint.transform.position;
 
@@ -418,6 +414,44 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             0.2f,
             3f
         );
+#elif UNITY_ANDROID || UNITY_IOS
+        Vector2 direction = new Vector2(joystick.Horizontal, joystick.Vertical);
+        float targetRotation = 0f;
+        if (Input.touchCount > 0)
+        {
+
+            mousePos = mainCamera.ScreenToWorldPoint(Input.GetTouch(0).position);
+            mousePos.z = 0f;
+            Vector3 targetPosition = mousePos - firepoint.transform.position;
+            targetRotation = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
+
+            // Dùng cảm ứng trên mobile
+            if (isHolding)
+            {
+                if (Input.touchCount > 0)
+
+                    firepoint.rotation = Quaternion.Euler(0, 0, targetRotation);
+
+                firepointHitbox.transform.localPosition = Vector3.right * Mathf.Clamp(
+                    Vector3.Distance(mousePos, new Vector3(firepoint.transform.position.x, firepoint.transform.position.y, 0f)),
+                    0.2f,
+                    3f
+                );
+            }
+        }
+
+        // Tránh joystick chưa kéo
+        if (direction.sqrMagnitude < 0.1f)
+            return;
+
+        targetRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        firepoint.rotation = Quaternion.Euler(0f, 0f, targetRotation);
+
+        if (direction.sqrMagnitude > 0.9f)
+        {
+            InteractWithItem();
+        }
+#endif
     }
 
     public void InteractWithItem()

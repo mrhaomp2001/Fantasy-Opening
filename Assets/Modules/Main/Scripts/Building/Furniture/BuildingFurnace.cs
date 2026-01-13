@@ -11,7 +11,7 @@ public class BuildingFurnace : BuildingBase, IWorldInteractable, IPoolObject
 
     }
 
-    public void OnWorldInteract()
+    public override void OnWorldInteract()
     {
         PopUpInventory.Instance.TurnPopUp();
 

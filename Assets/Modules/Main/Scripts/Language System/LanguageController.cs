@@ -22,15 +22,16 @@ public class LanguageController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
         languageContent = JSONNode.Parse(vn.text);
     }
 
     public string GetString(string key)
     {
+        if (languageContent == null)
+        {
+            languageContent = JSONNode.Parse(vn.text);
+        }
+
         string result = key;
 
         if (languageContent[key] != null && languageContent[key].Value != "")
