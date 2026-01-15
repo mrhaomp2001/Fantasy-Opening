@@ -32,7 +32,7 @@ public class GameInputController : MonoBehaviour
 
     private List<InputKey> keys;
 
-    private const string prefKey = "GameInputController";
+    private const string prefKey = nameof(GameInputController);
     public static GameInputController Instance { get => instance; set => instance = value; }
     public InputKey Left { get => left; set => left = value; }
     public InputKey Right { get => right; set => right = value; }

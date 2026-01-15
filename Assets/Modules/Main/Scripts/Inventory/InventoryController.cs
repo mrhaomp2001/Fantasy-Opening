@@ -281,7 +281,7 @@ public class InventoryController : MonoBehaviour
     }
 
     private static InventoryController instance;
-    private const string prefKey = "InventoryController";
+    private const string prefKey = nameof(InventoryController);
 
     [SerializeField] private int money;
 
@@ -691,12 +691,19 @@ public class InventoryController : MonoBehaviour
 
     public void Ascension()
     {
+
         PlayerPrefs.DeleteKey(prefKey);
+
+        WitchSystemController.Instance.Data.Level += 1;
+        WitchSystemController.Instance.Data.WitchMedal += 3;
+        WitchSystemController.Instance.Save();
 
         PopUpTransition.Instance.StartTransition(() =>
         {
+
             ObjectPooler.Instance.DeactivateAllObjects();
             SceneManager.LoadScene((int)SceneIndex.Gameplay);
+
         });
     }
 
@@ -936,7 +943,7 @@ public class InventoryController : MonoBehaviour
         BuildingController.Instance.Save();
         ProgressionController.Instance.Save();
 
-       // Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
+        // Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
         PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(playerData));
         PlayerPrefs.Save();
     }

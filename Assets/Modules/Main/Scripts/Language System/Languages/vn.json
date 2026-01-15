@@ -9,10 +9,14 @@
   "upgrade": "Nâng cấp",
   "quit": "Thoát",
   "cancel": "Trở lại",
+  "accept": "Chấp nhận",
   "resume": "Quay lại trò chơi",
   "ok": "Được",
   "sleep": "Ngủ",
   "quit_to_main_menu": "Màn hình chính",
+
+  "ascension": "Thăng cấp thế giới",
+  "ascension_description": "<size=120%><b>Thăng cấp thế giới</b></size>\n\nKhi sử dụng tùy chọn này, bạn sẽ <color=#FF6B6B><b>mất tất cả đồ</b></color> và <color=#FF6B6B><b>làm mới lại lần chơi</b></color>.\n\nĐổi lại, bạn sẽ nhận được <color=#FFD966><b>3 Huân chương phù thủy</b></color> và <color=#6FA8DC><b>mở ra các nội dung mới</b></color> của trò chơi.\n\n<b>--</b>\n\n- <b>Cấp độ thế giới</b> <color=#93C47D><b>+1</b></color>\n- <color=#FFD966><b>Huân chương phù thủy +3</b></color>",
 
   "changelog": "Thay đổi giữa các phiên bản",
   "version": "Phiên bản",
@@ -552,7 +556,7 @@
   "npc_player_sell": "> Tôi muốn bán hàng",
   "npc_player_cancel": "> Rời đi",
 
-  "npc_player_ascension": "> [LƯU Ý KHI CHỌN: RESET MÀN MÀN CHƠI, CHƯA HOÀN THIỆN, ĐANG ĐƯỢC PHÁT TRIỂN] \nCác bạn có mua nông sản không?",
+  "npc_player_ascension": "> Bán tất cả nông sản của bạn",
   "npc_player_accept": "> tôi muốn bán tất cả",
   "npc_player_deny": "> để tôi suy nghĩ đã",
 

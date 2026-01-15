@@ -47,7 +47,7 @@ public class PopUpSetting : PopUp
     [SerializeField] private RectTransform contentSelectInputControl;
 
 
-    private const string prefKey = "PopUpSetting";
+    private const string prefKey = nameof(PopUpSetting);
     public RectTransform Container { get => container; }
 
     public string ToJson()

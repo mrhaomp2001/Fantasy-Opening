@@ -33,18 +33,7 @@ public class NPCWitch : NPC
                 message = LanguageController.Instance.GetString("npc_player_ascension"),
                 action = () =>
                 {
-                    InventoryController.Instance.Ascension();
-
-                    PopUpDialogue.Instance.ShowDialogue(new List<Dialogue>()
-                    {
-                        new Dialogue
-                        {
-                            Name = LanguageController.Instance.GetString("[ Phù thủy trưởng ]"),
-                            Content = LanguageController.Instance.GetString("npc_witch_talk_4"),
-                            Sprite = null
-                        }
-                    });
-
+                    PopUpAscension.Instance.Show();
                 }
             },
             new ActionWithMessage

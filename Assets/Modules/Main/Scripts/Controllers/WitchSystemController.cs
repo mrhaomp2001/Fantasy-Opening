@@ -40,11 +40,11 @@ public class WitchSystemController : Singleton<WitchSystemController>
         }
     }
 
-    private static WitchDataModel witchData;
+    private WitchDataModel data;
 
     private const string prefKey = nameof(WitchSystemController);
 
-    public static WitchDataModel WitchData { get => witchData; set => witchData = value; }
+    public WitchDataModel Data { get => data; set => data = value; }
 
     private void Start()
     {
@@ -56,12 +56,12 @@ public class WitchSystemController : Singleton<WitchSystemController>
         if (PlayerPrefs.HasKey(prefKey))
         {
             string json = PlayerPrefs.GetString(prefKey);
-            witchData = WitchDataModel.FromJson(json);
+            data = WitchDataModel.FromJson(json);
         }
         else
         {
-            witchData = new WitchDataModel()
-            { 
+            data = new WitchDataModel()
+            {
                 Level = 0,
                 WitchMedal = 0
             };
@@ -72,10 +72,10 @@ public class WitchSystemController : Singleton<WitchSystemController>
 
     public void Save()
     {
-        if (witchData == null)
+        if (data == null)
             return;
 
-        string json = witchData.ToJson();
+        string json = data.ToJson();
         PlayerPrefs.SetString(prefKey, json);
         PlayerPrefs.Save();
     }
