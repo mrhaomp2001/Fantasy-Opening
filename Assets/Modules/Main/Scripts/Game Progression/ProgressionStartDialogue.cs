@@ -12,7 +12,9 @@ public class ProgressionStartDialogue : ProgressionBase
     [SerializeField] private Dialogue choose1;
     [SerializeField] private List<Dialogue> dialogues2;
 
-
+    [Header("Check Witch Point 1: ")]
+    [SerializeField] private Transform transformWorld5;
+    [SerializeField] private Transform transformTilemap5;
 
     public override void OnActived()
     {
@@ -60,6 +62,11 @@ public class ProgressionStartDialogue : ProgressionBase
         if (IsSaved)
         {
             npcRabbit.gameObject.SetActive(true);
+        }
+        if (WitchSystemController.Instance.Data.Level >= 1)
+        {
+            transformWorld5.gameObject.SetActive(true);
+            transformTilemap5.gameObject.SetActive(true);
         }
     }
 

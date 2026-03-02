@@ -2,6 +2,7 @@
 using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -36,6 +37,10 @@ public class PopUpSetting : PopUp
     [JsonProperty]
     [SerializeField] private float volumeEffect;
 
+    [JsonProperty]
+    [SerializeField] private string seaColorHex;
+
+
     [Header("Input Control: ")]
     [SerializeField] private RectTransform containerInputControl;
 
@@ -50,6 +55,8 @@ public class PopUpSetting : PopUp
     private const string prefKey = nameof(PopUpSetting);
     public RectTransform Container { get => container; }
 
+    public string SeaColorHex { get => seaColorHex; set => seaColorHex = value; }
+
     public string ToJson()
     {
         return JsonConvert.SerializeObject(instance);
@@ -57,7 +64,11 @@ public class PopUpSetting : PopUp
 
     public void FromJson(string json)
     {
-        JsonConvert.PopulateObject(json, instance);
+        var settings = new JsonSerializerSettings
+        {
+            Culture = CultureInfo.InvariantCulture
+        };
+        JsonConvert.PopulateObject(json, instance, settings);
     }
 
     private void Awake()
@@ -123,7 +134,13 @@ public class PopUpSetting : PopUp
             // Set AudioMixer
             ApplyVolumesToMixer();
 
+            SeaColorHex = "3693F7";
             // Lưu JSON mặc định
+
+            if (PopUpSeaColorChanger.Instance != null)
+            {
+                PopUpSeaColorChanger.Instance.OnLoad();
+            }
             Save();
             return;
         }
@@ -135,10 +152,23 @@ public class PopUpSetting : PopUp
 
         FromJson(json);
 
+
+        if (SeaColorHex.Equals(string.Empty))
+        {
+            SeaColorHex = "3693F7";
+        }
+
         // Gắn vào slider
         sliderMaster.value = volumeMaster;
         sliderBackground.value = volumeBackground;
         sliderEffect.value = volumeEffect;
+
+        //Debug.Log($"hex: {SeaColorHex}");
+
+        if (PopUpSeaColorChanger.Instance != null)
+        {
+            PopUpSeaColorChanger.Instance.OnLoad();
+        }
 
         // Set AudioMixer
         ApplyVolumesToMixer();
@@ -147,7 +177,9 @@ public class PopUpSetting : PopUp
     public void Save()
     {
         PlayerPrefs.SetString(prefKey, ToJson());
-       // Debug.Log($"json: {ToJson()}");
+        //Debug.Log($"json: {ToJson()}");
+
+        //Debug.Log($"hex: {SeaColorHex}");
 
         PlayerPrefs.Save();
     }

@@ -19,5 +19,9 @@ MonoBehaviour:
   spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
+  useTime: 1
+  isNonStack: 0
+  isFood: 0
+  hungerCount: 0
   buildingName: 807_farmland_silver
   buildingSprite: {fileID: 21300000, guid: 737b0884910b1df44997b3e134615cc0, type: 3}

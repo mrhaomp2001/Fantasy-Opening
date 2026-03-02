@@ -46,10 +46,14 @@ public class PopUpInventory : PopUp
     [Header("Buffs: ")]
     [SerializeField] private RectTransform containerBuff;
     [SerializeField] private TextMeshProUGUI textBuffPage;
-
     private const int BuffsPerPage = 27;
     [SerializeField] private int buffPage;
     [SerializeField] private List<InventoryBuffGridviewItem> buffGridviewItems;
+
+    [Header("Technology: ")]
+    [SerializeField] private RectTransform containerTechnology;
+    [SerializeField] private RectTransform buttonTechnology;
+
 
     public static PopUpInventory Instance { get => instance; set => instance = value; }
 
@@ -93,6 +97,8 @@ public class PopUpInventory : PopUp
         containerInventoryOption.gameObject.SetActive(true);
 
         containerEquipment.gameObject.SetActive(true);
+
+        buttonTechnology.gameObject.SetActive(WitchSystemController.Instance.Data.Level > 0);
 
         PopUpInventoryCraftingTooltip.Instance.Hide();
         PopUpInventoryTooltip.Instance.Hide();
@@ -290,8 +296,19 @@ public class PopUpInventory : PopUp
         containerPlayerStats.gameObject.SetActive(false);
         containerBuff.gameObject.SetActive(false);
         containerChest.gameObject.SetActive(false);
+        containerTechnology.gameObject.SetActive(false);
 
         containerInventoryOption.gameObject.SetActive(true);
+    }
+
+    public void ShowTechnology()
+    {
+        ResetSubPopUps();
+        containerTechnology.gameObject.SetActive(true);
+        AudioController.Instance.PlayButton();
+
+
+        WitchTechController.Instance.UpdateViews();
     }
 
     public void TurnSelling(List<InventoryItem> itemsCanSell)

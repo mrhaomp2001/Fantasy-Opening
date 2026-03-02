@@ -1,6 +1,8 @@
-using SimpleJSON;
+﻿using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class LanguageController : MonoBehaviour
@@ -25,8 +27,42 @@ public class LanguageController : MonoBehaviour
         languageContent = JSONNode.Parse(vn.text);
     }
 
+    public static string ProcessTags(string value)
+    {
+        string pattern = @"\[(\w+)\](.*?)\[/\1\]";
+
+        return Regex.Replace(value, pattern, match =>
+        {
+            string tag = match.Groups[1].Value;
+            string content = match.Groups[2].Value;
+
+            return tag switch
+            {
+                "itemName" => ItemName(content),
+                "myTag2" => HandleMyTag2(content),
+                _ => match.Value,
+            };
+        });
+    }
+
+    static string ItemName(string content)
+    {
+        var target = ItemDatabase.Instance.Items.Where((predicate) =>
+        {
+            return predicate.Id.ToString().Equals(content);
+        }).FirstOrDefault();
+
+        return $"{target.ItemName}";
+    }
+
+    static string HandleMyTag2(string content)
+    {
+        return $"something2";
+    }
+
     public string GetString(string key)
     {
+
         if (languageContent == null)
         {
             languageContent = JSONNode.Parse(vn.text);
@@ -39,6 +75,8 @@ public class LanguageController : MonoBehaviour
             result = languageContent[key].Value;
         }
 
-        return result;
+        string resultFinal = ProcessTags(result);
+
+        return resultFinal;
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -229,6 +230,22 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             SpawnCheatItem();
         }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            PopUpSeaColorChanger.Instance.Show();
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            //WitchSystemController.Instance.Data.WitchTechnologies
+            //    .Where((predicate) =>
+            //    {
+            //        return predicate.Id == 1;
+            //    })
+            //    .FirstOrDefault().Level = 1;
+
+            InventoryController.Instance.Ascension();
+        }
 
 
         if (Input.GetKeyDown(KeyCode.F11))
@@ -279,7 +296,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void SpawnCheatItem()
     {
-        WorldItemController.Instance.SpawnItem(cheatItemId, firepointHitbox.position);
+        WorldItemController.Instance.SpawnItem(cheatItemId, firepointHitbox.position, countValue: 100);
     }
 
     public static void LoadGame()
@@ -483,6 +500,14 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                 audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
 
                 AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+            }
+
+            if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemInteractable itemInteractable)
+            {
+                if (itemInteractable.Id == 1601)
+                {
+                    PopUpSeaColorChanger.Instance.Show();
+                }
             }
         }
     }

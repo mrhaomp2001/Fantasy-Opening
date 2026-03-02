@@ -8,6 +8,10 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
     [SerializeField] protected float speed;
     [SerializeField] protected float lifeTime;
     [SerializeField] protected int damage;
+    [Header("--")]
+    [SerializeField] private int itemDropWhenEnemyHitedCount;
+    [SerializeField] private int itemDropWhenEnemyHited;
+    [Header("--")]
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] protected Transform hitbox;
     [SerializeField] protected bool isAxe, isPickaxe, isHammer;
@@ -17,6 +21,8 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
     public bool IsAxe { get => isAxe; set => isAxe = value; }
     public bool IsPickaxe { get => isPickaxe; set => isPickaxe = value; }
     public int Damage { get => damage; set => damage = value; }
+    public int ItemDropWhenEnemyHitedCount { get => itemDropWhenEnemyHitedCount; set => itemDropWhenEnemyHitedCount = value; }
+    public int ItemDropWhenEnemyHited { get => itemDropWhenEnemyHited; set => itemDropWhenEnemyHited = value; }
 
     public virtual void OnObjectSpawnAfter()
     {
@@ -37,6 +43,8 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
             gameObject.SetActive(false);
             OnEndLifeTime();
         });
+
+
     }
 
     public void OnHitEnemy(Collider2D other)
@@ -46,6 +54,8 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
         if (enemy != null)
         {
             enemy.TakeDamage(this);
+
+
         }
         OnEndLifeTime();
 

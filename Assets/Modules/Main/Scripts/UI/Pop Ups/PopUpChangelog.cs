@@ -71,7 +71,7 @@ public class PopUpChangelog : PopUp
             Method = "GET",
             Headers = headers,
             Timeout = 10,
-            EnableDebug = true
+            EnableDebug = false
         })
         .Then(response =>
         {
@@ -80,7 +80,7 @@ public class PopUpChangelog : PopUp
             if (instance != null)
             {
                 // response.Text là string trả về
-                Debug.Log($"GET SUCCESS: {response.Text}");
+                //Debug.Log($"GET SUCCESS: {response.Text}");
 
                 jsonDataResponse = JSONNode.Parse(response.Text);
 

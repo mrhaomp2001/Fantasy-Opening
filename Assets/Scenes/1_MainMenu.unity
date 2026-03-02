@@ -831,7 +831,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 1.5675293
+      m_AnimationSpeed: 2.3364148
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -3, y: -4, z: 0}
@@ -850,7 +850,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 2.12123
+      m_AnimationSpeed: 1.6807554
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -2, y: -4, z: 0}
@@ -869,7 +869,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 2.3130174
+      m_AnimationSpeed: 2.5763042
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -1, y: -4, z: 0}
@@ -888,7 +888,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 1.6257805
+      m_AnimationSpeed: 1.9278691
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 0, y: -4, z: 0}
@@ -907,7 +907,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 2.9034538
+      m_AnimationSpeed: 2.8991954
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 1, y: -4, z: 0}
@@ -926,7 +926,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 1.3516347
+      m_AnimationSpeed: 1.8951886
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: -4, z: 0}
@@ -945,7 +945,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 1.5824326
+      m_AnimationSpeed: 2.1962273
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -4, z: 0}
@@ -964,7 +964,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 1.8179085
+      m_AnimationSpeed: 1.6478091
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -7, y: -3, z: 0}
@@ -983,7 +983,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 2.673182
+      m_AnimationSpeed: 2.0337718
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -6, y: -3, z: 0}
@@ -1002,7 +1002,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 1.014291
+      m_AnimationSpeed: 1.9097025
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -5, y: -3, z: 0}
@@ -1021,7 +1021,7 @@ Tilemap:
       - {fileID: -932719670, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 1467059542, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
       - {fileID: 811953688, guid: a8c3659f58bcd6d4bb407b458cc502ba, type: 3}
-      m_AnimationSpeed: 2.486477
+      m_AnimationSpeed: 1.890351
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -4350,7 +4350,33 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: version
+  m_text: "<align=center><size=140%><b>Fantasy Opening</b></size></align>\\n\\n<size=110%><b>Phi\xEAn
+    b\u1EA3n m\u1EDBi nh\u1EA5t:</b> <color=#FFD966>0.0.13</color></size>\\n\\n<b>C\u1EADp
+    nh\u1EADt <color=#FFD966>0.0.13</color></b>\\n<indent=5%>\\n\u2022 Th\xEAm <color=#6FA8DC><b>h\xF2n
+    \u0111\u1EA3o m\u1EDBi</b></color>, ho\xE0n th\xE0nh vi\u1EC7c <b>b\xE1n n\xF4ng
+    s\u1EA3n v\u1EDBi ph\xF9 th\u1EE7y</b> \u0111\u1EC3 m\u1EDF kh\xF3a\\n\u2022
+    Th\xEAm <color=#6FA8DC><b>c\xE1c con c\u1EEBu</b></color> <i>(c\u1EEBu c\xF3
+    s\u1EEBng v\xE0 c\u1EEBu kh\xF4ng c\xF3 s\u1EEBng)</i>\\n\u2022 Th\xEAm <color=#6FA8DC><b>b\u1EE5i
+    qu\u1EA3</b></color>, r\u01A1i ra <b>tr\xE1i t\xE1o</b>\\n\u2022 Th\xEAm <color=#6FA8DC><b>b\u1EE5i
+    qu\u1EA3</b></color>, r\u01A1i ra <color=#FFD966><b>tr\xE1i t\xE1o v\xE0ng</b></color>\\n\u2022
+    Th\xEAm <color=#6FA8DC><b>b\xE0n ch\u1EBF t\xE1c ph\xF9 th\u1EE7y</b></color>,
+    gi\xFAp ch\u1EBF t\xE1c \u0111\u1ED3 ph\xF9 th\u1EE7y m\xE0 <b>kh\xF4ng c\u1EA7n</b>
+    ch\u1EBF t\xE1c tr\u1EF1c ti\u1EBFp trong kho \u0111\u1ED3\\n\u2022 Thay \u0111\u1ED5i
+    <b>\xF4 \u0111\u1EA5t c\xF3 th\u1EC3 x\xE2y d\u1EF1ng</b> th\xE0nh <color=#6FA8DC><b>\\\"B\xE8
+    n\u1ED5i\\\"</b></color> v\u1EDBi ch\u1EE9c n\u0103ng t\u01B0\u01A1ng t\u1EF1\\n\u2022
+    <b>Fix</b> c\xE1c bug \u0111\xE3 bi\u1EBFt v\xE0 <b>t\u1ED1i \u01B0u hi\u1EC7u
+    n\u0103ng</b>\\n</indent>\\n\\n<size=110%><b>C\xE1c c\u1EADp nh\u1EADt tr\u01B0\u1EDBc</b></size>\\n\\n<b>0.0.12</b>\\n<indent=5%>\\n\u2022
+    th\xEAm v\u1EADt ph\u1EA9m \\\"kh\xFAc ballad c\u1EE7a ng\u01B0\u1EDDi c\xE1\\\"
+    gi\xFAp b\u1EA1n \u0111\u1ED5i m\xE0u n\u01B0\u1EDBc bi\u1EC3n\\n\u2022 th\xEAm
+    v\u1EADt ph\u1EA9m \\\"cu\u1ED1c chim c\u1EE7a ph\xF9 th\u1EE7y\\\" v\xE0 \\\"r\xECu
+    c\u1EE7a ph\xF9 th\u1EE7y\\\", khi s\u1EED d\u1EE5ng \u0111\xFAng s\u1EBD r\u01A1i
+    ra \\\"m\u1EA3nh ng\u1ECDc l\u1EE5c b\u1EA3o nh\u1ECF\\\"\\n\u2022 th\xEAm \\\"c\u1EA5p
+    \u0111\u1ED9 th\u1EBF gi\u1EDBi\\\" v\xE0 \\\"hu\xE2n ch\u01B0\u01A1ng ph\xF9
+    th\u1EE7y\\\"\\n</indent>\\n\\n<b>0.0.8</b>\\n<indent=5%>\\n\u2022 hotfix \u0111a
+    s\u1ED1 c\xE1c lo\u1EA1i qu\xE1i b\u1ECB b\u1EA5t \u0111\u1ED9ng (l\u1ED7i nghi\xEAm
+    tr\u1ECDng)\\n</indent>\\n\\n<b>0.0.7</b>\\n<indent=5%>\\n\u2022 hotfix n\xFAt
+    \\\"esc\\\"\\n\u2022 th\xEAm m\xE0n h\xECnh \\\"thay \u0111\u1ED5i gi\u1EEFa
+    c\xE1c phi\xEAn b\u1EA3n\\\"\\n</indent>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5229,8 +5255,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 86897067}
   m_HandleRect: {fileID: 86897066}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 1.0000011
+  m_Size: 0.44006315
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5609,7 +5635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0010153932}
+  m_AnchoredPosition: {x: 0, y: -0.0010362315}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1925552946

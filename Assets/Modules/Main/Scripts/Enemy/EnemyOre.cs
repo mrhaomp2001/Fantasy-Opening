@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyOre : Enemy
@@ -15,6 +16,29 @@ public class EnemyOre : Enemy
         {
             if (playerBulletInput.IsPickaxe)
             {
+                if (playerBulletInput.ItemDropWhenEnemyHited != 0)
+                {
+                    for (int i = 0; i < playerBulletInput.ItemDropWhenEnemyHitedCount; i++)
+                    {
+                        WorldItemController.Instance.SpawnItem(playerBulletInput.ItemDropWhenEnemyHited, rb.transform.position, 1);
+                    }
+
+                    if (playerBulletInput.ItemDropWhenEnemyHited == 430)
+                    {
+                        var tech = WitchSystemController.Instance.Data.WitchTechnologies
+                            .Where((predicate) =>
+                            {
+                                return predicate.Id == 2;
+                            })
+                            .FirstOrDefault();
+
+                        if (tech.Level >= 1)
+                        {
+                            WorldItemController.Instance.SpawnItem(playerBulletInput.ItemDropWhenEnemyHited, rb.transform.position, 1);
+                        }
+                    }
+                }
+
                 Hp -= Mathf.Max(0, playerBulletInput.Damage - Def);
 
                 if (Animator != null && Mathf.Max(0, playerBulletInput.Damage - Def) > 0)

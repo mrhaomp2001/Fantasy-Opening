@@ -124,6 +124,7 @@ MonoBehaviour:
     ingredients:
     - itemInput: {fileID: 11400000, guid: 1730ca8418b55fe43accf29825b62aad, type: 2}
       count: 2
+  spriteRenderer: {fileID: 2572329052870155785}
 --- !u!1 &6998290294712461445
 GameObject:
   m_ObjectHideFlags: 0

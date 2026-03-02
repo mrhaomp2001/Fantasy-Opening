@@ -19,7 +19,7 @@ MonoBehaviour:
   spriteWorldItem: {fileID: 21300000, guid: 310a1b772963f11429ca263f42d98e78, type: 3}
   buyPrice: 500
   sellPrice: 250
-  useTime: 0
+  useTime: 1
   isNonStack: 0
   isFood: 0
   hungerCount: 0

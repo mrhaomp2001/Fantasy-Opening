@@ -19,5 +19,8 @@ MonoBehaviour:
   spriteWorldItem: {fileID: 21300000, guid: 025ac09ff98298843853fd442c23b6c5, type: 3}
   buyPrice: 0
   sellPrice: 0
+  useTime: 1
   isNonStack: 0
+  isFood: 0
+  hungerCount: 0
   bossName: boss_1

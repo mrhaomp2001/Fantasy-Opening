@@ -56,7 +56,19 @@ public class WorldItem : MonoBehaviour, IPoolObject
 
             string audioResult = "";
 
+
             audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+            if (itemId == 430)
+            {
+                string[] audioListEmerald = new string[]
+                {
+                    "21_pickup_emerald_shard",
+                };
+
+                audioResult = audioListEmerald[UnityEngine.Random.Range(0, audioListEmerald.Length)];
+            }
+
+
             AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
 
         }

@@ -83,6 +83,7 @@ MonoBehaviour:
   hp: 0
   hpMax: 3
   def: 0
+  spriteRenderer: {fileID: 2572329052870155785}
   recipes:
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 36c4dee734e4eca449cbb2bdbcdf59db, type: 2}
@@ -136,6 +137,11 @@ MonoBehaviour:
       count: 2
     - itemInput: {fileID: 11400000, guid: 0b3c6dd7f4b336344a364f53aa2d29ce, type: 2}
       count: 2
+  - resultCount: 1
+    itemResult: {fileID: 11400000, guid: 25d33eccd00596147a63d35363f94073, type: 2}
+    ingredients:
+    - itemInput: {fileID: 11400000, guid: 8dd709f4d1b85bb4198fd4c7e52cc32c, type: 2}
+      count: 3
 --- !u!1 &6998290294712461445
 GameObject:
   m_ObjectHideFlags: 0

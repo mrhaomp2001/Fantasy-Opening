@@ -115,6 +115,7 @@ MonoBehaviour:
   hp: 0
   hpMax: 3
   def: 0
+  spriteRenderer: {fileID: 2572329052870155785}
   recipes:
   - resultCount: 1
     itemResult: {fileID: 11400000, guid: 562b18406682a004ea3bd949c2a7645e, type: 2}
@@ -132,7 +133,7 @@ MonoBehaviour:
     - itemInput: {fileID: 11400000, guid: e3dcdbc0e01306040a6ca9fe906df035, type: 2}
       count: 3
   - resultCount: 1
-    itemResult: {fileID: 11400000, guid: 15c02e44664a40147823efe623fc2968, type: 2}
+    itemResult: {fileID: 11400000, guid: a8159249ec9a2ab45aa52280556d2e6a, type: 2}
     ingredients:
     - itemInput: {fileID: 11400000, guid: e3dcdbc0e01306040a6ca9fe906df035, type: 2}
       count: 2

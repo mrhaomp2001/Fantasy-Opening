@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class BuildingWithCrafting : BuildingBase, IWorldInteractable, IPoolObject
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     [SerializeField] private List<Recipe> recipes;
+
     public void OnObjectSpawnAfter()
     {
+        spriteRenderer.sortingOrder = (int)-(transform.position.y * 100f);
 
     }
 

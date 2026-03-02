@@ -21,7 +21,10 @@ MonoBehaviour:
   sellPrice: 0
   useTime: 0.6
   isNonStack: 1
+  isFood: 0
+  hungerCount: 0
   weaponType: 0
+  isPreventInteract: 0
   projectile: player_bullet_601
   stats:
     hpMax: 0

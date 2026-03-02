@@ -15,13 +15,13 @@ MonoBehaviour:
   id: 820
   itemName: 820_player_foundation-item_name
   itemDescription: 820_player_foundation-item_description
-  sprite: {fileID: 21300000, guid: 516f5944b6ff4084aac39e7f58e21fb9, type: 3}
-  spriteWorldItem: {fileID: 21300000, guid: 516f5944b6ff4084aac39e7f58e21fb9, type: 3}
+  sprite: {fileID: 21300000, guid: 113fa3046801fef4bb66cd9cb77d2365, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: 113fa3046801fef4bb66cd9cb77d2365, type: 3}
   buyPrice: 0
   sellPrice: 0
-  useTime: 0
+  useTime: 1
   isNonStack: 0
   isFood: 0
   hungerCount: 0
   buildingName: 820_player_foundation
-  buildingSprite: {fileID: 21300000, guid: 516f5944b6ff4084aac39e7f58e21fb9, type: 3}
+  buildingSprite: {fileID: 21300000, guid: 113fa3046801fef4bb66cd9cb77d2365, type: 3}

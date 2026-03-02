@@ -19,5 +19,9 @@ MonoBehaviour:
   spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
+  useTime: 1
+  isNonStack: 0
+  isFood: 0
+  hungerCount: 0
   buildingName: 805_farmland_copper
   buildingSprite: {fileID: 21300000, guid: a9df98905626d6743a2e3c3ad8f88577, type: 3}

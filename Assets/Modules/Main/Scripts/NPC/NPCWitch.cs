@@ -17,6 +17,19 @@ public class NPCWitch : NPC
 
     public void StartChoice1()
     {
+        ActionWithMessage messaleLevel1 = null;
+
+        if (WitchSystemController.Instance.Data.Level <= 0)
+        {
+            messaleLevel1 = new ActionWithMessage()
+            {
+                message = LanguageController.Instance.GetString("npc_player_ascension"),
+                action = () =>
+                {
+                    PopUpAscension.Instance.Show();
+                }
+            };
+        }
         PopUpDialogueOption.Instance
             .ShowDialogue(dialogueOption1,
             new ActionWithMessage
@@ -28,14 +41,7 @@ public class NPCWitch : NPC
 
                 }
             },
-            new ActionWithMessage
-            {
-                message = LanguageController.Instance.GetString("npc_player_ascension"),
-                action = () =>
-                {
-                    PopUpAscension.Instance.Show();
-                }
-            },
+            messaleLevel1,
             new ActionWithMessage
             {
                 message = LanguageController.Instance.GetString("npc_player_cancel"),

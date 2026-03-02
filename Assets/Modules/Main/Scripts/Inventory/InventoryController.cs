@@ -2,6 +2,7 @@
 using SimpleJSON;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -277,7 +278,27 @@ public class InventoryController : MonoBehaviour
         public List<BuffBase> Buffs { get => buffs; set => buffs = value; }
         public List<RecipeWithCondition> Recipes { get => recipes; set => recipes = value; }
         public int Hunger { get => hunger; set { hunger = value; } }
-        public int HungerMax { get => hungerMax; set => hungerMax = value; }
+        public int HungerMax { 
+            get 
+            {
+                int technologyBonus = 0;
+
+                var tech = WitchSystemController.Instance.Data.WitchTechnologies
+                .Where((predicate) =>
+                {
+                    return predicate.Id == 4;
+                })
+                .FirstOrDefault();
+
+                if (tech.Level >= 1)
+                {
+                    technologyBonus = 50;
+                }
+
+                return hungerMax + technologyBonus;
+            }
+            set => hungerMax = value; 
+        }
     }
 
     private static InventoryController instance;
@@ -514,12 +535,29 @@ public class InventoryController : MonoBehaviour
             Buildings = new List<BuildingController.Building>()
         };
 
+        if (WitchSystemController.Instance.Data.Level > 0)
+        {
+            recipes
+                .Where((recipes) =>
+                {
+                    return recipes.Id == 7;
+                })
+                .FirstOrDefault().IsUnlocked = true;
+        }
+
         if (isLoadData)
         {
-            if (PlayerPrefs.HasKey(prefKey))
+            string filePath = Path.Combine(Application.persistentDataPath, prefKey + ".json");
+
+            if (File.Exists(filePath))
             {
-                string value = PlayerPrefs.GetString(prefKey);
+                string value = File.ReadAllText(filePath);
+
                 JSONNode keyValuePairs = JSONNode.Parse(value);
+
+                // Ví dụ: deserialize lại object
+                // playerData = JsonConvert.DeserializeObject<PlayerData>(value);
+
 
                 //Debug.Log($"OnLoadPrefs: {value}");
 
@@ -943,8 +981,12 @@ public class InventoryController : MonoBehaviour
         BuildingController.Instance.Save();
         ProgressionController.Instance.Save();
 
-        // Debug.Log($"OnSavePrefs: {JsonConvert.SerializeObject(playerData)}");
-        PlayerPrefs.SetString(prefKey, JsonConvert.SerializeObject(playerData));
-        PlayerPrefs.Save();
+        string json = JsonConvert.SerializeObject(playerData, Formatting.Indented);
+
+        string filePath = Path.Combine(Application.persistentDataPath, prefKey + ".json");
+
+        File.WriteAllText(filePath, json);
+
+        Debug.Log($"Saved data to: {filePath}");
     }
 }

@@ -19,5 +19,9 @@ MonoBehaviour:
   spriteWorldItem: {fileID: 0}
   buyPrice: 0
   sellPrice: 0
+  useTime: 1
+  isNonStack: 0
+  isFood: 0
+  hungerCount: 0
   buildingName: 808_farmland_gold
   buildingSprite: {fileID: 21300000, guid: fd1d6afe753413045b68324b5aa0d4de, type: 3}

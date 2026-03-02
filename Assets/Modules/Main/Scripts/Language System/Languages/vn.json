@@ -7,13 +7,19 @@
   "settings": "Cài đặt",
   "continue": "Tiếp tục",
   "upgrade": "Nâng cấp",
+  "upgraded": "Đã nâng cấp",
+  "upgrade_prerequisite": "Hãy nâng cấp các công nghệ phía trước để mở khóa",
   "quit": "Thoát",
   "cancel": "Trở lại",
   "accept": "Chấp nhận",
+  "default": "Mặc định",
   "resume": "Quay lại trò chơi",
+  "technology": "Công nghệ",
   "ok": "Được",
   "sleep": "Ngủ",
   "quit_to_main_menu": "Màn hình chính",
+
+  "ingredient": "Nguyên liệu",
 
   "ascension": "Thăng cấp thế giới",
   "ascension_description": "<size=120%><b>Thăng cấp thế giới</b></size>\n\nKhi sử dụng tùy chọn này, bạn sẽ <color=#FF6B6B><b>mất tất cả đồ</b></color> và <color=#FF6B6B><b>làm mới lại lần chơi</b></color>.\n\nĐổi lại, bạn sẽ nhận được <color=#FFD966><b>3 Huân chương phù thủy</b></color> và <color=#6FA8DC><b>mở ra các nội dung mới</b></color> của trò chơi.\n\n<b>--</b>\n\n- <b>Cấp độ thế giới</b> <color=#93C47D><b>+1</b></color>\n- <color=#FFD966><b>Huân chương phù thủy +3</b></color>",
@@ -27,6 +33,21 @@
   "unknown_error": "Lỗi không rõ nguyên nhân",
   "check_success": "Kiểm tra thành công",
   "checking_version": "Đang kiểm tra phiên bản",
+  
+  "technology_description": "<b>Cấp độ thế giới:</b> <color=#FA003F>{0}</color>\n<b>Huân chương phù thủy:</b> <color=#FA003F>{1}</color>",
+  "witch_medal": "Huân chương phù thủy",
+
+  "tech_name_1": "Lâm tặc",
+  "tech_description_1": "Có thêm 1 '[itemName]401[/itemName]' khi khai thác gỗ, chỉ áp dụng với gỗ thường",
+
+  "tech_name_2": "Thợ mỏ phiêu lưu",
+  "tech_description_2": "Có thêm 1 '[itemName]430[/itemName]' khi khai thác các mỏ quặng",
+
+  "tech_name_3": "Tiều phu nhỏ",
+  "tech_description_3": "Có thêm 1 '[itemName]430[/itemName]' khi khai thác các loại cây",
+
+  "tech_name_4": "Tốt bụng",
+  "tech_description_4": "Tăng vĩnh viễn 50 độ no bụng tối đa",
 
   "master_volume": "Âm lượng tổng",
   "background_volume": "Âm lượng nhạc nền",
@@ -167,6 +188,12 @@
   "18_waterbloom-item_name": "Hoa nước",
   "18_waterbloom-item_description": "Hoa nước",
 
+  "19_endoflame-item_name": "Hoa lửa tàn",
+  "19_endoflame-item_description": "Hoa lửa tàn",
+
+  "20_dandelifeon-item_name": "Hoa bồ công anh",
+  "20_dandelifeon-item_description": "Hoa bồ công anh",
+
   "201_corn_seed-item_name": "Hạt giống bắp",
   "201_corn_seed-item_description": "Hạt giống bắp",
 
@@ -220,6 +247,12 @@
 
   "218_waterbloom_seed-item_name": "Hạt giống hoa nước",
   "218_waterbloom_seed-item_description": "Hạt giống hoa nước",
+
+  "219_endoflame_seed-item_name": "Hạt giống hoa lửa tàn",
+  "219_endoflame_seed-item_description": "Hạt giống hoa lửa tàn",
+
+  "220_dandelifeon_seed-item_name": "Hạt giống hoa bồ công anh",
+  "220_dandelifeon_seed-item_description": "Hạt giống hoa bồ công anh",
 
   "401_wood-item_name": "Gỗ",
   "401_wood-item_description": "Gỗ",
@@ -308,6 +341,24 @@
   "429_snow_ball-item_name": "Bóng tuyết",
   "429_snow_ball-item_description": "Bóng tuyết",
 
+  "430_emerald_shard-item_name": "Mảnh ngọc lục bảo nhỏ",
+  "430_emerald_shard-item_description": "Mảnh ngọc lục bảo nhỏ",
+
+  "431_golden_apple-item_name": "Quả táo vĩnh cửu",
+  "431_golden_apple-item_description": "Trái cây này được còn được gọi là 'Quả đơn sắc' hay 'Quả của màu xám'.",
+
+  "432_apple-item_name": "Quả táo",
+  "432_apple-item_description": "Quả táo",
+
+  "433_wool-item_name": "Lông cừu",
+  "433_wool-item_description": "Lông cừu",
+
+  "434_mutton-item_name": "Thịt cừu",
+  "434_mutton-item_description": "Thịt cừu",
+
+  "435_mutton_cooked-item_name": "Thịt cừu đã chín",
+  "435_mutton_cooked-item_description": "Thịt cừu đã chín",
+
   "601_weapon_1-item_name": "Kiếm gỗ",
   "601_weapon_1-item_description": "Kiếm gỗ",
 
@@ -343,6 +394,12 @@
 
   "612_sapphire_wand-item_name": "Gậy phép lam ngọc",
   "612_sapphire_wand-item_description": "Gậy phép lam ngọc",
+
+  "613_witch_pickaxe-item_name": "Cuốc chim của Phù thủy",
+  "613_witch_pickaxe-item_description": "Cuốc chim của Phù thủy",
+
+  "614_witch_axe-item_name": "Rìu của Phù thủy",
+  "614_witch_axe-item_description": "Rìu của Phù thủy",
 
   "801_farmland-item_name": "Ô đất",
   "801_farmland-item_description": "Ô đất",
@@ -401,8 +458,12 @@
   "819_sapphire_processing_table-item_name": "Bàn xử lý lam ngọc",
   "819_sapphire_processing_table-item_description": "Bàn xử lý lam ngọc",
 
-  "820_player_foundation-item_name": "Khối xây dựng",
-  "820_player_foundation-item_description": "Khối xây dựng",
+  "820_player_foundation-item_name": "Bè gỗ",
+  "820_player_foundation-item_description": "Bè gỗ giúp bạn đi qua các vùng nước giữa các hòn đảo",
+
+  "823_witch_forge-item_name": "Bàn chế tác của Phù thủy",
+  "823_witch_forge-item_description": "Chiếc bàn này được làm từ công nghệ phù thủy",
+
 
   "1001_wood_helmet-item_name": "Nón gỗ",
   "1001_wood_helmet-item_description": "Nón gỗ",
@@ -490,6 +551,13 @@
 
   "1404_recipe_brick_furnace-item_name": "Công thức lò nấu gạch",
   "1404_recipe_brick_furnace-item_description": "Công thức lò nấu gạch",
+
+  "1601_ballad_of_the_mermaid-item_name": "Khúc ballad của Người Cá",
+  "1601_ballad_of_the_mermaid-item_description": "Sử dụng để đổi màu nước biển",
+
+  "npc_name_wolf": "Sói",
+  "npc_wolf_talk_1": "Ngươi muốn gì?",
+  "npc_wolf_talk_2": "Tôi có thể trao đổi vài món với ngươi",
 
   "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",
   "npc_rabbit_talk_2": "Tui chỉ là con thỏ, tui trồng cà rốt, tui ăn cà rốt",

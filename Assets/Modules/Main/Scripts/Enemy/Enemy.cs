@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IPoolObject
@@ -125,6 +126,21 @@ public class Enemy : MonoBehaviour, IPoolObject
         if (dropId > 0)
         {
             WorldItemController.Instance.SpawnItem(dropId, hitbox.transform.position);
+
+            if (dropId == 401)
+            {
+                var tech = WitchSystemController.Instance.Data.WitchTechnologies
+                .Where((predicate) =>
+                {
+                    return predicate.Id == 1;
+                })
+                .FirstOrDefault();
+
+                if (tech.Level >= 1)
+                {
+                    WorldItemController.Instance.SpawnItem(401, rb.transform.position, 1);
+                }
+            }
         }
 
         if (hungerConsume > 0)

@@ -19,7 +19,7 @@ MonoBehaviour:
   spriteWorldItem: {fileID: 0}
   buyPrice: 10
   sellPrice: 10
-  useTime: 0
+  useTime: 1
   isNonStack: 0
   isFood: 1
   hungerCount: 1

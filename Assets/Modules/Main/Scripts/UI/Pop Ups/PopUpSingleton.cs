@@ -15,7 +15,7 @@ public class PopUpSingleton<T> : PopUp where T : PopUp
 
                 if (_instance == null)
                 {
-                    Debug.LogError($"{typeof(T).Name} not found in scene!");
+                    Debug.Log($"{typeof(T).Name} not found in scene!");
                 }
             }
             return _instance;
