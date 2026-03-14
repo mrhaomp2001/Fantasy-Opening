@@ -194,6 +194,13 @@
   "20_dandelifeon-item_name": "Hoa bồ công anh",
   "20_dandelifeon-item_description": "Hoa bồ công anh",
 
+  "21_fallen_cherub-item_name": "Hoa thiên sứ sa ngã",
+  "21_fallen_cherub-item_description": "Loài hoa này không phải thiên sứ! Tên của loài hoa này là 'Cú ngã của thiên thần', cách dịch 'Hoa thiên sứ sa ngã' là sai",
+
+  "22_spectrum_of_hate-item_name": "Quang phổ của sự hận thù",
+  "22_spectrum_of_hate-item_description": "Đây là một loài hoa",
+
+
   "201_corn_seed-item_name": "Hạt giống bắp",
   "201_corn_seed-item_description": "Hạt giống bắp",
 
@@ -253,6 +260,12 @@
 
   "220_dandelifeon_seed-item_name": "Hạt giống hoa bồ công anh",
   "220_dandelifeon_seed-item_description": "Hạt giống hoa bồ công anh",
+
+  "221_fallen_cherub_seed-item_name": "Hạt giống Thiên Sứ sa ngã",
+  "221_fallen_cherub_seed-item_description": "Một quả bóng lông mềm, như lông tơ của loài gà, có thể thử trồng vào ô đất",
+
+  "222_spectrum_of_hate_seed-item_name": "Hạt giống Quang phổ của sự hận thù",
+  "222_spectrum_of_hate_seed-item_description": "Đây là hạt của một loài hoa",
 
   "401_wood-item_name": "Gỗ",
   "401_wood-item_description": "Gỗ",
