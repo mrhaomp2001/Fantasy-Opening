@@ -7,6 +7,7 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
 {
     [SerializeField] protected float speed;
     [SerializeField] protected float lifeTime;
+    [Tooltip("Only set when it's a tool.")]
     [SerializeField] protected int damage;
     [Header("--")]
     [SerializeField] private int itemDropWhenEnemyHitedCount;

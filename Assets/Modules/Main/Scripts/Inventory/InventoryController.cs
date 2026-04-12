@@ -44,6 +44,14 @@ public class InventoryController : MonoBehaviour
         [JsonProperty]
         [SerializeField] private int hungerMax;
 
+
+        [JsonProperty]
+        [SerializeField] private int temperature;
+        [JsonProperty]
+        [SerializeField] private int temperatureMin;
+        [JsonProperty]
+        [SerializeField] private int temperatureMax;
+
         [JsonProperty]
         [SerializeField] private List<InventoryItem> items = new();
 
@@ -299,6 +307,10 @@ public class InventoryController : MonoBehaviour
             }
             set => hungerMax = value; 
         }
+
+        public int Temperature { get => temperature; set => temperature = value; }
+        public int TemperatureMin { get => temperatureMin; set => temperatureMin = value; }
+        public int TemperatureMax { get => temperatureMax; set => temperatureMax = value; }
     }
 
     private static InventoryController instance;
@@ -368,6 +380,7 @@ public class InventoryController : MonoBehaviour
 
             return;
         }
+        Debug.Log($"Tiêu thụ {item.item.name} thành công nha!");
 
         item.count -= count;
 
@@ -493,6 +506,10 @@ public class InventoryController : MonoBehaviour
         playerData.HungerMax = 100;
         playerData.Hunger = 100;
 
+        playerData.Temperature = 0;
+        playerData.TemperatureMin = -100;
+        playerData.TemperatureMax = 100;
+
         playerData.Hotbar = new();
         playerData.Items = new();
 
@@ -576,6 +593,9 @@ public class InventoryController : MonoBehaviour
                 var levelKey = nameof(playerData.Level).ToCamel();
                 var buffsKey = nameof(playerData.Buffs).ToCamel();
 
+                var temperatureKey = nameof(playerData.Temperature).ToCamel();
+                var temperatureMinKey = nameof(playerData.TemperatureMin).ToCamel();
+                var temperatureMaxKey = nameof(playerData.TemperatureMax).ToCamel();
                 // hotbar selected
                 if (keyValuePairs[hotbarSelectedKey] != null)
                     playerData.HotbarSelectedSlot = keyValuePairs[hotbarSelectedKey].AsInt;
@@ -655,6 +675,10 @@ public class InventoryController : MonoBehaviour
                 if (keyValuePairs[hungerKey] != null) playerData.Hunger = keyValuePairs[hungerKey].AsInt;
                 if (keyValuePairs[hungerMaxKey] != null) playerData.HungerMax = keyValuePairs[hungerMaxKey].AsInt;
 
+
+                if (keyValuePairs[temperatureKey] != null) playerData.Temperature = keyValuePairs[temperatureKey].AsInt;
+                if (keyValuePairs[temperatureMinKey] != null) playerData.TemperatureMin = keyValuePairs[temperatureMinKey].AsInt;
+                if (keyValuePairs[temperatureMaxKey] != null) playerData.TemperatureMax = keyValuePairs[temperatureMaxKey].AsInt;
 
                 // buffs
                 var buffsJson = keyValuePairs[buffsKey];

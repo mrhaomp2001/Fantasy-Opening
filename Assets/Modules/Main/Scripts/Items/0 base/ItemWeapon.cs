@@ -12,6 +12,7 @@ public enum WeaponType
 [CreateAssetMenu(fileName = "New Item", menuName = "Farm/Items/Weapon")]
 public class ItemWeapon : ItemBase
 {
+    [Header("Weapon: ")]
     [SerializeField] private WeaponType weaponType;
     [SerializeField] private bool isPreventInteract;
     [SerializeField] private string projectile;

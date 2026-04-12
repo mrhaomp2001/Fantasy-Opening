@@ -398,6 +398,48 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         }
     }
 
+    public void UpdateTemperature()
+    {
+        int temperature = InventoryController.Instance.GetPlayerData.Temperature;
+        switch (RuleTileDetector.Instance.GetCurrentValidTile().name)
+        {
+            case "base_map_3_cold":
+                if (temperature > -100)
+                {
+                    InventoryController.Instance.GetPlayerData.Temperature -= 1;
+                }
+                break;
+            case "base_map_6_hot":
+                if (temperature < 100)
+                {
+                    InventoryController.Instance.GetPlayerData.Temperature += 1;
+                }
+                break;
+            default:
+                if (temperature > 0)
+                {
+                    InventoryController.Instance.GetPlayerData.Temperature -= 1;
+                }
+                if (temperature < 0)
+                {
+                    InventoryController.Instance.GetPlayerData.Temperature += 1;
+                }
+                break;
+        }
+
+        if (temperature <= -81)
+        {
+            Hurt(1);
+        }
+
+        if (temperature >= 81)
+        {
+            Hurt(1);
+        }
+
+        StatController.Instance.UpdateTemperature();
+
+    }
     public void PlayAudioWhenWalk()
     {
         string audioResult = "";
@@ -567,6 +609,8 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
             animator.Play("hurt");
 
+            AudioController.Instance.Play("22_can_not", randomPitch: true, 0.8f, 1.2f);
+
             //Debug.Log($"Defend: {InventoryController.Instance.GetPlayerData.Defend}");
 
             InventoryController.Instance.GetPlayerData.Hp -= Mathf.Max(1, dmg - InventoryController.Instance.GetPlayerData.Defend);
@@ -590,6 +634,8 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     public void OnRevive()
     {
         InventoryController.Instance.GetPlayerData.Hp = 100;
+        InventoryController.Instance.GetPlayerData.Temperature = 0;
+
         deadScreen.gameObject.SetActive(false);
 
         StatController.Instance.UpdateViews();
@@ -720,6 +766,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                         {
                             onSuccess = () =>
                             {
+                                Debug.Log($"build.");
                                 BuildingController.Instance.Build(building.BuildingName);
                                 string audioResult = "";
 

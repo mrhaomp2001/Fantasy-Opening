@@ -30,6 +30,7 @@ public class PopUpInventory : PopUp
     [SerializeField] private RectTransform containerCrafting;
     [SerializeField] private RectTransform containerCraftingTooltip;
     [SerializeField] private List<CraftingGridviewItem> craftingGridviewItems;
+    [SerializeField] private BuildingWithCraftingAndTime craftingTimeStationCurrent;
 
     [Header("Selling: ")]
     [SerializeField] private bool isSelling;
@@ -338,6 +339,49 @@ public class PopUpInventory : PopUp
 
     }
 
+    public void TurnCrafting(List<BuildingWithCraftingAndTime.RecipeWithTime> valueRecipes, BuildingWithCraftingAndTime station, bool isHideInventoryOptions = false)
+    {
+        CraftingTimeStationCurrent = station;
+
+        if (!containerCrafting.gameObject.activeSelf)
+        {
+            ResetSubPopUps();
+
+            containerCrafting.gameObject.SetActive(true);
+
+            foreach (var item in craftingGridviewItems)
+            {
+                if (item.gameObject.activeSelf)
+                {
+                    item.ResetItem();
+                }
+            }
+
+            for (int i = 0; i < valueRecipes.Count; i++)
+            {
+                var gridviewItem = craftingGridviewItems[i];
+
+                gridviewItem.UpdateViews(valueRecipes[i]);
+            }
+
+            if (isHideInventoryOptions)
+            {
+                containerInventoryOption.gameObject.SetActive(false);
+            }
+
+            AudioController.Instance.PlayButton();
+
+        }
+        else
+        {
+            ResetSubPopUps();
+
+            containerEquipment.gameObject.SetActive(true);
+
+        }
+
+    }
+
     public void TurnCrafting(List<Recipe> valueRecipes, bool isHideInventoryOptions = false)
     {
 
@@ -405,6 +449,8 @@ public class PopUpInventory : PopUp
     // (Tuỳ chọn) Để hiển thị UI: trang hiện tại (1-based) và tổng số trang
     public int CurrentBuffPageOneBased => buffPage + 1;
     public int TotalBuffPageCount => GetTotalBuffPages();
+
+    public BuildingWithCraftingAndTime CraftingTimeStationCurrent { get => craftingTimeStationCurrent; set => craftingTimeStationCurrent = value; }
 
     public void TurnBuff()
     {

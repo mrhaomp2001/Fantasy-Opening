@@ -23,7 +23,7 @@ MonoBehaviour:
   isNonStack: 1
   isFood: 0
   hungerCount: 0
-  weaponType: 3
+  weaponType: 0
   isPreventInteract: 1
   projectile: player_bullet_608
   stats:

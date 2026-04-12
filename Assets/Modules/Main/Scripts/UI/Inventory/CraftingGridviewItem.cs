@@ -32,6 +32,26 @@ public class CraftingGridviewItem : MonoBehaviour
             }
         }
 
+        if (recipeTarget is BuildingWithCraftingAndTime.RecipeWithTime target)
+        {
+            string audioResult = "";
+
+            string[] audioHurtList =
+            {
+                "16_craft_1",
+            };
+
+            audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
+
+            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+
+            PopUpInventory.Instance.CraftingTimeStationCurrent.StartCrafting(target);
+
+            PopUpInventory.Instance.Hide();
+
+            return;
+        }
+
         if (result && InventoryController.Instance.Add(recipeTarget.ItemResult.Id, recipeTarget.ResultCount))
         {
             foreach (var item in recipeTarget.Ingredients)

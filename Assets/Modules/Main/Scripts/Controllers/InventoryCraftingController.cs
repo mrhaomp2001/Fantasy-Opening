@@ -13,11 +13,11 @@ public class Ingredient
     public int Count { get => count; set => count = value; }
 }
 
-[System.Serializable]
+[System.Serializable, JsonObject(MemberSerialization.OptIn)]
 public class Recipe
 {
     [SerializeField] private int resultCount;
-    [SerializeField] private ItemBase itemResult;
+    [JsonProperty][SerializeField] private ItemBase itemResult;
     [SerializeField] private List<Ingredient> ingredients;
 
     public ItemBase ItemResult { get => itemResult; set => itemResult = value; }

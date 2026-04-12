@@ -29,7 +29,7 @@ public class ProgressionController : MonoBehaviour
 
     public void Save()
     {
-        for (int i = 0; i < progressions.Count; i++)
+        for (int i = progressions.Count - 1; i >= 0; i--)
         {
             ProgressionBase item = progressions[i];
             item.OnSave();

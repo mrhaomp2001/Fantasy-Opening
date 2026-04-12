@@ -169,7 +169,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
         GameObject gameObjectResult = ObjectPooler.Instance.SpawnFromPool(buildingName, buildingPosition, Quaternion.identity);
 
-       // Debug.Log($"x={buildingPosition.x}, y={buildingPosition.y}, z={buildingPosition.z}");
+        // Debug.Log($"x={buildingPosition.x}, y={buildingPosition.y}, z={buildingPosition.z}");
 
         var building = new Building
         {
@@ -218,7 +218,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
         GameObject gameObjectResult = ObjectPooler.Instance.SpawnFromPool(buildingName, buildingPosition, Quaternion.identity);
 
-       // Debug.Log($"x={buildingPosition.x}, y={buildingPosition.y}, z={buildingPosition.z}");
+        // Debug.Log($"x={buildingPosition.x}, y={buildingPosition.y}, z={buildingPosition.z}");
 
         var building = new Building
         {
@@ -253,10 +253,10 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
     public void Save()
     {
-       // Debug.Log("Save: 1");
+        // Debug.Log("Save: 1");
         foreach (var item in InventoryController.Instance.GetPlayerData.BuildingData.Buildings)
         {
-           // Debug.Log("Save: 2");
+            // Debug.Log("Save: 2");
 
             if (item.WorldInteractable is BuildingFarmland farmland)
             {
@@ -266,15 +266,20 @@ public class BuildingController : MonoBehaviour, IUpdatable
             {
                 item.Data = chest;
             }
+
+            if (item.WorldInteractable is BuildingWithCraftingAndTime buildingWithCraftingAndTime)
+            {
+                item.Data = buildingWithCraftingAndTime;
+            }
             if (item.WorldInteractable is BuildingBase buildingBase)
             {
                 buildingBase.NextDay();
             }
         }
 
-       // Debug.Log($"Buildings: {JsonConvert.SerializeObject(InventoryController.Instance.GetPlayerData.BuildingData.Buildings)}");
+        Debug.Log($"Buildings: {JsonConvert.SerializeObject(InventoryController.Instance.GetPlayerData.BuildingData.Buildings)}");
 
-       // Debug.Log("Save: 3");
+        Debug.Log("Save: 3");
 
     }
 
@@ -285,7 +290,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
         InventoryController.Instance.GetPlayerData.BuildingData.IdCounter = jsonValue["idCounter"].AsInt;
 
         //Debug.Log("Load: 2");
-        //Debug.Log($"Load value: {jsonValue["buildings"].ToString()}");
+        Debug.Log($"Load value: {jsonValue["buildings"].ToString()}");
 
         for (int i = 0; i < jsonValue["buildings"].Count; i++)
         {
@@ -329,11 +334,29 @@ public class BuildingController : MonoBehaviour, IUpdatable
                             }
                         }
                     }
+
+                    if (building.WorldInteractable is BuildingWithCraftingAndTime buildingWithCraftingAndTime)
+                    {
+                        if (data != null && data["targetResult"] != null && data["targetResult"]["item"] != null)
+                        {
+                            buildingWithCraftingAndTime.TargetResult = new InventoryController.InventoryItem
+                            {
+                                item = ItemDatabase.Instance.Items.Where(predicate =>
+                                {
+                                    return predicate.Id == data["targetResult"]["item"]["id"].AsInt;
+                                }).FirstOrDefault(),
+
+                                count = data["targetResult"]["count"].AsInt,
+                            };
+                        }
+
+                        buildingWithCraftingAndTime.UpdateViews();
+                    }
                 }
             }
         }
 
-       // Debug.Log("Load: 3");
+        // Debug.Log("Load: 3");
 
     }
 

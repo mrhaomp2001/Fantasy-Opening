@@ -1,3 +1,4 @@
+using GameUtil;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private int totalEnemyHealth;
 
-
+    private Timer timer1Second;
 
     public static GameController Instance { get => instance; set => instance = value; }
     public List<BuildingFarmland> Farmlands { get => farmlands; set => farmlands = value; }
@@ -38,12 +39,40 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         OnStartGame(MainMenuSceneController.IsLoadData);
+        UpdatePer1Second();
     }
 
     public void OnStartGame(bool isLoad)
     {
         InventoryController.Instance.Load(isLoadData: isLoad);
         MainBackgroundMusicControl.Instance.FadeOutAndStartNew();
+    }
+
+    public void UpdatePer1Second()
+    {
+        if (timer1Second == null)
+        {
+            timer1Second = Timer.LoopAction(1f,
+                onComplete: (int count) =>
+                {
+                    PlayerController.Instance.UpdateTemperature();
+                },
+                onUpdate: (float ratio) =>
+                {
+
+                }
+            );
+        }
+
+    }
+
+    private void OnDisable()
+    {
+        if (timer1Second != null)
+        {
+            Timer.Cancel(timer1Second);
+            timer1Second = null;
+        }
     }
 
 

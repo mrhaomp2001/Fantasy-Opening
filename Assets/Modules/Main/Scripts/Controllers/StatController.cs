@@ -171,6 +171,15 @@ public class StatController : MonoBehaviour
     [SerializeField] private Slider sliderHunger;
     [SerializeField] private TextMeshProUGUI textHunger;
 
+    [Header("Temperature: ")]
+    [SerializeField] private Sprite spriteTemperatureCold;
+    [SerializeField] private Sprite spriteTemperatureHot;
+    [SerializeField] private Image rendererTemperature;
+    [Header("-- ")]
+    [SerializeField] private Transform transformTemperatureIndicator;
+    [SerializeField] private Transform transformTemperatureShockHot;
+    [SerializeField] private Transform transformTemperatureShockCold;
+
     public static StatController Instance { get => instance; set => instance = value; }
 
     private void Awake()
@@ -200,6 +209,8 @@ public class StatController : MonoBehaviour
         UpdateExp();
 
         UpdateHunger();
+
+        UpdateTemperature();
     }
 
     public void UpdateHp()
@@ -232,6 +243,64 @@ public class StatController : MonoBehaviour
         if (textHunger != null)
         {
             textHunger.SetText($"{sliderHunger.value}/{sliderHunger.maxValue}");
+        }
+    }
+
+    public void UpdateTemperature()
+    {
+
+        int temperature = InventoryController.Instance.GetPlayerData.Temperature;
+
+        if (temperature > -10 && temperature < 10)
+        {
+            transformTemperatureIndicator.gameObject.SetActive(false);
+            transformTemperatureShockHot.gameObject.SetActive(false);
+            transformTemperatureShockCold.gameObject.SetActive(false);
+        }
+
+        if (temperature <= -10 && temperature > -81)
+        {
+            transformTemperatureIndicator.gameObject.SetActive(true);
+
+            transformTemperatureShockHot.gameObject.SetActive(false);
+            transformTemperatureShockCold.gameObject.SetActive(false);
+
+
+            rendererTemperature.sprite = spriteTemperatureCold;
+
+            rendererTemperature.color = Color.blue;
+        }
+
+        if (temperature >= 10 && temperature < 81)
+        {
+            transformTemperatureIndicator.gameObject.SetActive(true);
+
+            transformTemperatureShockHot.gameObject.SetActive(false);
+            transformTemperatureShockCold.gameObject.SetActive(false);
+
+            rendererTemperature.sprite = spriteTemperatureHot;
+
+            rendererTemperature.color = Color.red;
+        }
+
+        if (temperature <= -81)
+        {
+            if (!transformTemperatureShockCold.gameObject.activeSelf)
+            {
+                transformTemperatureIndicator.gameObject.SetActive(false);
+                transformTemperatureShockHot.gameObject.SetActive(false);
+                transformTemperatureShockCold.gameObject.SetActive(true);
+            }
+        }
+
+        if (temperature >= 81)
+        {
+            if (!transformTemperatureShockHot.gameObject.activeSelf)
+            {
+                transformTemperatureIndicator.gameObject.SetActive(false);
+                transformTemperatureShockHot.gameObject.SetActive(true);
+                transformTemperatureShockCold.gameObject.SetActive(false);
+            }
         }
     }
 
