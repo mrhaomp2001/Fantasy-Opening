@@ -75,14 +75,14 @@ public class RuleTileDetector : Singleton<RuleTileDetector>, IUpdatable
         // nếu là None → bỏ qua, không update
         if (newTile == null)
         {
-            Debug.Log("Tile mới: None (giữ nguyên tile cũ)");
+            //Debug.Log("Tile mới: None (giữ nguyên tile cũ)");
             return;
         }
 
         // cập nhật tile hợp lệ
         lastValidTile = newTile;
 
-        Debug.Log("Tile mới: " + newTile.name);
+        //Debug.Log("Tile mới: " + newTile.name);
 
         // xử lý tại đây bằng lastValidTile hoặc newTile đều được
     }

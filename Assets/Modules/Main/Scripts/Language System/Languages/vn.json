@@ -1,6 +1,7 @@
 {
   "hello_world": "Xin chào!",
   "example": "Ví dụ như này nè!",
+  "place_holder": "place_holder",
 
   "loading": "Đang tải",
   "start": "Bắt đầu",
@@ -33,7 +34,7 @@
   "unknown_error": "Lỗi không rõ nguyên nhân",
   "check_success": "Kiểm tra thành công",
   "checking_version": "Đang kiểm tra phiên bản",
-  
+
   "technology_description": "<b>Cấp độ thế giới:</b> <color=#FA003F>{0}</color>\n<b>Huân chương phù thủy:</b> <color=#FA003F>{1}</color>",
   "witch_medal": "Huân chương phù thủy",
 
@@ -73,7 +74,7 @@
   "down": "Đi xuống",
 
   "inventory": "Túi đồ",
-  
+
   "hotkey_1": "Phím tắt 1",
   "hotkey_2": "Phím tắt 2",
   "hotkey_3": "Phím tắt 3",
@@ -199,7 +200,6 @@
 
   "22_spectrum_of_hate-item_name": "Quang phổ của sự hận thù",
   "22_spectrum_of_hate-item_description": "Đây là một loài hoa",
-
 
   "201_corn_seed-item_name": "Hạt giống bắp",
   "201_corn_seed-item_description": "Hạt giống bắp",
@@ -372,6 +372,24 @@
   "435_mutton_cooked-item_name": "Thịt cừu đã chín",
   "435_mutton_cooked-item_description": "Thịt cừu đã chín",
 
+  "436_livingrock-item_name": "Đá sống",
+  "436_livingrock-item_description": "Đá sống",
+
+  "437_livingwood-item_name": "Gỗ sống",
+  "437_livingwood-item_description": "Gỗ sống",
+
+  "438_mana_copper-item_name": "Đồng ma thuật",
+  "438_mana_copper-item_description": "Đồng ma thuật",
+
+  "439_harmony_crystal-item_name": "Tinh thể hòa hợp",
+  "439_harmony_crystal-item_description": "Tinh thể hòa hợp",
+
+  "440_raw_mana-item_name": "Ma thuật thô ~ Raw mana",
+  "440_raw_mana-item_description": "Ma thuật thô",
+
+  "441_sand-item_name": "Cát",
+  "441_sand-item_description": "Cát",
+
   "601_weapon_1-item_name": "Kiếm gỗ",
   "601_weapon_1-item_description": "Kiếm gỗ",
 
@@ -413,6 +431,12 @@
 
   "614_witch_axe-item_name": "Rìu của Phù thủy",
   "614_witch_axe-item_description": "Rìu của Phù thủy",
+
+  "615_soulscribe-item_name": "Di chúc linh hồn",
+  "615_soulscribe-item_description": "Di chúc linh hồn",
+
+  "616_unstable_reservoir-item_name": "Bể chứa bất ổn",
+  "616_unstable_reservoir-item_description": "Bể chứa bất ổn",
 
   "801_farmland-item_name": "Ô đất",
   "801_farmland-item_description": "Ô đất",
@@ -477,6 +501,17 @@
   "823_witch_forge-item_name": "Bàn chế tác của Phù thủy",
   "823_witch_forge-item_description": "Chiếc bàn này được làm từ công nghệ phù thủy",
 
+  "824_original_mana_pool-item_name": "Hồ ma thuật nguyên bản ~ Mana Pool",
+  "824_original_mana_pool-item_description": "Hồ ma thuật nguyên bản",
+
+  "825_mana_pool-item_name": "Hồ ma thuật ~ Mana Pool",
+  "825_mana_pool-item_description": "Hồ ma thuật",
+
+  "826_mana_copper_forge-item_name": "Lò rèn đồng ma thuật",
+  "826_mana_copper_forge-item_description": "Lò rèn đồng ma thuật",
+
+  "827_harmony_table-item_name": "Bàn hòa hợp",
+  "827_harmony_table-item_description": "Bàn hòa hợp",
 
   "1001_wood_helmet-item_name": "Nón gỗ",
   "1001_wood_helmet-item_description": "Nón gỗ",
@@ -550,6 +585,30 @@
   "1024_boots_chrismas_2025-item_name": "Tất giáng sinh",
   "1024_boots_chrismas_2025-item_description": "Tất giáng sinh",
 
+  "1025_mana_copper_head-item_name": "Nón đồng ma thuật",
+  "1025_mana_copper_head-item_description": "Nón đồng ma thuật",
+
+  "1026_mana_copper_body-item_name": "Giáp thân đồng ma thuật",
+  "1026_mana_copper_body-item_description": "Giáp thân đồng ma thuật",
+
+  "1027_mana_copper_leg-item_name": "Giáp chân đồng ma thuật",
+  "1027_mana_copper_leg-item_description": "Giáp chân đồng ma thuật",
+
+  "1028_mana_copper_boots-item_name": "Giày đồng ma thuật",
+  "1028_mana_copper_boots-item_description": "Giày đồng ma thuật",
+
+  "1029_harmony_head-item_name": "Nón hòa hợp",
+  "1029_harmony_head-item_description": "Nón hòa hợp",
+
+  "1030_harmony_body-item_name": "Giáp thân hòa hợp",
+  "1030_harmony_body-item_description": "Giáp thân hòa hợp",
+
+  "1031_harmony_leg-item_name": "Giáp chân hòa hợp",
+  "1031_harmony_leg-item_description": "Giáp chân hòa hợp",
+
+  "1032_harmony_boots-item_name": "Giày hòa hợp",
+  "1032_harmony_boots-item_description": "Giày hòa hợp",
+
   "1201_boss_1_summon-item_name": "Bộ phát tính hiệu lỗi",
   "1201_boss_1_summon-item_description": "Bộ phát tính hiệu lỗi",
 
@@ -567,10 +626,6 @@
 
   "1601_ballad_of_the_mermaid-item_name": "Khúc ballad của Người Cá",
   "1601_ballad_of_the_mermaid-item_description": "Sử dụng để đổi màu nước biển",
-
-  "npc_name_wolf": "Sói",
-  "npc_wolf_talk_1": "Ngươi muốn gì?",
-  "npc_wolf_talk_2": "Tôi có thể trao đổi vài món với ngươi",
 
   "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",
   "npc_rabbit_talk_2": "Tui chỉ là con thỏ, tui trồng cà rốt, tui ăn cà rốt",
@@ -595,26 +650,26 @@
 
   "npc_rabbit_talk_event_2_4": "Măm măm, quá ngon luôn, đây là quà của tui nè",
 
-  "npc_anna_talk_1": "Xin chào! Tui là Anna! Công chúa Anna đó nha! Ê mà, tui quên kịch bản rồi, test game lẹ đi",
+  "npc_anna_talk_1": "Xin chào!",
 
-  "npc_anna_choice_1_1": "Banahime? Công chuối? Ủa, ủa? Mà quên kịch bản là sao bà nội",
+  "npc_anna_choice_1_1": "> Nói chuyện",
   "npc_anna_choice_1_2": "> Tôi muốn mua hàng",
   "npc_anna_choice_1_3": "> Tôi muốn bán hàng",
   "npc_anna_choice_1_4": "> Tôi muốn đi sang khu vực khác",
 
-  "npc_anna_talk_2_1": "Muốn đi sang khu vực khác thì phải cúng cho mấy thứ thần linh thần đần gì đó á",
-  "npc_anna_talk_2_2": "Cần cúng nông sản á, chắc người nhận là thần trái cây hay thần nông nghiệp hay gì?",
+  "npc_anna_talk_2_1": "Muốn đi sang khu vực khác thì phải có đủ nguyên liệu!",
+  "npc_anna_talk_2_2": "Cần vài nông sản!",
 
   "npc_anna_choice_2_1": "> tôi có \n{0}: {1}, {2}: {3}\n{4}: {5}, {6}: {7}\n{8}: {9}, {10}: {11}",
-  "npc_anna_choice_2_2": "> Tôi không cần khu vực mới nữa, yêu cầu nhiều đồ vậy ai chơi hả bà.",
+  "npc_anna_choice_2_2": "> Rời đi",
 
-  "npc_anna_talk_3": "Được rồi, đi ngủ đi để game còn lưu",
+  "npc_anna_talk_3": "Được rồi, hãy đi ngủ",
 
   "npc_miner_talk_1": "Xin chào! Tui là Tôi là một thợ mỏ, tôi thích đập đá!",
   "npc_miner_talk_2": "Nhìn cái gì, đấm cho một cái bây giờ?!",
 
-  "npc_miner_talk_2_1": "Muốn đi sang khu vực khác thì phải cúng cho mấy thứ thần linh thần đần gì đó á",
-  "npc_miner_talk_2_2": "Cần cúng nông sản á, chắc người nhận là thần trái cây hay thần nông nghiệp hay gì?",
+  "npc_miner_talk_2_1": "Muốn đi sang khu vực khác thì phải có đủ nguyên liệu",
+  "npc_miner_talk_2_2": "Tôi cũng không biết cần gì",
 
   "npc_miner_talk_island": "> tôi có \n{0}: {1}, {2}: {3}\n{4}: {5}, {6}: {7}\n{8}: {9}, {10}: {11}",
   "npc_miner_choice_unlock_island": "> tôi có \n{0}: {1}, {2}: {3}\n{4}: {5}, {6}: {7}\n{8}: {9}, {10}: {11}",
@@ -632,10 +687,28 @@
   "npc_witch_talk_3": "Nếu nói là nông sản thì cũng không đúng, chúng tôi mua tất cả loại thực vật. hãy cho chúng tôi xem bạn có gì?",
   "npc_witch_talk_4": "Chức năng này đang được phát triển",
 
+  "npc_name_wolf": "Sói Con",
+  "npc_wolf_talk_1": "Ngươi muốn gì?",
+  "npc_wolf_talk_2": "Ta có thể trao đổi vài món với ngươi",
+
+  "npc_wolf_map_6_1": "Ngươi nói cái quái gì vậy, ta không biết!",
+  "npc_wolf_map_6_2": "Khu vực mới là cái gì?",
+  "npc_wolf_map_6_3": "Hãy về nhà đi ngủ",
+
+  "npc_wolf_event_6": "> tôi có \n{0}: {1}, \n{2}: {3} \n{4}: {5}, \n{6}: {7}.",
+
+  "event_map_6_0": "Nóng là biểu hiện của sự may mắn!",
+  "event_map_6_1": "Nóng là biểu hiện của sự may mắn!",
+  "event_map_6_2": "Nếu nóng, hãy đi lặn biển để hạ nhiệt",
+
+  "event_map_6_3": "Như là bạn đang mơ",
+  "event_map_6_4": "Bạn thấy nóng, khô rát, bạn thấy khát",
+
   "npc_talk": "> Nói chuyện",
   "npc_player_buy": "> Tôi muốn mua hàng",
   "npc_player_sell": "> Tôi muốn bán hàng",
   "npc_player_cancel": "> Rời đi",
+  "npc_next_location": "> Tôi muốn đi sang khu vực khác",
 
   "npc_player_ascension": "> Bán tất cả nông sản của bạn",
   "npc_player_accept": "> tôi muốn bán tất cả",

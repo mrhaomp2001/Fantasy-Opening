@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     [SerializeField] private SpriteRenderer spriteItemHolding;
     [SerializeField] private Animator animator;
     [SerializeField] private Joystick joystickMovement;
-    [SerializeField] private Joystick joystick;
+    [SerializeField] private Joystick joystickInteract;
 
     [Header("Debug: ")]
     [SerializeField] private int cheatItemId;
@@ -323,6 +323,10 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     private void Movement()
     {
+        if (FishingController.Instance.IsFishing)
+        {
+            return;
+        }
 #if UNITY_STANDALONE
         // --- PC: Dùng phím ---
         if (Input.GetKey(GameInputController.Instance.Up.keyCode))
@@ -457,6 +461,12 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void FirePointCalculation()
     {
+        if (FishingController.Instance.IsFishing)
+        {
+            return;
+        }
+
+
         Vector3 mousePos = Vector3.zero;
 
 #if UNITY_STANDALONE
@@ -474,7 +484,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             3f
         );
 #elif UNITY_ANDROID || UNITY_IOS
-        Vector2 direction = new Vector2(joystick.Horizontal, joystick.Vertical);
+        Vector2 direction = new Vector2(joystickInteract.Horizontal, joystickInteract.Vertical);
         float targetRotation = 0f;
         if (Input.touchCount > 0)
         {
@@ -506,7 +516,9 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         targetRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         firepoint.rotation = Quaternion.Euler(0f, 0f, targetRotation);
 
-        if (direction.sqrMagnitude > 0.9f)
+
+
+        if (direction.sqrMagnitude > 0.95f)
         {
             InteractWithItem();
         }
@@ -593,6 +605,8 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     }
     public void Hurt(int dmg)
     {
+        FishingController.Instance.StopFishing();
+
         if (canHurt && dmg > 0)
         {
             canHurt = false;
@@ -666,6 +680,21 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     }
 
     // World Item
+
+    public void StartFishing()
+    {
+        if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemFishingRod fishingRod)
+        {
+            if (!FishingController.Instance.IsFishing)
+            {
+                FishingController.Instance.StartFishing();
+            }
+            else
+            {
+                FishingController.Instance.StopFishing();
+            }
+        }
+    }
 
     public void OnEnterWorldItem(Collider2D other)
     {
@@ -835,7 +864,6 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                 {
                     recipe.UnlockRecipe();
                 }
-
             }
             if (eventData.button == PointerEventData.InputButton.Right)
             {

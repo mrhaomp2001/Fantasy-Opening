@@ -14,6 +14,8 @@ public class PopUpInventory : PopUp
     [SerializeField] private RectTransform contentInventory;
     [SerializeField] private List<HotbarItem> hotbarItem;
     [SerializeField] private List<InventoryGridviewItem> inventoryGridviewItems;
+
+    [Header("Building: ")]
     [SerializeField] private SpriteRenderer transformBuildingIndicator;
     [SerializeField] private SpriteRenderer spriteBuildingReview;
 
@@ -54,7 +56,6 @@ public class PopUpInventory : PopUp
     [Header("Technology: ")]
     [SerializeField] private RectTransform containerTechnology;
     [SerializeField] private RectTransform buttonTechnology;
-
 
     public static PopUpInventory Instance { get => instance; set => instance = value; }
 
@@ -260,23 +261,34 @@ public class PopUpInventory : PopUp
             PlayerController.Instance.SpriteItemHolding.sprite = null;
         }
 
+        // Item Holding
+
+        var itemHolding = InventoryController.Instance.GetPlayerData.SelectedHotbar.item;
+
+        // Item Building
+
         TransformBuildingIndicator.gameObject.SetActive(false);
-        var itemBuilding = InventoryController.Instance.GetPlayerData.SelectedHotbar.item;
-        if (itemBuilding != null)
+
+
+        if (itemHolding != null)
         {
-            if (itemBuilding is ItemBuilding building)
+            if (itemHolding is ItemBuilding building)
             {
                 TransformBuildingIndicator.gameObject.SetActive(true);
                 spriteBuildingReview.sprite = building.BuildingSprite;
 
             }
         }
-        if (itemBuilding is ItemBuildingFoundation foundation)
+        if (itemHolding is ItemBuildingFoundation foundation)
         {
             TransformBuildingIndicator.gameObject.SetActive(true);
             spriteBuildingReview.sprite = foundation.BuildingSprite;
 
         }
+
+        FishingController.Instance.UpdateViews();
+
+        // Update Stats
 
         StatController.Instance.UpdateViews();
 
@@ -433,8 +445,7 @@ public class PopUpInventory : PopUp
 
             ResetSubPopUps();
             containerPlayerStats.gameObject.SetActive(true);
-
-            textStats.SetText(InventoryController.Instance.GetPlayerData.StatCollectionFinal.GetStringFullAll());
+            UpdateViewStats();
 
         }
         else
@@ -443,6 +454,11 @@ public class PopUpInventory : PopUp
             containerEquipment.gameObject.SetActive(true);
         }
 
+    }
+
+    public void UpdateViewStats()
+    {
+        textStats.SetText(InventoryController.Instance.GetPlayerData.StatCollectionFinal.GetStringFullAll());
     }
 
     // Lưu trang hiện tại (0-based: 0 = trang 1)

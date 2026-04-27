@@ -54,6 +54,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
     private LinkedList<IWorldInteractable> interactable;
 
     public static BuildingController Instance { get => instance; set => instance = value; }
+    public Grid GridBuilding { get => gridBuilding; set => gridBuilding = value; }
 
     public static bool TryParseFloatInvariant(string raw, out float value)
     {

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ded24a0e4875a1a40a842dc266224e74, type: 3}
-  m_Name: 432_apple
+  m_Name: 441_sand
   m_EditorClassIdentifier: 
-  id: 432
-  itemName: 432_apple-item_name
-  itemDescription: 432_apple-item_description
-  sprite: {fileID: 21300000, guid: fc11cd97f2574eb41b8dcbe51a2aad94, type: 3}
-  spriteWorldItem: {fileID: 21300000, guid: fc11cd97f2574eb41b8dcbe51a2aad94, type: 3}
+  id: 441
+  itemName: 441_sand-item_name
+  itemDescription: 441_sand-item_description
+  sprite: {fileID: 21300000, guid: 80134cf5dd7f06e49914e1ce723afc81, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: 80134cf5dd7f06e49914e1ce723afc81, type: 3}
   buyPrice: 0
   sellPrice: 0
   useTime: 1
   isNonStack: 0
-  isFood: 1
-  hungerCount: 5
+  isFood: 0
+  hungerCount: 0

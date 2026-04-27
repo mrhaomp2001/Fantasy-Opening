@@ -78,6 +78,7 @@ public class PopUpHotbarSelecter : PopUp
     public void SelectHotbarSlot(int slot)
     {
         InventoryController.Instance.SelectHotbarSlot(slot, currentSelectItem);
+        PopUpInventory.Instance.UpdateViewStats();
         Hide();
 
     }
