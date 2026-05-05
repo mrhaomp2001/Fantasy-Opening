@@ -60,12 +60,20 @@ public class FishingController : Singleton<FishingController>, IUpdatable
         timerFishing = Timer.DelayAction(1f,
         onComplete: () =>
         {
+            OnCatchFish();
+
             StopFishing();
         },
         onUpdate: (float ratio) =>
         {
 
         });
+    }
+
+    public void OnCatchFish()
+    {
+        StopFishing();
+
     }
 
     public void StopFishing()
