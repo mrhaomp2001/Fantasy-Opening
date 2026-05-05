@@ -1,3 +1,4 @@
+using GameUtil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class FishingController : Singleton<FishingController>, IUpdatable
     [SerializeField] private SpriteRenderer spriteFishingIndicator;
     [Header("--")]
     [SerializeField] private RectTransform containerFishingUI;
+    [SerializeField] private Transform containerFishingProgress;
+
+    private Timer timerFishing;
     public bool IsFishing { get => isFishing; set => isFishing = value; }
 
     public void UpdateViews()
@@ -23,6 +27,9 @@ public class FishingController : Singleton<FishingController>, IUpdatable
         transformFishingIndicator.gameObject.SetActive(false);
 
         containerFishingUI.gameObject.SetActive(false);
+        containerFishingProgress.gameObject.SetActive(false);
+        transformFishingRig.gameObject.SetActive(false);
+
         var itemHolding = InventoryController.Instance.GetPlayerData.SelectedHotbar.item;
         if (itemHolding is ItemFishingRod fishingRod)
         {
@@ -42,6 +49,7 @@ public class FishingController : Singleton<FishingController>, IUpdatable
         }
 
         spriteFishingIndicator.gameObject.SetActive(false);
+        containerFishingProgress.gameObject.SetActive(true);
 
         isFishing = true;
 
@@ -49,6 +57,15 @@ public class FishingController : Singleton<FishingController>, IUpdatable
 
         UpdateLine();
 
+        timerFishing = Timer.DelayAction(1f,
+        onComplete: () =>
+        {
+            StopFishing();
+        },
+        onUpdate: (float ratio) =>
+        {
+
+        });
     }
 
     public void StopFishing()
@@ -57,8 +74,12 @@ public class FishingController : Singleton<FishingController>, IUpdatable
 
         transformFishingRig.gameObject.SetActive(false);
 
+        containerFishingProgress.gameObject.SetActive(false);
+
+
         spriteFishingIndicator.gameObject.SetActive(true);
 
+        Timer.Cancel(timerFishing);
     }
 
     public void UpdateLine()
@@ -108,5 +129,10 @@ public class FishingController : Singleton<FishingController>, IUpdatable
     private void OnDisable()
     {
         UpdateController.Instance.Updatables.Remove(this);
+    }
+
+    private void OnDestroy()
+    {
+        Timer.Cancel(timerFishing);
     }
 }

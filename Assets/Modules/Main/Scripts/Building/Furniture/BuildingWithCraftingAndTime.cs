@@ -78,9 +78,6 @@ public class BuildingWithCraftingAndTime : BuildingBase, IWorldInteractable, IPo
         spriteRendererProgress.gameObject.transform.localScale = new Vector3(0f, 1f, 1f);
 
 
-        float maxTime = recipe.Time;
-
-
 
         timerCrafting = Timer.DelayAction(recipe.Time,
             onComplete: () =>
@@ -95,7 +92,7 @@ public class BuildingWithCraftingAndTime : BuildingBase, IWorldInteractable, IPo
             onUpdate: (float value) =>
             {
                 currentTime = (int)value + 1;
-                float normalized = Mathf.Clamp01(value / maxTime);
+                float normalized = timerCrafting.GetRatioComplete();
 
                 spriteRendererProgress.transform.localScale = new Vector3(normalized, 1f, 1f);
             });
@@ -137,5 +134,10 @@ public class BuildingWithCraftingAndTime : BuildingBase, IWorldInteractable, IPo
     private void OnDisable()
     {
         Timer.Cancel(timerCrafting);
+    }
+
+    private void OnDestroy()
+    {
+            Timer.Cancel(timerCrafting);
     }
 }
