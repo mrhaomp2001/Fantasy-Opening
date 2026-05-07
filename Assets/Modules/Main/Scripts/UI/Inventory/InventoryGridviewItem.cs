@@ -100,7 +100,7 @@ public class InventoryGridviewItem : MonoBehaviour
 
                             audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
 
-                            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+                            AudioController.Instance.Play(audioResult, minPithch: 0.8f, maxPitch: 1.2f);
 
                         },
                         onFail = (message) =>

@@ -738,6 +738,11 @@ public class InventoryController : MonoBehaviour
 
     private void UpdateExp()
     {
+        if (playerData.Level >= 100)
+        {
+            return;
+        }
+
         if (playerData.ExpNeededCurrent != null)
         {
             if (playerData.Exp >= playerData.ExpNeededCurrent.ExpNeeded)

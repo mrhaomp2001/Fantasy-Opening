@@ -69,7 +69,7 @@ public class WorldItem : MonoBehaviour, IPoolObject
             }
 
 
-            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+            AudioController.Instance.Play(audioResult, minPithch: 0.8f, maxPitch: 1.2f);
 
         }
 

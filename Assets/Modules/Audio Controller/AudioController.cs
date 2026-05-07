@@ -74,7 +74,7 @@ public class AudioController : MonoBehaviour
         targetSound.Play();
     }
 
-    public void Play(string name, bool randomPitch = false, float minPithch = 1f, float maxPitch = 1f)
+    public void Play(string name, float minPithch = 1f, float maxPitch = 1f)
     {
         Sound sound = Array.Find(sounds, sound => sound.name == name);
         if (sound == null) return;
@@ -154,7 +154,7 @@ public class AudioController : MonoBehaviour
 
         audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
 
-        AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+        AudioController.Instance.Play(audioResult, minPithch: 0.8f, maxPitch: 1.2f);
     }
 
     /// =====

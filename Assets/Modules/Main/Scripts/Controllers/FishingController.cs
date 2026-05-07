@@ -34,12 +34,27 @@ public class FishingController : Singleton<FishingController>, IUpdatable
         if (itemHolding is ItemFishingRod fishingRod)
         {
             transformFishingIndicator.gameObject.SetActive(true);
-            containerFishingUI.gameObject.SetActive(true);
 
+#if UNITY_ANDROID || UNITY_IOS
+
+            containerFishingUI.gameObject.SetActive(true);
+#endif
 
         }
     }
 
+
+    public void OnClickFishing(ItemFishingRod itemFishing)
+    {
+        if (!FishingController.Instance.IsFishing)
+        {
+            FishingController.Instance.StartFishing();
+        }
+        else
+        {
+            FishingController.Instance.StopFishing();
+        }
+    }
 
     public void StartFishing()
     {

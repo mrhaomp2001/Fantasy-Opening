@@ -49,7 +49,7 @@ public class ItemDatabase : MonoBehaviour
             });
         }
 
-       // Debug.Log($"Generated EXP curve table (1 → {maxLevel}) using growth {growthCurve}");
+        // Debug.Log($"Generated EXP curve table (1 → {maxLevel}) using growth {growthCurve}");
     }
 
     private void Awake()
@@ -57,11 +57,43 @@ public class ItemDatabase : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            LoadItems();
+
+            LoadCrops();
+
+            LoadBuffs();
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    private void LoadItems()
+    {
+        items = new List<ItemBase>();
+
+        ItemBase[] loadedItems = Resources.LoadAll<ItemBase>("Items");
+
+        items.AddRange(loadedItems);
+
+        Debug.Log($"Loaded {items.Count} items");
+    }
+
+    private void LoadCrops()
+    {
+        crop = new List<Crop>();
+        Crop[] loadedCrops = Resources.LoadAll<Crop>("Crops");
+        crop.AddRange(loadedCrops);
+        Debug.Log($"Loaded {crop.Count} crops");
+    }
+
+    private void LoadBuffs()
+    {
+        buffs = new List<BuffBase>();
+        BuffBase[] loadedBuffs = Resources.LoadAll<BuffBase>("Buffs");
+        buffs.AddRange(loadedBuffs);
+        Debug.Log($"Loaded {buffs.Count} buffs");
     }
 
     private void Start()

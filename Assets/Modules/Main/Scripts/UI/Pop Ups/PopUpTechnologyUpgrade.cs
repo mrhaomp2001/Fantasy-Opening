@@ -99,7 +99,7 @@ public class PopUpTechnologyUpgrade : PopUpSingleton<PopUpTechnologyUpgrade>
 
                         WitchSystemController.Instance.Save();
 
-                        AudioController.Instance.Play("23_collecting", randomPitch: true, 0.8f, 1.2f);
+                        AudioController.Instance.Play("23_collecting", minPithch: 0.8f, maxPitch: 1.2f);
 
                         Hide();
                     },
@@ -117,7 +117,7 @@ public class PopUpTechnologyUpgrade : PopUpSingleton<PopUpTechnologyUpgrade>
         }
         else
         {
-            AudioController.Instance.Play("22_can_not", randomPitch: true, 0.8f, 1.2f);
+            AudioController.Instance.Play("22_can_not", minPithch: 0.8f, maxPitch: 1.2f);
         }
     }
 }

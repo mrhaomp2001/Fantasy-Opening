@@ -456,7 +456,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
         audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
 
-        AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+        AudioController.Instance.Play(audioResult, minPithch: 0.8f, maxPitch: 1.2f);
     }
 
     public void FirePointCalculation()
@@ -553,7 +553,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
                 audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
 
-                AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+                AudioController.Instance.Play(audioResult, minPithch: 0.8f, maxPitch: 1.2f);
             }
 
             if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemInteractable itemInteractable)
@@ -623,7 +623,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
             animator.Play("hurt");
 
-            AudioController.Instance.Play("22_can_not", randomPitch: true, 0.8f, 1.2f);
+            AudioController.Instance.Play("22_can_not", minPithch: 0.8f, maxPitch: 1.2f);
 
             //Debug.Log($"Defend: {InventoryController.Instance.GetPlayerData.Defend}");
 
@@ -685,16 +685,10 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     {
         if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemFishingRod fishingRod)
         {
-            if (!FishingController.Instance.IsFishing)
-            {
-                FishingController.Instance.StartFishing();
-            }
-            else
-            {
-                FishingController.Instance.StopFishing();
-            }
+            FishingController.Instance.OnClickFishing(fishingRod);
         }
     }
+
 
     public void OnEnterWorldItem(Collider2D other)
     {
@@ -743,7 +737,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
                                             audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
 
-                                            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+                                            AudioController.Instance.Play(audioResult, minPithch: 0.8f, maxPitch: 1.2f);
                                         },
                                         onFail = (message) =>
                                         {
@@ -773,7 +767,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                             string audioResult = "";
 
                             audioResult = "burp";
-                            AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+                            AudioController.Instance.Play(audioResult, minPithch: 0.8f, maxPitch: 1.2f);
 
                         },
                         onFail = (message) =>
@@ -808,7 +802,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
                                 audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
 
-                                AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+                                AudioController.Instance.Play(audioResult, minPithch: 0.8f, maxPitch: 1.2f);
                             },
                             onFail = (message) =>
                             {
@@ -841,7 +835,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
                                 audioResult = audioHurtList[UnityEngine.Random.Range(0, audioHurtList.Length)];
 
-                                AudioController.Instance.Play(audioResult, randomPitch: true, 0.8f, 1.2f);
+                                AudioController.Instance.Play(audioResult, minPithch: 0.8f, maxPitch: 1.2f);
                             },
                             onFail = (message) =>
                             {
@@ -854,6 +848,14 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                     }
 
                 }
+
+#if UNITY_STANDALONE
+
+                if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemFishingRod fishingRod)
+                {
+                    FishingController.Instance.OnClickFishing(fishingRod);
+                }
+#endif
 
                 if (InventoryController.Instance.GetPlayerData.SelectedHotbar.item is ItemBossSummon bossSummon)
                 {

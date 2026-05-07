@@ -52,6 +52,11 @@ public class HotbarItem : MonoBehaviour
 
     public void OnClick()
     {
+        if (FishingController.Instance.IsFishing)
+        {
+            return;
+        }
+
         if (PopUpInventory.Instance.IsOpening)
         {
             if (item != null)
