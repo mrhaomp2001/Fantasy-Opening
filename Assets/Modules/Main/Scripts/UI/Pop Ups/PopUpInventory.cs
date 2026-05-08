@@ -95,6 +95,7 @@ public class PopUpInventory : PopUp
 
         ResetSubPopUps();
 
+        FishingController.Instance.StopFishing();
 
         containerInventoryOption.gameObject.SetActive(true);
 

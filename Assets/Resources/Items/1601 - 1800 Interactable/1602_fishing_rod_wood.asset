@@ -23,3 +23,9 @@ MonoBehaviour:
   isNonStack: 1
   isFood: 0
   hungerCount: 0
+  stats:
+    minFishingTime: 5
+    maxFishingTime: 10
+    superRareFishRate: 2
+    rareFishRate: 7
+    commonFishRate: 91

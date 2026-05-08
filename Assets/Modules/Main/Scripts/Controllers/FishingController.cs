@@ -2,6 +2,21 @@ using GameUtil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+
+[System.Serializable]
+public class FishRateCanCatch
+{
+    [SerializeField] private TileBase tileTarget;
+    [SerializeField] private List<ItemBase> ssrFishs;
+    [SerializeField] private List<ItemBase> srFishs;
+    [SerializeField] private List<ItemBase> cFishs;
+
+    public TileBase TileTarget { get => tileTarget; set => tileTarget = value; }
+    public List<ItemBase> SsrFishs { get => ssrFishs; set => ssrFishs = value; }
+    public List<ItemBase> SrFishs { get => srFishs; set => srFishs = value; }
+    public List<ItemBase> CFishs { get => cFishs; set => cFishs = value; }
+}
 
 public class FishingController : Singleton<FishingController>, IUpdatable
 {
@@ -16,7 +31,9 @@ public class FishingController : Singleton<FishingController>, IUpdatable
     [Header("--")]
     [SerializeField] private RectTransform containerFishingUI;
     [SerializeField] private Transform containerFishingProgress;
-
+    [Header("--")]
+    [SerializeField] private List<FishRateCanCatch> fishRateCanCatchList;
+    private ItemFishingRod itemFishingRod;
     private Timer timerFishing;
     public bool IsFishing { get => isFishing; set => isFishing = value; }
 
@@ -48,6 +65,7 @@ public class FishingController : Singleton<FishingController>, IUpdatable
     {
         if (!FishingController.Instance.IsFishing)
         {
+            itemFishingRod = itemFishing;
             FishingController.Instance.StartFishing();
         }
         else
@@ -72,12 +90,12 @@ public class FishingController : Singleton<FishingController>, IUpdatable
 
         UpdateLine();
 
-        timerFishing = Timer.DelayAction(1f,
+        float fishingTime = UnityEngine.Random.Range(itemFishingRod.Stats.MinFishingTime, itemFishingRod.Stats.MaxFishingTime);
+
+        timerFishing = Timer.DelayAction(fishingTime,
         onComplete: () =>
         {
             OnCatchFish();
-
-            StopFishing();
         },
         onUpdate: (float ratio) =>
         {
@@ -89,20 +107,45 @@ public class FishingController : Singleton<FishingController>, IUpdatable
     {
         StopFishing();
 
+        int totalChance = itemFishingRod.Stats.SuperRareFishRate + itemFishingRod.Stats.RareFishRate + itemFishingRod.Stats.CommonFishRate;
+        int result = UnityEngine.Random.Range(0, totalChance);
+
+        TileBase currentTile = RuleTileDetector.Instance.GetCurrentValidTile();
+
+        if (result < itemFishingRod.Stats.SuperRareFishRate)
+        {
+
+            return;
+        }
+        if (result < (itemFishingRod.Stats.SuperRareFishRate + itemFishingRod.Stats.RareFishRate))
+        {
+
+            return;
+        }
+
+        if (result < (itemFishingRod.Stats.SuperRareFishRate + itemFishingRod.Stats.RareFishRate + itemFishingRod.Stats.CommonFishRate))
+        {
+
+            return;
+        }
     }
 
     public void StopFishing()
     {
-        isFishing = false;
+        if (isFishing)
+        {
+            isFishing = false;
 
-        transformFishingRig.gameObject.SetActive(false);
+            transformFishingRig.gameObject.SetActive(false);
 
-        containerFishingProgress.gameObject.SetActive(false);
+            containerFishingProgress.gameObject.SetActive(false);
 
 
-        spriteFishingIndicator.gameObject.SetActive(true);
+            spriteFishingIndicator.gameObject.SetActive(true);
 
-        Timer.Cancel(timerFishing);
+            Timer.Cancel(timerFishing);
+        }
+
     }
 
     public void UpdateLine()
