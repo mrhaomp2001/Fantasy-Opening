@@ -1,6 +1,8 @@
 using GameUtil;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -114,12 +116,12 @@ public class FishingController : Singleton<FishingController>, IUpdatable
 
         if (result < itemFishingRod.Stats.SuperRareFishRate)
         {
-
+            GetSuperRareFish();
             return;
         }
         if (result < (itemFishingRod.Stats.SuperRareFishRate + itemFishingRod.Stats.RareFishRate))
         {
-
+            GetRareFish();
             return;
         }
 
@@ -128,6 +130,31 @@ public class FishingController : Singleton<FishingController>, IUpdatable
 
             return;
         }
+    }
+
+    private void GetRareFish()
+    {
+        TileBase currentTile = RuleTileDetector.Instance.GetCurrentValidTile();
+
+        TileBase targetTile = fishRateCanCatchList
+            .Where((predicate =>
+            {
+                return predicate.TileTarget == currentTile;
+            }))
+            .FirstOrDefault().TileTarget;
+
+        if (currentTile == targetTile)
+        {
+            
+        }
+
+
+
+    }
+
+    private void GetSuperRareFish()
+    {
+
     }
 
     public void StopFishing()
