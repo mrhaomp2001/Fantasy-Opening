@@ -17,6 +17,34 @@ public class PopUpInventoryTooltip : PopUp
     [SerializeField] private Image imageItemSprite;
 
     public static PopUpInventoryTooltip Instance { get => instance; set => instance = value; }
+    [SerializeField] private List<RectTransform> qualityHolders;
+
+    private void UpdateQuality()
+    {
+        foreach (var qualityHolder in qualityHolders)
+        {
+            qualityHolder.gameObject.SetActive(false);
+        }
+
+        switch (targetItem.item.Quality)
+        {
+            case ItemQuality.Normal:
+                qualityHolders[0].gameObject.SetActive(true);
+                break;
+            case ItemQuality.Common:
+                qualityHolders[1].gameObject.SetActive(true);
+                break;
+            case ItemQuality.Rare:
+                qualityHolders[2].gameObject.SetActive(true);
+                break;
+            case ItemQuality.SuperRare:
+                qualityHolders[3].gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -40,6 +68,7 @@ public class PopUpInventoryTooltip : PopUp
         if (item != null && item.item != null)
         {
             base.Show();
+
             container.position = position + new Vector2(5f, 0f);
             targetItem = item;
 
@@ -47,6 +76,8 @@ public class PopUpInventoryTooltip : PopUp
             textItemDescription.SetText (targetItem.item.ItemDescription);
             textItemPrice.SetText($"{LanguageController.Instance.GetString("value_sell")}: {targetItem.item.SellPrice}");
             imageItemSprite.sprite = item.item.Sprite;
+
+            UpdateQuality();
 
             container.pivot = pivot;
         }

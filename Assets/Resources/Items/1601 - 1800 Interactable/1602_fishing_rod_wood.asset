@@ -15,8 +15,9 @@ MonoBehaviour:
   id: 1602
   itemName: 1602_fishing_rod_wood-item_name
   itemDescription: 1602_fishing_rod_wood-item_description
-  sprite: {fileID: 21300000, guid: 5552d22c27b1b714aa26a26fba0fc470, type: 3}
-  spriteWorldItem: {fileID: 21300000, guid: 5552d22c27b1b714aa26a26fba0fc470, type: 3}
+  sprite: {fileID: 21300000, guid: 585e9b36aff30f94f84e37adef8f6a4c, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: 585e9b36aff30f94f84e37adef8f6a4c, type: 3}
+  quality: 0
   buyPrice: 0
   sellPrice: 0
   useTime: 1.6
@@ -25,7 +26,8 @@ MonoBehaviour:
   hungerCount: 0
   stats:
     minFishingTime: 5
-    maxFishingTime: 10
-    superRareFishRate: 2
-    rareFishRate: 7
-    commonFishRate: 91
+    maxFishingTime: 7
+    hungerCost: 5
+    superRareFishRate: 10
+    rareFishRate: 20
+    commonFishRate: 70

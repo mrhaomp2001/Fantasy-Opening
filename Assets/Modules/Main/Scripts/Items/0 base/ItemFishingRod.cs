@@ -9,6 +9,9 @@ public class FishingRodStatCollection
     [SerializeField] private float maxFishingTime;
 
     [Header("--")]
+    [SerializeField] private int hungerCost;
+
+    [Header("--")]
     [SerializeField] private int superRareFishRate;
     [Header("--")]
     [SerializeField] private int rareFishRate;
@@ -20,6 +23,7 @@ public class FishingRodStatCollection
     public int SuperRareFishRate { get => superRareFishRate; set => superRareFishRate = value; }
     public int RareFishRate { get => rareFishRate; set => rareFishRate = value; }
     public int CommonFishRate { get => commonFishRate; set => commonFishRate = value; }
+    public int HungerCost { get => hungerCost; set => hungerCost = value; }
 }
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Farm/Items/Fishing Rod")]

@@ -3,12 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class CraftingGridviewItem : MonoBehaviour
 {
     [SerializeField] private Image imageItemResult;
 
     private Recipe recipeTarget;
+
+    [SerializeField] private List<RectTransform> qualityHolders;
+
+    private void UpdateQuality()
+    {
+        foreach (var qualityHolder in qualityHolders)
+        {
+            qualityHolder.gameObject.SetActive(false);
+        }
+
+        switch (recipeTarget.ItemResult.Quality)
+        {
+            case ItemQuality.Normal:
+                qualityHolders[0].gameObject.SetActive(true);
+                break;
+            case ItemQuality.Common:
+                qualityHolders[1].gameObject.SetActive(true);
+                break;
+            case ItemQuality.Rare:
+                qualityHolders[2].gameObject.SetActive(true);
+                break;
+            case ItemQuality.SuperRare:
+                qualityHolders[3].gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
+
 
     public void UpdateViews(Recipe ValueRecipe)
     {
@@ -18,6 +48,7 @@ public class CraftingGridviewItem : MonoBehaviour
 
         gameObject.SetActive(true);
 
+        UpdateQuality();
     }
 
     public void OnClick()

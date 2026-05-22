@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ItemQuality
+{
+    Normal,
+    Common,
+    Rare,
+    SuperRare,
+}
+
 [JsonObject(MemberSerialization.OptIn), System.Serializable]
 public class ItemBase : ScriptableObject
 {
@@ -13,6 +21,7 @@ public class ItemBase : ScriptableObject
     [SerializeField, TextArea(3, 10)] private string itemDescription;
     [SerializeField] private Sprite sprite;
     [SerializeField] private Sprite spriteWorldItem;
+    [SerializeField] private ItemQuality quality;
     [SerializeField] private int buyPrice;
     [SerializeField] private int sellPrice;
     [SerializeField] private float useTime;
@@ -50,4 +59,5 @@ public class ItemBase : ScriptableObject
     public float UseTime { get => useTime; set => useTime = value; }
     public bool IsFood { get => isFood; set => isFood = value; }
     public int HungerCount { get => hungerCount; set => hungerCount = value; }
+    public ItemQuality Quality { get => quality; set => quality = value; }
 }
