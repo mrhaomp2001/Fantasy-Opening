@@ -28,7 +28,7 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
     public virtual void OnObjectSpawnAfter()
     {
         hitbox.gameObject.SetActive(true);
-        rb.velocity = rb.transform.right * speed;
+        rb.linearVelocity = rb.transform.right * speed;
         if (isAxe || isPickaxe || isHammer)
         {
 
@@ -83,7 +83,7 @@ public class PlayerBullet : MonoBehaviour, IPoolObject
 
     public void OnEndLifeTime()
     {
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         hitbox.gameObject.SetActive(false);
     }
 }

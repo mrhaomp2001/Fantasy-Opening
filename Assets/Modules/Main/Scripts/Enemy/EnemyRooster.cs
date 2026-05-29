@@ -84,7 +84,7 @@ public class EnemyRooster : Enemy
 
             hitbox.rotation = Quaternion.Euler(0f, 0f, DesiredHeadingToPlayer);
 
-            rb.velocity = hitbox.right * speed;
+            rb.linearVelocity = hitbox.right * speed;
 
             if (transform.position.x > playerPosition.x)
             {

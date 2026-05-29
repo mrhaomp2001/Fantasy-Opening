@@ -24,7 +24,7 @@ public class EnemyBulletForwardPlayer : EnemyBullet
 
         bullet.rotation = Quaternion.Euler(0f, 0f, DesiredHeadingToPlayer);
 
-        rb.velocity = bullet.right * speed;
+        rb.linearVelocity = bullet.right * speed;
 
     }
 
@@ -32,6 +32,6 @@ public class EnemyBulletForwardPlayer : EnemyBullet
     {
         base.Despawn();
 
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
     }
 }

@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour, IPoolObject
         {
             if (!value)
             {
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
             }
             canMove = value;
         }

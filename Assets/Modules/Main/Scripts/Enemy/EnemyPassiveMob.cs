@@ -78,12 +78,12 @@ public class EnemyPassiveMob : Enemy, IFixedUpdatable
     {
         if (isMoving)
         {
-            rb.velocity = moveDirection * moveSpeed;
-            UpdateSpriteDirection(rb.velocity);
+            rb.linearVelocity = moveDirection * moveSpeed;
+            UpdateSpriteDirection(rb.linearVelocity);
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 

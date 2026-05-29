@@ -32,13 +32,13 @@ public class PlayerBullet612 : PlayerBullet
             onComplete: () =>
             {
                 // giữ nguyên tốc độ sau khi hoàn tất
-                rb.velocity = rb.transform.right * speed;
+                rb.linearVelocity = rb.transform.right * speed;
             },
             onUpdate: (t) =>
             {
                 // t: từ 0 -> 1 theo tiến trình
                 float currentSpeed = Mathf.Lerp(startSpeed, speed, t);
-                rb.velocity = rb.transform.right * currentSpeed;
+                rb.linearVelocity = rb.transform.right * currentSpeed;
             });
 
         timerLifeTime = Timer.DelayAction(lifeTime + (InventoryController.Instance.GetPlayerData.AttackRange / 100f), () =>

@@ -306,7 +306,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     public void OnFixedUpdate()
     {
-        rbPlayer.velocity = movementSpeed * speed;
+        rbPlayer.linearVelocity = movementSpeed * speed;
     }
 
     private void OnEnable()
@@ -635,7 +635,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             {
                 deadScreen.gameObject.SetActive(true);
 
-                var enemy = FindObjectsOfType<Enemy>();
+                var enemy = FindObjectsByType<Enemy>();
 
                 for (int i = 0; i < enemy.Length; i++)
                 {
