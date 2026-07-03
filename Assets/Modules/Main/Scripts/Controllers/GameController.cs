@@ -191,7 +191,7 @@ public class GameController : MonoBehaviour
 
     private void EnemyNextDay()
     {
-        enemySpawners = FindObjectsByType<EnemySpawner>(findObjectsInactive: FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        enemySpawners = FindObjectsByType<EnemySpawner>(findObjectsInactive: FindObjectsInactive.Exclude);
 
         foreach (var item in enemySpawners)
         {

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8e6510bcd44bb044aaa150cd2748fc7, type: 3}
-  m_Name: 1805_carrot_fish_R
+  m_Name: 1807_stone_fish_C
   m_EditorClassIdentifier: 
-  id: 1805
-  itemName: 1805_carrot_fish_R-item_name
-  itemDescription: 1805_carrot_fish_R-item_description
-  sprite: {fileID: 21300000, guid: b0adb72179977ae458ec04d0119c9c5f, type: 3}
-  spriteWorldItem: {fileID: 21300000, guid: b0adb72179977ae458ec04d0119c9c5f, type: 3}
+  id: 1807
+  itemName: 1807_stone_fish_C-item_name
+  itemDescription: 1807_stone_fish_C-item_description
+  sprite: {fileID: 21300000, guid: a6bda8ebc9ec1424885362d80105c84b, type: 3}
+  spriteWorldItem: {fileID: 21300000, guid: a6bda8ebc9ec1424885362d80105c84b, type: 3}
   quality: 1
   buyPrice: 0
   sellPrice: 0

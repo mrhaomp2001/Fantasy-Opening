@@ -20,7 +20,7 @@ public class ProgressionStartDialogue : ProgressionBase
     {
         if (!(IsSaved || IsCompleted) && IsActivated)
         {
-            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
             foreach (var item in enemies)
             {
@@ -88,7 +88,7 @@ public class ProgressionStartDialogue : ProgressionBase
     {
         PopUpRaycastBlocker.Instance.Hide();
 
-        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
         foreach (var item in enemies)
         {

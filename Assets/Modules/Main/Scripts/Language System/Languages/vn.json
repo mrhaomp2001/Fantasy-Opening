@@ -627,6 +627,40 @@
   "1601_ballad_of_the_mermaid-item_name": "Khúc ballad của Người Cá",
   "1601_ballad_of_the_mermaid-item_description": "Sử dụng để đổi màu nước biển",
 
+  "1602_fishing_rod_wood-item_name": "Cần câu gỗ",
+  "1602_fishing_rod_wood-item_description": "Cần câu gỗ",
+  
+  
+  "1801_old_boots_C-item_name": "Cá ủng",
+  "1801_old_boots_C-item_description": "Con cá sống, nó mang hình dáng chiếc ủng",
+  
+  "1802_grass_sea_dragon_R-item_name": "Rồng cỏ biển",
+  "1802_grass_sea_dragon_R-item_description": "Nó giống một con cá ngựa, giống rong biển",
+  
+  "1803_wood_fish_SR-item_name": "Cá gỗ",
+  "1803_wood_fish_SR-item_description": "Hoa văn của nó giống một khúc gỗ",
+  
+  "1804_grass_fish_C-item_name": "Cá cỏ",
+  "1804_grass_fish_C-item_description": "Nhìn nó giống đất và cỏ",
+  
+  "1805_carrot_fish_R-item_name": "Cá cà rốt",
+  "1805_carrot_fish_R-item_description": "Nó là quả cà rốt biết bơi",
+  
+  "1806_bunny_fish_SR-item_name": "Cá thỏ",
+  "1806_bunny_fish_SR-item_description": "Một con cá có sức bật đáng kinh ngạc!",
+  
+  "1807_stone_fish_C-item_name": "Cá đá",
+  "1807_stone_fish_C-item_description": "Một con cá hình cục đá, vảy của nó rất cứng",
+  
+  "1808_coal_fish_R-item_name": "Cá than",
+  "1808_coal_fish_R-item_description": "Thật đấy à? Một cục than! À! Nó đang bơi!",
+  
+  "1809_crystal_fish_R-item_name": "Cá tinh thể",
+  "1809_crystal_fish_R-item_description": "Một con cá tuyệt đẹp, có gai nhọn nguy hiểm",
+  
+  "1810_copper_fish_R-item_name": "Cá quặng đồng",
+  "1810_copper_fish_R-item_description": "Một con cá bình thường, ngoài việc loài cá bị nhiễm kim loại nặng",
+  
   "npc_rabbit_talk_1": "Xin chào, tui là Thỏ Con",
   "npc_rabbit_talk_2": "Tui chỉ là con thỏ, tui trồng cà rốt, tui ăn cà rốt",
 
@@ -765,6 +799,19 @@
 
   "progression_frozen_island_talk_1": "Bạn như là đang mơ... ",
   "progression_frozen_island_talk_2": "Bạn cảm thấy lạnh... ",
+  
+  "npc_name_mermaid": "Người Cá",
+  "npc_mermaid_talk_1": "Chào, tôi là một người cá :3",
+  "npc_mermaid_talk_2": "Tôi có con pet siêu to khổng lồ luôn á, mốt tui kêu nó lên cho xem",
+  "npc_mermaid_talk_3": "Nó to như một ngọn núi vậy, cho dù nó ăn rất ít, mà không phải nó mập hay gì đâu",
+  
+  
+  
+  "npc_name_lucky_girl": "Linh hồn May mắn",
+  "npc_lucky_girl_talk_1": "Gì? Nhìn cái *** gì? Thích nhìn không?",
+  "npc_lucky_girl_talk_2": "... muốn làm tý may mắn không? Chúng ta có thể trao đổi một số thứ đấy... à, à mà thôi",
+  "npc_lucky_girl_talk_3": "*** *** **, chán ghê, dù sao cũng chả làm gì được",
+  
 
   "progression_frozen_island_choice_1_1": "Thấy lạnh là do trời lạnh",
   "progression_frozen_island_choice_1_2": "Sự bất tử, nó thật lạnh lẽo ",

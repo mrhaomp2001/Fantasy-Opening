@@ -24,7 +24,7 @@ public class ProgressPlantEnchantedPea : ProgressionBase
 
             ShowChristmas();
 
-            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
             foreach (var item in enemies)
             {
@@ -74,7 +74,7 @@ public class ProgressPlantEnchantedPea : ProgressionBase
     {
         PopUpRaycastBlocker.Instance.Hide();
 
-        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
         foreach (var item in enemies)
         {

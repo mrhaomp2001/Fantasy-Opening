@@ -26,7 +26,7 @@ public class Progression_4_0 : ProgressionBase
             PopUpDialogue.Instance.ShowDialogue(dialogues1);
 
             OnActived();
-            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
             foreach (var item in enemies)
             {
@@ -44,7 +44,7 @@ public class Progression_4_0 : ProgressionBase
     public override void OnCompleted()
     {
         base.OnCompleted();
-        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
         foreach (var item in enemies)
         {

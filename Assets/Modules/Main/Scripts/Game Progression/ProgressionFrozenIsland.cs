@@ -46,7 +46,7 @@ public class ProgressionFrozenIsland : ProgressionBase
 
             PopUpDialogue.Instance.ShowDialogue(dialogue1);
 
-            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+            var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
             foreach (var item in enemies)
             {
@@ -103,7 +103,7 @@ public class ProgressionFrozenIsland : ProgressionBase
     {
         PopUpRaycastBlocker.Instance.Hide();
 
-        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
         foreach (var item in enemies)
         {

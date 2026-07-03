@@ -1,5 +1,4 @@
 using GameUtil;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -14,6 +13,7 @@ public class Dialogue
     [SerializeField] private Sprite sprite;
     [SerializeField] private UnityEvent unityEventStart, unityEventEnd;
 
+
     public string Name { get => name; set => name = value; }
     public string Content { get => content; set => content = value; }
     public Sprite Sprite { get => sprite; set => sprite = value; }
@@ -27,12 +27,16 @@ public class PopUpDialogue : PopUp
     private Queue<Dialogue> dialogues = new Queue<Dialogue>();
 
     [Header("Dialogue: ")]
-        
+
     [SerializeField] private TextMeshProUGUI textName;
     [SerializeField] private TextMeshProUGUI textContent;
     [SerializeField] private Image imageActor;
     [SerializeField] private Button buttonNext;
     [SerializeField] private Sprite spriteMask64;
+
+    private bool isTyping;
+    private string currentContent;
+    private int typingId;
 
     UnityEvent unityEventLastest;
     public static PopUpDialogue Instance { get => instance; set => instance = value; }
@@ -70,7 +74,9 @@ public class PopUpDialogue : PopUp
         }
 
         textName.SetText(LanguageController.Instance.GetString(dialogues.Peek().Name));
-        textContent.SetText (LanguageController.Instance.GetString(dialogues.Peek().Content));
+
+        TypeWriter(dialogues.Peek().Content);
+
         dialogues.Peek().UnityEventStart?.Invoke();
 
         DelayButton();
@@ -79,7 +85,7 @@ public class PopUpDialogue : PopUp
         Timer.DelayFrameAction(4,
             onComplete: () =>
             {
-                var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+                var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
                 foreach (var item in enemies)
                 {
@@ -92,7 +98,17 @@ public class PopUpDialogue : PopUp
 
     public void ShowNextDialog()
     {
-        DelayButton();
+        if (isTyping)
+        {
+            typingId++;
+            isTyping = false;
+            textContent.SetText(
+                LanguageController.Instance.GetString(dialogues.Peek().Content)
+            );
+
+            DelayButton();
+            return;
+        }
 
         if (dialogues.Count > 0)
         {
@@ -104,41 +120,35 @@ public class PopUpDialogue : PopUp
             {
                 dialogues.Peek().UnityEventStart?.Invoke();
 
-                if (dialogues.Peek().Sprite == null)
-                {
-                    imageActor.sprite = spriteMask64;
-                }
-                else
-                {
-                    imageActor.sprite = dialogues.Peek().Sprite;
-                }
+                imageActor.sprite = dialogues.Peek().Sprite == null
+                    ? spriteMask64
+                    : dialogues.Peek().Sprite;
 
-                textName.SetText(dialogues.Peek().Name);
-                textContent.SetText(LanguageController.Instance.GetString(dialogues.Peek().Content));
+                textName.SetText(
+                    LanguageController.Instance.GetString(dialogues.Peek().Name)
+                );
+
+                TypeWriter(dialogues.Peek().Content);
 
                 unityEventLastest = dialogues.Peek().UnityEventEnd;
             }
-
             else
             {
-
                 textName.SetText("");
                 textContent.SetText("");
                 imageActor.sprite = spriteMask64;
 
-                //
                 Timer.DelayFrameAction(6,
                     onComplete: () =>
                     {
-                        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+                        var enemies = FindObjectsByType<Enemy>(
+                            findObjectsInactive: FindObjectsInactive.Include);
 
                         foreach (var item in enemies)
                         {
                             item.CanMove = true;
                         }
                     });
-
-                //
 
                 Hide();
             }
@@ -153,5 +163,35 @@ public class PopUpDialogue : PopUp
         {
             buttonNext.interactable = true;
         });
+    }
+
+    private void TypeWriter(string content)
+    {
+        typingId++;
+        int currentTypingId = typingId;
+
+        isTyping = true;
+        currentContent = content;
+        textContent.SetText("");
+
+        string localizedContent = LanguageController.Instance.GetString(content);
+
+        for (int i = 0; i < localizedContent.Length; i++)
+        {
+            int index = i;
+
+            Timer.DelayAction(0.02f * i, () =>
+            {
+                if (currentTypingId != typingId)
+                    return;
+
+                textContent.SetText(localizedContent.Substring(0, index + 1));
+
+                if (index == localizedContent.Length - 1)
+                {
+                    isTyping = false;
+                }
+            });
+        }
     }
 }

@@ -459,7 +459,7 @@ namespace GameUtil
         {
             if (_manager != null) return;
             // create a manager object to update all the timers if one does not already exist.
-            _manager = Object.FindObjectOfType<TimerManager>();
+            _manager = Object.FindAnyObjectByType<TimerManager>();
             if (_manager == null)
                 _manager = new GameObject(nameof(TimerManager)).AddComponent<TimerManager>();
             Object.DontDestroyOnLoad(_manager.transform.root.gameObject);

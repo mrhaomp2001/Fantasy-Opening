@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 {
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
     public Rigidbody2D RbPlayer { get => rbPlayer; set => rbPlayer = value; }
     public float Speed { get => speed; set => speed = value; }
     public SpriteRenderer SpriteItemHolding { get => spriteItemHolding; set => spriteItemHolding = value; }
+    public bool IsHurt { get => isHurt; set => isHurt = value; }
 
     private void Awake()
     {
@@ -71,7 +73,8 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         canAttack = true;
 
         canHurt = true;
-        isHurt = false;
+        IsHurt = false;
+
     }
 
     public void OnUpdate()
@@ -83,84 +86,88 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
         FirePointCalculation();
 
-        if (Input.GetKeyDown(GameInputController.Instance.Hotkey1.keyCode))
-        {
-            PopUpInventory.Instance.HotbarItem[0].OnClick();
-        }
+        #region comments
 
-        if (Input.GetKeyDown(GameInputController.Instance.Hotkey2.keyCode))
-        {
+        //if (Input.GetKeyDown(GameInputController.Instance.Hotkey1.keyCode))
+        //{
+        //    PopUpInventory.Instance.HotbarItem[0].OnClick();
+        //}
 
-            PopUpInventory.Instance.HotbarItem[1].OnClick();
-        }
+        //if (Input.GetKeyDown(GameInputController.Instance.Hotkey2.keyCode))
+        //{
 
-        if (Input.GetKeyDown(GameInputController.Instance.Hotkey3.keyCode))
-        {
-            PopUpInventory.Instance.HotbarItem[2].OnClick();
+        //    PopUpInventory.Instance.HotbarItem[1].OnClick();
+        //}
 
-        }
+        //if (Input.GetKeyDown(GameInputController.Instance.Hotkey3.keyCode))
+        //{
+        //    PopUpInventory.Instance.HotbarItem[2].OnClick();
 
-        if (Input.GetKeyDown(GameInputController.Instance.Hotkey4.keyCode))
-        {
-            PopUpInventory.Instance.HotbarItem[3].OnClick();
+        //}
 
-        }
+        //if (Input.GetKeyDown(GameInputController.Instance.Hotkey4.keyCode))
+        //{
+        //    PopUpInventory.Instance.HotbarItem[3].OnClick();
 
-        if (Input.GetKeyDown(GameInputController.Instance.Hotkey5.keyCode))
-        {
-            PopUpInventory.Instance.HotbarItem[4].OnClick();
+        //}
 
-        }
+        //if (Input.GetKeyDown(GameInputController.Instance.Hotkey5.keyCode))
+        //{
+        //    PopUpInventory.Instance.HotbarItem[4].OnClick();
 
-        if (Input.GetKeyDown(GameInputController.Instance.Hotkey6.keyCode))
-        {
-            PopUpInventory.Instance.HotbarItem[5].OnClick();
+        //}
 
-        }
+        //if (Input.GetKeyDown(GameInputController.Instance.Hotkey6.keyCode))
+        //{
+        //    PopUpInventory.Instance.HotbarItem[5].OnClick();
 
-        if (Input.GetKeyDown(GameInputController.Instance.Hotkey7.keyCode))
-        {
-            PopUpInventory.Instance.HotbarItem[6].OnClick();
+        //}
 
-        }
+        //if (Input.GetKeyDown(GameInputController.Instance.Hotkey7.keyCode))
+        //{
+        //    PopUpInventory.Instance.HotbarItem[6].OnClick();
 
-        if (Input.GetKeyDown(GameInputController.Instance.Hotkey8.keyCode))
-        {
-            PopUpInventory.Instance.HotbarItem[7].OnClick();
+        //}
 
-        }
+        //if (Input.GetKeyDown(GameInputController.Instance.Hotkey8.keyCode))
+        //{
+        //    PopUpInventory.Instance.HotbarItem[7].OnClick();
 
-        if (Input.GetKeyDown(GameInputController.Instance.Hotkey9.keyCode))
-        {
-            PopUpInventory.Instance.HotbarItem[8].OnClick();
+        //}
 
-        }
+        //if (Input.GetKeyDown(GameInputController.Instance.Hotkey9.keyCode))
+        //{
+        //    PopUpInventory.Instance.HotbarItem[8].OnClick();
 
-        if (Input.GetKeyDown(GameInputController.Instance.Inventory.keyCode))
-        {
-            PopUpInventory.Instance.TurnPopUp();
-        }
+        //}
+
+        //if (Input.GetKeyDown(GameInputController.Instance.Inventory.keyCode))
+        //{
+        //    PopUpInventory.Instance.TurnPopUp();
+        //}
 
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (PopUpInventory.Instance.Container.gameObject.activeSelf)
-            {
-                OnTurnOffPopUps();
-            }
-            else
-            {
-                if (PopUpSetting.Instance.Container.gameObject.activeSelf)
-                {
-                    PopUpSetting.Instance.Hide();
-                }
-                else
-                {
-                    ShowPopUpSetting();
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (PopUpInventory.Instance.Container.gameObject.activeSelf)
+        //    {
+        //        OnTurnOffPopUps();
+        //    }
+        //    else
+        //    {
+        //        if (PopUpSetting.Instance.Container.gameObject.activeSelf)
+        //        {
+        //            PopUpSetting.Instance.Hide();
+        //        }
+        //        else
+        //        {
+        //            ShowPopUpSetting();
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
+        #endregion
+
 
         OnHolding();
 
@@ -196,96 +203,97 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
 
     private void TestFunction()
     {
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            GameInputController.Instance.Save();
-            InventoryController.Instance.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.F7))
-        {
-            PlayerPrefs.DeleteAll();
-        }
+        //if (Input.GetKeyDown(KeyCode.F5))
+        //{
+        //    GameInputController.Instance.Save();
+        //    InventoryController.Instance.Save();
+        //}
+        //if (Input.GetKeyDown(KeyCode.F7))
+        //{
+        //    PlayerPrefs.DeleteAll();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.F6))
-        {
-            //Debug.Log("Loading Player Data");
-            LoadGame();
-        }
+        //if (Input.GetKeyDown(KeyCode.F6))
+        //{
+        //    //Debug.Log("Loading Player Data");
+        //    LoadGame();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.F8))
-        {
-            foreach (var item in ItemDatabase.Instance.Items)
-            {
-                InventoryController.Instance.Add(item.Id, 20);
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.F8))
+        //{
+        //    foreach (var item in ItemDatabase.Instance.Items)
+        //    {
+        //        InventoryController.Instance.Add(item.Id, 20);
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.F9))
-        {
-            GameController.Instance.NextDay();
-        }
+        //if (Input.GetKeyDown(KeyCode.F9))
+        //{
+        //    GameController.Instance.NextDay();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Keyboard.current[key: Key.P].isPressed)
         {
             SpawnCheatItem();
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            PopUpSeaColorChanger.Instance.Show();
-        }
+        //    if (Input.GetKeyDown(KeyCode.O))
+        //    {
+        //        PopUpSeaColorChanger.Instance.Show();
+        //    }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            //WitchSystemController.Instance.Data.WitchTechnologies
-            //    .Where((predicate) =>
-            //    {
-            //        return predicate.Id == 1;
-            //    })
-            //    .FirstOrDefault().Level = 1;
+        //    if (Input.GetKeyDown(KeyCode.I))
+        //    {
+        //        //WitchSystemController.Instance.Data.WitchTechnologies
+        //        //    .Where((predicate) =>
+        //        //    {
+        //        //        return predicate.Id == 1;
+        //        //    })
+        //        //    .FirstOrDefault().Level = 1;
 
-            InventoryController.Instance.Ascension();
-        }
+        //        InventoryController.Instance.Ascension();
+        //    }
 
 
-        if (Input.GetKeyDown(KeyCode.F11))
-        {
-            QuitToMainMenu();
-        }
+        //    if (Input.GetKeyDown(KeyCode.F11))
+        //    {
+        //        QuitToMainMenu();
+        //    }
 
-        if (Input.GetKeyDown(KeyCode.F12))
-        {
-            GameObject enemyGO = ObjectPooler.Instance.SpawnFromPool(enemySpawn, firepointHitbox.position, Quaternion.identity);
+        //    if (Input.GetKeyDown(KeyCode.F12))
+        //    {
+        //        GameObject enemyGO = ObjectPooler.Instance.SpawnFromPool(enemySpawn, firepointHitbox.position, Quaternion.identity);
 
-            var enemy = enemyGO.GetComponent<Enemy>();
+        //        var enemy = enemyGO.GetComponent<Enemy>();
 
-            if (enemy != null)
-            {
-                enemy.Initialize();
-            }
-        }
+        //        if (enemy != null)
+        //        {
+        //            enemy.Initialize();
+        //        }
+        //    }
 
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (interactable.First != null)
-            {
-                if (interactable.First.Value is BuildingBase building)
-                {
-                    BuildingController.Instance.DestroyBuilding(building.Id);
-                }
-            }
-        }
+        //    if (Input.GetKeyDown(KeyCode.X))
+        //    {
+        //        if (interactable.First != null)
+        //        {
+        //            if (interactable.First.Value is BuildingBase building)
+        //            {
+        //                BuildingController.Instance.DestroyBuilding(building.Id);
+        //            }
+        //        }
+        //    }
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            if (interactable.First != null)
-            {
-                if (interactable.First.Value is BuildingFarmland farmland)
-                {
-                    farmland.OnNextDay();
-                }
-            }
-        }
+        //    if (Input.GetKeyDown(KeyCode.C))
+        //    {
+
+        //        if (interactable.First != null)
+        //        {
+        //            if (interactable.First.Value is BuildingFarmland farmland)
+        //            {
+        //                farmland.OnNextDay();
+        //            }
+        //        }
+        //    }
     }
 
     public void QuitToMainMenu()
@@ -328,34 +336,34 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
             return;
         }
 #if UNITY_STANDALONE
-        // --- PC: Dùng phím ---
-        if (Input.GetKey(GameInputController.Instance.Up.keyCode))
-        {
-            movementSpeed.y = 1;
-        }
-        else if (Input.GetKey(GameInputController.Instance.Down.keyCode))
-        {
-            movementSpeed.y = -1;
-        }
-        else
-        {
-            movementSpeed.y = 0;
-        }
+        //// --- PC: Dùng phím ---
+        //if (Input.GetKey(GameInputController.Instance.Up.keyCode))
+        //{
+        //    movementSpeed.y = 1;
+        //}
+        //else if (Input.GetKey(GameInputController.Instance.Down.keyCode))
+        //{
+        //    movementSpeed.y = -1;
+        //}
+        //else
+        //{
+        //    movementSpeed.y = 0;
+        //}
 
-        if (Input.GetKey(GameInputController.Instance.Left.keyCode))
-        {
-            movementSpeed.x = -1;
-            spritePlayer.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }
-        else if (Input.GetKey(GameInputController.Instance.Right.keyCode))
-        {
-            movementSpeed.x = 1;
-            spritePlayer.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        else
-        {
-            movementSpeed.x = 0;
-        }
+        //if (Input.GetKey(GameInputController.Instance.Left.keyCode))
+        //{
+        //    movementSpeed.x = -1;
+        //    spritePlayer.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        //}
+        //else if (Input.GetKey(GameInputController.Instance.Right.keyCode))
+        //{
+        //    movementSpeed.x = 1;
+        //    spritePlayer.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        //}
+        //else
+        //{
+        //    movementSpeed.x = 0;
+        //}
 
 #elif UNITY_ANDROID || UNITY_IOS
         // --- Mobile: Dùng joystick ---
@@ -470,42 +478,50 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
         Vector3 mousePos = Vector3.zero;
 
 #if UNITY_STANDALONE
-        // Dùng chuột trên PC
-        mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
-        Vector3 targetPosition = mousePos - firepoint.transform.position;
+        //// Dùng chuột trên PC
+        //mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        //mousePos.z = 0f;
+        //Vector3 targetPosition = mousePos - firepoint.transform.position;
 
-        float targetRotation = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
-        firepoint.rotation = Quaternion.Euler(0, 0, targetRotation);
+        //float targetRotation = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
+        //firepoint.rotation = Quaternion.Euler(0, 0, targetRotation);
 
-        firepointHitbox.transform.localPosition = Vector3.right * Mathf.Clamp(
-            Vector3.Distance(mousePos, new Vector3(firepoint.transform.position.x, firepoint.transform.position.y, 0f)),
-            0.2f,
-            3f
-        );
+        //firepointHitbox.transform.localPosition = Vector3.right * Mathf.Clamp(
+        //    Vector3.Distance(mousePos, new Vector3(firepoint.transform.position.x, firepoint.transform.position.y, 0f)),
+        //    0.2f,
+        //    3f
+        //);
 #elif UNITY_ANDROID || UNITY_IOS
         Vector2 direction = new Vector2(joystickInteract.Horizontal, joystickInteract.Vertical);
-        float targetRotation = 0f;
-        if (Input.touchCount > 0)
-        {
 
-            mousePos = mainCamera.ScreenToWorldPoint(Input.GetTouch(0).position);
+        float targetRotation = 0f;
+
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+        {
+            Vector2 touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+
+            mousePos = mainCamera.ScreenToWorldPoint(touchPosition);
             mousePos.z = 0f;
+
             Vector3 targetPosition = mousePos - firepoint.transform.position;
+
             targetRotation = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
 
-            // Dùng cảm ứng trên mobile
             if (isHolding)
             {
-                if (Input.touchCount > 0)
+                firepoint.rotation = Quaternion.Euler(0, 0, targetRotation);
 
-                    firepoint.rotation = Quaternion.Euler(0, 0, targetRotation);
-
-                firepointHitbox.transform.localPosition = Vector3.right * Mathf.Clamp(
-                    Vector3.Distance(mousePos, new Vector3(firepoint.transform.position.x, firepoint.transform.position.y, 0f)),
-                    0.2f,
-                    3f
-                );
+                firepointHitbox.transform.localPosition =
+                    Vector3.right * Mathf.Clamp(
+                        Vector3.Distance(
+                            mousePos,
+                            new Vector3(
+                                firepoint.transform.position.x,
+                                firepoint.transform.position.y,
+                                0f)),
+                        0.2f,
+                        3f
+                    );
             }
         }
 
@@ -615,10 +631,10 @@ public class PlayerController : MonoBehaviour, IUpdatable, IFixedUpdatable
                 canHurt = true;
             });
 
-            isHurt = true;
+            IsHurt = true;
             Timer.DelayAction(hurtTime, () =>
             {
-                isHurt = false;
+                IsHurt = false;
             });
 
             animator.Play("hurt");

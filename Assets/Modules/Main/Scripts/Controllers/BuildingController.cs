@@ -18,6 +18,8 @@ public class BuildingController : MonoBehaviour, IUpdatable
         [JsonProperty]
         [SerializeField] private string name;
         [JsonProperty]
+        [SerializeField] private string dimension;
+        [JsonProperty]
         [SerializeField] private string x, y, z;
         [JsonProperty]
         [SerializeField] private object data = new();
@@ -25,6 +27,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
+        public string Dimension { get => dimension; set => dimension = value; }
         public string X { get => x; set => x = value; }
         public string Y { get => y; set => y = value; }
         public string Z { get => z; set => z = value; }
@@ -176,6 +179,7 @@ public class BuildingController : MonoBehaviour, IUpdatable
         {
             Id = InventoryController.Instance.GetPlayerData.BuildingData.IdCounter++,
             Name = buildingName,
+            Dimension = DimensionController.Instance.CurrentDimension,
             X = buildingPosition.x.ToString(CultureInfo.InvariantCulture),
             Y = buildingPosition.y.ToString(CultureInfo.InvariantCulture),
             Z = "0",
@@ -210,8 +214,15 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
         tilemapPlayerBuild.SetTile(cellPosition, tile);
     }
+    
 
-    public Building BuildAtPosition(string buildingName, Vector3 position, int buildingId)
+    public void RemoveTile(Vector3 position)
+    {
+        Vector3Int cellPosition = tilemapPlayerBuild.WorldToCell(position);
+        tilemapPlayerBuild.SetTile(cellPosition, null);
+    }
+
+    public Building BuildAtPosition(string buildingName, Vector3 position, int buildingId, string dimension)
     {
         Vector3Int cellPosition = gridBuilding.WorldToCell(position);
 
@@ -221,10 +232,16 @@ public class BuildingController : MonoBehaviour, IUpdatable
 
         // Debug.Log($"x={buildingPosition.x}, y={buildingPosition.y}, z={buildingPosition.z}");
 
+        if (dimension.Equals(""))
+        {
+            dimension = "overworld";
+        }
+
         var building = new Building
         {
             Id = buildingId,
             Name = buildingName,
+            Dimension = dimension,
             X = buildingPosition.x.ToString(CultureInfo.InvariantCulture),
             Y = buildingPosition.y.ToString(CultureInfo.InvariantCulture),
             Z = buildingPosition.z.ToString(CultureInfo.InvariantCulture),
@@ -310,9 +327,15 @@ public class BuildingController : MonoBehaviour, IUpdatable
                     //Debug.Log("--");
 
                     Vector3 buildPosition = new Vector3(x, y, 0f);
+                    string dimension = item["dimension"];
 
-                    var building = BuildAtPosition(item["name"].Value, buildPosition, item["id"].AsInt);
+                    if (dimension == null || dimension.Equals(""))
+                    {
+                        dimension = "";
+                    }
 
+                    var building = BuildAtPosition(item["name"].Value, buildPosition, item["id"].AsInt, dimension);
+                    
                     var data = item["data"];
 
                     if (building.WorldInteractable is BuildingFarmland farmland)

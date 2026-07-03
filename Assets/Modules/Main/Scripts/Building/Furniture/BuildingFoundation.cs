@@ -10,8 +10,17 @@ public class BuildingFoundation : BuildingBase, IWorldInteractable, IPoolObject
 
     public void OnObjectSpawnAfter()
     {
-        BuildingController.Instance.BuildTile(transform.position, tilePlayerBuild);
+        BuildTile();
+    }
 
-        gameObject.SetActive(false);
+    public void BuildTile()
+    {
+        BuildingController.Instance.BuildTile(transform.position, tilePlayerBuild);
+    }
+
+    public void RemoveTile()
+    {
+
+        BuildingController.Instance.RemoveTile(transform.position);
     }
 }

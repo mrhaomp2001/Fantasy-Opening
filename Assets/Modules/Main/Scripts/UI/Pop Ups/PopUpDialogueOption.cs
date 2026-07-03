@@ -1,3 +1,4 @@
+using GameUtil;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -46,7 +47,8 @@ public class PopUpDialogueOption : PopUp
     [SerializeField] private TextMeshProUGUI textOption6;
 
     private ActionWithMessage action1, action2, action3, action4, action5, action6;
-
+    private bool isTyping;
+    private int typingId;
 
     public static PopUpDialogueOption Instance { get => instance; set => instance = value; }
 
@@ -67,7 +69,8 @@ public class PopUpDialogueOption : PopUp
         ResetDialogue();
         base.Show();
         textName.SetText(LanguageController.Instance.GetString(dialogue.Name));
-        textContent.SetText(LanguageController.Instance.GetString(dialogue.Content));
+
+        TypeWriter(dialogue.Content);
 
         if (dialogue.Sprite == null)
         {
@@ -84,10 +87,10 @@ public class PopUpDialogueOption : PopUp
         action5 = actionOption5;
         action6 = actionOption6;
 
-        UpdateViews();
+        //UpdateViews();
 
         //
-        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
         foreach (var item in enemies)
         {
@@ -125,7 +128,7 @@ public class PopUpDialogueOption : PopUp
         Hide();
 
         //
-        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+        var enemies = FindObjectsByType<Enemy>(findObjectsInactive: FindObjectsInactive.Include);
 
         foreach (var item in enemies)
         {
@@ -191,5 +194,37 @@ public class PopUpDialogueOption : PopUp
         buttonOption4.gameObject.SetActive(false);
         buttonOption5.gameObject.SetActive(false);
         buttonOption6.gameObject.SetActive(false);
+    }
+
+    private void TypeWriter(string content)
+    {
+        typingId++;
+        int currentTypingId = typingId;
+
+        isTyping = true;
+        textContent.SetText("");
+
+        string localizedContent = LanguageController.Instance.GetString(content);
+
+        for (int i = 0; i < localizedContent.Length; i++)
+        {
+            int index = i;
+
+            Timer.DelayAction(0.02f * i, () =>
+            {
+                if (currentTypingId != typingId)
+                    return;
+
+                textContent.SetText(localizedContent.Substring(0, index + 1));
+
+                if (index == localizedContent.Length - 1)
+                {
+                    isTyping = false;
+
+                    // hiện options sau khi gõ xong
+                    UpdateViews();
+                }
+            });
+        }
     }
 }

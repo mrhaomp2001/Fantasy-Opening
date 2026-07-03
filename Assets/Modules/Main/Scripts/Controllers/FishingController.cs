@@ -1,6 +1,4 @@
 using GameUtil;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -41,6 +39,12 @@ public class FishingController : Singleton<FishingController>, IUpdatable
     private Timer timerFishing;
     public bool IsFishing { get => isFishing; set => isFishing = value; }
 
+    private void Start()
+    {
+        containerFishingProgress.gameObject.SetActive(false);
+        transformFishingRig.gameObject.SetActive(false);
+
+    }
     public void UpdateViews()
     {
 
@@ -48,8 +52,6 @@ public class FishingController : Singleton<FishingController>, IUpdatable
         transformFishingIndicator.gameObject.SetActive(false);
 
         containerFishingUI.gameObject.SetActive(false);
-        containerFishingProgress.gameObject.SetActive(false);
-        transformFishingRig.gameObject.SetActive(false);
 
         var itemHolding = InventoryController.Instance.GetPlayerData.SelectedHotbar.item;
         if (itemHolding is ItemFishingRod fishingRod)
