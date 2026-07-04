@@ -1,7 +1,5 @@
 using GameUtil;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -191,7 +189,7 @@ public class GameController : MonoBehaviour
 
     private void EnemyNextDay()
     {
-        enemySpawners = FindObjectsByType<EnemySpawner>(findObjectsInactive: FindObjectsInactive.Exclude);
+        enemySpawners = FindObjectsByType<EnemySpawner>(findObjectsInactive: FindObjectsInactive.Include);
 
         foreach (var item in enemySpawners)
         {
@@ -202,9 +200,14 @@ public class GameController : MonoBehaviour
         }
         foreach (var item in enemySpawners)
         {
-            if (item != null)
+            if (item.IsInitialized)
             {
-                item.SpawnEnemy();
+                if (item != null)
+                {
+                    item.SpawnEnemy();
+
+                    item.OnChangeDimension();
+                }
             }
         }
     }

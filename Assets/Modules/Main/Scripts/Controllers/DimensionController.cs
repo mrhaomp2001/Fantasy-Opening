@@ -78,5 +78,14 @@ public class DimensionController : Singleton<DimensionController>
                 }
             }
         }
-    }
+
+        EnemySpawner[] enemySpawners = FindObjectsByType<EnemySpawner>(findObjectsInactive: FindObjectsInactive.Include);
+
+        for (int i = 0; i < enemySpawners.Length; i++)
+        {
+            var item = enemySpawners[i];
+            item.OnChangeDimension();
+
+        }
+}
 }
