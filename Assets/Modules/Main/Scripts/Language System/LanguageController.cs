@@ -1,32 +1,146 @@
-﻿using SimpleJSON;
-using System.Collections;
+﻿using Newtonsoft.Json;
+using SimpleJSON;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
+[JsonObject(MemberSerialization.OptIn)]
 public class LanguageController : MonoBehaviour
 {
     private static LanguageController instance;
-    [SerializeField] private TextAsset vn;
+
+    [JsonProperty]
+    [SerializeField] private string language;
+    private const string defaultLanguage = "en";
 
     private JSONNode languageContent;
+    private const string prefKey = nameof(LanguageController);
 
+    private Dictionary<string, TextAsset> languageFiles = new();
     public static LanguageController Instance { get => instance; private set => instance = value; }
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
-        languageContent = JSONNode.Parse(vn.text);
+
+        LoadLanguageFiles();
+        Load();
     }
 
+    private void LoadLanguageFiles()
+    {
+        TextAsset[] files = Resources.LoadAll<TextAsset>("Localization");
+
+        foreach (TextAsset file in files)
+        {
+            string languageCode = file.name.ToLower();
+
+            languageFiles[languageCode] = file;
+        }
+    }
+
+    public void Save()
+    {
+        PlayerPrefs.SetString(prefKey, ToJson());
+
+        PlayerPrefs.Save();
+    }
+
+    public void Load()
+    {
+        if (PlayerPrefs.HasKey(prefKey))
+        {
+            string json = PlayerPrefs.GetString(prefKey);
+            FromJson(json);
+        }
+        else
+        {
+            // Chưa từng chọn ngôn ngữ
+            language = defaultLanguage;
+            LoadLanguageContent();
+        }
+
+        Debug.Log($"LanguageController loaded: {language} - {languageContent["lang_name"]}");
+    }
+
+    private void LoadLanguageContent()
+    {
+        languageContent = null;
+
+        if (languageFiles.TryGetValue(language.ToLower(), out TextAsset file))
+        {
+            languageContent = JSONNode.Parse(file.text);
+        }
+
+        // Fallback về English nếu language không tồn tại
+        if (languageContent == null &&
+            languageFiles.TryGetValue(defaultLanguage, out TextAsset defaultFile))
+        {
+            languageContent = JSONNode.Parse(defaultFile.text);
+        }
+    }
+
+    public void SetLanguage(string languageCode)
+    {
+        if (string.IsNullOrEmpty(languageCode))
+            return;
+
+        languageCode = languageCode.ToLower();
+
+        // Kiểm tra ngôn ngữ có tồn tại
+        if (!languageFiles.ContainsKey(languageCode))
+        {
+            Debug.LogWarning(
+                $"Language '{languageCode}' không tồn tại."
+            );
+
+            return; 
+        }
+
+        // Cập nhật ngôn ngữ hiện tại
+        language = languageCode;
+
+        // Load nội dung ngôn ngữ mới
+        LoadLanguageContent();
+
+        // Lưu ngôn ngữ
+        Save();
+
+        // Cập nhật tất cả LanguageSetter
+        LanguageSetter[] setters = FindObjectsByType<LanguageSetter>(FindObjectsInactive.Include);
+
+        foreach (LanguageSetter setter in setters)
+        {
+            setter.SetLanguage();
+        }
+    }
+
+
+
+    public string ToJson()
+    {
+        return JsonConvert.SerializeObject(instance);
+    }
+
+    public void FromJson(string json)
+    {
+        var settings = new JsonSerializerSettings
+        {
+            Culture = CultureInfo.InvariantCulture
+        };
+        JsonConvert.PopulateObject(json, instance, settings);
+    }
     public static string ProcessTags(string value)
     {
         string pattern = @"\[(\w+)\](.*?)\[/\1\]";
@@ -47,10 +161,10 @@ public class LanguageController : MonoBehaviour
 
     static string ItemName(string content)
     {
-        var target = ItemDatabase.Instance.Items.Where((predicate) =>
+        var target = ItemDatabase.Instance.Items.FirstOrDefault((predicate) =>
         {
             return predicate.Id.ToString().Equals(content);
-        }).FirstOrDefault();
+        });
 
         return $"{target.ItemName}";
     }
@@ -60,14 +174,12 @@ public class LanguageController : MonoBehaviour
         return $"something2";
     }
 
+    public void UpdateLanguageContent()
+    {
+    }
+
     public string GetString(string key)
     {
-
-        if (languageContent == null)
-        {
-            languageContent = JSONNode.Parse(vn.text);
-        }
-
         string result = key;
 
         if (languageContent[key] != null && languageContent[key].Value != "")
@@ -79,4 +191,59 @@ public class LanguageController : MonoBehaviour
 
         return resultFinal;
     }
+
+    #region CompareLanguageKeys
+
+    //#if UNITY_EDITOR
+
+    //    [ContextMenu("Compare VI & EN Keys")]
+    //    public void CompareLanguageKeys()
+    //    {
+    //        JSONNode viJson = JSON.Parse(vi.text);
+    //        JSONNode enJson = JSON.Parse(en.text);
+
+    //        HashSet<string> viKeys = new();
+    //        HashSet<string> enKeys = new();
+
+    //        foreach (KeyValuePair<string, JSONNode> pair in viJson)
+    //            viKeys.Add(pair.Key);
+
+    //        foreach (KeyValuePair<string, JSONNode> pair in enJson)
+    //            enKeys.Add(pair.Key);
+
+    //        Debug.Log($"VI: {viKeys.Count} keys");
+    //        Debug.Log($"EN: {enKeys.Count} keys");
+
+    //        bool hasError = false;
+
+    //        // Key có trong EN nhưng thiếu ở VI
+    //        foreach (string key in enKeys)
+    //        {
+    //            if (!viKeys.Contains(key))
+    //            {
+    //                Debug.LogError($"[Missing in VI] {key}");
+    //                hasError = true;
+    //            }
+    //        }
+
+    //        // Key có trong VI nhưng không có ở EN
+    //        foreach (string key in viKeys)
+    //        {
+    //            if (!enKeys.Contains(key))
+    //            {
+    //                Debug.LogError($"[Extra in VI] {key}");
+    //                hasError = true;
+    //            }
+    //        }
+
+    //        if (!hasError)
+    //        {
+    //            Debug.Log("<color=green>✔ VI và EN có cùng bộ key.</color>");
+    //        }
+    //    }
+
+    //#endif
+    #endregion
+
 }
+

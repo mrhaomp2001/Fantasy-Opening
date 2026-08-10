@@ -40,7 +40,6 @@ public class PopUpSetting : PopUp
     [JsonProperty]
     [SerializeField] private string seaColorHex;
 
-
     [Header("Input Control: ")]
     [SerializeField] private RectTransform containerInputControl;
 
